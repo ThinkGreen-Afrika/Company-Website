@@ -1,0 +1,31 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Your Role - ThinkGreen Afrika</title>
+    <link rel="stylesheet" href="{% static 'css/select.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Select which describes you best</h1>
+        <div class="options">
+            <div class="option">
+                <h2>Employer/Partner</h2>
+                <img src="{% static 'images/Talent pic 2.png' %}" alt="Entrepreneur image">
+                <a href="{% url 'login_employer' %}">
+                    <button>Get Started</button>
+                </a>
+            </div>
+            <div class="option">
+                <h2>Talent</h2>
+                <img src="{% static 'images/Talent pic 1.png' %}" alt="Talent image">
+                <a href="{% url 'signup_talent' %}">
+                    <button>Get Started</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

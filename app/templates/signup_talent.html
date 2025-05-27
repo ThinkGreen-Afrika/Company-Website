@@ -1,0 +1,151 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Now - ThinkGreen Afrika</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script>
+        function handleFormSubmit(event) {
+          event.preventDefault(); // Prevent default form submission
+    
+          const form = document.getElementById('registration-form');
+          const formData = new FormData(form);
+    
+          fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+              'X-CSRFToken': '{{ csrf_token }}',
+            },
+          })
+          .then(response => response.json())
+          .then(data => {
+            if (data.status === 'exists') {
+              alert(data.message); // Show popup for already registered user
+              window.location.href="{% url 'home' %}"
+            } else if (data.status === 'success') {
+              alert(data.message); // Show success message
+              window.location.href ="{% url 'home' %}"; // Redirect to the homepage
+            } else if (data.status === 'error') {
+              alert(data.message); // Show error message
+              window.location.href ="{% url 'home' %}";
+            }
+          })
+          .catch(error => {
+            console.error('Error:', error);
+            alert('Thank you for registering.');
+            window.location.href ="{% url 'home' %}";
+          });
+        }
+    
+        document.addEventListener('DOMContentLoaded', function() {
+          document.getElementById('registration-form').addEventListener('submit', handleFormSubmit);
+        });
+    
+        
+      </script>
+
+      </script>
+</head>
+<body class="bg-gradient-to-br from-green-400 via-white to-green-200 min-h-screen flex items-center justify-center">
+
+    <div class="bg-transparent rounded-lg shadow-lg p-8 max-w-4xl w-full">
+        <h1 class="text-3xl font-bold text-center mb-6 text-green-700">Register Now!</h1>
+        <form id="registration-form" method="POST" action="{% url 'signup_talent' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="left-column space-y-4">
+                    <div class="form-group">
+                        <label for="photo-upload" class="block text-sm font-medium text-gray-700">Upload Photo</label>
+                        <input type="file" id="photo-upload" name="profile_picture" accept="image/*" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500">
+                    </div>
+                    <div class="form-group">
+                        <label for="full-name" class="block text-sm font-medium text-gray-700">Full name*</label>
+                        <input type="text" id="full-name" name="full_name" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500">
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="block text-sm font-medium text-gray-700">Email address*</label>
+                        <input type="email" id="email" name="email" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500">
+                    </div>
+                    <div class="form-group">
+                        <label for="password1" class="block text-sm font-medium text-gray-700">Password*</label>
+                        <input type="password" id="password1" name="password1" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500">
+                    </div>
+                    <div class="form-group">
+                        <label for="password2" class="block text-sm font-medium text-gray-700">Confirm Password*</label>
+                        <input type="password" id="password2" name="password2" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500">
+                    </div>
+                    <div class="form-group">
+                        <label for="role" class="block text-sm font-medium text-gray-700">Your Bio*</label>
+                        <input type="text" id="role" name="role" placeholder="Short bio or tagline (Required)*" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number*</label>
+                        <input type="tel" id="phone" name="phone_number" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500">
+                    </div>
+                    <div class="form-group">
+                        <label for="gender" class="block text-sm font-medium text-gray-700">Gender*</label>
+                        <select id="gender" name="gender" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500">
+                            <option value="">Please select</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="role" class="block text-sm font-medium text-gray-700">Country of residence*</label>
+                        <input type="text" id="role" name="role" placeholder="Your Country (Required)*" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500">
+                    </div>
+                    
+                </div>
+
+                <div class="right-column space-y-4">
+                    <div class="form-group">
+                        <label for="resume" class="block text-sm font-medium text-gray-700">Resume/CV*</label>
+                        <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500">
+                    </div>
+                    <div class="form-group">
+                        <label for="cover-letter" class="block text-sm font-medium text-gray-700">Cover Letter*</label>
+                        <input type="file" id="cover-letter" name="cover_letter" accept=".pdf,.doc,.docx" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500">
+                    </div>
+                    <div class="form-group">
+                        <label for="language" class="block text-sm font-medium text-gray-700">Preferred Spoken Language*</label>
+                        <input type="text" id="language" name="preferred_language" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500">
+                    </div>
+                    <div class="form-group">
+                        <label for="portfolio" class="block text-sm font-medium text-gray-700">Website or Portfolio</label>
+                        <input type="url" id="portfolio" name="website_or_portfolio" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500">
+                    </div>
+                    <div class="form-group">
+                        <label for="social" class="block text-sm font-medium text-gray-700">Social (LinkedIn, Twitter, etc.)*</label>
+                        <input type="text" id="social" name="social_links" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500">
+                    </div>
+                    <div class="form-group">
+                        <label for="city" class="block text-sm font-medium text-gray-700">City</label>
+                        <input type="text" id="city" name="city" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500">
+                    </div>
+                    <div>
+                        <a href="https://forms.gle/RsjDFgR2wE63uviv9" class="text-green-600 hover:underline">You can also apply using this link</a>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="mt-6 w-full bg-green-600 text-white font-semibold py-2 rounded-md shadow hover:bg-green-700 transition duration-300">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        // Check if the form submission was successful
+        window.addEventListener('DOMContentLoaded', (event) => {
+                const isSuccess = "{{ success }}";
+                if (isSuccess === "true") {
+                    alert("Form successfully submitted! You will now be redirected to the homepage.");
+                    window.location.href = "{% url 'home' %}";
+                }
+            });
+    
+       </script>    
+</body>
+</html>

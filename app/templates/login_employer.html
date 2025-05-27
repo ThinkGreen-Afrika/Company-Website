@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThinkGreen Afrika - Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="h-screen flex">
+
+    <!-- Image section -->
+    <div class="w-1/2 h-full">
+        <img src="/static/images/signinbg.png" alt="Team collaboration" class="w-full h-full object-cover">
+    </div>
+
+    <!-- Form section -->
+    <div class="w-1/2 h-full flex flex-col items-center justify-center bg-gradient-to-r from-green-100 to-green-300">
+        <img src="/static/images/Image_20240917_103158_927_2-removebg-preview.png" alt="ThinkGreen Afrika logo" class="w-24 mb-4">
+        <h1 class="text-3xl font-semibold text-gray-800 mb-2">Welcome</h1>
+        <p class="text-lg text-gray-700 mb-6">Login as a Employer Partner</p>
+        <form method="POST" action="{% url 'login_employer' %}" class="w-full max-w-sm">
+            
+
+            <!-- Full name field -->
+            <input type="text" name="full_name" placeholder="Full name*" value="" class="w-full p-3 mb-4 border border-black rounded-lg focus:outline-none focus:border-green-500 bg-transparent" required>
+
+            <!-- Email field -->
+            <input type="email" name="email" placeholder="E-mail Address*" value="" class="w-full p-3 mb-4 border border-black rounded-lg focus:outline-none focus:border-green-500 bg-transparent" required>
+
+            <!-- Remember me checkbox -->
+            <div class="flex items-center mb-4">
+                <input type="checkbox" id="remember-me" name="remember_me" class="mr-2">
+                <label for="remember-me" class="text-gray-600">Remember Me</label>
+            </div>
+
+            <!-- Sign In button -->
+            <button type="submit" class="w-full p-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition">Sign In</button>
+        </form>
+        <a href="{% url 'signup_employer' %}" class="mt-4 text-green-600 hover:underline">Don't have an account?</a>
+    </div>
+
+</body>
+</html>

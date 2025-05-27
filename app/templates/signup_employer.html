@@ -1,0 +1,136 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register Form</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script>
+    function handleFormSubmit(event) {
+      event.preventDefault(); // Prevent default form submission
+
+      const form = document.getElementById('registration-form');
+      const formData = new FormData(form);
+
+      fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'X-CSRFToken': '{{ csrf_token }}',
+        },
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.status === 'exists') {
+          alert(data.message); // Show popup for already registered user
+          window.location.href="{% url 'home' %}"
+        } else if (data.status === 'success') {
+          alert(data.message); // Show success message
+          window.location.href ="{% url 'home' %}"; // Redirect to the homepage
+        } else if (data.status === 'error') {
+          alert(data.message); // Show error message
+          window.location.href ="{% url 'home' %}";
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('Thank you for registering.');
+        window.location.href ="{% url 'home' %}";
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('registration-form').addEventListener('submit', handleFormSubmit);
+    });
+
+    
+  </script>
+
+</head>
+<body class="bg-gradient-to-br from-green-400 via-white to-green-200 min-h-screen flex items-center justify-center">
+
+  <div class="bg-transparent rounded-lg shadow-lg p-8 max-w-md w-full">
+    <h2 class="text-2xl font-bold text-center mb-6 text-green-700">Register as an Employer / Partner</h2>
+
+    <form id="registration-form" method="POST" action="{% url 'signup_employer' %}" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="mb-4">
+        <label for="full-name" class="block text-sm font-medium text-gray-700">Full Name</label>
+        <input type="text" id="full-name" name="full_name" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500" placeholder="Enter your full name" required>
+      </div>
+
+      <div class="mb-4">
+        <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+        <input type="email" id="email" name="email" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500" placeholder="Enter your email" required>
+      </div>
+
+      <div class="mb-4">
+        <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+        <input type="password" id="password" name="password1" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500" placeholder="Enter your password" required>
+      </div>
+
+      <div class="mb-4">
+        <label for="confirm-password" class="block text-sm font-medium text-gray-700">Confirm Password</label>
+        <input type="password" id="confirm-password" name="password2" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500" placeholder="Re-enter your password" required>
+      </div>
+
+      <div class="mb-4">
+        <label for="phone-number" class="block text-sm font-medium text-gray-700">Phone Number</label>
+        <input type="tel" id="phone-number" name="phone_number" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500" placeholder="Enter your phone number" required>
+      </div>
+
+      <div class="mb-4">
+        <label for="company-name" class="block text-sm font-medium text-gray-700">Company Name </label>
+        <input type="text" id="company-name" name="company_name" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500" placeholder="Enter your company name">
+      </div>
+
+      <div class="mb-4">
+        <label for="company-email" class="block text-sm font-medium text-gray-700">Company Email </label>
+        <input type="text" id="company-email" name="company_email" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500" placeholder="Enter your company name">
+      </div>
+
+      <div class="mb-4">
+        <label for="business-challenges" class="block text-sm font-medium text-gray-700">List of Business Challenges </label>
+        <textarea id="business-challenges" name="business_challenges" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500" placeholder="Describe your business challenges"></textarea>
+      </div>
+
+      <div class="mb-4">
+        <label for="location" class="block text-sm font-medium text-gray-700">Location </label>
+        <input type="text" id="location" name="location" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500" placeholder="Enter your location">
+      </div>
+
+      <div class="mb-4">
+        <label for="funding-stage" class="block text-sm font-medium text-gray-700">Current Funding Stage </label>
+        <select id="gender" name="funding_stage" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500">
+          <option value="">Please select</option>
+          <option value="">matured</option>
+          <option value="male">mid-level</option>
+          <option value="female">preliminary stage</option>
+      </select>
+      </div>
+
+      <div class="mb-4">
+        <label for="employees" class="block text-sm font-medium text-gray-700">Number of Employees </label>
+        <input type="number" id="employees" name="number_of_employees" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500" placeholder="Enter the number of employees">
+      </div>
+
+      <button type="submit" class="w-full bg-green-600 text-white font-semibold py-2 rounded-md shadow hover:bg-green-700 transition duration-300">
+        Sign Up
+      </button>
+    </form>
+  </div>
+   <script>
+    // Check if the form submission was successful
+    window.addEventListener('DOMContentLoaded', (event) => {
+            const isSuccess = "{{ success }}";
+            if (isSuccess === "true") {
+                alert("Form successfully submitted! You will now be redirected to the homepage.");
+                window.location.href = "{% url 'home' %}";
+            }
+        });
+
+   </script>     
+
+</body>
+</html>

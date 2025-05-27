@@ -1,0 +1,431 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThinkGreen - Book 1:1 Session</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/static/images/favicon.ico">
+    <style>
+    
+/* Custom Tailwind adjustments */
+.bg-primary {
+            background-color: #4CAF50;
+        }
+        
+        .border-light-gray {
+            border-color: #e0e0e0;
+        }
+        .bg-footer{
+            background-color: #1E6C34;
+            ;
+        }
+        .button-color{
+            background-color: #1E6C34;
+            ;
+        }
+        .bg{
+            background-color:  #77D0A5;
+            ;
+        }
+        .text-color{
+            color: #1E6C34;
+        }
+        .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        text-decoration: none;
+        font-weight: 600;
+        text-align: center;
+        border-radius: 9999px;
+        transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+    }
+    .nav-book{
+        display: inline-block;
+        padding: 6px 10px;
+        text-decoration: none;
+        font-weight: 600;
+        text-align: center;
+        border-radius: 9999px;
+        transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+    }
+    .nav-pod{
+        
+        border: 2px solid #4CAF50;
+        color: #1F2937;
+        box-shadow: 2px 6px 8px rgba(8, 8, 8, 0.3);
+    }
+    
+
+    /* Specific Styles for 'Become a Talent' Button */
+    .btn-talent {
+        background-color: white;
+        border: 2px solid #4CAF50;
+        color: #1F2937;
+        box-shadow: 2px 6px 8px rgba(8, 8, 8, 0.3);
+    }
+
+    .btn-talent:hover {
+        background-color: #1E6C34;
+        color: white;
+    }
+
+    /* Specific Styles for 'Become an Employer Partner' Button */
+    .btn-partner {
+        
+        
+        color: white;
+        box-shadow: 2px 6px 8px rgba(8, 8, 8, 0.3);
+    }
+
+    .btn-partner:hover {
+        background-color: white;
+        color:black;
+        border: 2px solid #4CAF50;
+        box-shadow: 4px 8px 12px rgba(8, 8, 8, 0.4);
+    }
+
+    /* Ensure the container doesn't overlap or block the buttons */
+    .mt-8 {
+        position: relative;
+        z-index: 1;
+    }
+
+
+    </style>
+</head>
+<body>
+    <header class="relative">
+        
+            <!-- Navbar -->
+            <nav class="bg-white shadow-md fixed top-4 left-4 right-4 rounded-full z-50">
+                <div class="container mx-auto px-1 py-3 flex justify-between items-center">
+                 <a href="/{% url 'home' %}">   <img src="/static/images/Image_20240917_103158_927_2-removebg-preview.png" alt="logo" class="w-32 h-18"> </a>
+        
+                    <ul class="hidden md:flex space-x-6">
+                        <li>
+                            <a href="{% url 'home' %}" class="text-black font-semibold hover:text-primary border-b-2 border-transparent hover:border-green-500 transition duration-300 ease-in-out">HOME</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'home' %}#about-us" class="text-black font-semibold hover:text-primary border-b-2 border-transparent hover:border-green-500 transition duration-300 ease-in-out">ABOUT US</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'home' %}#solution" class="text-black font-semibold hover:text-primary border-b-2 border-transparent hover:border-green-500 transition duration-300 ease-in-out">OUR SOLUTION</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'home' %}#Events" class="text-black font-semibold hover:text-primary border-b-2 border-transparent hover:border-green-500 transition duration-300 ease-in-out">EVENTS</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'podcast' %}" class="text-black font-semibold hover:text-primary border-b-2 border-transparent hover:border-green-500 transition duration-300 ease-in-out">PODCASTS/STORY</a>
+                        </li>
+                    </ul>
+         
+                    <div class="hidden md:flex flex-row items-end space-x-4">
+                        <a href="{% url 'book' %}" class="btn-talent nav-book">
+                        
+                            Book 1:1
+                        </a>
+                        <a href="{% url 'select' %}" class="btn-partner nav-pod button-color btn">
+                            Join our Network
+                        </a>
+                        
+                        
+                        
+                    </div>
+                    <!-- Mobile Menu Toggle -->
+                    <button class="md:hidden text-gray-600 focus:outline-none" id="menu-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
+                </div>
+            </nav>
+            <div class="absolute top-24 right-12 w-16 h-16 rounded-full"
+                style="background: linear-gradient(147.56deg, rgb(255,255,255) 30%, rgb(255, 255, 255) 30%, rgb(54, 206, 133) 30%); filter: blur(30px);">
+            </div>
+
+     <!-- Mobile Sidebar Menu -->
+<div id="mobile-menu" class="fixed inset-0 bg-gray-800 bg-opacity-75 hidden z-40">
+    <div class="flex flex-col items-center mt-12 space-y-4">
+        <a href="{% url 'home' %}" class="text-white text-lg">Home</a>
+        <a href="{% url 'home' %}#about-us" class="text-white text-lg">About us</a>
+        <a href="{% url 'home' %}#solution" class="text-white text-lg">Our Solutions</a>
+        <a href="{% url 'home' %}#Events" class="text-white text-lg">Events</a>
+        <a href="{% url 'podcast' %}" class="text-white text-lg">Podcasts/Story</a>
+        <a href="{% url 'select' %}" class="button-color text-white py-2 px-4 rounded hover:bg-green-700 mt-4">Join our Network</a>
+        <a href="{% url 'book' %}" class="button-color text-white py-2 px-4 rounded hover:bg-green-700 mt-2">Book 1:1</a>
+    </div>
+
+    <!-- Centered Cancel Button -->
+    <div class="flex justify-center items-center mt-8">
+        <button id="close-menu" class="text-white border border-white rounded-full p-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+    </div>
+</div>
+
+        
+        
+    </header>
+    <main>
+        <section class="py-16 md:mx-24 bg-transparent">
+            <!-- Title Section -->
+            <div class="text-center mt-24 mb-12">
+                <div class="bg-white rounded-lg shadow-md   py-8 w-fit">
+                    <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl text-center  py-10">BOOK 1:1 Session</h2>
+                </div>
+            </div>
+            
+            <!-- Description Section -->
+            <div class="text-center mb-8 px-4">
+                <p class=" text-black  text-2xl">
+                    We have a wide range of spectacular mentors and consultants. <br>Book a 1:1 session with one to get ideas and insights on job placement<br> or to gain knowledge on how to run and<br> manage your company and startup.
+                </p>
+            </div>
+            
+            <!-- Mentors Section -->
+            <div class="text-center mb-8">
+                <h3 class="text-2xl font-bold text-left md:px-24 text-color px-4">Our Mentors/Experts</h3>
+            </div>
+            
+            <!-- Mentor Cards Section -->
+            <div class="relative grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 px-4 md:px-16">
+                <!-- Mentor Card 1 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="/static/images/mentor1.png" alt="Mentor 1" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h4 class="text-md font-bold text-gray-800">MICHAELA HRACKOVA PYSNAKOVA</h4>
+                        <p class="text-xs text-gray-500">UX Researcher at make.com</p>
+                        <img src="/static/images/Make.svg" alt="verified" class="w-24 h-auto inline-block mt-1">
+                    </div>
+                </div>
+                
+                <!-- Mentor Card 2 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="/static/images/mentor2.jpg" alt="Mentor 2" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h4 class="text-md font-bold text-gray-800">MIRANDA SLAYTER</h4>
+                        <p class="text-xs text-gray-500">Principal Designer at Booking.com</p>
+                        <img src="/static/images/booking.png" alt="verified" class="w-24 h-auto inline-block mt-1">
+                    </div>
+                </div>
+
+                
+                
+                <!-- Mentor Card 3 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="/static/images/mentor3.jpg" alt="Mentor 3" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h4 class="text-md font-bold text-gray-800">NATALIA FILVAROVA</h4>
+                        <p class="text-xs text-gray-500">UX Researcher at Google</p>
+                        <img src="/static/images/google.png" alt="verified" class="w-24 h-auto inline-block mt-1">
+                    </div>
+                </div>
+                
+                <!-- Mentor Card 4 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="/static/images/mentor4.png" alt="Mentor 4" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h4 class="text-md font-bold text-gray-800">RHYS HILLAN</h4>
+                        <p class="text-xs text-gray-500">Research Manager at Ballpark</p>
+                        <img src="/static/images/ball.png" alt="verified" class="fill-orange w-24 h-16 inline-block mt-1">
+                    </div>
+                </div>
+                
+                <div class="absolute top-96 left-96 w-20 h-20 rounded-full border border-black"
+                style="background: linear-gradient(147.56deg, rgb(255,255,255) 30%, rgb(255, 255, 255) 30%, rgb(54, 206, 133) 30%); filter: blur(30px);">
+            </div>
+                <div class="absolute top-64 right-12 w-32 h-32 rounded-full"
+                style="background: linear-gradient(147.56deg, rgb(255,255,255) 30%, rgb(255, 255, 255) 30%, rgb(54, 206, 186) 30%); filter: blur(30px);">
+            </div>
+            </div>
+        </section>
+        
+        
+
+
+   
+<!-- FAQs Section -->
+<!-- FAQs Section -->
+<div class="faq-section flex flex-col lg:flex-row items-center justify-center mt-12 p-8 py-12 bg-gradient-to-t from-green-300 via-green to-green-50">
+    <!-- Image -->
+    <div class="faq-image mb-8 lg:mb-0">
+        <img src="/static/images/FAqs.png" alt="Founder at work" class="w-full lg:w-96 rounded-lg shadow-xl">
+    </div>
+    
+    <!-- FAQ Content -->
+    <div class="faq-content w-full lg:w-1/2 lg:pl-8">
+        <h2 class="text-2xl font-bold text-purple-700 mb-6">Frequently Asked Questions</h2>
+
+        <!-- FAQ Items -->
+        <div x-data="{ openItem: null }" class="space-y-4">
+            <!-- FAQ Item 1 -->
+            <div @click="openItem === 1 ? openItem = null : openItem = 1" class="faq-item cursor-pointer flex justify-between items-center p-4 border-b border-gray-200">
+                <h3 class="text-lg font-medium text-gray-800">How ThinkGreen Afrika works?</h3>
+                <span class="arrow text-xl text-purple-700 transition-transform duration-200" :class="{'rotate-180': openItem === 1}">˅</span>
+            </div>
+            <div x-show="openItem === 1" class="faq-answer p-4 text-gray-600 bg-gray-50 rounded-lg transition-all duration-200">
+                ThinkGreen brings talents into one space, nurturing them by embarking on real workspace projects, enabling unique skills for 2 or 3 months before connecting them to employer partners.
+            </div>
+
+            <!-- FAQ Item 2 -->
+            <div @click="openItem === 2 ? openItem = null : openItem = 2" class="faq-item cursor-pointer flex justify-between items-center p-4 border-b border-gray-200">
+                <h3 class="text-lg font-medium text-gray-800">Who can join Our Network?</h3>
+                <span class="arrow text-xl text-purple-700 transition-transform duration-200" :class="{'rotate-180': openItem === 2}">˅</span>
+            </div>
+            <div x-show="openItem === 2" class="faq-answer p-4 text-gray-600 bg-gray-50 rounded-lg transition-all duration-200">
+                A passionate individual that is willing to solve critical problems within their domain or community.
+            </div>
+
+            <!-- FAQ Item 3 -->
+            <div @click="openItem === 3 ? openItem = null : openItem = 3" class="faq-item cursor-pointer flex justify-between items-center p-4 border-b border-gray-200">
+                <h3 class="text-lg font-medium text-gray-800">How can I become a Talent?</h3>
+                <span class="arrow text-xl text-purple-700 transition-transform duration-200" :class="{'rotate-180': openItem === 3}">˅</span>
+            </div>
+            <div x-show="openItem === 3" class="faq-answer p-4 text-gray-600 bg-gray-50 rounded-lg transition-all duration-200">
+                Ensure you are a problem solver and someone who's willing to deliver. <a href="https://forms.gle/RsjDFgR2wE63uviv9" class="text-green-600 hover:underline">You can also apply using this link</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Newsletter Section -->
+<section class="bg-gradient-to-b from-green-300 via-green to-green-50">
+    <div class="flex flex-col items-center py-12">
+        <h1 class="text-3xl font-lg font-bold text-center text-black">
+            Subscribe to our newsletter<br> for the latest insights<br> and opportunities
+        </h1>
+        <a href="{% url 'subscribe' %}">
+            <button class="mt-10 button-color text-white font-semibold py-3 px-8 rounded-lg border-2 border-transparent hover:bg-white hover:text-green-900 hover:border-green-500 transition duration-300 text-lg">
+              Subscribe
+            </button>
+        </a>
+    </div>
+</section>
+
+
+<!-- Modal
+<div id="subscribeModal" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center hidden">
+    <div class="bg-white p-6 rounded-lg shadow-lg w-80 max-w-md">
+        <h2 class="text-xl font-semibold mb-4">Subscribe to our Newsletter</h2>
+        <p class="text-gray-600 mb-4">Enter your email address to receive the latest insights and opportunities directly to your inbox.</p>
+        <input type="email" placeholder="Your email address" class="w-full border border-gray-300 p-2 rounded mb-4 focus:outline-none focus:border-green-500">
+        <button onclick="closeModal()" class="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition">Submit</button>
+        <button onclick="closeModal()" class="mt-3 text-gray-500 hover:text-black underline">Cancel</button>
+    </div>
+</div> -->
+    
+            
+<footer class="bg-white">
+    <div class="relative bg-footer pt-6 px-8 mb-3 rounded-xl mx-3 text-white">
+        <!-- Container -->
+        <div class=" max-w-7xl mx-auto pb-9 relative z-10">
+            <!-- Adjusted Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-6 gap-6">
+                <!-- What We Do Section -->
+                <div class="lg:col-span-2">
+                    <h3 class="text-lg font-semibold mb-3">| What we do</h3>
+                    <p class="text-sm leading-relaxed">
+                        ThinkGreen Afrika bases its commitment on fostering the growth of underprivileged youth who are capable of spearheading their job and entrepreneurial readiness. We recruit skilled talents and professionals from all fields of work, nurture them within our resourceful community for three months, and connect them with employer partners, startups, and organizations for real-world experience by bridging the gap between unemployment and sustainability.
+                    </p>
+                </div>
+    
+                <!-- About Us Section -->
+                <div class="lg:col-span-2 md:ml-2">
+                    <h3 class="text-lg font-semibold mb-3">| About Us</h3>
+                    <p class="text-sm leading-relaxed">
+                        ThinkGreen Afrika is cultivating a new generation of ethical environmental leaders to solve real-world problems through a mission-driven and design-thinking model. Its goal is to bridge the gap between professional workforce development and unemployment in Africa.
+                    </p>
+                </div>
+    
+                <!-- Contact Section -->
+                <div class="lg:col-span-1 md:ml-8">
+                    <h3 class="text-lg font-semibold mb-3">| Find Us</h3>
+                    <div class="flex gap-2 items-start">
+                        <img src="/static/images/duo-icons_location.png" alt="Map" class="w-6 h-6 mt-1">
+                        <p class="text-sm">
+                            Bumbogo, Gasabo<br>
+                            Kigali, Rwanda
+                        </p>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-3 mt-4">| Email Us</h3>
+                    <div class="flex gap-2 items-start">
+                        <img src="/static/images/Vector.png" alt="Email" class="w-4 h-4 mt-1">
+                        <div class="flex flex-wrap">
+                            <a href="mailto:careers@thinkgreenafrika.org" class="text-sm hover:underline">careers@thinkgreenafrika.org</a><br>
+                            <a href="mailto:thinkgreenafrika.org@gmail.com" class="text-sm hover:underline">thinkgreenafrika.org@gmail.com</a>
+                        </div>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-3 mt-4">| Follow Us</h3>
+                    <div class="flex space-x-3">
+                        <a href="https://whatsapp.com/channel/0029VadbYG790x2rzJt1k718" target="_blank" class="w-8 h-8 rounded-full bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-green-500">
+                            <img src="/static/images/whatsapp.png" alt="WhatsApp" class="w-4 h-4">
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=61568738616754&mibextid=LQQJ4d" target="_blank" class="w-8 h-8 rounded-full bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-blue-600">
+                            <img src="/static/images/facebook.png" alt="Facebook" class="w-4 h-4">
+                        </a>
+                        <a href="https://www.instagram.com/thinkgreen_afrika/profilecard/?igsh=MWRxZjBvb3Y1a3Mxcw==" target="_blank" class="w-8 h-8 rounded-full bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-pink-500">
+                            <img src="/static/images/instagram.png" alt="Instagram" class="w-4 h-4">
+                        </a>
+                        <a href="https://www.linkedin.com/company/thinkgreen-afrika/" target="_blank" class="w-8 h-8 rounded-full bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-blue-700">
+                            <img src="/static/images/linkedin.png" alt="LinkedIn" class="w-4 h-4">
+                        </a>
+                    </div>
+                </div>
+    
+                <!-- Resources Section -->
+                <div class="lg:col-span-1 flex flex-col md:items-end">
+                    <h3 class="text-lg font-semibold mb-3 md:pr-12">| Resources</h3>
+                    <p class="text-sm leading-relaxed">Support Our Initiative</p>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Decorative Image -->
+        <div class="absolute hidden md:block right-24 top-28 bottom-0 z-0">
+            <img src="/static/images/Footer-bg.png" alt="Footer background" class="w-1/2 h-auto opacity-50">
+        </div>
+    </div>
+    
+    <!-- Bottom Section -->
+    <div class="flex items-center justify-center mb-3 text-sm opacity-90 font-semibold gap-4 px-8">
+        <p class="hover:text-green-700">2024 copyright ThinkGreen Afrika</p>
+        <span class="hover:text-green-700">| All Rights Reserved</span>
+        <span class="hover:text-green-700">| Privacy</span>
+        <span class="hover:text-green-700">| Terms & Conditions</span>
+    </div>
+</footer>
+
+        </div>
+    </main>
+    
+    <script >
+        //for mobile menu
+        document.getElementById("menu-toggle").addEventListener("click", function() {
+            document.getElementById("mobile-menu").classList.remove("hidden");
+        });
+
+        document.getElementById("close-menu").addEventListener("click", function() {
+            document.getElementById("mobile-menu").classList.add("hidden");
+        });
+
+//         function toggleMenu() {
+//     const navLinks = document.querySelector('.nav-links');
+//     navLinks.classList.toggle('active');
+// }
+//for newsletter
+function openModal() {
+        document.getElementById("subscribeModal").classList.remove("hidden");
+    }
+
+    function closeModal() {
+        document.getElementById("subscribeModal").classList.add("hidden");
+    }
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+</body>
+</html>

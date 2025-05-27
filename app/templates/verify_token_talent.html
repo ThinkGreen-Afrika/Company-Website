@@ -1,0 +1,60 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter OTP - ThinkGreen Afrika</title>
+    <link rel="stylesheet" href="{% static 'css/otp.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="image-container">
+            <svg class="otp-illustration" viewBox="0 0 200 200">
+                <rect x="10" y="10" width="180" height="180" fill="#6B8E23" rx="10"/>
+                <circle cx="100" cy="100" r="50" fill="#90EE90"/>
+                <text x="100" y="110" font-family="Arial" font-size="14" fill="white" text-anchor="middle">OTP Icon</text>
+            </svg>
+        </div>
+        <div class="form-container">
+            <img src="{% static 'images/Image_20240917_103158_927_2-removebg-preview.png' %}" alt="ThinkGreen Afrika Logo" class="logo">
+            <h1>Enter OTP</h1>
+            <p>A 6-digit code has been sent to your email.</p>
+            <form id="otp-form" method="post">
+                {% csrf_token %}
+                <form id="otp-form" method="post">
+                    {% csrf_token %}
+                    <div class="otp-inputs">
+                        <input type="text" name="otp_1" inputmode="numeric" pattern="[0-9]*" maxlength="1" autocomplete="one-time-code" required>
+                        <input type="text" name="otp_2" inputmode="numeric" pattern="[0-9]*" maxlength="1" autocomplete="one-time-code" required>
+                        <input type="text" name="otp_3" inputmode="numeric" pattern="[0-9]*" maxlength="1" autocomplete="one-time-code" required>
+                        <input type="text" name="otp_4" inputmode="numeric" pattern="[0-9]*" maxlength="1" autocomplete="one-time-code" required>
+                        <input type="text" name="otp_5" inputmode="numeric" pattern="[0-9]*" maxlength="1" autocomplete="one-time-code" required>
+                        <input type="text" name="otp_6" inputmode="numeric" pattern="[0-9]*" maxlength="1" autocomplete="one-time-code" required>
+                    </div>
+                    <input type="hidden" name="otp_code" id="otp_code">
+                    <button type="submit">Submit</button>
+                </form>
+                <!-- Display error message if there's one -->
+                {% if error_message %}
+                <p style="color: red;">{{ error_message }}</p>
+                {% endif %}
+            </div>
+        </div>
+        <script>
+            document.getElementById('otp-form').addEventListener('submit', function (e) {
+                // Concatenate OTP fields into a single string
+                const otp1 = document.querySelector('input[name="otp_1"]').value;
+                const otp2 = document.querySelector('input[name="otp_2"]').value;
+                const otp3 = document.querySelector('input[name="otp_3"]').value;
+                const otp4 = document.querySelector('input[name="otp_4"]').value;
+                const otp5 = document.querySelector('input[name="otp_5"]').value;
+                const otp6 = document.querySelector('input[name="otp_6"]').value;
+    
+                // Combine them into one hidden field
+                document.getElementById('otp_code').value = otp1 + otp2 + otp3 + otp4 + otp5 + otp6;
+            });
+        </script>
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
