@@ -58,6 +58,22 @@ def talent_view(request):
 def employer_view(request):
     return render(request, 'employer.html')
 
+
+# Additional Pages (Redesigns)
+def program_view(request):
+    return render(request, 'program.html')
+
+def solutions_view(request):
+    return render(request, 'solutions.html')  
+
+def tvetproject_view(request):
+    return render(request, 'tvetproject.html')
+
+def about_view(request):
+    return render(request, 'about_us.html')  
+
+
+
 def book_view(request):
     # try:
     return render(request, 'book.html')

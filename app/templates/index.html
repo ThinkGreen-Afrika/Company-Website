@@ -1,14 +1,19 @@
-{%load static%}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ThinkGreen Afrika</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="/static/images/favicon.ico">
-
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
+        body {
+        font-family:'Poppins', sans-serif;
+        }
         /* Custom Tailwind adjustments */
         .bg-primary {
             background-color: #4CAF50;
@@ -31,6 +36,9 @@
         .border-light-gray {
             border-color: #e0e0e0;
         }
+        .border-color {
+            border-color: #1E6C34;
+        }
         .main-bg {
             background: linear-gradient(to bottom, transparent 0%, #71c97d 50%, transparent 100%);
             position: fixed;
@@ -44,6 +52,15 @@
         }
         .countdown-number {
             font-size: 2rem;
+        }
+        .text-36 {
+        font-size: 36px;
+        }
+        .text-19 {
+        font-size: 19px;
+        }
+        .frame {
+        background-color: #1E6C34;
         }
         
         @keyframes slideOut {
@@ -68,7 +85,8 @@
         text-decoration: none;
         font-weight: 600;
         text-align: center;
-        border-radius: 9999px;
+        border-radius: 15px;
+        border: 2px solid #1E6C34;
         transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
     }
     .nav-book{
@@ -87,13 +105,11 @@
         box-shadow: 2px 6px 8px rgba(8, 8, 8, 0.3);
     }
     
-
     /* Specific Styles for 'Become a Talent' Button */
     .btn-talent {
         background-color: white;
-        border: 2px solid #4CAF50;
+        border: 2px solid #1E6C34;
         color: #1F2937;
-        box-shadow: 2px 6px 8px rgba(8, 8, 8, 0.3);
     }
 
     .btn-talent:hover {
@@ -106,14 +122,14 @@
         
         
         color: white;
-        box-shadow: 2px 6px 8px rgba(8, 8, 8, 0.3);
+        /* box-shadow: 2px 6px 8px rgba(8, 8, 8, 0.3); */
     }
 
     .btn-partner:hover {
         background-color: white;
         color:black;
-        border: 2px solid #4CAF50;
-        box-shadow: 4px 8px 12px rgba(8, 8, 8, 0.4);
+        border: 2px solid #1E6C34;
+        /* box-shadow: 4px 8px 12px rgba(8, 8, 8, 0.4); */
     }
 
     /* Ensure the container doesn't overlap or block the buttons */
@@ -122,805 +138,443 @@
         z-index: 1;
     }
 
-
-
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
-    <div class=""></div>
-
-
-
-
+<body class="bg-gradient-to-b from-white via-white to-green-300 ">
     <!-- Hero Section -->
-    
-
-    <header class="relative bg-cover bg-center h-screen px-4" style="background-image: url('/static/images/Herosectionbg.png');">
-            <!-- Navbar -->
-    <nav class="bg-white shadow-md fixed top-4 left-4 right-4 rounded-full z-50">
-        <div class="container mx-auto px-1 py-3 flex justify-between items-center">
-         <a href="/{% url 'home' %}">   <img src="/static/images/Image_20240917_103158_927_2-removebg-preview.png" alt="logo" class="w-32 h-18"> </a>
-
-            <ul class="hidden md:flex space-x-6">
-                <li>
-                    <a href="{% url 'home' %}" class="text-black font-semibold hover:text-primary border-b-2 border-transparent hover:border-green-500 transition duration-300 ease-in-out">HOME</a>
-                </li>
-                <li>
-                    <a href="{% url 'home' %}#about-us" class="text-black font-semibold hover:text-primary border-b-2 border-transparent hover:border-green-500 transition duration-300 ease-in-out">ABOUT US</a>
-                </li>
-                <li>
-                    <a href="{% url 'home' %}#solution" class="text-black font-semibold hover:text-primary border-b-2 border-transparent hover:border-green-500 transition duration-300 ease-in-out">OUR SOLUTION</a>
-                </li>
-                <li>
-                    <a href="{% url 'home' %}#Events" class="text-black font-semibold hover:text-primary border-b-2 border-transparent hover:border-green-500 transition duration-300 ease-in-out">EVENTS</a>
-                </li>
-                <li>
-                    <a href="{% url 'podcast' %}" class="text-black font-semibold hover:text-primary border-b-2 border-transparent hover:border-green-500 transition duration-300 ease-in-out">PODCASTS/STORY</a>
-                </li>
-            </ul>
- 
-            <div class="hidden md:flex flex-row items-end space-x-4">
-                <a href="{% url 'book' %}" class="btn-talent nav-book">
+    <header class=" bg-cover bg-center px-4" >
+        <!-- Navbar -->
+        <nav class="bg-white shadow-md fixed top-4 left-4 right-4 rounded-full z-50">
+                <div class="container mx-auto px-6 py-6 flex justify-between items-center">
+                 <a href="{% url 'home' %}"><img src="../static/images/thinkgreen-logo-green.png" alt="logo" class="max-w-64 h-10"> </a>
+                    <ul class="hidden md:flex space-x-6">
+                        <li>
+                            <a href="{% url 'home' %}" class=" text-color font-bold hover:text-primary border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'about_us' %}" class="text-black font-medium hover:text-primary border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
+                                About Us
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'solutions' %}" class=" text-black font-medium hover:text-primary border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
+                                Our Solutions
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'program' %}" class=" text-black font-medium hover:text-primary border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
+                                Our Programs
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'podcast' %}" class="text-black font-medium hover:text-primary border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
+                                Support Our Initiatives
+                            </a>
+                        </li>
+                    </ul>
+         
+                    <div class="hidden md:flex flex-row items-end space-x-4">
+                        <!-- <a href="{% url 'book' %}" class="btn-talent nav-book">Book 1:1</a> -->
+                        <a href="{% url 'select' %}" class="btn-partner nav-pod button-color btn">
+                            Join our Network
+                        </a>
+                           
+                    </div>
+                    <!-- Mobile Menu Toggle -->
+                    <button class="md:hidden text-gray-600 focus:outline-none" id="menu-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
+                </div>
                 
-                    Book 1:1
-                </a>
-                <a href="{% url 'select' %}" class="btn-partner nav-pod button-color btn">
-                    Join our Network
-                </a>
-                
-                
-                
-            </div>
-            <!-- Mobile Menu Toggle -->
-            <button class="md:hidden text-gray-600 focus:outline-none" id="menu-toggle">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-                </svg>
-            </button>
+        </nav>
+        <!-- Background Elements -->
+        <div class="absolute top-24 right-12 w-16 h-16 rounded-xl z-0"
+                style="background: linear-gradient(147.56deg, rgb(255,255,255) 30%, rgb(255, 255, 255) 30%, rgb(54, 206, 133) 30%); filter: blur(30px);">
         </div>
-    </nav>
+        <div class="absolute bottom-24 left-12 w-36 h-36 rounded-full z-0"
+                style="background: linear-gradient(147.56deg, rgb(255,255,255) 30%, rgb(255, 255, 255) 30%, rgb(54, 206, 133) 30%); filter: blur(30px);">
+        </div>
+        <!-- Mobile Sidebar Menu -->
+        <div id="mobile-menu" class="fixed inset-0 bg-gray-800 bg-opacity-75 hidden z-40">
+            <div class="flex flex-col items-center mt-32 space-y-4">
+                <a href="{% url 'home' %}" class="text-white text-lg">Home</a>
+                <a href="{% url 'about_us' %}" class="text-white text-lg">About Us</a>
+                <a href="{% url 'solutions' %}" class="text-white text-lg">Our Solutions</a>
+                <a href="{% url 'program' %}" class="text-white text-lg">Our Programs</a>
+                <a href="{% url 'podcast' %}" class="text-white text-lg">Support Our Initiatives</a>
+                <a href="{% url 'select' %}" class="button-color text-white py-2 px-4 rounded hover:bg-green-700 mt-4">Join our Network</a>
+                <!-- <a href="{% url 'book' %}" class="button-color text-white py-2 px-4 rounded hover:bg-green-700 mt-2">Book 1:1</a> -->
+            </div>
+        </div>
 
-    <!-- Mobile Sidebar Menu -->
-<div id="mobile-menu" class="fixed inset-0 bg-gray-800 bg-opacity-75 hidden z-40">
-    <div class="flex flex-col items-center mt-12 space-y-4">
-        <a href="{% url 'home' %}" class="text-white text-lg">Home</a>
-        <a href="{% url 'home' %}#about-us" class="text-white text-lg">About us</a>
-        <a href="{% url 'home' %}#solution" class="text-white text-lg">Our Solutions</a>
-        <a href="{% url 'home' %}#Events" class="text-white text-lg">Events</a>
-        <a href="{% url 'podcast' %}" class="text-white text-lg">Podcasts/Story</a>
-        <a href="{% url 'select' %}" class="button-color text-white py-2 px-4 rounded hover:bg-green-700 mt-4">Join our Network</a>
-        <a href="{% url 'book' %}" class="button-color text-white py-2 px-4 rounded hover:bg-green-700 mt-2">Book 1:1</a>
-    </div>
-
-    <!-- Centered Cancel Button -->
-    <div class="flex justify-center items-center mt-8">
-        <button id="close-menu" class="text-white border border-white rounded-full p-2">
+        <!-- Centered Cancel Button -->
+        <div class="flex justify-center items-center mt-8">
+        <button id="close-menu" class="text-white border border-white rounded-xl p-2">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
         </button>
-    </div>
-</div>
-        <!-- Overlay -->
-        <div class="absolute inset-0 bg-black bg-opacity-30"></div>
-    
+        </div>
+
+        <!-- Modal Backdrop and Wrapper -->
+        <div id="initiativesModal" class="fixed inset-0 items-center justify-center z-50 hidden">
+            <section class="bg-white flex flex-col items-center rounded-2xl w-min p-4 text-center shadow-lg mx-auto mt-32">
+                <button id="closeModal" class="ml-auto text-red-500 text-xl font-bold">x</button>
+                <ul>
+                    <li class="h-10 w-60 p-2 rounded-xl mb-2.5 text-black text-lg">
+                        <a href="{% url 'tvetproject' %}">TVET Project</a>
+                    </li>
+                    <li class="h-10 w-60 p-2 rounded-xl mb-2.5 text-black text-lg">1K@t</li>
+                    <li class="h-10 w-60 p-2 rounded-xl mb-2.5 text-black text-lg">eEP</li>
+                    <li class="h-10 w-60 p-2 rounded-xl text-black text-lg">Refugee</li>
+                </ul>
+            </section>
+        </div>
+
+        <!-- Overlay (Disabled) -->
+        <!-- <div class="absolute inset-0 bg-black bg-opacity-30"></div> -->
+        
         <!-- Content -->
-        <div class=" flex flex-col ">
-            <div class="mt-48">
-                <h1 class="font-bold text-color md:text-5xl lg:text-5xl text-center">BRIDGING TOP TALENTS WITH PREMIER<br> SUSTAINABLE OPPORTUNITIES.</h1>
-            <p class="mt-6 text-black font-bold  text-lg text-center">
-                Become Part Of A Global Network Of Green Tech Professionals And Discover Your Next<br> Career Opportunity With ThinkGreen Afrika.
-            </p>
+        <div class=" flex flex-col mx-20 z-10">
+            <div class="mt-36">
+                <h1 class="font-bold text-color md:text-3xl text-9 text-left w-1/2">
+                    Bridging top talents and entrepreneurs with a support system to fit in the labour market across the African landscape
+                </h1>
+                <p class="mt-6 text-black font-medium text-6 text-left w-1/3">
+                    Become part of a global talent development network in green solutions and discover your next career opportunity.
+                </p>
             </div>
-            <div class=" pl-12 mt-8">
+            <div>
+                <img src="../static/images/hero-image-1.jpg" class="absolute object-cover top-40 right-10 w-40 h-40  rounded-full" alt="hero-img">
+                <div class="frame absolute top-56 right-40 w-225 h-14 flex flex-row rounded-xl items-center justify-center">
+                    <img class="pl-2.5 max-w-6 max-h-6 pr-1" src="../static/images/check-logo.png" alt="tick">
+                    <p class=" p-2.5 pl-0 text-sm text-white text-center">
+                    Global Networking
+                    </p>
+                </div>
+                
+            </div>
+            <div>
+                <img src="../static/images/hero-image-2.jpg" class="absolute object-cover top-80 right-36 w-96 h-96  rounded-full" alt="hero-img">
+                <div class="frame absolute bottom-96 right-96 w-225 h-14 flex flex-row rounded-xl items-center justify-center">
+                    <img class="pl-2.5 max-w-6 max-h-6 pr-1" src="../static/images/check-logo.png" alt="tick">
+                    <p class=" p-2.5 pl-0 text-sm text-white text-center">
+                        Career Counselling
+                    </p>
+                </div> 
+                <div class="frame absolute top-96 right-10 w-225 h-14 flex flex-row rounded-xl items-center justify-center">
+                    <img class="pl-2.5 max-w-6 max-h-6 pr-1" src="../static/images/check-logo.png" alt="tick">
+                    <p class=" p-2.5 pl-0 text-sm text-white text-center">
+                        Top Vetted Talents
+                    </p>
+                </div>
+                <div class="frame absolute bottom-52 right-10 w-225 h-14 flex flex-row rounded-xl items-center justify-center">
+                    <img class="pl-2.5 max-w-6 max-h-6 pr-1" src="../static/images/check-logo.png" alt="tick">
+                    <p class=" p-2.5 pl-0 text-sm text-white text-center">
+                        Mentorship and Guidance
+                    </p>
+                </div>
+            </div>
+            <div class=" mt-8">
+                <!-- 
                 <div class="flex items-end gap-8">
                     <div class="mt-8 text-sm text-black text-left">
                        <span class="font-bold">VidConf — Business Ideas design</span> <br>
                         ALU Campus — KK 150St, Remera, Kigali 0000
                     </div>
                     <svg xmlns="http://www.w3.org/2000/svg" class="" width="24" height="20" viewBox="0 0 24 24" style="fill: rgb(75, 73, 73); transform: rotate(180deg);"><path d="M21 11H6.414l5.293-5.293-1.414-1.414L2.586 12l7.707 7.707 1.414-1.414L6.414 13H21z"></path></svg>
-                </div>
-                <hr class=" border-t mt-2 border-gray-500 w-80">
+                </div> 
+                -->
+                
                 <div class="mt-8 flex flex-wrap space-y-4 lg:space-y-0 lg:space-x-4">
+                    <!-- Become an Employer Partner Button -->
+                    <a href="https://forms.gle/gpc97F8miwEkeLc7A" 
+                       class="btn button-color btn-partner">
+                        Become an Employer
+                    </a>
+                    
                     <!-- Become a Talent Button -->
                     <a href="https://forms.gle/RsjDFgR2wE63uviv9" 
                        class="btn btn-talent hover:button-color">
                         Become a Talent
                     </a>
-                
-                    <!-- Become an Employer Partner Button -->
-                    <a href="https://forms.gle/gpc97F8miwEkeLc7A" 
-                       class="btn button-color btn-partner">
-                        Become an Employer Partner
-                    </a>
-                </div>
-                
-                
-                
-                
-            </div>
             
+                </div>
+            </div>
         </div>
     </header>
-    
-
-        <!-- Our Sponsors Section -->
-
-        <section class="relative container mx-auto my-12 px-4">
-            <!-- Gradient Bubbles -->
-            <div class="absolute top-4 left-0 w-60 h-64 rounded-lg"
-                style="background: linear-gradient(200.56deg, rgb(255,255,255) 30%, rgb(255,255,255) 30%, rgb(92,202,149) 10.88%); filter: blur(70px);">
-            </div>
-            <div class="absolute top-24 right-0 w-28 h-32 rounded-full"
-                style="background: linear-gradient(147.56deg, rgb(255,255,255) 30%, rgb(255,255,255) 30%, rgb(92,202,149) 30%); filter: blur(50px);">
-            </div>
         
-            <!-- Section Content -->
-            <h2 class="text-left text-color font-bold text-3xl mb-10">Our Sponsors/Partners</h2>
-            <div class="relative flex flex-wrap justify-center items-center bg-transparent shadow-lg rounded-lg py-8 border border-light-gray gap-8">
-                <!-- ALU -->
-                <div class="h-20 w-48 flex items-center justify-center bg-transparent border-b-4 border-primary shadow-lg rounded-lg overflow-hidden">
-                    <img src="/static/images/alu-removebg-preview.png" alt="ALU Logo" class="h-full w-full object-contain">
-                </div>
-                <!-- Agrisense -->
-                <div class="h-20 w-48 flex items-center justify-center bg-white border-b-4 border-primary shadow-lg rounded-lg overflow-hidden">
-                    <img src="/static/images/Agrisense.jpg" alt="Agrisense Logo" class="h-full w-full object-contain">
-                </div>
-                <!-- Eco -->
-                <div class="h-20 w-48 flex items-center justify-center bg-white border-b-4 border-primary shadow-lg rounded-lg overflow-hidden">
-                    <img src="/static/images/Eco.png" alt="Eco Logo" class="h-full w-full object-contain">
-                </div>
-                <!-- CLA -->
-                <div class="h-20 w-48 flex items-center justify-center bg-white border-b-4 border-primary shadow-lg rounded-lg overflow-hidden">
-                    <img src="/static/images/CLA.png" alt="CLA Logo" class="h-full w-full object-contain">
-                </div>
-            </div>
-        </section>
-        
-
-         <!-- About Us Section -->
-         <section id="about-us" class="container mx-auto mt-12 mb-12 ">
-            <h2 class="text-center text-color font-bold text-4xl mb-8 pt-12">About Us</h2>
-                    <!-- About Us Column -->
-        <div class="flex-1  md:w-1/2 lg:w-auto">
-            <!-- <h3 class="text-lg font-semibold mb-2">| About us</h3> -->
-            <p class=" md:px-28 px-12 text-lg ">ThinkGreen Afrika is cultivating a new generation of ethical environmental leaders to solve real-world problems through a mission-driven and design-thinking model. Its goal is to bridge the gap between professional workforce development and unemployment in Africa.</p>
-        </div>
-            <div class="grid md:grid-cols-2 gap-y-24 items-center mt-24">
-
-        
-        
-                <!-- Left Column (Vision and Approach) -->
-                <div class="space-y-8 flex flex-col items-center md:items-center">
-                    <!-- Vision Section -->
-                    <div class="relative flex flex-col items-center text-center md:text-left p-6 w-full bg-transparent">
-                        <!-- Gradient Circle Bubble -->
-                        <div class="absolute bottom-0 left-24 w-20 h-20 rounded-full"
-                            style="background: linear-gradient(147.56deg, rgba(255, 255, 255, 0.3) 13.04%, rgba(255, 255, 255, 0.3) 48.16%, rgba(92, 202, 149, 0.3) 52.22%, rgba(68, 50, 95, 0.3) 80.57%); filter: blur(5px);">
-                        </div>
-                        
-                        <!-- Content -->
-                        <hr class="border-t border-black w-1/2 mb-4">
-                        <h3 class="text-primary font-bold text-xl">Our Vision</h3>
-                        <p class="mt-2 text-lg text-gray-700 text-center">
-                            To become the global hub for entrepreneurship,<br> fostering a culture of collaboration, <br>mentorship, and lifelong learning.
-                        </p>
-                    </div>
-                    
-                    
-                    
-                    <!-- Image (Bottom Left) with reduced size -->
-                    <img src="/static/images/vision.png" alt="Team Photo" class="w-3/4 max-h-68 rounded-lg shadow-md">
-                    
-                    <!-- Approach Section -->
-                    <div class="text-center flex flex-col items-center md:text-left p-6  w-full">
-                        <hr class="border-t border-black w-1/2 mb-4">
-                        <h3 class="text-primary font-semibold text-lg">Our Approach</h3>
-                        <p class="mt-2 text-gray-700 text-center">
-                            Our approach revolves around the belief that <br>sustainable development is an ethical <br>responsibility and a strategic imperative<br> for long-term sustainability.
-                        </p>
-                    </div>
-                </div>
-        
-                <!-- Right Column (Image and Mission) -->
-                <div class="space-y-8 flex flex-col items-center md:items-center">
-                    <!-- Image (Top Right) with reduced size -->
-                    <img src="/static/images/abt.png" alt="Team Photo" class="w-3/4 max-h-68 rounded-lg shadow-md">
-                    
-                    <!-- Mission Section -->
-                    <div class="text-center flex flex-col items-center md:text-left p-6 w-full">
-                        <hr class="border-t border-black w-1/2 mb-4">
-                        <h3 class="text-primary font-semibold text-lg">Our Mission</h3>
-                        <p class="mt-2 text-gray-700 text-center">
-                            To become part of a global network of green<br> professionals through networking and<br> partnerships and enhance economic<br> growth and sustainability.
-                        </p>
-                    </div>
-                </div>
-        
-            </div>
-        </section>
-
-        
-
-        <!-- who we are -->
-        <section class=" relative bg-transparent pt-4 md:px-32 ">
-            <h1 class="text-3xl font-bold text-center my-12 text-color">Who We Are?</h1>
-            <div class="flex flex-col lg:flex-row   items-center py-10">
-        
-                <!-- Text Section -->
-                <div class="w-3/4 max-h-68 flex flex-col border rounded-lg justify-center  lg:text-left">
-                    <div class="py-20 px-8 relative overflow-hidden">
-                        <!-- Background Gradient -->
-                        <div class="absolute inset-0 bg-white" 
-                             style="background: linear-gradient(135.68deg, #FFFFFF 33.42%, rgba(92, 202, 149, 0.5) 148.87%);
-                                    clip-path: polygon(100% 0%, 100% 100%, 0% 100%);
-                                    z-index: -1;">
-                        </div>
-                        
-                        <!-- Content -->
-                        <h1 class="text-2xl mb-10 font-bold text-color">What we are:</h1>
-                        <p class="text-base md:text-lg">
-                            ThinkGreen Afrika bases its commitment on fostering the growth of underprivileged youth capable 
-                            of spearheading their job and entrepreneurial readiness. We recruit skilled talents and professionals 
-                            from all fields, nurture them within our community for three months, and connect them with employer partners.
-                        </p>
-                    </div>
-                    
-                    
-                </div>
-        
-                <!-- Image Section -->
-                <div class=" mt-10 lg:mt-0   flex justify-center lg:justify-end">
-                    <img src="/static/images/whoweare.png" alt="ThinkGreen Image" class="w-3/4 max-h-68 object-cover rounded-lg shadow-lg">
-                </div>
-                <!-- Gradient Bubbles -->
-            
-        
-            </div>
-            <div class="absolute top-[-10] left-0 w-32 h-72 rounded-lg"
-            style="background: linear-gradient(200.56deg, rgb(255,255,255) 30%, rgb(255,255,255) 30%, rgb(92,202,149) 10.88%); filter: blur(70px);">
-        </div>
-
-            <div class="absolute top-[-2] right-32 w-32 h-32  rounded-full border shadow-lg"
-                            style="background: linear-gradient(147.56deg, rgba(255, 255, 255, 0.3) 13.04%, rgba(255, 255, 255, 0.3) 48.16%, rgba(92, 202, 149, 0.3) 52.22%, rgba(68, 50, 95, 0.3) 80.57%); filter: blur(5px);">
-                        </div>
-        </section>
-        
-       
-        <!-- our solution -->
-        <section id="solution" class="bg-gray-50 py-16 px-4 lg:px-32">
-            <div class="container mx-auto px-4 text-left">
-              <!-- Section Title -->
-              <div id="animated-section" class="flex items-center gap-2 mb-6 overflow-hidden opacity-0">
-                <!-- Green Bar -->
-                <h1 class="h-5 w-1 bg-green-600 rounded-full"></h1>
-            
-                <!-- Animated Text -->
-                <p class="text-lg font-bold text-color">
-                  How We Inspire And Equip Entrepreneurs
+    <!-- Milestones -->
+    <section id="our-milestones" class=" py-16 px-6 mt-28 text-center">
+        <h2 class="text-4xl font-bold text-color mb-12">Our Milestones</h2>
+        <div class="flex flex-wrap justify-center object-center gap-8 mx-auto max-w-4xl">
+            <div class=" p-8 w-96 max-h-36 rounded-2xl border-color border shadow-md flex flex-row items-center justify-between">
+                <p class="text-left text-black font-semibold text-2xl w-52">
+                    18 Nationalities Reached
                 </p>
-              </div>
-              <h2 class="text-3xl font-bold text-color mb-4">OUR SOLUTION</h2>
-              
-              <p class="text-black font-bold font-lg mb-12 ">
-                We believe that the best way to grow as an entrepreneur is through shared experiences, authentic stories, and practical knowledge.
-              </p>
-          
-              <!-- Cards Section -->
-              <div class="grid gap-8 md:grid-cols-2">
-                <!-- Card 1 -->
-                <div class="bg-white rounded-lg shadow-lg p-6 text-left">
-                  <div class="flex items-start">
-                    
-                    <div>
-                        <div class="bg-footer text-white rounded-full w-10 h-10 flex items-center justify-center font-bold mr-4">1</div>
-                      <h3 class="text-xl font-semibold text-gray-800">Unique Value</h3>
-                      <p class="text-gray-600 text-base mt-2">
-                        Emphasize an ideal position focusing on green jobs and sustainable development careers. This focus could attract environmentally conscious job seekers and employers looking to contribute to sustainability efforts.
-                      </p>
-                      <button class="mt-4 text-black hover:text-green-800 border rounded rounded-lg shadow-lg p-2 font-semibold">Learn More</button>
-                    </div>
-                  </div>
-                </div>
-                <!-- Card 2 -->
-      <div class="bg-white rounded-lg shadow-lg p-6 text-left">
-        <div class="flex items-start">
-          
-          <div>
-            <div class="bg-footer text-white rounded-full w-10 h-10 flex items-center justify-center font-bold mr-4">2</div>
-            <h3 class="text-xl font-semibold text-gray-800">Sustainability Integration</h3>
-            <p class="text-gray-600 text-base mt-2">
-              Our community emphasizes the importance of sustainability in every aspect of development. We integrate sustainable practices into our programs, teaching young minds how to contribute to a greener future through innovative solutions.
-            </p>
-            <button class="mt-4 text-black hover:text-green-800 border rounded rounded-lg shadow-lg p-2 font-semibold">Learn More</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="bg-white rounded-lg shadow-lg p-6 text-left">
-        <div class="flex items-start">
-          
-          <div>
-            <div class="bg-footer text-white rounded-full w-10 h-10 flex items-center justify-center font-bold mr-4">3</div>
-            <h3 class="text-xl font-semibold text-gray-800">Mentorship and Guidance</h3>
-            <p class="text-gray-600 text-base mt-2">
-              We connect aspiring Talents and Entrepreneurs with experienced mentors who offer personalized guidance, helping you navigate the challenges of building and growing a business. Whether it’s advice on funding, product development, or leadership, our mentors are here to help.
-            </p>
-            <button class="mt-4 text-black hover:text-green-800 border rounded rounded-lg shadow-lg p-2 font-semibold">Learn More</button>
-          </div>
-        </div>
-      </div>
-      <!-- Card 4 -->
-      <div class="bg-white rounded-lg shadow-lg p-6 text-left">
-        <div class="flex items-start">
-          
-          <div>
-            <div class="bg-footer text-white rounded-full w-10 h-10 flex items-center justify-center font-bold mr-4">4</div>
-            <h3 class="text-xl font-semibold text-gray-800">Workforce Development Preparation</h3>
-            <p class="text-gray-600 text-base mt-2">
-              ThinkGreen Afrika prepares young individuals for the workforce by equipping them with the necessary skills and experiences. Our comprehensive development programs ensure they are job-ready, with a focus on sustainable practices and green jobs.
-            </p>
-            <button class="mt-4 text-black hover:text-green-800 border rounded rounded-lg shadow-lg p-2 font-semibold">Learn More</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-        </section>
-
-        <!-- Our Impact Themes Section -->
-            
-        <section class="bg-gray-50  pb-16">
-            <div class="relative container mx-auto px-4 text-center">
-                <!-- Section Title -->
-                <h2 class="  text-3xl font-bold text-color mb-12">OUR IMPACT THEMES</h2>
-                <div class="absolute  left-96 top-0 w-20 h-20   rounded-full border shadow-lg"
-                            style="background: linear-gradient(147.56deg, rgba(255, 255, 255, 0.3) 13.04%, rgba(255, 255, 255, 0.3) 48.16%, rgba(92, 202, 149, 0.3) 52.22%, rgba(54, 151, 107, 0.3) 80.57%); filter: blur(5px);">
-                        </div>
-
-                <!-- Cards Section -->
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 justify-items-center">
-                    <!-- Top Row -->
-                     <div class="absolute top-[-10] left-0 w-32 h-72 rounded-lg"
-            style="background: linear-gradient(200.56deg, rgb(255,255,255) 30%, rgb(255,255,255) 30%, rgb(92,202,149) 10.88%); filter: blur(70px);">
-        </div>
-                    <!-- Card 1 -->
-                     <a href="https://sdgs.un.org/goals/goal4">
-                    <div class="bg-white rounded-lg shadow-md p-6 w-64 flex flex-col items-center transition-transform transform hover:scale-105 hover:shadow-red-500 hover:shadow-md">
-                        <div class="flex justify-center mb-4">
-                            <img src="/static/images/education.png" alt="Quality Education" class="w-32 h-32">
-                        </div>
-                        <h3 class="text-xl font-semibold text-red-600 mb-2">Quality Education</h3>
-                        <p class="text-gray-600 text-center mb-4 flex-grow">
-                            Empowering women and providing gender equality education is essential.
-                        </p>
-                        <div class="h-1 w-full bg-red-600 rounded-full mt-4"></div>
-                    </div>
-                </a>
-
-                    <!-- Card 2 -->
-                    <a href="https://sdgs.un.org/goals/goal5">
-                    <div class="bg-white rounded-lg shadow-md p-6 w-64 flex flex-col items-center transition-transform transform hover:scale-105">
-                        <div class="flex justify-center mb-4">
-                            <img src="/static/images/OIP.jpg" alt="Gender Equality" class="w-32 h-32">
-                        </div>
-                        <h3 class="text-xl font-semibold text-pink-600 mb-2">Gender Equality</h3>
-                        <p class="text-gray-600 text-center mb-4 flex-grow">
-                            Gender equality and access to quality services are pivotal for sustainable development.
-                        </p>
-                        <div class="h-1 w-full bg-pink-600 rounded-full mt-4"></div>
-                    </div>
-                </a>
-
-                    <!-- Card 3 -->
-                     <a href="https://sdgs.un.org/goals/goal8">
-                    <div class="bg-white rounded-lg shadow-md p-6 w-64 flex flex-col items-center transition-transform transform hover:scale-105">
-                        <div class="flex justify-center mb-4">
-                            <img src="/static/images/R.png" alt="Decent Work" class="w-32 h-32">
-                        </div>
-                        <h3 class="text-xl font-semibold text-red-900 mb-2">Decent Work</h3>
-                        <p class="text-gray-600 text-center mb-4 flex-grow">
-                            This goal aligns with sustainable economic growth and decent work opportunities.
-                        </p>
-                        <div class="h-1 w-full bg-red-800 rounded-full mt-4"></div>
-                    </div>
-                </div>
-                
-            </a>
-
-                <!-- Bottom Row -->
-                <div class="grid  grid-cols-1 md:grid-cols-3 gap-6 justify-items-center md:px-48  mt-6">
-                    <!-- Card 4 -->
-                     <a href="https://sdgs.un.org/goals/goal13">
-                    <div class="bg-white rounded-lg shadow-md p-6 w-64 flex flex-col items-center transition-transform transform hover:scale-105">
-                        <div class="flex justify-center mb-4">
-                            <img src="/static/images/SDG-CLIMATE-ACTION.png" alt="Climate Action" class="w-32 h-32">
-                        </div>
-                        <h3 class="text-xl font-semibold text-green-600 mb-2">Climate Action</h3>
-                        <p class="text-gray-600 text-center mb-4 flex-grow">
-                            Addressing climate change is critical for sustainable development.
-                        </p>
-                        <div class="h-1 w-full bg-green-600 rounded-full mt-4"></div>
-                    </div>
-                    </a>
-
-                    <!-- Card 5 -->
-                     <a href="https://sdgs.un.org/goals/goal17">
-                    <div class="bg-white rounded-lg shadow-md p-6 w-64 flex flex-col items-center transition-transform transform hover:scale-105">
-                        <div class="flex justify-center mb-4">
-                            <img src="/static/images/partnership.png" alt="Partnerships" class="w-32 h-32">
-                        </div>
-                        <h3 class="text-xl font-semibold text-blue-600 mb-2">Partnerships for the Goals</h3>
-                        <p class="text-gray-600 text-center mb-4 flex-grow">
-                            Collaborating for the common good ensures effective implementation.
-                        </p>
-                        <div class="h-1 w-full bg-blue-600 rounded-full mt-4"></div>
-                    </div>
-                </a>
-                     <a href="https://sdgs.un.org/goals/goal1">
-                    <div class="bg-white rounded-lg shadow-md p-6 w-64 flex flex-col items-center transition-transform transform hover:scale-105">
-                        <div class="flex justify-center mb-4">
-                            <img src="/static/images/poverty.png" alt="Partnerships" class="w-32 h-32">
-                        </div>
-                        <h3 class="text-xl font-semibold text-red-500 mb-2">Poverty</h3>
-                        <p class="text-gray-600 text-center mb-4 flex-grow">
-                            Work to eradicate poverty in all its forms and dimensions, ensuring dignity and opportunity for all.
-                        </p>
-                        <div class="h-1 w-full bg-red-500 rounded-full mt-4"></div>
-                    </div>
-                </a>
-                </div>
+                <img class="w-16 h-12" src="../static/images/Mentors icon.png" alt="icon">
             </div>
-        </section>
 
-        <!-- Impact Numbers Section -->
-        <section class="relative bg-white py-12 px-6 text-center shadow-none" id="impact-numbers">
-            <!-- Top shadow -->
-            <div class="absolute top-0 left-0 w-full h-2 shadow-md"></div>
-        
-            <!-- Content -->
-            <div class="flex flex-wrap justify-center gap-8 max-w-4xl mx-auto">
-                <!-- Counter Box 1 -->
-                <div class="w-48 text-center border shadow-xl rounded-lg p-4">
-                    <img src="/static/images/Talent icon.png" alt="Mentors" class="w-16 h-10 mx-auto">
-                    <p class="text-gray-600 font-semibold mt-2">100+ </p>
-                    <div class="text-3xl font-bold text-color" data-target="100" id="talents-counter">0 Talents</div>
-                </div>
-        
-                <!-- Counter Box 2 -->
-                <div class="w-48 text-center border shadow-xl rounded-lg p-4">
-                    <img src="/static/images/map content.png" alt="Countries" class="w-16 h-10 mx-auto">
-                    <p class="text-gray-600 font-semibold mt-2">5+ Countries</p>
-                    <div class="text-3xl font-bold text-color" data-target="5" id="countries-counter">0</div>
-                </div>
-        
-                <!-- Counter Box 3 -->
-                <div class="w-48 text-center border shadow-xl rounded-lg p-4">
-                    <img src="/static/images/Cities icon.png" alt="Cities" class="w-16 h-10 mx-auto">
-                    <p class="text-gray-600 font-semibold mt-2">5+ Cities</p>
-                    <div class="text-3xl font-bold text-color" data-target="5" id="cities-counter">0</div>
-                </div>
-        
-                <!-- Counter Box 4 -->
-                <div class="w-48 text-center border shadow-xl rounded-lg p-4">
-                    <img src="/static/images/Mentors icon.png" alt="Mentors" class="w-16 h-10 mx-auto">
-                    <p class="text-gray-600 font-semibold mt-2">15+ Mentors</p>
-                    <div class="text-3xl font-bold text-color" data-target="15" id="mentors-counter">0</div>
-                </div>
+            <div class=" p-8 w-96 max-h-36 rounded-2xl border-color border shadow-md flex flex-row items-center justify-between">
+                <p class="text-left text-black font-semibold text-2xl w-52">
+                    100 Talents Trained
+                </p>
+                <img class="w-16 h-12" src="../static/images/Mentors icon.png" alt="icon">
             </div>
-        
-            <!-- Bottom shadow -->
-            <div class="absolute bottom-0 left-0 w-full h-2 shadow-md"></div>
-        </section>
-        
-        
-        
 
-
-    <!-- Meet the Team Section -->
-    <section class="bg-gray-50 py-16 px-6 text-center relative">
-    <h2 class="text-3xl font-bold text-color mb-12">Meet The Team</h2>
-    <di class="flex flex-wrap justify-center gap-8 max-w-5xl mx-auto mb-12">
-        <!-- Team Member Card -->
-        <a href="https://www.linkedin.com/in/alimamy-bangura575463/" target="_blank" class="block">
-            <div class="w-48 bg-white border-b-2 border-l-2 border-green-500 shadow-lg rounded-lg">
-                <img src="/static/images/Alimanya.jpg" alt="Alimamy Bangura" class="w-full h-auto object-cover rounded-t-lg">
-                <div class="h-1 w-full bg-green-600"></div>
-                <div class="p-4">
-                    <h3 class="mt-4 font-semibold text-lg text-gray-800">Alimamy Bangura</h3>
-                    <p class="text-gray-600 text-sm">Founder, CEO</p>
-                </div>
+            <div class=" p-8 w-96 max-h-36 rounded-2xl border-color border shadow-md flex flex-row items-center justify-between">
+                <p class="text-left text-black font-semibold text-2xl w-52">
+                    250 Placed Talents
+                </p>
+                <img class="w-16 h-12" src="../static/images/Mentors icon.png" alt="icon">
             </div>
-        </a>
-        
-        <a href="https://www.linkedin.com/in/maeri-onderi-david-44524234/" target="_blank" class="block">
-        <div class="w-48 bg-white border-b-2 border-l-2 border-green-500 shadow-lg rounded-lg">
-            <img src="/static/images/project ad.jpg" alt="Maeri Onderi David" class="w-full h-64 object-cover rounded-t-lg">
-            <div class="h-1 w-full bg-green-600 "></div>
-            <h3 class="mt-4 font-semibold text-lg text-gray-800">Maeri Onderi David</h3>
-            <p class="text-gray-600 text-sm mb-8">Project Manager And Advisor</p>
         </div>
-         </a>
-        
-        <a href="https://www.linkedin.com/in/annemarietwagirayezu/" target="_blank" class="block">
-        <div class="w-48 bg-white border-b-2 border-l-2 border-green-500 shadow-lg rounded-lg">
-            <img src="/static/images/anne.jpg" alt="Anne Marie Twagirayezu" class="w-full h-auto object-cover rounded-t-lg">
-            <div class="h-1 w-full bg-green-600 "></div>
-            <h3 class="mt-4 font-semibold text-lg text-gray-800">Anne Marie</h3>
-            <p class="text-gray-600 text-sm mb-6">Back-end Developer</p>
-        </div>
-        </a>
-        
-        <a href="https://www.linkedin.com/in/leroymilfredcarew/" target="_blank" class="block">
-        <div class="w-48 bg-white border-b-2 border-l-2 border-green-500 shadow-lg rounded-lg">
-            <img src="/static/images/Leroy.jpg" alt="Leroy Carew" class="w-full h-64 object-cover rounded-t-lg">
-            <div class="h-1 w-full bg-green-600 "></div>
-            <h3 class="mt-4 font-semibold text-lg text-gray-800">Leroy Carew</h3>
-            <p class="text-gray-600 text-sm mb-8">Researcher</p>
-        </div>
-        </a>
-    
-    </div>
-        <div class="flex flex-wrap justify-center gap-8 max-w-5xl mx-auto" >
-            <a href="https://www.linkedin.com/in/pascal-onuoha/" target="_blank" class="block">
-            <div class="w-48 bg-white border-b-2 border-l-2 border-green-500 shadow-lg rounded-lg">
-                <img src="/static/images/Pasacal.jpg" alt="Leroy Carew" class="w-full h-64 object-cover rounded-t-lg">
-                <div class="h-1 w-full bg-green-600 "></div>
-                <h3 class="mt-4 font-semibold text-lg text-gray-800">Pascal Onuoha</h3>
-                <p class="text-gray-600 text-sm mb-3">Front-end Developer</p>
+        <div>
+            <h2 class="text-2xl font-bold text-black m-12">
+                Our Talent has worked in various companies such as:
+            </h2>
+            <div class="flex justify-center gap-8 mx-auto max-w-4xl">
+                <img src="../static/images/amalitech-logo.png" alt="Amalitech Logo" 
+                class="w-80 h-44 object-contain rounded-2xl border-color border shadow-md">
+                <img src="../static/images/evolve-logo.png" alt="Evolve Logo"
+                class="w-80 h-44 p-8 object-contain rounded-2xl border-color border shadow-md">
+                <img src="../static/images/logo-guaride.png" alt="Guraride Logo" 
+                class="w-80 h-44 p-4 object-contain rounded-2xl border-color border shadow-md">
             </div>
-            </a>
-            <a href="https://www.linkedin.com/in/olubanjo-kolapo/" target="_blank" class="block">
-            <div class="w-48 bg-white border-b-2 border-l-2 border-green-500 shadow-lg rounded-lg">
-                <img src="/static/images/david.png" alt="Leroy Carew" class="w-full h-64 object-cover rounded-t-lg">
-                <div class="h-1 w-full bg-green-600 "></div>
-                <h3 class="mt-4 font-semibold text-lg text-gray-800">Olubanjo Kolapo</h3>
-                <p class="text-gray-600 text-sm mb-3">Graphics and UI/UX Designer</p>
-            </div>
-            </a>
-            <a href="https://www.linkedin.com/in/uwatwembi-charite/" target="_blank" class="block">
-            <div class="w-48 bg-white border-b-2 border-l-2 border-green-500 shadow-lg rounded-lg">
-                <img src="/static/images/charite.jpg" alt="Leroy Carew" class="w-full h-64 object-cover rounded-t-lg">
-                <div class="h-1 w-full bg-green-600 "></div>
-                <h3 class="mt-4 font-semibold text-lg text-gray-800">Charite Uwatwembi</h3>
-                <p class="text-gray-600 text-sm mb-3">Front-end Developer</p>
-            </div>
-            </a>
         </div>
-        <div class="absolute  left-48 bottom-0 w-20 h-20   rounded-full border shadow-lg"
-        style="background: linear-gradient(147.56deg, rgba(255, 255, 255, 0.3) 13.04%, rgba(255, 255, 255, 0.3) 48.16%, rgba(92, 202, 149, 0.3) 52.22%, rgba(54, 151, 107, 0.3) 80.57%); filter: blur(5px);">
-    </div>
+        <div>
+            <h2 class="text-2xl font-bold text-black m-12">
+                Operated in Rwanda, Sierra Leone and Liberia
+            </h2>
+            <div class="flex justify-center gap-8 mx-auto max-w-4xl">
+                <img src="../static/images/flag-rwanda.jpg" alt="Rwanda Flag" 
+                class="w-80 h-44 object-cover rounded-2xl border-color border shadow-md">
+                <img src="../static/images/flag-sierra-leone.jpg" alt="SierraLeone Flag" 
+                class="w-80 h-44 object-cover rounded-2xl border-color border shadow-md">
+                <img src="../static/images/flag-liberia.png" alt="Liberia Flag" 
+                class="w-80 h-44 object-cover rounded-2xl border-color border shadow-md">
+            </div>
+        </div>
     </section>
 
-        <!-- why us -->
-        <section>
-           
-            <h2 class="text-3xl font-bold text-center text-color mb-12">Why Us ?</h2>
-            <div class="relative flex flex-col lg:flex-row px-6 lg:px-20 text-sm text-gray-600 py-12 space-y-8 lg:space-y-0 lg:space-x-12">
-                <div class="absolute  right-32 top-0 w-36 h-36  rounded-full border shadow-lg"
-        style="background: linear-gradient(147.56deg, rgba(21, 222, 152, 0.49) 13.04%, rgba(255, 255, 255, 0.3) 48.16%, rgba(92, 202, 149, 0.3) 52.22%, rgba(54, 151, 107, 0.3) 80.57%); filter: blur(8px);">
-    </div>
-            <!-- First Column -->
-            <div class="flex-1">
-                <div class="flex items-start mb-3">
-                    <div class="h-14 w-1 bg-primary mr-3"></div>
-                    <h1 class="font-bold text-lg text-black">Personalized Conversations and Guidance</h1>
+    <!-- Why Us Section -->
+    <section id="why-us" class=" py-16 px-6 pt-0 text-center">
+        <h2 class="text-3xl font-bold text-color">
+            Why Us?
+        </h2>
+
+        <div class=" gap-8 mx-auto max-w-6xl pt-4">
+            <div class="mr-auto flex flex-row bg-white p-8 rounded-lg shadow-md w-3/5 items-center justify-center border-color border border-color my-6">
+                <img src="../static/images/why-us-1.jpg" alt="Why Us 1" 
+                class="w-52 h-64 object-cover rounded-xl mx-auto ">
+                <div class="flex flex-col w-full">
+                    <h3 class="flex items-center text-xl font-bold text-left text-color pl-4 ml-4 mb-4 h-16 object-center max-w-96 border-l-2 border-color">
+                        Sustainability and Workforce Development
+                    </h3>
+                    <p class="text-gray-600 text-left ml-4 text-sm font-semibold">
+                        Our cutting-edge research and skills development projects and internships focused on sustainable design thinking. These projects and internships provide hands-on experience and practical knowledge, equipping our interns and talents with the skills to drive sustainable change.
+                    </p>
                 </div>
-                <p class="font-medium text-black">Sustainability and Workforce Development: We offer cutting-edge research projects and internships focused on Sustainable Workforce Development Design. These projects provide hands-on experience and practical knowledge, equipping our interns with the skills needed to drive sustainable change.</p>
             </div>
-        
-            <!-- Second Column -->
-            <div class="flex-1">
-                <div class="flex items-start mb-3">
-                    <div class="h-14 w-1 bg-primary mr-3"></div>
-                    <h1 class="font-bold text-lg text-black">Real-World Insights from Top Experts</h1>
+
+            <div class="ml-auto flex flex-row bg-white p-8 rounded-lg shadow-md w-3/5 items-center justify-center border-color border border-color my-6">
+                <img src="../static/images/why-us-2.jpg" alt="Why Us 1" 
+                class="w-52 h-64 object-cover rounded-xl mx-auto ">
+                <div class="flex flex-col w-full">
+                    <h3 class="flex items-center text-xl font-bold text-left text-color pl-4 ml-4 mb-4 h-16 max-w-96 border-l-2 border-color">
+                        Real-World Insights from Top Experts
+                    </h3>
+                    <p class="text-gray-600 text-left ml-4 text-sm font-semibold">
+                        Learn directly from experienced entrepreneurs and leaders who have built successful businesses. 
+                    </p>
                 </div>
-                <p class="font-medium text-black">Learn directly from experienced entrepreneurs who have built successful businesses. Our platform offers actionable advice and insights that you can apply to your own entrepreneurial journey.</p>
             </div>
-        
-            <!-- Third Column -->
-            <div class="flex-1">
-                <div class="flex items-start mb-3">
-                    <div class="h-14 w-1 bg-primary mr-3"></div>
-                    <h1 class="font-bold text-lg text-black">A Global Network of Innovators</h1>
+
+            <div class="mr-auto flex flex-row bg-white p-8 rounded-lg shadow-md w-3/5 items-center justify-center border-color border border-color my-6">
+                <img src="../static/images/why-us-3.jpg" alt="Why Us 1" 
+                class="w-52 h-64 object-cover rounded-xl mx-auto ">
+                <div class="flex flex-col w-full">
+                    <h3 class="flex items-center text-xl font-bold text-left text-color pl-4 ml-4 mb-4 h-16 object-center max-w-96 border-l-2 border-color ">
+                        A Global Network of Innovators
+                    </h3>
+                    <p class="text-gray-600 text-left ml-4 text-sm font-semibold" >
+                        The lives of thousands of youthful talents with 15 nationalities worldwide have the potential to be transformed by our framework. We empower them to become catalysts for change in their society and beyond by providing them with the appropriate tools and opportunities. 
+                    </p>
                 </div>
-                <p class="font-medium text-black">The lives of thousands of youthful talents worldwide have the potential to be transformed by our framework. We empower them to become catalysts for change in their communities and beyond by providing them with the appropriate tools and opportunities. Their contributions have the potential to create a more sustainable and equitable world for all.</p>
-            </div>
-        
-            <!-- Fourth Column -->
-            <div class="flex-1">
-                <div class="flex items-start mb-3">
-                    <div class="h-14 w-1 bg-primary mr-3"></div>
-                    <h1 class="font-bold text-lg text-black">Comprehensive Resources for Growth</h1>
-                </div>
-                <p class="font-medium text-black">In a rapidly changing world, our environment faces unprecedented challenges. Simultaneously, young, creative minds often lack the resources and opportunities to make a significant impact. This is where ThinkGreen Afrika steps in.</p>
             </div>
         </div>
-        </section>
+    </section>
 
-       <!-- News Section -->
-<section>
-    <div class="bg-green-5 flex flex-col items-center py-12">
-        <h1 class="text-3xl font-lg text-center text-black font-medium">
-            Become a member of our exclusive<br> community and gain access to a<br> wealth of benefits
-        </h1>
-        <a href="https://whatsapp.com/channel/0029VadbYG790x2rzJt1k718">
-            <button class="mt-10 button-color text-white font-semibold py-3 px-8 rounded-lg border-2 border-transparent hover:bg-white hover:text-green-900 hover:border-green-500 transition duration-300 text-lg">
-                Join the community
-            </button>
-            
-        </a>
-    </div>
-</section>
+    <!-- We are trusted By Section -->
+    <section id="Trusted" class=" py-16 px-6 pt-0 text-center">
+        <h2 class="text-3xl font-bold text-center text-color mb-12">
+            We are trusted by
+        </h2>
+        <div class="overflow-hidden flex ">
+            <div id="group" class="w-full inline-flex flex-nowrap gap-8 mx-auto max-w-4xl">
+                
+                <img src="../static/images/alu-removebg-preview.png" alt="ALU Logo"
+                class="w-64 h-32 p-4 bg-white object-contain rounded-2xl border-color border shadow-md">
+                
+                <img src="../static/images/logo-agrisense.png" alt="Agrisense Logo"
+                class="w-64 h-32 p-4 bg-white object-contain rounded-2xl border-color border shadow-md">
+                
+                <img src="../static/images/amalitech-logo.jpg" alt="Amalitech Logo"
+                class="w-64 h-32 p-4 bg-white object-contain rounded-2xl border-color border shadow-md">
+                
+                <img src="../static/images/Eco.png" alt="Eco Logo"
+                class="w-64 h-32 p-4 bg-white object-contain rounded-2xl border-color border shadow-md">
+                
+                <img src="../static/images/logo-kepler.png" alt="K Logo"
+                class="w-64 h-32 p-4 bg-white object-contain rounded-2xl border-color border shadow-md">
+                
+                <img src="../static/images/logo-The Campus.png" alt="CampusLogo"
+                class="w-64 h-32 p-4 bg-white object-contain rounded-2xl border-color border shadow-md">
 
-<!-- Upcoming Event Section -->
-<section id="Events" 
-    class=" relative py-24 px-12 md:px-32 gap-8 lg:flex lg:items-center lg:justify-between mx-auto shadow-lg" 
-    style="background: linear-gradient(to top, #77D0A5, #FFFFFF);">
-    <div class="absolute  left-48 top-0 w-20 h-20  rounded-full border shadow-lg"
-        style="background: linear-gradient(147.56deg, rgba(21, 222, 152, 0.49) 13.04%, rgba(255, 255, 255, 0.3) 48.16%, rgba(155, 235, 196, 0.3) 52.22%, rgba(106, 143, 126, 0.3) 80.57%); filter: blur(8px);">
-    </div>
-    
-    
+                <img src="../static/images/logo-The_Venture.png" alt="Venture Logo"
+                class="w-64 h-32 p-4 bg-white object-contain rounded-2xl border-color border shadow-md">
 
-    <!-- Text Section -->
-    <div class="relative lg:w-1/2 text-center lg:text-left space-y-8">
-        <p class="text-red-500 font-semibold uppercase text-lg">Upcoming Event</p>
-        <h1 class="text-4xl font-bold text-gray-800">The Application is Open!</h1>
-        <p class="text-gray-600 text-lg">
-            The Application is live now for the second cohort of ThinkGreen Afrika Talents.
-        </p>
+                <img src="../static/images/logo-Uni of Rwanda.png" alt="Rwanda Logo"
+                class="w-64 h-32 p-4 bg-white object-contain rounded-2xl border-color border shadow-md">
 
-        
-    <div class="absolute left-96   top-6 w-20 h-20   rounded-full border shadow-lg"
-                            style="background: linear-gradient(147.56deg, rgba(255, 255, 255, 0.3) 13.04%, rgba(255, 255, 255, 0.3) 48.16%, rgba(92, 202, 149, 0.3) 52.22%, rgba(54, 151, 107, 0.3) 80.57%); filter: blur(5px);">
-                        </div>
-
-        <!-- Countdown Timer -->
-        <div class="flex justify-center lg:justify-start space-x-4 mt-8" id="countdown">
-            <div class="text-center border-r border-gray-300 p-4 shadow-xl rounded-lg bg-white">
-                <p class="countdown-number font-bold text-purple-600 text-3xl" id="days">00</p>
-                <span class="text-gray-500 text-lg">Days</span>
+                <img src="../static/images/logo-Uni-of-Kigali.png" alt="Kigali Logo"
+                class="w-64 h-32 p-4 bg-white object-contain rounded-2xl border-color border shadow-md">
+ 
             </div>
-            <div class="text-center border-r border-gray-300 p-4 shadow-xl rounded-lg bg-white">
-                <p class="countdown-number font-bold text-purple-600 text-3xl" id="hours">00</p>
-                <span class="text-gray-500 text-lg">Hours</span>
+            <!-- Duplicate -->
+            <!-- <div id="group-2" aria-hidden class=" inline-flex flex-nowrap gap-8 mx-auto max-w-4xl pl-8">
+                
+                <img src="../static/images/alu-removebg-preview.png" alt="ALU Logo"
+                class="w-64 h-32 p-4 bg-white object-contain rounded-2xl border-color border shadow-md">
+                
+                <img src="../static/images/logo-agrisense.png" alt="Agrisense Logo"
+                class="w-64 h-32 p-4 bg-white object-contain rounded-2xl border-color border shadow-md">
+                
+                <img src="../static/images/amalitech-logo.jpg" alt="Amalitech Logo"
+                class="w-64 h-32 p-4 bg-white object-contain rounded-2xl border-color border shadow-md">
+                
+                <img src="../static/images/Eco.png" alt="Eco Logo"
+                class="w-64 h-32 p-4 bg-white object-contain rounded-2xl border-color border shadow-md">
+                
+                <img src="../static/images/logo-kepler.png" alt="K Logo"
+                class="w-64 h-32 p-4 bg-white object-contain rounded-2xl border-color border shadow-md">
+                
+                <img src="../static/images/logo-The Campus.png" alt="Kepler Logo"
+                class="w-64 h-32 p-4 bg-white object-contain rounded-2xl border-color border shadow-md">
+
+                <img src="../static/images/logo-kepler.png" alt="Kepler Logo"
+                class="w-64 h-32 p-4 bg-white object-contain rounded-2xl border-color border shadow-md">
+
+                <img src="../static/images/logo-kepler.png" alt="Kepler Logo"
+                class="w-64 h-32 p-4 bg-white object-contain rounded-2xl border-color border shadow-md">
+ 
+            </div>  -->
+        </div>
+         
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-4 text-center">
+            <!-- Section Title -->
+            <h2 class="text-3xl font-bold text-gray-700 mb-8">What Our Clients Say About Us</h2>
+            <!-- Dots for Carousel (if needed) -->
+            <div class="flex justify-center space-x-2 mb-20">
+                <span class="h-2 w-2 rounded-xl bg-pink-400"></span>
+                <span class="h-2 w-2 rounded-xl bg-gray-400"></span>
+                <span class="h-2 w-2 rounded-xl bg-gray-400"></span>
+                <span class="h-2 w-2 rounded-xl bg-gray-400"></span>
             </div>
-            <div class="text-center border-r border-gray-300 p-4 shadow-xl rounded-lg bg-white">
-                <p class="countdown-number font-bold text-purple-600 text-3xl" id="minutes">00</p>
-                <span class="text-gray-500 text-lg">Minutes</span>
-            </div>
-            <div class="text-center p-4 shadow-xl rounded-lg bg-white">
-                <p class="countdown-number font-bold text-purple-600 text-3xl" id="seconds">00</p>
-                <span class="text-gray-500 text-lg">Seconds</span>
+
+            <!-- Carousel Arrows (left and right) -->
+            <div class="relative">
+                <!-- Left Arrow -->
+                <button onclick="previousSlide()" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black text-white p-2 rounded-xl hover:bg-gray-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                </button>
+
+                <!-- Right Arrow -->
+                <button onclick="nextSlide()" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black text-white p-2 rounded-xl hover:bg-gray-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+
+                <!-- Testimonial Cards -->
+                <div id="carousel" class="flex md:flex-row flex-col items-center transition-transform space-x-0 md:space-x-16 space-y-12 md:space-y-0 duration-500">
+                    <!-- Card 1 -->
+                    <div class="relative w-[302px] h-[342px]">
+                        <!-- Green Shadow -->
+                        <div class="absolute top-[-2px] left-[4px] w-full h-full bg-green-500 opacity-60 transform rotate-[-7.35deg]" 
+                            style="clip-path: polygon(12% 5%, 88% 3%, 85% 93%, 15% 95%); border-radius: 20px;"></div>
+                            
+                            <!-- Card Content -->
+                            <div class="bg-black text-white p-14 rounded-xl shadow-md w-full h-full transform rotate-6 hover:rotate-3 transition-transform duration-300 relative" 
+                            style="clip-path: polygon(12% 5%, 88% 3%, 85% 93%, 15% 95%); border-radius: 20px;">
+                               <!-- Avatar -->
+                                <div class="absolute mt-4 top-1 left-1/2 transform -translate-x-1/2">
+                                    <img class="w-24 h-24 rounded-xl border-4 border-white object-cover" src="../static/images/h1.jpeg" alt="Client Image">
+                                </div>
+                                <!-- Content -->
+                                <h3 class="mt-16 font-semibold text-lg text-center">David Peterson</h3>
+                                <p class="text-sm text-gray-400 text-center">Marketing Manager</p>
+                                <p class="mt-4 text-gray-300 text-sm text-center">"This service transformed our customer engagement. The results exceeded our expectations and helped drive growth across multiple platforms."</p>
+                            </div>
+                    </div>
+                           
+                    <!-- Card 2 (Center Card) -->
+                    <div class="relative w-[415px] h-[433px]">
+                            <!-- Green Shadow -->
+                            <div class="absolute top-[5px] left-[55px] w-full h-full bg-green-500 opacity-60 transform scale-105 z-0" 
+                                style="clip-path: polygon(15% 5%, 85% 3%, 80% 88%, 10% 92%); border-radius: 20px;"></div>
+                            <!-- Card Content -->
+                            <div class="bg-black text-white p-16 rounded-xl shadow-lg w-full h-full transform scale-110 hover:scale-105 transition-transform duration-300 relative z-10" 
+                                style="clip-path: polygon(15% 5%, 85% 3%, 80% 88%, 10% 92%); border-radius: 20px;">
+                                <!-- Avatar -->
+                                <div class="absolute mt-4 top-1 left-1/2 transform -translate-x-1/2">
+                                    <img class="w-20 h-20 rounded-xl border-4 border-white object-cover" src="../static/images/h2.jpeg" alt="Hannah Schmitt">
+                                </div>
+                                <!-- Content -->
+                                <h3 class="mt-12 font-semibold text-lg text-center">Hannah Schmitt</h3>
+                                <p class="text-sm text-gray-400 text-center">Lead Designer</p>
+                                <p class="mt-4 text-gray-300 text-sm text-center">"A game-changer for our design processes. The team is incredibly supportive and always willing to go the extra mile."</p>
+                            </div>
+                    </div>
+                              
+                    <!-- Card 3 -->
+                    <div class="relative w-[302px] h-[342px]">
+                            <!-- Green Shadow -->
+                            <div class="absolute top-[1px] left-[-4px] w-full h-full  bg-green-500 opacity-60 transform rotate-[-172.65deg]" 
+                                style="clip-path: polygon(10% 7%, 90% 2%, 87% 92%, 12% 94%); border-radius: 20px;"></div>
+                            <!-- Card Content -->
+                            <div class="bg-black text-white p-12 rounded-xl shadow-md w-full h-full transform -rotate-6 hover:rotate-3 transition-transform duration-300 relative" 
+                                style="clip-path: polygon(10% 7%, 90% 2%, 87% 92%, 12% 94%); border-radius: 20px;">
+                                <!-- Avatar -->
+                                <div class="absolute mt-4 top-1 left-1/2 transform -translate-x-1/2">
+                                    <img class="w-20 h-20 rounded-xl border-4 border-white" src="../static/images/h3.jpeg" alt="Michaella Jean">
+                                </div>
+                                <!-- Content -->
+                                <h3 class="mt-12 font-semibold text-lg">Michaella Jean</h3>
+                                <p class="text-sm text-gray-400">Product Manager</p>
+                                <p class="mt-4 text-gray-300 text-sm">"The solution was intuitive, efficient, and really improved our workflow. I’m beyond impressed with the results."</p>
+                            </div>
+                    </div>
+                </div>   
             </div>
         </div>
-
-        <!-- Apply Now Button -->
-        <a href="https://forms.gle/RsjDFgR2wE63uviv9">
-            <button class="mt-10 button-color text-white font-semibold py-3 px-8 rounded-lg border-2 border-transparent hover:bg-white hover:text-green-900 hover:border-green-500 transition duration-300 text-lg">
-                Apply Now
-            </button>
-        </a>
-    </div>
-
-    <!-- Image Section -->
-    <div class=" lg:w-1/2 mt-10 lg:mt-0 flex justify-end">
-        <img src="/static/images/up.png" alt="Africa Tech Summit" class="max-w-full h-auto object-cover rounded-lg shadow-lg">
+    </section>
         
-    </div>
-    
-</section>
-
-
-        
-
-        <!-- Testimonials Section -->
-        <!-- Testimonials Section -->
-            <section class="bg py-16"
-            >
-                <div class="container mx-auto px-4 text-center">
-                    <!-- Section Title -->
-                    <h2 class="text-3xl font-bold text-gray-700 mb-8">What Our Clients Say About Us</h2>
-
-                    <!-- Dots for Carousel (if needed) -->
-                    <div class="flex justify-center space-x-2 mb-20">
-                        <span class="h-2 w-2 rounded-full bg-pink-400"></span>
-                        <span class="h-2 w-2 rounded-full bg-gray-400"></span>
-                        <span class="h-2 w-2 rounded-full bg-gray-400"></span>
-                        <span class="h-2 w-2 rounded-full bg-gray-400"></span>
-                    </div>
-
-                    <!-- Carousel Arrows (left and right) -->
-                    <div class="relative">
-                        <!-- Left Arrow -->
-                        <button onclick="previousSlide()" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black text-white p-2 rounded-full hover:bg-gray-700">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                            </svg>
-                        </button>
-
-                        <!-- Right Arrow -->
-                        <button onclick="nextSlide()" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black text-white p-2 rounded-full hover:bg-gray-700">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                            </svg>
-                        </button>
-
-                        <!-- Testimonial Cards -->
-                        <div id="carousel" class="flex md:flex-row flex-col items-center transition-transform space-x-0 md:space-x-16 space-y-12 md:space-y-0 duration-500">
-                            <!-- Card 1 -->
-                            <div class="relative w-[302px] h-[342px]">
-                                <!-- Green Shadow -->
-                                <div class="absolute top-[-2px] left-[4px] w-full h-full bg-green-500 opacity-60 transform rotate-[-7.35deg]" 
-                                    style="clip-path: polygon(12% 5%, 88% 3%, 85% 93%, 15% 95%); border-radius: 20px;"></div>
-                                <!-- Card Content -->
-                                <div class="bg-black text-white p-14 rounded-lg shadow-md w-full h-full transform rotate-6 hover:rotate-3 transition-transform duration-300 relative" 
-                                    style="clip-path: polygon(12% 5%, 88% 3%, 85% 93%, 15% 95%); border-radius: 20px;">
-                                    <!-- Avatar -->
-                                    <div class="absolute mt-4 top-1 left-1/2 transform -translate-x-1/2">
-                                        <img class="w-24 h-24 rounded-full border-4 border-white object-cover" src="/static/images/h1.jpeg" alt="Client Image">
-                                    </div>
-                                    <!-- Content -->
-                                    <h3 class="mt-16 font-semibold text-lg text-center">David Peterson</h3>
-                                    <p class="text-sm text-gray-400 text-center">Marketing Manager</p>
-                                    <p class="mt-4 text-gray-300 text-sm text-center">"This service transformed our customer engagement. The results exceeded our expectations and helped drive growth across multiple platforms."</p>
-                                </div>
-                            </div>
-                            
-                        
-                            <!-- Card 2 (Center Card) -->
-                            <div class="relative w-[415px] h-[433px]">
-                                <!-- Green Shadow -->
-                                <div class="absolute top-[5px] left-[55px] w-full h-full bg-green-500 opacity-60 transform scale-105 z-0" 
-                                    style="clip-path: polygon(15% 5%, 85% 3%, 80% 88%, 10% 92%); border-radius: 20px;"></div>
-                                <!-- Card Content -->
-                                <div class="bg-black text-white p-16 rounded-lg shadow-lg w-full h-full transform scale-110 hover:scale-105 transition-transform duration-300 relative z-10" 
-                                    style="clip-path: polygon(15% 5%, 85% 3%, 80% 88%, 10% 92%); border-radius: 20px;">
-                                    <!-- Avatar -->
-                                    <div class="absolute mt-4 top-1 left-1/2 transform -translate-x-1/2">
-                                        <img class="w-20 h-20 rounded-full border-4 border-white object-cover" src="/static/images/h2.jpeg" alt="Hannah Schmitt">
-                                    </div>
-                                    <!-- Content -->
-                                    <h3 class="mt-12 font-semibold text-lg text-center">Hannah Schmitt</h3>
-                                    <p class="text-sm text-gray-400 text-center">Lead Designer</p>
-                                    <p class="mt-4 text-gray-300 text-sm text-center">"A game-changer for our design processes. The team is incredibly supportive and always willing to go the extra mile."</p>
-                                </div>
-                            </div>
-                            
-                        
-                            <!-- Card 3 -->
-                            <div class="relative w-[302px] h-[342px]">
-                                <!-- Green Shadow -->
-                                <div class="absolute top-[1px] left-[-4px] w-full h-full  bg-green-500 opacity-60 transform rotate-[-172.65deg]" 
-                                    style="clip-path: polygon(10% 7%, 90% 2%, 87% 92%, 12% 94%); border-radius: 20px;"></div>
-                                <!-- Card Content -->
-                                <div class="bg-black text-white p-12 rounded-lg shadow-md w-full h-full transform -rotate-6 hover:rotate-3 transition-transform duration-300 relative" 
-                                    style="clip-path: polygon(10% 7%, 90% 2%, 87% 92%, 12% 94%); border-radius: 20px;">
-                                    <!-- Avatar -->
-                                    <div class="absolute mt-4 top-1 left-1/2 transform -translate-x-1/2">
-                                        <img class="w-20 h-20 rounded-full border-4 border-white" src="/static/images/h3.jpeg" alt="Michaella Jean">
-                                    </div>
-                                    <!-- Content -->
-                                    <h3 class="mt-12 font-semibold text-lg">Michaella Jean</h3>
-                                    <p class="text-sm text-gray-400">Product Manager</p>
-                                    <p class="mt-4 text-gray-300 text-sm">"The solution was intuitive, efficient, and really improved our workflow. I’m beyond impressed with the results."</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        
-                    </div>
-                </div>
-            </section>
-
-        
-<!-- FAQs Section -->
-<div class="faq-section flex flex-col lg:flex-row items-center justify-center  p-8 py-12 bg">
+    <!-- FAQs Section -->
+    <div class="faq-section flex flex-col lg:flex-row items-center justify-center  p-8 py-12 ">
     <!-- Image -->
     <div class="faq-image mb-8 lg:mb-0">
-        <img src="/static/images/FAqs.png" alt="Founder at work" class="w-full lg:w-96 rounded-lg shadow-xl">
+        <img src="../static/images/FAqs.png" alt="Founder at work" class="w-full lg:w-96 rounded-xl shadow-xl">
     </div>
     
     <!-- FAQ Content -->
@@ -934,7 +588,7 @@
                 <h3 class="text-lg font-medium text-gray-800">How ThinkGreen Afrika works?</h3>
                 <span class="arrow text-xl text-purple-700 transition-transform duration-200" :class="{'rotate-180': openItem === 1}">˅</span>
             </div>
-            <div x-show="openItem === 1" class="faq-answer p-4 text-gray-600 bg-gray-50 rounded-lg transition-all duration-200">
+            <div x-show="openItem === 1" class="faq-answer p-4 text-gray-600 bg-gray-50 rounded-xl transition-all duration-200">
                 ThinkGreen brings talents into one space, nurturing them by embarking on real workspace projects, enabling unique skills for 2 or 3 months before connecting them to employer partners.
             </div>
 
@@ -943,7 +597,7 @@
                 <h3 class="text-lg font-medium text-gray-800">Who can join Our Network?</h3>
                 <span class="arrow text-xl text-purple-700 transition-transform duration-200" :class="{'rotate-180': openItem === 2}">˅</span>
             </div>
-            <div x-show="openItem === 2" class="faq-answer p-4 text-gray-600 bg-gray-50 rounded-lg transition-all duration-200">
+            <div x-show="openItem === 2" class="faq-answer p-4 text-gray-600 bg-gray-50 rounded-xl transition-all duration-200">
                 A passionate individual that is willing to solve critical problems within their domain or community.
             </div>
 
@@ -952,116 +606,138 @@
                 <h3 class="text-lg font-medium text-gray-800">How can I become a Talent?</h3>
                 <span class="arrow text-xl text-purple-700 transition-transform duration-200" :class="{'rotate-180': openItem === 3}">˅</span>
             </div>
-            <div x-show="openItem === 3" class="faq-answer p-4 text-gray-600 bg-gray-50 rounded-lg transition-all duration-200">
+            <div x-show="openItem === 3" class="faq-answer p-4 text-gray-600 bg-gray-50 rounded-xl transition-all duration-200">
                 Ensure you are a problem solver and someone who's willing to deliver. <a href="https://forms.gle/RsjDFgR2wE63uviv9" class="text-green-600 hover:underline">You can also apply using this link</a>
             </div>
         </div>
     </div>
-</div>
-<!-- Newsletter Section -->
-<section class="bg-gradient-to-b from-green-300 via-green to-green-50">
-    <div class="flex flex-col items-center py-12">
-        <h1 class="text-3xl font-lg text-center text-black">
-            Subscribe to our newsletter<br> for the latest insights<br> and opportunities
-        </h1>
-        <a href="{% url 'subscribe' %}">
-            <button class="mt-10 button-color text-white font-semibold py-3 px-8 rounded-lg border-2 border-transparent hover:bg-white hover:text-green-900 hover:border-green-500 transition duration-300 text-lg">
-              Subscribe
-            </button>
-        </a>
     </div>
-</section>
-
-
-
-        
-<footer class="bg-white">
-    <div class="relative bg-footer pt-6 px-8 mb-3 rounded-xl mx-3 text-white">
+    <!-- Newsletter Section -->
+    <section >
+        <div class="flex flex-col items-center py-12">
+            <h1 class="text-3xl font-lg text-center text-black">
+                Subscribe to our newsletter<br> for the latest insights<br> and opportunities
+            </h1>
+            <a href="{% url 'subscribe' %}">
+                <button class="mt-10 button-color text-white font-semibold py-3 px-8 rounded-xl border-2 border-transparent hover:bg-white hover:text-green-900 hover:border-color transition duration-300 text-lg">
+                  Subscribe
+                </button>
+            </a>
+        </div>
+    </section>
+       
+<footer class="flex flex-col items-center justify-center">
+    <div class="relative bg-footer pt-6 px-8 mb-3 rounded-xl mx-3 w-4/5 text-white">
         <!-- Container -->
-        <div class=" max-w-7xl mx-auto pb-9 relative z-10">
+        <div class=" mx-auto pb-9 relative z-10">
             <!-- Adjusted Grid -->
-            <div class="grid grid-cols-1 lg:grid-cols-6 gap-6">
-                <!-- What We Do Section -->
-                <div class="lg:col-span-2">
-                    <h3 class="text-lg font-semibold mb-3">| What we do</h3>
-                    <p class="text-sm leading-relaxed">
-                        ThinkGreen Afrika bases its commitment on fostering the growth of underprivileged youth who are capable of spearheading their job and entrepreneurial readiness. We recruit skilled talents and professionals from all fields of work, nurture them within our resourceful community for three months, and connect them with employer partners, startups, and organizations for real-world experience by bridging the gap between unemployment and sustainability.
+                <div class="flex flex-col">
+                <!-- Logo Section -->
+                 <div class="flex flex-row justify-between items-center border-b-2 py-10 mx-10">
+                    <img src="../static/images/thinkgreen-logo-white.png" alt="ThinkGreen Afrika white" class="w-40 h-auto mb-4">
+                    <p class="text-sm text-gray-300">
+                        Talent Development and Job Placement
                     </p>
-                </div>
-    
-                <!-- About Us Section -->
-                <div class="lg:col-span-2 md:ml-2">
-                    <h3 class="text-lg font-semibold mb-3">| About Us</h3>
-                    <p class="text-sm leading-relaxed">
-                        ThinkGreen Afrika is cultivating a new generation of ethical environmental leaders to solve real-world problems through a mission-driven and design-thinking model. Its goal is to bridge the gap between professional workforce development and unemployment in Africa.
-                    </p>
-                </div>
-    
+                    <a href="" class="btn btn-talent hover:button-color hover:border-white">
+                        Join Our Initiative
+                    </a>
+
+                 </div>
                 <!-- Contact Section -->
-                <div class="lg:col-span-1 md:ml-8">
-                    <h3 class="text-lg font-semibold mb-3">| Find Us</h3>
-                    <div class="flex gap-2 items-start">
-                        <img src="/static/images/duo-icons_location.png" alt="Map" class="w-6 h-6 mt-1">
-                        <p class="text-sm">
-                            Bumbogo, Gasabo<br>
-                            Kigali, Rwanda
-                        </p>
-                    </div>
-                    <h3 class="text-lg font-semibold mb-3 mt-4">| Email Us</h3>
-                    <div class="flex gap-2 items-start">
-                        <img src="/static/images/Vector.png" alt="Email" class="w-4 h-4 mt-1">
-                        <div class="flex flex-wrap">
-                            <a href="mailto:careers@thinkgreenafrika.org" class="text-sm hover:underline">careers@thinkgreenafrika.org</a><br>
-                            <a href="mailto:thinkgreenafrika.org@gmail.com" class="text-sm hover:underline">thinkgreenafrika.org@gmail.com</a>
+                <div class="flex flex-row gap-8 lg:col-span-1 md:ml-8">
+                    <div class="flex flex-col">
+                        <h3 class="text-lg font-semibold mb-3 mt-4">| Follow Us</h3>
+                        <div class="flex space-x-3">
+                            <a href="https://whatsapp.com/channel/0029VadbYG790x2rzJt1k718" target="_blank" class="w-8 h-8 rounded-xl bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-green-500">
+                                <img src="../static/images/whatsapp.png" alt="WhatsApp" class="w-4 h-4">
+                            </a>
+                            <a href="https://www.facebook.com/profile.php?id=61568738616754&mibextid=LQQJ4d" target="_blank" class="w-8 h-8 rounded-xl bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-blue-600">
+                                <img src="../static/images/facebook.png" alt="Facebook" class="w-4 h-4">
+                            </a>
+                            <a href="https://www.instagram.com/thinkgreen_afrika/profilecard/?igsh=MWRxZjBvb3Y1a3Mxcw==" target="_blank" class="w-8 h-8 rounded-xl bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-pink-500">
+                                <img src="../static/images/instagram.png" alt="Instagram" class="w-4 h-4">
+                            </a>
+                            <a href="https://www.linkedin.com/company/thinkgreen-afrika/" target="_blank" class="w-8 h-8 rounded-xl bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-blue-700">
+                                <img src="../static/images/linkedin.png" alt="LinkedIn" class="w-4 h-4">
+                            </a>
                         </div>
                     </div>
-                    <h3 class="text-lg font-semibold mb-3 mt-4">| Follow Us</h3>
-                    <div class="flex space-x-3">
-                        <a href="https://whatsapp.com/channel/0029VadbYG790x2rzJt1k718" target="_blank" class="w-8 h-8 rounded-full bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-green-500">
-                            <img src="/static/images/whatsapp.png" alt="WhatsApp" class="w-4 h-4">
-                        </a>
-                        <a href="https://www.facebook.com/profile.php?id=61568738616754&mibextid=LQQJ4d" target="_blank" class="w-8 h-8 rounded-full bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-blue-600">
-                            <img src="/static/images/facebook.png" alt="Facebook" class="w-4 h-4">
-                        </a>
-                        <a href="https://www.instagram.com/thinkgreen_afrika/profilecard/?igsh=MWRxZjBvb3Y1a3Mxcw==" target="_blank" class="w-8 h-8 rounded-full bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-pink-500">
-                            <img src="/static/images/instagram.png" alt="Instagram" class="w-4 h-4">
-                        </a>
-                        <a href="https://www.linkedin.com/company/thinkgreen-afrika/" target="_blank" class="w-8 h-8 rounded-full bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-blue-700">
-                            <img src="/static/images/linkedin.png" alt="LinkedIn" class="w-4 h-4">
-                        </a>
+
+                    <div class="flex flex-col">
+                        <h3 class="text-lg font-semibold mb-3 mt-4">| Contact Us</h3>
+                        <div class="flex gap-2 items-start">
+                            <img src="../static/images/Vector.png" alt="Email" class="w-6 h-4 mt-1">
+                            <div class="flex flex-col">
+                                <a href="mailto:careers@thinkgreenafrika.org" class="text-sm hover:underline">careers@thinkgreenafrika.org</a>
+                                <a href="mailto:thinkgreenafrika.org@gmail.com" class="text-sm hover:underline">thinkgreenafrika.org@gmail.com</a>
+                            </div>
+                        </div>
                     </div>
+                    
+                    <div class="flex flex-col">
+                        <h3 class="text-lg font-semibold mb-3 mt-4">| Find Us</h3>
+                        <div class="flex gap-2 items-start">
+                            <img src="../static/images/duo-icons_location.png" alt="Map" class="w-6 h-6 mt-1">
+                            <p class="text-sm">
+                                Kimironko, KG42 Ave<br>
+                                Kigali, Rwanda
+                            </p>
+                        </div>
+                    </div>
+                
                 </div>
     
-                <!-- Resources Section -->
-                <div class="lg:col-span-1 flex flex-col md:items-end">
-                    <h3 class="text-lg font-semibold mb-3 md:pr-12">| Resources</h3>
-                    <p class="text-sm leading-relaxed">Support Our Initiative</p>
+                <div class="flex flex-col items-center mt-8">
+                    <p class="text-gray-300">
+                        @ 2025 - Copyright
+                    </p>
                 </div>
             </div>
         </div>
-    
-        <!-- Decorative Image -->
-        <div class="absolute hidden md:block right-24 top-28 bottom-0 z-0">
-            <img src="/static/images/Footer-bg.png" alt="Footer background" class="w-1/2 h-auto opacity-50">
-        </div>
     </div>
     
-    <!-- Bottom Section -->
-    <div class="flex items-center justify-center mb-3 text-sm opacity-90 font-semibold gap-4 px-8">
-        <p class="hover:text-green-700">2024 copyright ThinkGreen Afrika</p>
-        <span class="hover:text-green-700">| All Rights Reserved</span>
-        <span class="hover:text-green-700">| Privacy</span>
-        <span class="hover:text-green-700">| Terms & Conditions</span>
-    </div>
 </footer>
+     
+    <!-- Showing Modal Container -->
+    <script>
+        const modal = document.getElementById("initiativesModal");
+        const closeBtn = document.getElementById("closeModal");
 
+        document.querySelector('a[href="{% url "podcast" %}"]').addEventListener("click", function (e) {
+            e.preventDefault();  // prevent actual navigation
+            modal.classList.remove("hidden");
+        });
 
-    
-    
-    
-        
-        
+        closeBtn.addEventListener("click", () => {
+            modal.classList.add("hidden");
+        });
 
+        // Optional: close modal when clicking outside
+        modal.addEventListener("click", (e) => {
+            if (e.target === modal) modal.classList.add("hidden");
+        });
+    </script>
+    <!-- Infinite Scroll for trusted sponsors -->
+    <style>
+    #group {
+        will-change: transform;
+        animation: scrolling 20s linear infinite;
+    }
+
+    #group-2 {
+        will-change: transform;
+        animation: scrolling 20s linear infinite;
+    }
+
+    @keyframes scrolling {
+        0% {
+          transform: translateX(-100%);
+        }
+        100% {
+          transform: translateX(-200%);
+        }
+    }
+    </style>
     <!-- JavaScript for Mobile Menu -->
     <script>
         document.addEventListener("scroll", function () {
@@ -1181,6 +857,6 @@ const observer = new IntersectionObserver(entries => {
 observer.observe(document.querySelector('#impact-numbers'));
     </script>
     <!-- AlpineJS for toggle functionality -->
-<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 </body>
 </html>

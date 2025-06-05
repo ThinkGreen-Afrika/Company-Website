@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Solutions - ThinkGreen Afrika</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/static/images/favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+        font-family:'Poppins', sans-serif;
+        }
+        /* Custom Tailwind adjustments */
+        .bg-primary {
+            background-color: #4CAF50;
+        }
+        .bg-footer{
+            background-color: #1E6C34;
+            ;
+        }
+        .button-color{
+            background-color: #1E6C34;
+            ;
+        }
+        .bg{
+            background-color:  #77D0A5;
+            ;
+        }
+        .text-color{
+            color: #1E6C34;
+        }
+        .border-light-gray {
+            border-color: #e0e0e0;
+        }
+        .border-color {
+            border-color: #1E6C34;
+        }
+        .main-bg {
+            background: linear-gradient(to bottom, transparent 0%, #71c97d 50%, transparent 100%);
+            position: fixed;
+            top: 75%; /* Adjusts vertical position towards the bottom */
+            left: 0;
+            right: 0;
+            transform: translateY(-50%);
+            width: 100%;
+            height: 70%; /* Reduces height to confine the gradient to the bottom center */
+            z-index: -1;
+        }
+        .countdown-number {
+            font-size: 2rem;
+        }
+        .text-36 {
+        font-size: 36px;
+        }
+        .text-19 {
+        font-size: 19px;
+        }
+        .frame {
+        background-color: #1E6C34;
+        }
+        
+        @keyframes slideOut {
+      0% {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+      100% {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    .animate-slideOut {
+      animation: slideOut 1s ease-out forwards;
+    }
+
+    /* General Button Styles */
+    .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        text-decoration: none;
+        font-weight: 600;
+        text-align: center;
+        border-radius: 15px;
+        border: 2px solid #1E6C34;
+        transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+    }
+    .nav-book{
+        display: inline-block;
+        padding: 6px 10px;
+        text-decoration: none;
+        font-weight: 600;
+        text-align: center;
+        border-radius: 9999px;
+        transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+    }
+    .nav-pod{
+        
+        border: 2px solid #4CAF50;
+        color: #1F2937;
+        box-shadow: 2px 6px 8px rgba(8, 8, 8, 0.3);
+    }
+    
+    /* Specific Styles for 'Become a Talent' Button */
+    .btn-talent {
+        background-color: white;
+        border: 2px solid #1E6C34;
+        color: #1F2937;
+    }
+
+    .btn-talent:hover {
+        background-color: #1E6C34;
+        color: white;
+    }
+
+    /* Specific Styles for 'Become an Employer Partner' Button */
+    .btn-partner {
+        
+        
+        color: white;
+        /* box-shadow: 2px 6px 8px rgba(8, 8, 8, 0.3); */
+    }
+
+    .btn-partner:hover {
+        background-color: white;
+        color:black;
+        border: 2px solid #1E6C34;
+        /* box-shadow: 4px 8px 12px rgba(8, 8, 8, 0.4); */
+    }
+
+    /* Ensure the container doesn't overlap or block the buttons */
+    .mt-8 {
+        position: relative;
+        z-index: 1;
+    }
+
+    </style>
+</head>
+<body class="bg-gradient-to-b from-white via-white to-green-300 ">
+    <!-- Hero Section -->
+    <header class=" bg-cover bg-center px-4" >
+        <!-- Navbar -->
+        <nav class="bg-white shadow-md fixed top-4 left-4 right-4 rounded-full z-50">
+                <div class="container mx-auto px-6 py-6 flex justify-between items-center">
+                 <a href="{% url 'home' %}"><img src="../static/images/thinkgreen-logo-green.png" alt="logo" class="max-w-64 h-10"> </a>
+                    <ul class="hidden md:flex space-x-6">
+                        <li>
+                            <a href="{% url 'home' %}" class=" text-black font-medium hover:text-primary border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'about_us' %}" class="text-black font-medium  hover:text-primary border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
+                                About Us
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'solutions' %}" class="text-color font-bold hover:text-primary border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
+                                Our Solutions
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'program' %}" class="  text-black font-medium hover:text-primary border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
+                                Our Programs
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'podcast' %}" class="text-black font-medium hover:text-primary border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
+                                Support Our Initiatives
+                            </a>
+                        </li>
+                    </ul>
+         
+                    <div class="hidden md:flex flex-row items-end space-x-4">
+                        <!-- <a href="{% url 'book' %}" class="btn-talent nav-book">Book 1:1</a> -->
+                        <a href="{% url 'select' %}" class="btn-partner nav-pod button-color btn">
+                            Join our Network
+                        </a>
+                           
+                    </div>
+                    <!-- Mobile Menu Toggle -->
+                    <button class="md:hidden text-gray-600 focus:outline-none" id="menu-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
+                </div>
+                
+        </nav>
+        <!-- Background Elements -->
+        <div class="absolute top-24 right-12 w-16 h-16 rounded-xl z-0"
+                style="background: linear-gradient(147.56deg, rgb(255,255,255) 30%, rgb(255, 255, 255) 30%, rgb(54, 206, 133) 30%); filter: blur(30px);">
+        </div>
+        <div class="absolute bottom-24 left-12 w-36 h-36 rounded-full z-0"
+                style="background: linear-gradient(147.56deg, rgb(255,255,255) 30%, rgb(255, 255, 255) 30%, rgb(54, 206, 133) 30%); filter: blur(30px);">
+        </div>
+        <!-- Mobile Sidebar Menu -->
+        <div id="mobile-menu" class="fixed inset-0 bg-gray-800 bg-opacity-75 hidden z-40">
+            <div class="flex flex-col items-center mt-32 space-y-4">
+                <a href="{% url 'home' %}" class="text-white text-lg">Home</a>
+                <a href="{% url 'about_us' %}" class="text-white text-lg">About Us</a>
+                <a href="{% url 'solutions' %}" class="text-white text-lg">Our Solutions</a>
+                <a href="{% url 'program' %}" class="text-white text-lg">Our Programs</a>
+                <a href="{% url 'podcast' %}" class="text-white text-lg">Support Our Initiatives</a>
+                <a href="{% url 'select' %}" class="button-color text-white py-2 px-4 rounded hover:bg-green-700 mt-4">Join our Network</a>
+                <!-- <a href="{% url 'book' %}" class="button-color text-white py-2 px-4 rounded hover:bg-green-700 mt-2">Book 1:1</a> -->
+            </div>
+        </div>
+
+        <!-- Centered Cancel Button -->
+        <div class="flex justify-center items-center mt-8">
+        <button id="close-menu" class="text-white border border-white rounded-xl p-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        </div>
+
+        <!-- Modal Backdrop and Wrapper -->
+        <div id="initiativesModal" class="fixed inset-0 items-center justify-center z-50 hidden">
+            <section class="bg-white flex flex-col items-center rounded-2xl w-min p-4 text-center shadow-lg mx-auto mt-32">
+                <button id="closeModal" class="ml-auto text-red-500 text-xl font-bold">x</button>
+                <ul>
+                    <li class="h-10 w-60 p-2 rounded-xl mb-2.5 text-black text-lg">
+                        <a href="{% url 'tvetproject' %}">TVET Project</a>
+                    </li>
+                    <li class="h-10 w-60 p-2 rounded-xl mb-2.5 text-black text-lg">1K@t</li>
+                    <li class="h-10 w-60 p-2 rounded-xl mb-2.5 text-black text-lg">eEP</li>
+                    <li class="h-10 w-60 p-2 rounded-xl text-black text-lg">Refugee</li>
+                </ul>
+            </section>
+        </div>
+    </header>
+    
+    <!-- WHy Us Section -->
+       <!-- About Us Section -->
+        <section id="about-us" class="flex flex-col justify-center items-center mx-auto mt-20 mb-12 w-4/5">
+            <h1 class="font-bold text-color md:text-3xl text-9 text-center w-full">
+                Our Solutions
+            </h1> 
+            <p class=" pt-6 font-semibold text-blackmd:text-xl text-9 text-center w-full"> 
+                We believe that the best way to grow as an entrepreneur is through shared experiences, authentic stories, and practical knowledge.
+            </p>
+            
+            <div class=" gap-8 pt-4">
+                <div class="flex items-center justify-start relative my-12 px-4 md:px-0">
+                    <!-- Circle Image -->
+                    <div class="z-0">
+                        <img src="../static/images/solutions1.jpeg" alt="Why Us 1" class=" h-80 rounded-full object-cover shadow-lg" />
+                    </div>
+                    <!-- Text Box Overlapping -->
+                    <div class="bg-white p-6 rounded-lg shadow-md border border-color -ml-12 md:-ml-12 w-full z-10">
+                        <h3 class="text-2xl font-bold text-color mb-2">
+                            Unique Value
+                        </h3>
+                        <p class="text-gray-600 text-base font-medium">
+                            In a rapidly changing world, our society faces unprecedented challenges. Simultaneously, young, creative minds often lack the tools and opportunities to make a significant impact or change. We emphasise an ideal position focusing on skills development and sustainable development frameworks. This focus could attract environmentally conscious job seekers and employers looking to contribute to sustainability efforts.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-start relative my-12 px-4 md:px-0">
+                    <!-- Text Box Overlapping -->
+                    <div class="bg-white p-6 rounded-lg shadow-md border border-color -mr-12 w-full z-10">
+                        <h3 class="text-2xl font-bold text-color mb-2">
+                            Mentorship and Guidance
+                        </h3>
+                        <p class="text-gray-600 text-base font-medium">
+                            We connect aspiring talents and entrepreneurs with experienced mentors who offer personalized guidance, helping them navigate the challenges of building and growing ideas and career pathways.
+                        </p>
+                    </div>
+                    <!-- Circle Image -->
+                    <div class="z-0">
+                        <img src="../static/images/solutions2.jpg" alt="Why Us 1" class=" w-96 h-80 rounded-full object-fill shadow-lg" />
+                    </div>
+                </div>
+                
+                <div class="flex items-center justify-start relative my-12 px-4 md:px-0">
+                    <!-- Circle Image -->
+                    <div class="z-0">
+                        <img src="../static/images/solutions3.jpg" alt="Why Us 1" class="w-96 h-80 rounded-full object-cover shadow-lg" />
+                    </div>
+                    <!-- Text Box Overlapping -->
+                    <div class="bg-white p-6 rounded-lg shadow-md border border-color -ml-12 md:-ml-12 w-full z-10">
+                        <h3 class="text-2xl font-bold text-color mb-2">
+                            Sustainability Integration
+                        </h3>
+                        <p class="text-gray-600 text-base font-medium">
+                            Our community emphasizes the importance of sustainability in every aspect of development. We integrate sustainable practices by design-thinking into our programs, nurturing young talent to contribute to economic democracy through an innovative approach and solutions.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-start relative my-12 px-4 md:px-0">
+                    <!-- Text Box Overlapping -->
+                    <div class="bg-white p-6 rounded-lg shadow-md border border-color -mr-12  w-full z-10">
+                        <h3 class="text-2xl font-bold text-color mb-2">
+                            Workforce Development Preparation
+                        </h3>
+                        <p class="text-gray-600 text-base font-medium">
+                            ThinkGreen Afrika prepares talents with In-demand skills for the workforce by equipping them with matched industry demands with soft and hard skills.
+                        </p>
+                    </div>
+                    <!-- Circle Image -->
+                    <div class="z-0">
+                        <img src="../static/images/solutions4.jpg" alt="Why Us 1" class="w-96 h-80 rounded-full object-cover shadow-lg" />
+                    </div>
+                </div>
+
+            </div>
+        </section>>
+  
+
+
+        
+ 
+<footer class="flex flex-col items-center justify-center">
+    <div class="relative bg-footer pt-6 px-8 mb-3 rounded-xl mx-3 w-4/5 text-white">
+        <!-- Container -->
+        <div class=" mx-auto pb-9 relative z-10">
+            <!-- Adjusted Grid -->
+                <div class="flex flex-col">
+                <!-- Logo Section -->
+                 <div class="flex flex-row justify-between items-center border-b-2 py-10 mx-10">
+                    <img src="../static/images/thinkgreen-logo-white.png" alt="ThinkGreen Afrika white" class="w-40 h-auto mb-4">
+                    <p class="text-sm text-gray-300">
+                        Talent Development and Job Placement
+                    </p>
+                    <a href="" class="btn btn-talent hover:button-color hover:border-white">
+                        Join Our Initiative
+                    </a>
+
+                 </div>
+                <!-- Contact Section -->
+                <div class="flex flex-row gap-8 lg:col-span-1 md:ml-8">
+                    <div class="flex flex-col">
+                        <h3 class="text-lg font-semibold mb-3 mt-4">| Follow Us</h3>
+                        <div class="flex space-x-3">
+                            <a href="https://whatsapp.com/channel/0029VadbYG790x2rzJt1k718" target="_blank" class="w-8 h-8 rounded-xl bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-green-500">
+                                <img src="../static/images/whatsapp.png" alt="WhatsApp" class="w-4 h-4">
+                            </a>
+                            <a href="https://www.facebook.com/profile.php?id=61568738616754&mibextid=LQQJ4d" target="_blank" class="w-8 h-8 rounded-xl bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-blue-600">
+                                <img src="../static/images/facebook.png" alt="Facebook" class="w-4 h-4">
+                            </a>
+                            <a href="https://www.instagram.com/thinkgreen_afrika/profilecard/?igsh=MWRxZjBvb3Y1a3Mxcw==" target="_blank" class="w-8 h-8 rounded-xl bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-pink-500">
+                                <img src="../static/images/instagram.png" alt="Instagram" class="w-4 h-4">
+                            </a>
+                            <a href="https://www.linkedin.com/company/thinkgreen-afrika/" target="_blank" class="w-8 h-8 rounded-xl bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-blue-700">
+                                <img src="../static/images/linkedin.png" alt="LinkedIn" class="w-4 h-4">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col">
+                        <h3 class="text-lg font-semibold mb-3 mt-4">| Contact Us</h3>
+                        <div class="flex gap-2 items-start">
+                            <img src="../static/images/Vector.png" alt="Email" class="w-6 h-4 mt-1">
+                            <div class="flex flex-col">
+                                <a href="mailto:careers@thinkgreenafrika.org" class="text-sm hover:underline">careers@thinkgreenafrika.org</a>
+                                <a href="mailto:thinkgreenafrika.org@gmail.com" class="text-sm hover:underline">thinkgreenafrika.org@gmail.com</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col">
+                        <h3 class="text-lg font-semibold mb-3 mt-4">| Find Us</h3>
+                        <div class="flex gap-2 items-start">
+                            <img src="../static/images/duo-icons_location.png" alt="Map" class="w-6 h-6 mt-1">
+                            <p class="text-sm">
+                                Kimironko, KG42 Ave<br>
+                                Kigali, Rwanda
+                            </p>
+                        </div>
+                    </div>
+                
+                </div>
+    
+                <div class="flex flex-col items-center mt-8">
+                    <p class="text-gray-300">
+                        @ 2025 - Copyright
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</footer>
+
+     
+<!-- Showing Modal Container -->
+    <script>
+        const modal = document.getElementById("initiativesModal");
+        const closeBtn = document.getElementById("closeModal");
+
+        document.querySelector('a[href="{% url "podcast" %}"]').addEventListener("click", function (e) {
+            e.preventDefault();  // prevent actual navigation
+            modal.classList.remove("hidden");
+        });
+
+        closeBtn.addEventListener("click", () => {
+            modal.classList.add("hidden");
+        });
+
+        // Optional: close modal when clicking outside
+        modal.addEventListener("click", (e) => {
+            if (e.target === modal) modal.classList.add("hidden");
+        });
+    </script>
+
+    <!-- Infinite Scroll for trusted sponsors -->
+    <style>
+    #group {
+        will-change: transform;
+        animation: scrolling 20s linear infinite;
+    }
+
+    @keyframes scrolling {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+    }
+    </style>
+    <!-- JavaScript for Mobile Menu -->
+    <script>
+        document.addEventListener("scroll", function () {
+      const section = document.getElementById("animated-section");
+      const sectionTop = section.getBoundingClientRect().top;
+      const windowHeight = window.innerHeight;
+
+      if (sectionTop < windowHeight) {
+        section.classList.add("opacity-100", "animate-slideOut");
+      }
+    });
+
+        document.getElementById("menu-toggle").addEventListener("click", function() {
+            document.getElementById("mobile-menu").classList.remove("hidden");
+        });
+
+        document.getElementById("close-menu").addEventListener("click", function() {
+            document.getElementById("mobile-menu").classList.add("hidden");
+        });
+
+        // Set the date we're counting down to
+        const eventDate = new Date("November 10, 2024 00:00:00").getTime();
+
+        // Update the countdown every second
+        const countdownFunction = setInterval(() => {
+            // Get today's date and time
+            const now = new Date().getTime();
+
+            // Find the distance between now and the event date
+            const distance = eventDate - now;
+
+            // Calculate days, hours, minutes, and seconds
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Display the result
+            document.getElementById("days").innerText = days;
+            document.getElementById("hours").innerText = hours;
+            document.getElementById("minutes").innerText = minutes;
+            document.getElementById("seconds").innerText = seconds;
+
+            // If the countdown is finished, stop the countdown
+            if (distance < 0) {
+                clearInterval(countdownFunction);
+                document.getElementById("countdown").innerHTML = "The event has started!";
+            }
+        }, 1000);
+            // Function to toggle the email modal
+        function toggleModal() {
+        const modal = document.getElementById('emailModal');
+        modal.classList.toggle('hidden');
+    }
+    //for testimonials
+    let currentSlide = 0;
+    const totalSlides = 2; // Since we display 3 out of 6 cards, we have 2 "slides"
+
+    function updateCarousel() {
+        const carousel = document.getElementById("carousel");
+        const offset = -currentSlide * 100; // Adjust for each slide width
+        carousel.style.transform = `translateX(${offset}%)`;
+    }
+
+    function nextSlide() {
+        if (currentSlide < totalSlides - 1) {
+            currentSlide++;
+            updateCarousel();
+        }
+    }
+
+    function previousSlide() {
+        if (currentSlide > 0) {
+            currentSlide--;
+            updateCarousel();
+        }
+    }
+
+
+        // Function to animate counters
+function animateCounter(id, target) {
+    const element = document.getElementById(id);
+    let count = 0;
+    const increment = target / 100;
+
+    const updateCounter = () => {
+        count += increment;
+        if (count >= target) {
+            element.textContent = target + "+";
+        } else {
+            element.textContent = Math.floor(count);
+            requestAnimationFrame(updateCounter);
+        }
+    };
+
+    updateCounter();
+}
+
+// Intersection Observer to trigger the animation when in view
+const counters = [
+    { id: 'talents-counter', target: 100 },
+    { id: 'countries-counter', target: 5 },
+    { id: 'cities-counter', target: 5 },
+    { id: 'mentors-counter', target: 15 }
+];
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            counters.forEach(counter => animateCounter(counter.id, counter.target));
+            observer.disconnect(); // Stop observing after first animation
+        }
+    });
+}, { threshold: 0.5 });
+
+// Observe the impact numbers section
+observer.observe(document.querySelector('#impact-numbers'));
+    </script>
+    <!-- AlpineJS for toggle functionality -->
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+</body>
+</html>

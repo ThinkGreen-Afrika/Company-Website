@@ -15,9 +15,16 @@ urlpatterns = [
     path('podcast/', views.podcast_view, name='podcast'),
     path('book/', views.book_view, name='book'),
     path('home/', views.home_view, name='home'),
+    path('about_us/', views.about_view, name='about_us'),
+    path('program/', views.program_view, name='program'),
+    path('solutions/', views.solutions_view, name='solutions'),
+    path('tvetproject/', views.tvetproject_view, name='tvetproject'),
     path('talent/', views.talent_view, name='talent'),
     path('employer/', views.employer_view, name='employer'),
     path('employer-dashboard/', views.employer_dashboard, name='employer_dashboard'),
+
+
+
 
     # Employer URLs
     path('signup/employer/', views.signup_employer, name='signup_employer'),
@@ -40,7 +47,8 @@ urlpatterns = [
     
     # # Signin route
     # path('signin', views.signin, name='signin'),
-]
+
+]  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 if settings.DEBUG:  # Only serve media in development
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
