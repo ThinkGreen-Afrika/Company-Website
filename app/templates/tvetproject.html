@@ -1,202 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TVET Project - ThinkGreen Afrika</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="/static/images/favicon.ico">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="/static/images/favicon.ico" />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
     <style>
         body {
-        font-family:'Poppins', sans-serif;
+            font-family: "Poppins", sans-serif;
         }
+
         /* Custom Tailwind adjustments */
         .bg-primary {
-            background-color: #4CAF50;
+            background-color: #4caf50;
         }
-        .bg-footer{
-            background-color: #1E6C34;
-            ;
+
+        .bg-footer {
+            background-color: #1e6c34;
         }
-        .button-color{
-            background-color: #1E6C34;
-            ;
+
+        .button-color {
+            background-color: #1e6c34;
         }
-        .bg{
-            background-color:  #77D0A5;
-            ;
+
+        .bg {
+            background-color: #77d0a5;
         }
-        .text-color{
-            color: #1E6C34;
+
+        .text-color {
+            color: #1e6c34;
         }
+
         .border-light-gray {
             border-color: #e0e0e0;
         }
+
         .border-color {
-            border-color: #1E6C34;
+            border-color: #1e6c34;
         }
+
         .main-bg {
-            background: linear-gradient(to bottom, transparent 0%, #71c97d 50%, transparent 100%);
+            background: linear-gradient(to bottom,
+                    transparent 0%,
+                    #71c97d 50%,
+                    transparent 100%);
             position: fixed;
-            top: 75%; /* Adjusts vertical position towards the bottom */
+            top: 75%;
+            /* Adjusts vertical position towards the bottom */
             left: 0;
             right: 0;
             transform: translateY(-50%);
             width: 100%;
-            height: 70%; /* Reduces height to confine the gradient to the bottom center */
+            height: 70%;
+            /* Reduces height to confine the gradient to the bottom center */
             z-index: -1;
         }
+
         .countdown-number {
             font-size: 2rem;
         }
+
         .text-36 {
-        font-size: 36px;
+            font-size: 36px;
         }
+
         .text-19 {
-        font-size: 19px;
+            font-size: 19px;
         }
+
         .frame {
-        background-color: #1E6C34;
+            background-color: #1e6c34;
         }
-        
+
         @keyframes slideOut {
-      0% {
-        transform: translateX(-100%);
-        opacity: 0;
-      }
-      100% {
-        transform: translateX(0);
-        opacity: 1;
-      }
-    }
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
 
-    .animate-slideOut {
-      animation: slideOut 1s ease-out forwards;
-    }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
 
-    /* General Button Styles */
-    .btn {
-        display: inline-block;
-        padding: 10px 20px;
-        text-decoration: none;
-        font-weight: 600;
-        text-align: center;
-        border-radius: 15px;
-        border: 2px solid #1E6C34;
-        transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
-    }
-    .nav-book{
-        display: inline-block;
-        padding: 6px 10px;
-        text-decoration: none;
-        font-weight: 600;
-        text-align: center;
-        border-radius: 9999px;
-        transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
-    }
-    .nav-pod{
-        
-        border: 2px solid #4CAF50;
-        color: #1F2937;
-        box-shadow: 2px 6px 8px rgba(8, 8, 8, 0.3);
-    }
-    
-    /* Specific Styles for 'Become a Talent' Button */
-    .btn-talent {
-        background-color: white;
-        border: 2px solid #1E6C34;
-        color: #1F2937;
-    }
+        .animate-slideOut {
+            animation: slideOut 1s ease-out forwards;
+        }
 
-    .btn-talent:hover {
-        background-color: #1E6C34;
-        color: white;
-    }
+        /* General Button Styles */
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: 600;
+            text-align: center;
+            border-radius: 15px;
+            border: 2px solid #1e6c34;
+            transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+        }
 
-    /* Specific Styles for 'Become an Employer Partner' Button */
-    .btn-partner {
-        
-        
-        color: white;
-        /* box-shadow: 2px 6px 8px rgba(8, 8, 8, 0.3); */
-    }
+        .nav-book {
+            display: inline-block;
+            padding: 6px 10px;
+            text-decoration: none;
+            font-weight: 600;
+            text-align: center;
+            border-radius: 9999px;
+            transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+        }
 
-    .btn-partner:hover {
-        background-color: white;
-        color:black;
-        border: 2px solid #1E6C34;
-        /* box-shadow: 4px 8px 12px rgba(8, 8, 8, 0.4); */
-    }
+        .nav-pod {
+            border: 2px solid #4caf50;
+            color: #1f2937;
+            box-shadow: 2px 6px 8px rgba(8, 8, 8, 0.3);
+        }
 
-    /* Ensure the container doesn't overlap or block the buttons */
-    .mt-8 {
-        position: relative;
-        z-index: 1;
-    }
+        /* Specific Styles for 'Become a Talent' Button */
+        .btn-talent {
+            background-color: white;
+            border: 2px solid #1e6c34;
+            color: #1f2937;
+        }
 
+        .btn-talent:hover {
+            background-color: #1e6c34;
+            color: white;
+        }
+
+        /* Specific Styles for 'Become an Employer Partner' Button */
+        .btn-partner {
+            color: white;
+            /* box-shadow: 2px 6px 8px rgba(8, 8, 8, 0.3); */
+        }
+
+        .btn-partner:hover {
+            background-color: white;
+            color: black;
+            border: 2px solid #1e6c34;
+            /* box-shadow: 4px 8px 12px rgba(8, 8, 8, 0.4); */
+        }
+
+        /* Ensure the container doesn't overlap or block the buttons */
+        .mt-8 {
+            position: relative;
+            z-index: 1;
+        }
     </style>
 </head>
-<body class="bg-gradient-to-b from-white via-white to-green-300 ">
+
+<body class="bg-gradient-to-b from-white via-white to-green-300">
     <!-- Hero Section -->
-    <header class=" bg-cover bg-center px-4" >
+    <header class="bg-cover bg-center px-4">
         <!-- Navbar -->
         <nav class="bg-white shadow-md fixed top-4 left-4 right-4 rounded-full z-50">
-                <div class="container mx-auto px-6 py-6 flex justify-between items-center">
-                 <a href="{% url 'home' %}"><img src="../static/images/thinkgreen-logo-green.png" alt="logo" class="max-w-64 h-10"> </a>
-                    <ul class="hidden md:flex space-x-6">
-                        <li>
-                            <a href="{% url 'home' %}" class=" text-black font-medium hover:text-primary border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
-                                Home
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{% url 'about_us' %}" class="text-black font-medium  hover:text-primary border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
-                                About Us
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{% url 'solutions' %}" class=" text-black font-medium hover:text-primary border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
-                                Our Solutions
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{% url 'program' %}" class=" text-black font-medium hover:text-primary border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
-                                Our Programs
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{% url 'podcast' %}" class="text-color font-bold hover:text-primary border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
-                                Support Our Initiatives
-                            </a>
-                        </li>
-                    </ul>
-         
-                    <div class="hidden md:flex flex-row items-end space-x-4">
-                        <!-- <a href="{% url 'book' %}" class="btn-talent nav-book">Book 1:1</a> -->
-                        <a href="{% url 'select' %}" class="btn-partner nav-pod button-color btn">
-                            Join our Network
+            <div class="container mx-auto px-6 py-6 flex justify-between items-center">
+                <a href="{% url 'home' %}"><img src="../static/images/thinkgreen-logo-green.png" alt="logo"
+                        class="max-w-64 h-10" />
+                </a>
+                <ul class="hidden md:flex space-x-6">
+                    <li>
+                        <a href="{% url 'home' %}"
+                            class="text-black font-medium hover:text-primary border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
+                            Home
                         </a>
-                           
-                    </div>
-                    <!-- Mobile Menu Toggle -->
-                    <button class="md:hidden text-gray-600 focus:outline-none" id="menu-toggle">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-                        </svg>
-                    </button>
+                    </li>
+                    <li>
+                        <a href="{% url 'about_us' %}"
+                            class="text-black font-medium hover:text-primary border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
+                            About Us
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'solutions' %}"
+                            class="text-black font-medium hover:text-primary border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
+                            Our Solutions
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'program' %}"
+                            class="text-black font-medium hover:text-primary border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
+                            Our Programs
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'podcast' %}"
+                            class="text-color font-bold hover:text-primary border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
+                            Support Our Initiatives
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="hidden md:flex flex-row items-end space-x-4">
+                    <!-- <a href="{% url 'book' %}" class="btn-talent nav-book">Book 1:1</a> -->
+                    <a href="{% url 'select' %}" class="btn-partner nav-pod button-color btn">
+                        Join our Network
+                    </a>
                 </div>
-                
+                <!-- Mobile Menu Toggle -->
+                <button class="md:hidden text-gray-600 focus:outline-none" id="menu-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                </button>
+            </div>
         </nav>
         <!-- Background Elements -->
-        <div class="absolute top-24 right-12 w-16 h-16 rounded-xl z-0"
-                style="background: linear-gradient(147.56deg, rgb(255,255,255) 30%, rgb(255, 255, 255) 30%, rgb(54, 206, 133) 30%); filter: blur(30px);">
-        </div>
-        <div class="absolute bottom-24 left-12 w-36 h-36 rounded-full z-0"
-                style="background: linear-gradient(147.56deg, rgb(255,255,255) 30%, rgb(255, 255, 255) 30%, rgb(54, 206, 133) 30%); filter: blur(30px);">
-        </div>
+        <div class="absolute top-24 right-12 w-16 h-16 rounded-xl z-0" style="
+          background: linear-gradient(
+            147.56deg,
+            rgb(255, 255, 255) 30%,
+            rgb(255, 255, 255) 30%,
+            rgb(54, 206, 133) 30%
+          );
+          filter: blur(30px);
+        "></div>
+        <div class="absolute bottom-24 left-12 w-36 h-36 rounded-full z-0" style="
+          background: linear-gradient(
+            147.56deg,
+            rgb(255, 255, 255) 30%,
+            rgb(255, 255, 255) 30%,
+            rgb(54, 206, 133) 30%
+          );
+          filter: blur(30px);
+        "></div>
         <!-- Mobile Sidebar Menu -->
         <div id="mobile-menu" class="fixed inset-0 bg-gray-800 bg-opacity-75 hidden z-40">
             <div class="flex flex-col items-center mt-32 space-y-4">
@@ -205,206 +241,448 @@
                 <a href="{% url 'solutions' %}" class="text-white text-lg">Our Solutions</a>
                 <a href="{% url 'program' %}" class="text-white text-lg">Our Programs</a>
                 <a href="{% url 'podcast' %}" class="text-white text-lg">Support Our Initiatives</a>
-                <a href="{% url 'select' %}" class="button-color text-white py-2 px-4 rounded hover:bg-green-700 mt-4">Join our Network</a>
+                <a href="{% url 'select' %}"
+                    class="button-color text-white py-2 px-4 rounded hover:bg-green-700 mt-4">Join our Network</a>
                 <!-- <a href="{% url 'book' %}" class="button-color text-white py-2 px-4 rounded hover:bg-green-700 mt-2">Book 1:1</a> -->
             </div>
         </div>
 
         <!-- Centered Cancel Button -->
         <div class="flex justify-center items-center mt-8">
-        <button id="close-menu" class="text-white border border-white rounded-xl p-2">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-        </button>
+            <button id="close-menu" class="text-white border border-white rounded-xl p-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
         </div>
 
         <!-- Modal Backdrop and Wrapper -->
         <div id="initiativesModal" class="fixed inset-0 items-center justify-center z-50 hidden">
-            <section class="bg-white flex flex-col items-center rounded-2xl w-min p-4 text-center shadow-lg mx-auto mt-32">
-                <button id="closeModal" class="ml-auto text-red-500 text-xl font-bold">x</button>
+            <section
+                class="bg-white flex flex-col items-center rounded-2xl w-min p-4 text-center shadow-lg mx-auto mt-32">
+                <button id="closeModal" class="ml-auto text-red-500 text-xl font-bold">
+                    x
+                </button>
                 <ul>
                     <li class="h-10 w-60 p-2 rounded-xl mb-2.5 text-black text-lg">
                         <a href="{% url 'tvetproject' %}">TVET Project</a>
                     </li>
-                    <li class="h-10 w-60 p-2 rounded-xl mb-2.5 text-black text-lg">1K@t</li>
-                    <li class="h-10 w-60 p-2 rounded-xl mb-2.5 text-black text-lg">eEP</li>
+                    <li class="h-10 w-60 p-2 rounded-xl mb-2.5 text-black text-lg">
+                        <a href="{% url 'onekidatatime' %}">1K@t</a>
+                    </li>
+                    <li class="h-10 w-60 p-2 rounded-xl mb-2.5 text-black text-lg">
+                        eEP
+                    </li>
                     <li class="h-10 w-60 p-2 rounded-xl text-black text-lg">Refugee</li>
                 </ul>
             </section>
         </div>
     </header>
-    
+
     <!-- WHy Us Section -->
-       <!-- About Us Section -->
-        <section id="about-us" class="flex flex-col justify-center items-center mx-auto mt-20 mb-12 w-4/5" >
-            <h1 class="font-bold text-color md:text-3xl text-9 text-center w-full">
-                TVET Project
-            </h1> 
-            <p class=" pt-6 font-semibold text-blackmd:text-xl text-9 text-center w-full"> 
-                The TVET Projects is redefining the vocational education framework, which aims to upgrade facilities and curricula of TVET curriculum and its institutions to align with industry standards and in-demand skills, knowledge and sustainability incorporation.
-            </p>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-screen-xl mx-auto mt-6 ">
+    <!-- About Us Section -->
+    <section id="about-us" class="flex flex-col justify-center items-center mx-auto mt-20 mb-12 w-4/5">
+        <h1 class="font-bold text-color md:text-3xl text-9 text-center w-full">
+            TVET Project
+        </h1>
+        <p class="pt-6 font-semibold text-blackmd:text-xl text-9 text-center w-full">
+            The TVET Projects is redefining the vocational education framework,
+            which aims to upgrade facilities and curricula of TVET curriculum and
+            its institutions to align with industry standards and in-demand skills,
+            knowledge and sustainability incorporation.
+        </p>
 
-                <div class="flex flex-row gap-8 max-w-screen z-10 rounded-3xl" style="background-image: url('../static/images/tvetproject1.jpg'); background-position: center; background-repeat: no-repeat; background-size: cover;">
-                    <div class=" bg-black bg-opacity-50 rounded-3xl shadow-md border border-color w-full p-6 " style="backdrop-filter: blur(10px);"  >
-                        <h3 class="text-3xl text-center font-semibold text-white mb-2">
-                            Background
-                        </h3>
-                        <p class="text-white text-center text-base">
-                            Indigenous knowledge systems have long been integral to managing natural resources and promoting environmental sustainability. Across Africa, diverse communities have developed sophisticated practices that reflect a deep understanding of their local ecosystems. However, these traditional systems are frequently marginalised in modern educational frameworks, which often prioritise Western scientific approaches.
-                            <br>Indigenous knowledge refers to the multifaceted bodies of knowledge, practices, and representations maintained by peoples with long histories of close interaction with their local environments. This knowledge encompasses social life, histories, identities, economic practices, and political systems unique to each cultural group. Contrary to the perception of indigenous knowledge as merely historical or archaic, it represents a dynamic and evolving set of practices integral to many African communities' sustainability.
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-screen-xl mx-auto mt-6">
 
-                        </p>
-                    </div>
+            <style>
+                .hover-reveal-container {
+                    width: 100%;
+                    height: auto;
+                    position: relative;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    overflow: hidden;
+                    transition: all 0.5s ease;
+                    cursor: pointer;
+                }
+
+                .hover-content-wrapper {
+                    max-height: 8rem;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    overflow: hidden;
+                    transition: max-height 0.5s ease, padding-bottom 0.5s ease, justify-content 0.5s ease, align-items 0.5s ease;
+                    width: 70%;
+                    margin-top: 40px;
+                    margin-bottom: 40px;
+                }
+
+                .hover-reveal-container.active .hover-content-wrapper {
+                    max-height: 1000px;
+                    width: 100%;
+                    justify-content: center;
+                    align-items: center;
+                    transition: bottom 0.5s ease;
+                    margin: 0px;
+                }
+
+                .hover-reveal-title {
+                    position: relative;
+                    bottom: -20px;
+                    transition: bottom 0.5s ease;
+                }
+
+                .hover-reveal-container.active .hover-reveal-title {
+                    bottom: 0;
+                }
+
+                .hover-reveal-text {
+                    font-size: 0px;
+                    transition: font-size 0.5s ease;
+                    width: 100%;
+                }
+
+                .hover-reveal-container.active .hover-reveal-text {
+                    font-size: 1rem;
+                    transition: bottom 0.5s ease;
+                }
+            </style>
+
+            <div class="hover-reveal-container flex flex-row gap-8 border border-color max-w-screen z-10 rounded-3xl"
+                onclick="this.classList.toggle('active')"
+                style="background-image: url('../static/images/tvetproject1.jpg'); background-position: center; background-repeat: no-repeat; background-size: cover;">
+
+                <div class="bg-black bg-opacity-50 rounded-3xl shadow-md w-full p-6 hover-content-wrapper"
+                    style="backdrop-filter: blur(10px);">
+                    <h3
+                        class="hover-reveal-title text-3xl text-center font-semibold text-white transition-all duration-500 w-full">
+                        Background
+                    </h3>
+
+                    <p class="hover-reveal-text text-white text-center text-base transition-opacity mt-2 duration-500">
+                        Indigenous knowledge systems have long been integral to managing natural
+                        resources and promoting environmental sustainability. Across Africa,
+                        diverse communities have developed sophisticated practices that reflect a
+                        deep understanding of their local ecosystems. However, these traditional
+                        systems are frequently marginalised in modern educational frameworks,
+                        which often prioritise Western scientific approaches.
+                        <br />
+                        Indigenous knowledge refers to the multifaceted bodies of knowledge,
+                        practices, and representations maintained by peoples with long histories
+                        of close interaction with their local environments. This knowledge
+                        encompasses social life, histories, identities, economic practices, and
+                        political systems unique to each cultural group. Contrary to the
+                        perception of indigenous knowledge as merely historical or archaic, it
+                        represents a dynamic and evolving set of practices integral to many
+                        African communities' sustainability.
+                    </p>
                 </div>
-
-                <div class="flex flex-row gap-8 max-w-screen z-10 rounded-3xl" style="background-image: url('../static/images/tvetproject2.jpg'); background-position: center; background-repeat: no-repeat; background-size: cover;">
-                    <div class=" bg-black bg-opacity-50 rounded-3xl shadow-md border border-color w-full p-6 " style="backdrop-filter: blur(10px);"  >
-                        <h3 class="text-3xl text-center font-semibold text-white mb-2">
-                            Focus Point
-                        </h3>
-                        <p class="text-white text-center text-base">
-                            The integration of indigenous knowledge into environmental education remains limited, despite its potential to enhance sustainability education and cultural relevance. In many educational systems, environmental topics are treated as supplementary rather than core components, which reduces their impact on students. This fragmentation often leads to superficial coverage and inadequate understanding of critical environmental issues.
-                            <br>Indigenous knowledge systems play a crucial role in sustainable resource management and biodiversity conservation. For example, the Maasai, Turkana, and Mijikenda communities employ practices like rotational grazing and sacred forest conservation, which contribute to ecosystem management. These practices often align with holistic approaches that integrate spiritual, cultural, and practical elements, offering sustainable solutions for managing natural resources.
-
-                        </p>
-                    </div>
-                </div>
-                
-                
-                <div class="flex flex-row gap-8 max-w-screen z-10 rounded-3xl" style="background-image: url('../static/images/tvetproject3.jpg'); background-position: center; background-repeat: no-repeat; background-size: cover;">
-                    <div class=" bg-black bg-opacity-50 rounded-3xl shadow-md border border-color w-full p-6 " style="backdrop-filter: blur(10px);"  >
-                        <h3 class="text-3xl text-center font-semibold text-white mb-2">
-                            Challenges in Integration Into Formal Education
-                        </h3>
-                        <p class="text-white text-center text-base">
-                            Despite the benefits of indigenous knowledge, its integration into formal education systems is fraught with challenges. In many cases, national curricula and teaching methods do not adequately incorporate or recognise indigenous histories, cultures, and knowledge. Educators face difficulties due to inadequate training, lack of resources, and the fragmented inclusion of environmental topics in various subjects rather than as standalone courses. Surveys and interviews reveal that environmental education, when integrated into various subjects, often lacks depth and fails to engage students effectively. Teachers struggle with limited training and resources, resulting in a theoretical approach to environmental education that does not foster practical understanding. The absence of a dedicated subject for environmental education further diminishes its impact, as it is not prioritised in national examinations.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="flex flex-row gap-8 max-w-screen z-10 rounded-3xl" style="background-image: url('../static/images/tvetproject4.jpg'); background-position: center; background-repeat: no-repeat; background-size: cover;">
-                    <div class=" bg-black bg-opacity-50 rounded-3xl shadow-md px-auto border border-color w-full p-6 " style="backdrop-filter: blur(10px);"  >
-                        <h3 class="text-3xl text-center font-semibold text-white mb-2">
-                            Rationale
-                        </h3>
-                        <p class="text-white text-center text-base">
-                            Integrating indigenous knowledge into environmental education can offer holistic and culturally relevant solutions to sustainability challenges. By bridging traditional knowledge with formal curricula, educational systems can promote a more comprehensive understanding of environmental stewardship. This integration also supports the preservation of cultural heritage and fosters respect for diverse knowledge systems.
-                        </p>
-                    </div>
-                </div>
-
             </div>
 
-            <div class="flex flex-row gap-8 max-w-screen mt-6  z-10 rounded-3xl" style="background-image: url('../static/images/tvetproject4.jpg'); background-position: center; background-repeat: no-repeat; background-size: cover;">
-                    <div class=" bg-black bg-opacity-50 rounded-3xl shadow-md px-auto border border-color w-full p-6 " style="backdrop-filter: blur(10px);"  >
-                        <h3 class="text-3xl text-center font-semibold text-white mb-2">
-                            Gaps and Frameworks
-                        </h3>
-                        <p class="text-white text-center text-base">
-                            Current educational systems often overlook the value of indigenous knowledge in favour of Western-centric perspectives. There is a pressing need to develop curricula that reflect the cultural and ecological knowledge of Indigenous communities, integrate it into formal education, and address the challenges of teacher training, resource allocation, and curriculum development. In the current TVET Forestry course, indigenous species like Prunus africana are studied primarily for their biological aspects, neglecting their ecological, cultural, and practical significance. Prunus africana, found in Rwanda’s Nyungwe and Gishwati national parks, plays a crucial role in local ecosystems and communities. Its ecological importance, practical uses, and conservation challenges should be integrated into the curriculum to provide a holistic understanding of the species. Pollarding is briefly mentioned in the TVET Forestry module but lacks an in-depth exploration of its environmental and cultural significance. Pollarding, a traditional practice involving the pruning of trees to encourage new growth, plays a vital role in agroforestry and sustainable land management. Including a comprehensive discussion of pollarding’s multifaceted benefits and its application in rural Rwanda would enhance students' understanding of indigenous practices.
-                            <br>The curriculum acknowledges traditional erosion control techniques such as stone bunds but focuses primarily on their technical aspects. 
-                            <br>Exploring the cultural and historical contexts of these techniques, including the communal efforts involved in maintaining stone bunds, would enrich students' appreciation of sustainable land management practices. Umuganda, a community service practice in Rwanda, involves collective environmental efforts such as reforestation and erosion control. Integrating Umuganda into the Forestry module would help students connect environmental practices with cultural heritage and community responsibility.
-                        </p>
-                    </div>
-                </div>
-        </section>
-  
-        <section class="flex flex-row border border-black rounded-xl items-center justify-between mx-auto mt-12 mb-12 w-4/5 bg-white"> 
-            <h3 class="text-3xl text-left font-semibold text-color w-2/5 pl-7">
-                Access Our TVET Curriculum Framework & Approach Here
-            </h3>
-            <img src="../static/images/framework.jpg" class="border border-black rounded-xl w-96 h-72 my-7 mr-7">
-        </section>
+            <div class="hover-reveal-container flex flex-row gap-8 border border-color max-w-screen z-10 rounded-3xl"
+                onclick="this.classList.toggle('active')"
+                style="background-image: url('../static/images/tvetproject2.jpg'); background-position: center; background-repeat: no-repeat; background-size: cover;">
 
+                <div class="bg-black bg-opacity-50 rounded-3xl shadow-md w-full p-6 hover-content-wrapper"
+                    style="backdrop-filter: blur(10px);">
+                    <h3
+                        class="hover-reveal-title text-3xl text-center font-semibold text-white transition-all duration-500 w-full">
+                        Focus Point
+                    </h3>
 
-        
-        
- 
-<footer class="flex flex-col items-center justify-center">
-    <div class="relative bg-footer pt-6 px-8 mb-3 rounded-xl mx-3 w-4/5 text-white">
-        <!-- Container -->
-        <div class=" mx-auto pb-9 relative z-10">
-            <!-- Adjusted Grid -->
-                <div class="flex flex-col">
-                <!-- Logo Section -->
-                 <div class="flex flex-row justify-between items-center border-b-2 py-10 mx-10">
-                    <img src="../static/images/thinkgreen-logo-white.png" alt="ThinkGreen Afrika white" class="w-40 h-auto mb-4">
-                    <p class="text-sm text-gray-300">
-                        Talent Development and Job Placement
+                    <p class="hover-reveal-text text-white text-center text-base transition-opacity duration-500">
+                        The integration of indigenous knowledge into environmental
+                        education remains limited, despite its potential to enhance
+                        sustainability education and cultural relevance. In many
+                        educational systems, environmental topics are treated as
+                        supplementary rather than core components, which reduces their
+                        impact on students. This fragmentation often leads to superficial
+                        coverage and inadequate understanding of critical environmental
+                        issues.
+                        <br />Indigenous knowledge systems play a crucial role in
+                        sustainable resource management and biodiversity conservation. For
+                        example, the Maasai, Turkana, and Mijikenda communities employ
+                        practices like rotational grazing and sacred forest conservation,
+                        which contribute to ecosystem management. These practices often
+                        align with holistic approaches that integrate spiritual, cultural,
+                        and practical elements, offering sustainable solutions for
+                        managing natural resources.
                     </p>
-                    <a href="" class="btn btn-talent hover:button-color hover:border-white">
-                        Join Our Initiative
-                    </a>
+                </div>
+            </div>
 
-                 </div>
-                <!-- Contact Section -->
-                <div class="flex flex-row gap-8 lg:col-span-1 md:ml-8">
-                    <div class="flex flex-col">
-                        <h3 class="text-lg font-semibold mb-3 mt-4">| Follow Us</h3>
-                        <div class="flex space-x-3">
-                            <a href="https://whatsapp.com/channel/0029VadbYG790x2rzJt1k718" target="_blank" class="w-8 h-8 rounded-xl bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-green-500">
-                                <img src="../static/images/whatsapp.png" alt="WhatsApp" class="w-4 h-4">
-                            </a>
-                            <a href="https://www.facebook.com/profile.php?id=61568738616754&mibextid=LQQJ4d" target="_blank" class="w-8 h-8 rounded-xl bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-blue-600">
-                                <img src="../static/images/facebook.png" alt="Facebook" class="w-4 h-4">
-                            </a>
-                            <a href="https://www.instagram.com/thinkgreen_afrika/profilecard/?igsh=MWRxZjBvb3Y1a3Mxcw==" target="_blank" class="w-8 h-8 rounded-xl bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-pink-500">
-                                <img src="../static/images/instagram.png" alt="Instagram" class="w-4 h-4">
-                            </a>
-                            <a href="https://www.linkedin.com/company/thinkgreen-afrika/" target="_blank" class="w-8 h-8 rounded-xl bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-blue-700">
-                                <img src="../static/images/linkedin.png" alt="LinkedIn" class="w-4 h-4">
-                            </a>
-                        </div>
+            <div class="hover-reveal-container flex flex-row gap-8 border border-color max-w-screen z-10 rounded-3xl"
+                onclick="this.classList.toggle('active')"
+                style="background-image: url('../static/images/tvetproject3.jpg'); background-position: center; background-repeat: no-repeat; background-size: cover;">
+
+                <div class="bg-black bg-opacity-50 rounded-3xl shadow-md w-full p-6 hover-content-wrapper"
+                    style="backdrop-filter: blur(10px);">
+                    <h3
+                        class="hover-reveal-title text-3xl text-center font-semibold text-white transition-all duration-500 w-full">
+                        Challenges in Integration Into Formal Education
+                    </h3>
+
+                    <p class="hover-reveal-text text-white text-center text-base transition-opacity mt-2 duration-500">
+                        Despite the benefits of indigenous knowledge, its integration into
+                        formal education systems is fraught with challenges. In many
+                        cases, national curricula and teaching methods do not adequately
+                        incorporate or recognise indigenous histories, cultures, and
+                        knowledge. Educators face difficulties due to inadequate training,
+                        lack of resources, and the fragmented inclusion of environmental
+                        topics in various subjects rather than as standalone courses.
+                        Surveys and interviews reveal that environmental education, when
+                        integrated into various subjects, often lacks depth and fails to
+                        engage students effectively. Teachers struggle with limited
+                        training and resources, resulting in a theoretical approach to
+                        environmental education that does not foster practical
+                        understanding. The absence of a dedicated subject for
+                        environmental education further diminishes its impact, as it is
+                        not prioritised in national examinations.
+                    </p>
+                </div>
+            </div>
+
+            <div class="hover-reveal-container flex flex-row gap-8 border border-color max-w-screen z-10 rounded-3xl"
+                onclick="this.classList.toggle('active')"
+                style="background-image: url('../static/images/tvetproject4.jpg'); background-position: center; background-repeat: no-repeat; background-size: cover;">
+
+                <div class="bg-black bg-opacity-50 rounded-3xl shadow-md w-full p-6 hover-content-wrapper"
+                    style="backdrop-filter: blur(10px);">
+                    <h3 id="rationale"
+                        class="hover-reveal-title text-3xl text-center font-semibold text-white transition-all duration-500 w-full">
+                        Rationale
+                    </h3>
+
+                    <p class="hover-reveal-text text-white text-center text-base mt-2 transition-opacity duration-500">
+                        Integrating indigenous knowledge into environmental education can
+                        offer holistic and culturally relevant solutions to sustainability
+                        challenges. By bridging traditional knowledge with formal
+                        curricula, educational systems can promote a more comprehensive
+                        understanding of environmental stewardship. This integration also
+                        supports the preservation of cultural heritage and fosters respect
+                        for diverse knowledge systems.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <style>
+            .gap-reveal-container {
+                width: 100%;
+                height: auto;
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                overflow: hidden;
+                transition: all 0.5s ease;
+                cursor: pointer;
+            }
+
+            .gap-content-wrapper {
+                max-height: 8rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                overflow: hidden;
+                transition: max-height 0.5s ease, padding-bottom 0.5s ease, justify-content 0.5s ease, align-items 0.5s ease;
+                width: 70%;
+                margin-top: 40px;
+                margin-bottom: 40px;
+            }
+
+            .gap-reveal-container.active .gap-content-wrapper {
+                max-height: 1000px;
+                width: 100%;
+                justify-content: center;
+                align-items: center;
+                transition: bottom 0.5s ease;
+                margin: 0px;
+            }
+
+            .gap-reveal-title {
+                position: relative;
+                bottom: -40px;
+                transition: bottom 0.5s ease;
+            }
+
+            .gap-reveal-container.active .gap-reveal-title {
+                bottom: 0;
+            }
+
+            .gap-reveal-text {
+                font-size: 0px;
+                transition: font-size 0.5s ease;
+                width: 100%;
+                opacity: 0;
+            }
+
+            .gap-reveal-container.active .gap-reveal-text {
+                font-size: 1rem;
+                opacity: 1;
+                transition: bottom 0.5s ease;
+            }
+        </style>
+
+
+        <div class="gap-reveal-container flex mt-5 border border-color max-w-screen z-10 rounded-3xl"
+                onclick="this.classList.toggle('active')"
+                style="background-image: url('../static/images/tvetproject4.jpg'); background-position: center; background-repeat: no-repeat; background-size: cover;">
+
+                <div class="bg-black bg-opacity-50 rounded-3xl shadow-md w-full p-6 gap-content-wrapper"
+                    style="backdrop-filter: blur(10px);">
+                    <h3 id="rationale"
+                        class="gap-reveal-title text-3xl text-center font-semibold text-white transition-all duration-500 w-full">
+                         Gaps and Frameworks
+                    </h3>
+
+                    <p class="gap-reveal-text text-white text-center text-base mt-2 transition-opacity duration-500">
+                        Current educational systems often overlook the value of indigenous
+                    knowledge in favour of Western-centric perspectives. There is a
+                    pressing need to develop curricula that reflect the cultural and
+                    ecological knowledge of Indigenous communities, integrate it into
+                    formal education, and address the challenges of teacher training,
+                    resource allocation, and curriculum development. In the current TVET
+                    Forestry course, indigenous species like Prunus africana are studied
+                    primarily for their biological aspects, neglecting their ecological,
+                    cultural, and practical significance. Prunus africana, found in
+                    Rwanda’s Nyungwe and Gishwati national parks, plays a crucial role
+                    in local ecosystems and communities. Its ecological importance,
+                    practical uses, and conservation challenges should be integrated
+                    into the curriculum to provide a holistic understanding of the
+                    species. Pollarding is briefly mentioned in the TVET Forestry module
+                    but lacks an in-depth exploration of its environmental and cultural
+                    significance. Pollarding, a traditional practice involving the
+                    pruning of trees to encourage new growth, plays a vital role in
+                    agroforestry and sustainable land management. Including a
+                    comprehensive discussion of pollarding’s multifaceted benefits and
+                    its application in rural Rwanda would enhance students'
+                    understanding of indigenous practices.
+                    <br />The curriculum acknowledges traditional erosion control
+                    techniques such as stone bunds but focuses primarily on their
+                    technical aspects.  <br />Exploring the cultural and historical
+                    contexts of these techniques, including the communal efforts
+                    involved in maintaining stone bunds, would enrich students'
+                    appreciation of sustainable land management practices. Umuganda, a
+                    community service practice in Rwanda, involves collective
+                    environmental efforts such as reforestation and erosion control.
+                    Integrating Umuganda into the Forestry module would help students
+                    connect environmental practices with cultural heritage and community
+                    responsibility.
+                    </p>
+                </div>
+            </div>
+
+
+    </section>
+
+    <section
+        class="flex flex-row border border-black rounded-xl items-center justify-between mx-auto mt-12 mb-12 w-4/5 bg-white">
+        <h3 class="text-3xl text-left font-semibold text-color w-2/5 pl-7">
+            Access Our TVET Curriculum Framework & Approach Here
+        </h3>
+        <iframe width="560" height="315" 
+        src="https://www.youtube.com/embed/VyGUMPGYQ6o?si=raFAbzXeHJ5nKwz4" 
+        title="YouTube video player" frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        referrerpolicy="strict-origin-when-cross-origin" 
+        allowfullscreen
+        class="border border-black rounded-xl w-96 h-72 my-7 mr-7"></iframe>
+    </section>
+
+    <footer class="flex flex-col items-center justify-center">
+        <div class="relative bg-footer pt-6 px-8 mb-3 rounded-xl mx-3 w-4/5 text-white">
+            <!-- Container -->
+            <div class="mx-auto pb-9 relative z-10">
+                <!-- Adjusted Grid -->
+                <div class="flex flex-col">
+                    <!-- Logo Section -->
+                    <div class="flex flex-row justify-between items-center border-b-2 py-10 mx-10">
+                        <img src="../static/images/thinkgreen-logo-white.png" alt="ThinkGreen Afrika white"
+                            class="w-40 h-auto mb-4" />
+                        <p class="text-sm text-gray-300">
+                            Talent Development and Job Placement
+                        </p>
+                        <a href="" class="btn btn-talent hover:button-color hover:border-white">
+                            Join Our Initiative
+                        </a>
                     </div>
+                    <!-- Contact Section -->
+                    <div class="flex flex-row gap-8 lg:col-span-1 md:ml-8">
+                        <div class="flex flex-col">
+                            <h3 class="text-lg font-semibold mb-3 mt-4">| Follow Us</h3>
+                            <div class="flex space-x-3">
+                                <a href="https://whatsapp.com/channel/0029VadbYG790x2rzJt1k718" target="_blank"
+                                    class="w-8 h-8 rounded-xl bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-green-500">
+                                    <img src="../static/images/whatsapp.png" alt="WhatsApp" class="w-4 h-4" />
+                                </a>
+                                <a href="https://www.facebook.com/profile.php?id=61568738616754&mibextid=LQQJ4d"
+                                    target="_blank"
+                                    class="w-8 h-8 rounded-xl bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-blue-600">
+                                    <img src="../static/images/facebook.png" alt="Facebook" class="w-4 h-4" />
+                                </a>
+                                <a href="https://www.instagram.com/thinkgreen_afrika/profilecard/?igsh=MWRxZjBvb3Y1a3Mxcw=="
+                                    target="_blank"
+                                    class="w-8 h-8 rounded-xl bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-pink-500">
+                                    <img src="../static/images/instagram.png" alt="Instagram" class="w-4 h-4" />
+                                </a>
+                                <a href="https://www.linkedin.com/company/thinkgreen-afrika/" target="_blank"
+                                    class="w-8 h-8 rounded-xl bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-blue-700">
+                                    <img src="../static/images/linkedin.png" alt="LinkedIn" class="w-4 h-4" />
+                                </a>
+                            </div>
+                        </div>
 
-                    <div class="flex flex-col">
-                        <h3 class="text-lg font-semibold mb-3 mt-4">| Contact Us</h3>
-                        <div class="flex gap-2 items-start">
-                            <img src="../static/images/Vector.png" alt="Email" class="w-6 h-4 mt-1">
-                            <div class="flex flex-col">
-                                <a href="mailto:careers@thinkgreenafrika.org" class="text-sm hover:underline">careers@thinkgreenafrika.org</a>
-                                <a href="mailto:thinkgreenafrika.org@gmail.com" class="text-sm hover:underline">thinkgreenafrika.org@gmail.com</a>
+                        <div class="flex flex-col">
+                            <h3 class="text-lg font-semibold mb-3 mt-4">| Contact Us</h3>
+                            <div class="flex gap-2 items-start">
+                                <img src="../static/images/Vector.png" alt="Email" class="w-6 h-4 mt-1" />
+                                <div class="flex flex-col">
+                                    <a href="mailto:careers@thinkgreenafrika.org"
+                                        class="text-sm hover:underline">careers@thinkgreenafrika.org</a>
+                                    <a href="mailto:thinkgreenafrika.org@gmail.com"
+                                        class="text-sm hover:underline">thinkgreenafrika.org@gmail.com</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col">
+                            <h3 class="text-lg font-semibold mb-3 mt-4">| Find Us</h3>
+                            <div class="flex gap-2 items-start">
+                                <img src="../static/images/duo-icons_location.png" alt="Map" class="w-6 h-6 mt-1" />
+                                <p class="text-sm">
+                                    Kimironko, KG42 Ave<br />
+                                    Kigali, Rwanda
+                                </p>
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="flex flex-col">
-                        <h3 class="text-lg font-semibold mb-3 mt-4">| Find Us</h3>
-                        <div class="flex gap-2 items-start">
-                            <img src="../static/images/duo-icons_location.png" alt="Map" class="w-6 h-6 mt-1">
-                            <p class="text-sm">
-                                Kimironko, KG42 Ave<br>
-                                Kigali, Rwanda
-                            </p>
-                        </div>
+
+                    <div class="flex flex-col items-center mt-8">
+                        <p class="text-gray-300">@ 2025 - Copyright</p>
                     </div>
-                
-                </div>
-    
-                <div class="flex flex-col items-center mt-8">
-                    <p class="text-gray-300">
-                        @ 2025 - Copyright
-                    </p>
                 </div>
             </div>
         </div>
-    </div>
-    
-</footer>
-     
+    </footer>
 
     <!-- Showing Modal Container -->
     <script>
         const modal = document.getElementById("initiativesModal");
         const closeBtn = document.getElementById("closeModal");
 
-        document.querySelector('a[href="{% url "podcast" %}"]').addEventListener("click", function (e) {
-            e.preventDefault();  // prevent actual navigation
-            modal.classList.remove("hidden");
-        });
+        document
+            .querySelector('a[href="{% url "podcast" %}"]')
+            .addEventListener("click", function (e) {
+                e.preventDefault(); // prevent actual navigation
+                modal.classList.remove("hidden");
+            });
 
         closeBtn.addEventListener("click", () => {
             modal.classList.add("hidden");
@@ -418,39 +696,44 @@
 
     <!-- Infinite Scroll for trusted sponsors -->
     <style>
-    #group {
-        will-change: transform;
-        animation: scrolling 20s linear infinite;
-    }
+        #group {
+            will-change: transform;
+            animation: scrolling 20s linear infinite;
+        }
 
-    @keyframes scrolling {
-        0% {
-          transform: translateX(0);
+        @keyframes scrolling {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
         }
-        100% {
-          transform: translateX(-100%);
-        }
-    }
     </style>
     <!-- JavaScript for Mobile Menu -->
     <script>
         document.addEventListener("scroll", function () {
-      const section = document.getElementById("animated-section");
-      const sectionTop = section.getBoundingClientRect().top;
-      const windowHeight = window.innerHeight;
+            const section = document.getElementById("animated-section");
+            const sectionTop = section.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
 
-      if (sectionTop < windowHeight) {
-        section.classList.add("opacity-100", "animate-slideOut");
-      }
-    });
-
-        document.getElementById("menu-toggle").addEventListener("click", function() {
-            document.getElementById("mobile-menu").classList.remove("hidden");
+            if (sectionTop < windowHeight) {
+                section.classList.add("opacity-100", "animate-slideOut");
+            }
         });
 
-        document.getElementById("close-menu").addEventListener("click", function() {
-            document.getElementById("mobile-menu").classList.add("hidden");
-        });
+        document
+            .getElementById("menu-toggle")
+            .addEventListener("click", function () {
+                document.getElementById("mobile-menu").classList.remove("hidden");
+            });
+
+        document
+            .getElementById("close-menu")
+            .addEventListener("click", function () {
+                document.getElementById("mobile-menu").classList.add("hidden");
+            });
 
         // Set the date we're counting down to
         const eventDate = new Date("November 10, 2024 00:00:00").getTime();
@@ -465,7 +748,9 @@
 
             // Calculate days, hours, minutes, and seconds
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const hours = Math.floor(
+                (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+            );
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
@@ -478,79 +763,85 @@
             // If the countdown is finished, stop the countdown
             if (distance < 0) {
                 clearInterval(countdownFunction);
-                document.getElementById("countdown").innerHTML = "The event has started!";
+                document.getElementById("countdown").innerHTML =
+                    "The event has started!";
             }
         }, 1000);
-            // Function to toggle the email modal
+        // Function to toggle the email modal
         function toggleModal() {
-        const modal = document.getElementById('emailModal');
-        modal.classList.toggle('hidden');
-    }
-    //for testimonials
-    let currentSlide = 0;
-    const totalSlides = 2; // Since we display 3 out of 6 cards, we have 2 "slides"
-
-    function updateCarousel() {
-        const carousel = document.getElementById("carousel");
-        const offset = -currentSlide * 100; // Adjust for each slide width
-        carousel.style.transform = `translateX(${offset}%)`;
-    }
-
-    function nextSlide() {
-        if (currentSlide < totalSlides - 1) {
-            currentSlide++;
-            updateCarousel();
+            const modal = document.getElementById("emailModal");
+            modal.classList.toggle("hidden");
         }
-    }
+        //for testimonials
+        let currentSlide = 0;
+        const totalSlides = 2; // Since we display 3 out of 6 cards, we have 2 "slides"
 
-    function previousSlide() {
-        if (currentSlide > 0) {
-            currentSlide--;
-            updateCarousel();
+        function updateCarousel() {
+            const carousel = document.getElementById("carousel");
+            const offset = -currentSlide * 100; // Adjust for each slide width
+            carousel.style.transform = `translateX(${offset}%)`;
         }
-    }
 
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+                updateCarousel();
+            }
+        }
+
+        function previousSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateCarousel();
+            }
+        }
 
         // Function to animate counters
-function animateCounter(id, target) {
-    const element = document.getElementById(id);
-    let count = 0;
-    const increment = target / 100;
+        function animateCounter(id, target) {
+            const element = document.getElementById(id);
+            let count = 0;
+            const increment = target / 100;
 
-    const updateCounter = () => {
-        count += increment;
-        if (count >= target) {
-            element.textContent = target + "+";
-        } else {
-            element.textContent = Math.floor(count);
-            requestAnimationFrame(updateCounter);
+            const updateCounter = () => {
+                count += increment;
+                if (count >= target) {
+                    element.textContent = target + "+";
+                } else {
+                    element.textContent = Math.floor(count);
+                    requestAnimationFrame(updateCounter);
+                }
+            };
+
+            updateCounter();
         }
-    };
 
-    updateCounter();
-}
+        // Intersection Observer to trigger the animation when in view
+        const counters = [
+            { id: "talents-counter", target: 100 },
+            { id: "countries-counter", target: 5 },
+            { id: "cities-counter", target: 5 },
+            { id: "mentors-counter", target: 15 },
+        ];
 
-// Intersection Observer to trigger the animation when in view
-const counters = [
-    { id: 'talents-counter', target: 100 },
-    { id: 'countries-counter', target: 5 },
-    { id: 'cities-counter', target: 5 },
-    { id: 'mentors-counter', target: 15 }
-];
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        counters.forEach((counter) =>
+                            animateCounter(counter.id, counter.target)
+                        );
+                        observer.disconnect(); // Stop observing after first animation
+                    }
+                });
+            },
+            { threshold: 0.5 }
+        );
 
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            counters.forEach(counter => animateCounter(counter.id, counter.target));
-            observer.disconnect(); // Stop observing after first animation
-        }
-    });
-}, { threshold: 0.5 });
-
-// Observe the impact numbers section
-observer.observe(document.querySelector('#impact-numbers'));
+        // Observe the impact numbers section
+        observer.observe(document.querySelector("#impact-numbers"));
     </script>
     <!-- AlpineJS for toggle functionality -->
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 </body>
+
 </html>

@@ -19,6 +19,7 @@ urlpatterns = [
     path('program/', views.program_view, name='program'),
     path('solutions/', views.solutions_view, name='solutions'),
     path('tvetproject/', views.tvetproject_view, name='tvetproject'),
+    path('onekidatatime/', views.onekidatatime_view, name='onekidatatime'),
     path('talent/', views.talent_view, name='talent'),
     path('employer/', views.employer_view, name='employer'),
     path('employer-dashboard/', views.employer_dashboard, name='employer_dashboard'),

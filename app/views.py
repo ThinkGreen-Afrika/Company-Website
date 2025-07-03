@@ -72,6 +72,8 @@ def tvetproject_view(request):
 def about_view(request):
     return render(request, 'about_us.html')  
 
+def onekidatatime_view(request):
+    return render(request, 'onekidatatime.html')
 
 
 def book_view(request):
