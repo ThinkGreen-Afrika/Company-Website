@@ -1,202 +1,230 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ThinkGreen Afrika</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="/static/images/favicon.ico">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
         body {
-        font-family:'Poppins', sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
+
         /* Custom Tailwind adjustments */
         .bg-primary {
             background-color: #4CAF50;
         }
-        .bg-footer{
+
+        .bg-footer {
             background-color: #1E6C34;
             ;
         }
-        .button-color{
+
+        .button-color {
             background-color: #1E6C34;
             ;
         }
-        .bg{
-            background-color:  #77D0A5;
+
+        .bg {
+            background-color: #77D0A5;
             ;
         }
-        .text-color{
+
+        .text-color {
             color: #1E6C34;
         }
+
         .border-light-gray {
             border-color: #e0e0e0;
         }
+
         .border-color {
             border-color: #1E6C34;
         }
+
         .main-bg {
             background: linear-gradient(to bottom, transparent 0%, #71c97d 50%, transparent 100%);
             position: fixed;
-            top: 75%; /* Adjusts vertical position towards the bottom */
+            top: 75%;
+            /* Adjusts vertical position towards the bottom */
             left: 0;
             right: 0;
             transform: translateY(-50%);
             width: 100%;
-            height: 70%; /* Reduces height to confine the gradient to the bottom center */
+            height: 70%;
+            /* Reduces height to confine the gradient to the bottom center */
             z-index: -1;
         }
+
         .countdown-number {
             font-size: 2rem;
         }
+
         .text-36 {
-        font-size: 36px;
+            font-size: 36px;
         }
+
         .text-19 {
-        font-size: 19px;
+            font-size: 19px;
         }
+
         .frame {
-        background-color: #1E6C34;
+            background-color: #1E6C34;
         }
-        
+
         @keyframes slideOut {
-      0% {
-        transform: translateX(-100%);
-        opacity: 0;
-      }
-      100% {
-        transform: translateX(0);
-        opacity: 1;
-      }
-    }
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
 
-    .animate-slideOut {
-      animation: slideOut 1s ease-out forwards;
-    }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
 
-    /* General Button Styles */
-    .btn {
-        display: inline-block;
-        padding: 10px 20px;
-        text-decoration: none;
-        font-weight: 600;
-        text-align: center;
-        border-radius: 15px;
-        border: 2px solid #1E6C34;
-        transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
-    }
-    .nav-book{
-        display: inline-block;
-        padding: 6px 10px;
-        text-decoration: none;
-        font-weight: 600;
-        text-align: center;
-        border-radius: 9999px;
-        transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
-    }
-    .nav-pod{
-        
-        border: 2px solid #4CAF50;
-        color: #1F2937;
-        box-shadow: 2px 6px 8px rgba(8, 8, 8, 0.3);
-    }
-    
-    /* Specific Styles for 'Become a Talent' Button */
-    .btn-talent {
-        background-color: white;
-        border: 2px solid #1E6C34;
-        color: #1F2937;
-    }
+        .animate-slideOut {
+            animation: slideOut 1s ease-out forwards;
+        }
 
-    .btn-talent:hover {
-        background-color: #1E6C34;
-        color: white;
-    }
+        /* General Button Styles */
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: 600;
+            text-align: center;
+            border-radius: 15px;
+            border: 2px solid #1E6C34;
+            transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+        }
 
-    /* Specific Styles for 'Become an Employer Partner' Button */
-    .btn-partner {
-        
-        
-        color: white;
-        /* box-shadow: 2px 6px 8px rgba(8, 8, 8, 0.3); */
-    }
+        .nav-book {
+            display: inline-block;
+            padding: 6px 10px;
+            text-decoration: none;
+            font-weight: 600;
+            text-align: center;
+            border-radius: 9999px;
+            transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+        }
 
-    .btn-partner:hover {
-        background-color: white;
-        color:black;
-        border: 2px solid #1E6C34;
-        /* box-shadow: 4px 8px 12px rgba(8, 8, 8, 0.4); */
-    }
+        .nav-pod {
 
-    /* Ensure the container doesn't overlap or block the buttons */
-    .mt-8 {
-        position: relative;
-        z-index: 1;
-    }
+            border: 2px solid #4CAF50;
+            color: #1F2937;
+            box-shadow: 2px 6px 8px rgba(8, 8, 8, 0.3);
+        }
 
+        /* Specific Styles for 'Become a Talent' Button */
+        .btn-talent {
+            background-color: white;
+            border: 2px solid #1E6C34;
+            color: #1F2937;
+        }
+
+        .btn-talent:hover {
+            background-color: #1E6C34;
+            color: white;
+        }
+
+        /* Specific Styles for 'Become an Employer Partner' Button */
+        .btn-partner {
+
+
+            color: white;
+            /* box-shadow: 2px 6px 8px rgba(8, 8, 8, 0.3); */
+        }
+
+        .btn-partner:hover {
+            background-color: white;
+            color: black;
+            border: 2px solid #1E6C34;
+            /* box-shadow: 4px 8px 12px rgba(8, 8, 8, 0.4); */
+        }
+
+        /* Ensure the container doesn't overlap or block the buttons */
+        .mt-8 {
+            position: relative;
+            z-index: 1;
+        }
     </style>
 </head>
+
 <body class="bg-gradient-to-b from-white via-white to-green-300 ">
     <!-- Hero Section -->
-    <header class=" bg-cover bg-center px-4" >
+    <header class=" bg-cover bg-center px-4">
         <!-- Navbar -->
         <nav class="bg-white shadow-md fixed top-4 left-4 right-4 rounded-full z-50">
-                <div class="container mx-auto px-6 py-6 flex justify-between items-center">
-                 <a href="{% url 'home' %}"><img src="../static/images/thinkgreen-logo-green.png" alt="logo" class="max-w-64 h-10"> </a>
-                    <ul class="hidden md:flex space-x-6">
-                        <li>
-                            <a href="{% url 'home' %}" class=" text-color font-bold hover:text-primary border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
-                                Home
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{% url 'about_us' %}" class="text-black font-medium hover:text-primary border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
-                                About Us
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{% url 'solutions' %}" class=" text-black font-medium hover:text-primary border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
-                                Our Solutions
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{% url 'program' %}" class=" text-black font-medium hover:text-primary border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
-                                Our Programs
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{% url 'podcast' %}" class="text-black font-medium hover:text-primary border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
-                                Support Our Initiatives
-                            </a>
-                        </li>
-                    </ul>
-         
-                    <div class="hidden md:flex flex-row items-end space-x-4">
-                        <!-- <a href="{% url 'book' %}" class="btn-talent nav-book">Book 1:1</a> -->
-                        <a href="{% url 'select' %}" class="btn-partner nav-pod button-color btn">
-                            Join our Network
+            <div class="container mx-auto px-6 py-6 flex justify-between items-center">
+                <a href="{% url 'home' %}"><img src="../static/images/thinkgreen-logo-green.png" alt="logo"
+                        class="max-w-64 h-10"> </a>
+                <ul class="hidden md:flex space-x-6">
+                    <li>
+                        <a href="{% url 'home' %}"
+                            class=" text-color font-bold hover:text-primary border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
+                            Home
                         </a>
-                           
-                    </div>
-                    <!-- Mobile Menu Toggle -->
-                    <button class="md:hidden text-gray-600 focus:outline-none" id="menu-toggle">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-                        </svg>
-                    </button>
+                    </li>
+                    <li>
+                        <a href="{% url 'about_us' %}"
+                            class="text-black font-medium hover:text-primary border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
+                            About Us
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'solutions' %}"
+                            class=" text-black font-medium hover:text-primary border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
+                            Our Solutions
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'program' %}"
+                            class=" text-black font-medium hover:text-primary border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
+                            Our Programs
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'podcast' %}"
+                            class="text-black font-medium hover:text-primary border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
+                            Support Our Initiatives
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="hidden md:flex flex-row items-end space-x-4">
+                    <!-- <a href="{% url 'book' %}" class="btn-talent nav-book">Book 1:1</a> -->
+                    <a href="{% url 'select' %}" class="btn-partner nav-pod button-color btn">
+                        Join our Network
+                    </a>
+
                 </div>
-                
+                <!-- Mobile Menu Toggle -->
+                <button class="md:hidden text-gray-600 focus:outline-none" id="menu-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                </button>
+            </div>
+
         </nav>
         <!-- Background Elements -->
         <div class="absolute top-24 right-12 w-16 h-16 rounded-xl z-0"
-                style="background: linear-gradient(147.56deg, rgb(255,255,255) 30%, rgb(255, 255, 255) 30%, rgb(54, 206, 133) 30%); filter: blur(30px);">
+            style="background: linear-gradient(147.56deg, rgb(255,255,255) 30%, rgb(255, 255, 255) 30%, rgb(54, 206, 133) 30%); filter: blur(30px);">
         </div>
         <div class="absolute bottom-24 left-12 w-36 h-36 rounded-full z-0"
-                style="background: linear-gradient(147.56deg, rgb(255,255,255) 30%, rgb(255, 255, 255) 30%, rgb(54, 206, 133) 30%); filter: blur(30px);">
+            style="background: linear-gradient(147.56deg, rgb(255,255,255) 30%, rgb(255, 255, 255) 30%, rgb(54, 206, 133) 30%); filter: blur(30px);">
         </div>
         <!-- Mobile Sidebar Menu -->
         <div id="mobile-menu" class="fixed inset-0 bg-gray-800 bg-opacity-75 hidden z-40">
@@ -206,23 +234,26 @@
                 <a href="{% url 'solutions' %}" class="text-white text-lg">Our Solutions</a>
                 <a href="{% url 'program' %}" class="text-white text-lg">Our Programs</a>
                 <a href="{% url 'podcast' %}" class="text-white text-lg">Support Our Initiatives</a>
-                <a href="{% url 'select' %}" class="button-color text-white py-2 px-4 rounded hover:bg-green-700 mt-4">Join our Network</a>
+                <a href="{% url 'select' %}"
+                    class="button-color text-white py-2 px-4 rounded hover:bg-green-700 mt-4">Join our Network</a>
                 <!-- <a href="{% url 'book' %}" class="button-color text-white py-2 px-4 rounded hover:bg-green-700 mt-2">Book 1:1</a> -->
             </div>
         </div>
 
         <!-- Centered Cancel Button -->
         <div class="flex justify-center items-center mt-8">
-        <button id="close-menu" class="text-white border border-white rounded-xl p-2">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-        </button>
+            <button id="close-menu" class="text-white border border-white rounded-xl p-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
         </div>
 
         <!-- Modal Backdrop and Wrapper -->
         <div id="initiativesModal" class="fixed inset-0 items-center justify-center z-50 hidden">
-            <section class="bg-white flex flex-col items-center rounded-2xl w-min p-4 text-center shadow-lg mx-auto mt-32">
+            <section
+                class="bg-white flex flex-col items-center rounded-2xl w-min p-4 text-center shadow-lg mx-auto mt-32">
                 <button id="closeModal" class="ml-auto text-red-500 text-xl font-bold">x</button>
                 <ul>
                     <li class="h-10 w-60 p-2 rounded-xl mb-2.5 text-black text-lg">
@@ -239,35 +270,35 @@
 
         <!-- Overlay (Disabled) -->
         <!-- <div class="absolute inset-0 bg-black bg-opacity-30"></div> -->
-        
+
         <!-- Content -->
         <div class=" flex flex-col mx-20 z-10">
             <div class="mt-36">
                 <h1 class=" animate-left transform opacity-0 -translate-x-10 transition-all duration-1000 ease-out 
                 font-bold text-color md:text-3xl text-9 text-left w-1/2">
-                    Bridging top talents and entrepreneurs with a support system to fit in the labour market across the African landscape
+                    Bridging top talents and entrepreneurs with a support system to fit in the labour market across the
+                    African landscape
                 </h1>
                 <p class=" animate-left transform opacity-0 -translate-x-10 transition-all duration-1000 ease-out 
                 mt-6 text-black font-medium text-6 text-left w-1/3">
-                    Become part of a global talent development network in green solutions and discover your next career opportunity.
+                    Become part of a global talent development network in green solutions and discover your next career
+                    opportunity.
                 </p>
             </div>
             <div>
-                <img src="../static/images/hero-image-1.jpg" 
-                class=" animate-right transform opacity-0 translate-x-10 transition-all duration-1000 ease-out 
+                <img src="../static/images/hero-image-1.jpg" class=" animate-right transform opacity-0 translate-x-10 transition-all duration-1000 ease-out 
                 absolute object-cover top-40 right-10 w-40 h-40  rounded-full" alt="hero-img">
                 <div class=" animate-right transform opacity-0 translate-x-10 transition-all duration-1000 ease-out 
                 frame absolute top-56 right-40 w-225 h-14 flex flex-row rounded-xl items-center justify-center">
                     <img class="pl-2.5 max-w-6 max-h-6 pr-1" src="../static/images/check-logo.png" alt="tick">
                     <p class=" p-2.5 pl-0 text-sm text-white text-center">
-                    Global Networking
+                        Global Networking
                     </p>
                 </div>
-                
+
             </div>
             <div>
-                <img src="../static/images/hero-image-2.jpg" 
-                class=" animate-right transform opacity-0 translate-x-10 transition-all duration-1000 ease-out 
+                <img src="../static/images/hero-image-2.jpg" class=" animate-right transform opacity-0 translate-x-10 transition-all duration-1000 ease-out 
                 absolute object-cover top-80 right-36 w-96 h-96 rounded-full" alt="hero-img">
 
                 <div class=" animate-right transform opacity-0 translate-x-10 transition-all duration-1000 ease-out
@@ -276,7 +307,7 @@
                     <p class=" p-2.5 pl-0 text-sm text-white text-center">
                         Career Counselling
                     </p>
-                </div> 
+                </div>
                 <div class=" animate-right transform opacity-0 translate-x-10 transition-all duration-1000 ease-out
                 frame absolute top-96 right-10 w-225 h-14 flex flex-row rounded-xl items-center justify-center">
                     <img class="pl-2.5 max-w-6 max-h-6 pr-1" src="../static/images/check-logo.png" alt="tick">
@@ -294,45 +325,46 @@
             </div>
             <div class=" mt-8">
 
-                
+
                 <div class=" animate-left transform opacity-0 -translate-x-10 transition-all duration-1000 ease-out 
                 mt-8 flex flex-wrap space-y-4 lg:space-y-0 lg:space-x-4">
                     <!-- Become an Employer Partner Button -->
-                    <a href="https://forms.gle/gpc97F8miwEkeLc7A" 
-                       class="btn button-color btn-partner">
+                    <a href="https://forms.gle/gpc97F8miwEkeLc7A" class="btn button-color btn-partner">
                         Become an Employer
                     </a>
-                    
+
                     <!-- Become a Talent Button -->
-                    <a href="https://forms.gle/RsjDFgR2wE63uviv9" 
-                       class="btn btn-talent hover:button-color">
+                    <a href="https://forms.gle/RsjDFgR2wE63uviv9" class="btn btn-talent hover:button-color">
                         Become a Talent
                     </a>
-            
+
                 </div>
             </div>
         </div>
     </header>
-        
+
     <!-- Milestones -->
     <section id="our-milestones" class=" py-16 px-6 mt-28 text-center">
         <h2 class="text-4xl font-bold text-color mb-12">Our Milestones</h2>
         <div class="flex flex-wrap justify-center object-center gap-8 mx-auto max-w-4xl">
-            <div class=" p-8 w-96 max-h-36 rounded-2xl border-color border shadow-md flex flex-row items-center justify-between">
+            <div
+                class=" p-8 w-96 max-h-36 rounded-2xl border-color border shadow-md flex flex-row items-center justify-between">
                 <p class="text-left text-black font-semibold text-2xl w-52">
                     18 Nationalities Reached
                 </p>
                 <img class="w-16 h-12" src="../static/images/Mentors icon.png" alt="icon">
             </div>
 
-            <div class=" p-8 w-96 max-h-36 rounded-2xl border-color border shadow-md flex flex-row items-center justify-between">
+            <div
+                class=" p-8 w-96 max-h-36 rounded-2xl border-color border shadow-md flex flex-row items-center justify-between">
                 <p class="text-left text-black font-semibold text-2xl w-52">
                     100 Talents Trained
                 </p>
                 <img class="w-16 h-12" src="../static/images/Mentors icon.png" alt="icon">
             </div>
 
-            <div class=" p-8 w-96 max-h-36 rounded-2xl border-color border shadow-md flex flex-row items-center justify-between">
+            <div
+                class=" p-8 w-96 max-h-36 rounded-2xl border-color border shadow-md flex flex-row items-center justify-between">
                 <p class="text-left text-black font-semibold text-2xl w-52">
                     250 Placed Talents
                 </p>
@@ -343,13 +375,19 @@
             <h2 class="text-2xl font-bold text-black m-12">
                 Our Talent has worked in various companies such as:
             </h2>
-            <div class="flex justify-center gap-8 mx-auto max-w-4xl">
-                <img src="../static/images/amalitech-logo.png" alt="Amalitech Logo" 
-                class="w-80 h-44 object-contain rounded-2xl border-color border shadow-md">
+            <div class="flex flex-wrap justify-center gap-8 mx-auto w-full ">
+                <img src="../static/images/amalitech-logo.png" alt="Amalitech Logo"
+                    class="w-64 h-36 object-contain rounded-2xl border-color border shadow-md">
                 <img src="../static/images/evolve-logo.png" alt="Evolve Logo"
-                class="w-80 h-44 p-8 object-contain rounded-2xl border-color border shadow-md">
-                <img src="../static/images/logo-guaride.png" alt="Guraride Logo" 
-                class="w-80 h-44 p-4 object-contain rounded-2xl border-color border shadow-md">
+                    class="w-64 h-36 p-8 object-contain rounded-2xl border-color border shadow-md">
+                <img src="../static/images/logo-guaride.png" alt="Guraride Logo"
+                    class="w-64 h-36 p-4 object-contain rounded-2xl border-color border shadow-md">
+                <img src="../static/images/logo-library-aid.png" alt="Library Aid Logo"
+                    class="w-64 h-36 p-4 object-contain rounded-2xl border-color border shadow-md">
+                <img src="../static/images/logo-The_Venture.png" alt="The Venture Logo"
+                    class="w-64 h-36 p-4 object-contain rounded-2xl border-color border shadow-md">
+                <img src="../static/images/logo-1kat.png" alt="1k@t Logo"
+                    class="w-64 h-36 p-4 object-contain rounded-2xl border-color border shadow-md">
             </div>
         </div>
         <div>
@@ -357,12 +395,12 @@
                 Operated in Rwanda, Sierra Leone and Liberia
             </h2>
             <div class="flex justify-center gap-8 mx-auto max-w-4xl">
-                <img src="../static/images/flag-rwanda.jpg" alt="Rwanda Flag" 
-                class="w-80 h-44 object-cover rounded-2xl border-color border shadow-md">
-                <img src="../static/images/flag-sierra-leone.jpg" alt="SierraLeone Flag" 
-                class="w-80 h-44 object-cover rounded-2xl border-color border shadow-md">
-                <img src="../static/images/flag-liberia.png" alt="Liberia Flag" 
-                class="w-80 h-44 object-cover rounded-2xl border-color border shadow-md">
+                <img src="../static/images/flag-rwanda.jpg" alt="Rwanda Flag"
+                    class="w-80 h-44 object-cover rounded-2xl border-color border shadow-md">
+                <img src="../static/images/flag-sierra-leone.jpg" alt="SierraLeone Flag"
+                    class="w-80 h-44 object-cover rounded-2xl border-color border shadow-md">
+                <img src="../static/images/flag-liberia.png" alt="Liberia Flag"
+                    class="w-80 h-44 object-cover rounded-2xl border-color border shadow-md">
             </div>
         </div>
     </section>
@@ -374,26 +412,32 @@
         </h2>
 
         <div class=" gap-8 mx-auto max-w-6xl pt-4">
-            <div class=" animate-left transform opacity-0 -translate-x-10 transition-all duration-1000 ease-out 
+            <div
+                class=" animate-left transform opacity-0 -translate-x-10 transition-all duration-1000 ease-out 
             mr-auto flex flex-row bg-white p-8 rounded-lg shadow-md w-3/5 items-center justify-center border-color border border-color my-6">
-                <img src="../static/images/why-us-1.jpg" alt="Why Us 1" 
-                class="w-52 h-64 object-cover rounded-xl mx-auto ">
+                <img src="../static/images/why-us-1.jpg" alt="Why Us 1"
+                    class="w-52 h-64 object-cover rounded-xl mx-auto ">
                 <div class="flex flex-col w-full">
-                    <h3 class="flex items-center text-xl font-bold text-left text-color pl-4 ml-4 mb-4 h-16 object-center max-w-96 border-l-2 border-color">
+                    <h3
+                        class="flex items-center text-xl font-bold text-left text-color pl-4 ml-4 mb-4 h-16 object-center max-w-96 border-l-2 border-color">
                         Sustainability and Workforce Development
                     </h3>
                     <p class="text-gray-600 text-left ml-4 text-sm font-semibold">
-                        Our cutting-edge research and skills development projects and internships focused on sustainable design thinking. These projects and internships provide hands-on experience and practical knowledge, equipping our interns and talents with the skills to drive sustainable change.
+                        Our cutting-edge research and skills development projects and internships focused on sustainable
+                        design thinking. These projects and internships provide hands-on experience and practical
+                        knowledge, equipping our interns and talents with the skills to drive sustainable change.
                     </p>
                 </div>
             </div>
 
-            <div class=" animate-right transform opacity-0 translate-x-10 transition-all duration-1000 ease-out 
+            <div
+                class=" animate-right transform opacity-0 translate-x-10 transition-all duration-1000 ease-out 
             ml-auto flex flex-row bg-white p-8 rounded-lg shadow-md w-3/5 items-center justify-center border-color border border-color my-6">
-                <img src="../static/images/why-us-2.jpg" alt="Why Us 1" 
-                class="w-52 h-64 object-cover rounded-xl mx-auto ">
+                <img src="../static/images/why-us-2.jpg" alt="Why Us 1"
+                    class="w-52 h-64 object-cover rounded-xl mx-auto ">
                 <div class="flex flex-col w-full">
-                    <h3 class="flex items-center text-xl font-bold text-left text-color pl-4 ml-4 mb-4 h-16 max-w-96 border-l-2 border-color">
+                    <h3
+                        class="flex items-center text-xl font-bold text-left text-color pl-4 ml-4 mb-4 h-16 max-w-96 border-l-2 border-color">
                         Real-World Insights from Top Experts
                     </h3>
                     <p class="text-gray-600 text-left ml-4 text-sm font-semibold">
@@ -402,16 +446,20 @@
                 </div>
             </div>
 
-            <div class=" animate-left transform opacity-0 -translate-x-10 transition-all duration-1000 ease-out 
+            <div
+                class=" animate-left transform opacity-0 -translate-x-10 transition-all duration-1000 ease-out 
             mr-auto flex flex-row bg-white p-8 rounded-lg shadow-md w-3/5 items-center justify-center border-color border border-color my-6">
-                <img src="../static/images/why-us-3.jpg" alt="Why Us 1" 
-                class="w-52 h-64 object-cover rounded-xl mx-auto ">
+                <img src="../static/images/why-us-3.jpg" alt="Why Us 1"
+                    class="w-52 h-64 object-cover rounded-xl mx-auto ">
                 <div class="flex flex-col w-full">
-                    <h3 class="flex items-center text-xl font-bold text-left text-color pl-4 ml-4 mb-4 h-16 object-center max-w-96 border-l-2 border-color ">
+                    <h3
+                        class="flex items-center text-xl font-bold text-left text-color pl-4 ml-4 mb-4 h-16 object-center max-w-96 border-l-2 border-color ">
                         A Global Network of Innovators
                     </h3>
-                    <p class="text-gray-600 text-left ml-4 text-sm font-semibold" >
-                        The lives of thousands of youthful talents with 15 nationalities worldwide have the potential to be transformed by our framework. We empower them to become catalysts for change in their society and beyond by providing them with the appropriate tools and opportunities. 
+                    <p class="text-gray-600 text-left ml-4 text-sm font-semibold">
+                        The lives of thousands of youthful talents with 15 nationalities worldwide have the potential to
+                        be transformed by our framework. We empower them to become catalysts for change in their society
+                        and beyond by providing them with the appropriate tools and opportunities. 
                     </p>
                 </div>
             </div>
@@ -423,40 +471,56 @@
         <h2 class="text-3xl font-bold text-center text-color mb-12">
             We are trusted by
         </h2>
-        <div class="overflow-hidden flex ">
-            <div id="group" class="w-full inline-flex flex-nowrap gap-8 mx-auto max-w-4xl">
-                
-                <img src="../static/images/alu-removebg-preview.png" alt="ALU Logo"
-                class="w-64 h-32 p-4 bg-white object-contain rounded-2xl border-color border shadow-md">
-                
-                <img src="../static/images/logo-agrisense.png" alt="Agrisense Logo"
-                class="w-64 h-32 p-4 bg-white object-contain rounded-2xl border-color border shadow-md">
-                
-                <img src="../static/images/amalitech-logo.jpg" alt="Amalitech Logo"
-                class="w-64 h-32 p-4 bg-white object-contain rounded-2xl border-color border shadow-md">
-                
-                <img src="../static/images/Eco.png" alt="Eco Logo"
-                class="w-64 h-32 p-4 bg-white object-contain rounded-2xl border-color border shadow-md">
-                
-                <img src="../static/images/logo-kepler.png" alt="K Logo"
-                class="w-64 h-32 p-4 bg-white object-contain rounded-2xl border-color border shadow-md">
-                
-                <img src="../static/images/logo-The Campus.png" alt="CampusLogo"
-                class="w-64 h-32 p-4 bg-white object-contain rounded-2xl border-color border shadow-md">
-
-                <img src="../static/images/logo-The_Venture.png" alt="Venture Logo"
-                class="w-64 h-32 p-4 bg-white object-contain rounded-2xl border-color border shadow-md">
-
-                <img src="../static/images/logo-Uni of Rwanda.png" alt="Rwanda Logo"
-                class="w-64 h-32 p-4 bg-white object-contain rounded-2xl border-color border shadow-md">
-
-                <img src="../static/images/logo-Uni-of-Kigali.png" alt="Kigali Logo"
-                class="w-64 h-32 p-4 bg-white object-contain rounded-2xl border-color border shadow-md">
- 
+        <div class="overflow-hidden w-full">
+            <div class="flex gap-8 animate-scroll whitespace-nowrap">
+                <template id="logos">
+                    <img src="../static/images/alu-removebg-preview.png" alt="ALU Logo"
+                        class="w-64 h-32 p-4 bg-white object-contain rounded-2xl border shadow-md">
+                    <img src="../static/images/logo-agrisense.png" alt="Agrisense Logo"
+                        class="w-64 h-32 p-4 bg-white object-contain rounded-2xl border shadow-md">
+                    <img src="../static/images/amalitech-logo.jpg" alt="Amalitech Logo"
+                        class="w-64 h-32 p-4 bg-white object-contain rounded-2xl border shadow-md">
+                    <img src="../static/images/Eco.png" alt="Eco Logo"
+                        class="w-64 h-32 p-4 bg-white object-contain rounded-2xl border shadow-md">
+                    <img src="../static/images/logo-kepler.png" alt="K Logo"
+                        class="w-64 h-32 p-4 bg-white object-contain rounded-2xl border shadow-md">
+                    <img src="../static/images/logo-The Campus.png" alt="Campus Logo"
+                        class="w-64 h-32 p-4 bg-white object-contain rounded-2xl border shadow-md">
+                    <img src="../static/images/logo-The_Venture.png" alt="Venture Logo"
+                        class="w-64 h-32 p-4 bg-white object-contain rounded-2xl border shadow-md">
+                    <img src="../static/images/logo-Uni of Rwanda.png" alt="Rwanda Logo"
+                        class="w-64 h-32 p-4 bg-white object-contain rounded-2xl border shadow-md">
+                    <img src="../static/images/logo-Uni-of-Kigali.png" alt="Kigali Logo"
+                        class="w-64 h-32 p-4 bg-white object-contain rounded-2xl border shadow-md">
+                    <img src="../static/images/logo-ecas.png" alt="ECAS Logo"
+                        class="w-64 h-32 p-4 bg-white object-contain rounded-2xl border shadow-md">
+                    <img src="../static/images/logo-1kat.png" alt="1K@t Logo"
+                        class="w-64 h-32 p-4 bg-white object-contain rounded-2xl border shadow-md">
+                </template>
+                <div id="logo-strip" class="flex gap-8"></div>
             </div>
-            
         </div>
-         
+        <style>
+            @keyframes scroll {
+                0% {
+                    transform: translateX(0%);
+                }
+
+                100% {
+                    transform: translateX(-158%);
+                }
+            }
+
+            .animate-scroll {
+                animation: scroll 10s linear infinite;
+            }
+        </style>
+        <script>
+            const strip = document.getElementById('logo-strip');
+            const logos = document.getElementById('logos').content;
+            strip.appendChild(logos.cloneNode(true));
+            strip.appendChild(logos.cloneNode(true)); // duplicate for looping
+        </script>
     </section>
 
     <!-- Testimonials Section -->
@@ -475,210 +539,245 @@
             <!-- Carousel Arrows (left and right) -->
             <div class="relative">
                 <!-- Left Arrow -->
-                <button onclick="previousSlide()" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black text-white p-2 rounded-xl hover:bg-gray-700">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                <button onclick="previousSlide()"
+                    class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black text-white p-2 rounded-xl hover:bg-gray-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7">
+                        </path>
                     </svg>
                 </button>
 
                 <!-- Right Arrow -->
-                <button onclick="nextSlide()" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black text-white p-2 rounded-xl hover:bg-gray-700">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <button onclick="nextSlide()"
+                    class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black text-white p-2 rounded-xl hover:bg-gray-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                     </svg>
                 </button>
 
                 <!-- Testimonial Cards -->
-                <div id="carousel" class="flex md:flex-row flex-col items-center transition-transform space-x-0 md:space-x-16 space-y-12 md:space-y-0 duration-500">
+                <div id="carousel"
+                    class="flex md:flex-row flex-col items-center transition-transform space-x-0 md:space-x-16 space-y-12 md:space-y-0 duration-500">
                     <!-- Card 1 -->
                     <div class="relative w-[302px] h-[342px]">
                         <!-- Green Shadow -->
-                        <div class="absolute top-[-2px] left-[4px] w-full h-full bg-green-500 opacity-60 transform rotate-[-7.35deg]" 
+                        <div class="absolute top-[-2px] left-[4px] w-full h-full bg-green-500 opacity-60 transform rotate-[-7.35deg]"
                             style="clip-path: polygon(12% 5%, 88% 3%, 85% 93%, 15% 95%); border-radius: 20px;"></div>
-                            
-                            <!-- Card Content -->
-                            <div class="bg-black text-white p-14 rounded-xl shadow-md w-full h-full transform rotate-6 hover:rotate-3 transition-transform duration-300 relative" 
+
+                        <!-- Card Content -->
+                        <div class="bg-black text-white p-14 rounded-xl shadow-md w-full h-full transform rotate-6 hover:rotate-3 transition-transform duration-300 relative"
                             style="clip-path: polygon(12% 5%, 88% 3%, 85% 93%, 15% 95%); border-radius: 20px;">
-                               <!-- Avatar -->
-                                <div class="absolute mt-4 top-1 left-1/2 transform -translate-x-1/2">
-                                    <img class="w-24 h-24 rounded-xl border-4 border-white object-cover" src="../static/images/h1.jpeg" alt="Client Image">
-                                </div>
-                                <!-- Content -->
-                                <h3 class="mt-16 font-semibold text-lg text-center">David Peterson</h3>
-                                <p class="text-sm text-gray-400 text-center">Marketing Manager</p>
-                                <p class="mt-4 text-gray-300 text-sm text-center">"This service transformed our customer engagement. The results exceeded our expectations and helped drive growth across multiple platforms."</p>
+                            <!-- Avatar -->
+                            <div class="absolute mt-4 top-1 left-1/2 transform -translate-x-1/2">
+                                <img class="w-24 h-24 rounded-xl border-4 border-white object-cover"
+                                    src="../static/images/h1.jpeg" alt="Client Image">
                             </div>
+                            <!-- Content -->
+                            <h3 class="mt-16 font-semibold text-lg text-center">David Peterson</h3>
+                            <p class="text-sm text-gray-400 text-center">Marketing Manager</p>
+                            <p class="mt-4 text-gray-300 text-sm text-center">"This service transformed our customer
+                                engagement. The results exceeded our expectations and helped drive growth across
+                                multiple platforms."</p>
+                        </div>
                     </div>
-                           
+
                     <!-- Card 2 (Center Card) -->
                     <div class="relative w-[415px] h-[433px]">
-                            <!-- Green Shadow -->
-                            <div class="absolute top-[5px] left-[55px] w-full h-full bg-green-500 opacity-60 transform scale-105 z-0" 
-                                style="clip-path: polygon(15% 5%, 85% 3%, 80% 88%, 10% 92%); border-radius: 20px;"></div>
-                            <!-- Card Content -->
-                            <div class="bg-black text-white p-16 rounded-xl shadow-lg w-full h-full transform scale-110 hover:scale-105 transition-transform duration-300 relative z-10" 
-                                style="clip-path: polygon(15% 5%, 85% 3%, 80% 88%, 10% 92%); border-radius: 20px;">
-                                <!-- Avatar -->
-                                <div class="absolute mt-4 top-1 left-1/2 transform -translate-x-1/2">
-                                    <img class="w-20 h-20 rounded-xl border-4 border-white object-cover" src="../static/images/h2.jpeg" alt="Hannah Schmitt">
-                                </div>
-                                <!-- Content -->
-                                <h3 class="mt-12 font-semibold text-lg text-center">Hannah Schmitt</h3>
-                                <p class="text-sm text-gray-400 text-center">Lead Designer</p>
-                                <p class="mt-4 text-gray-300 text-sm text-center">"A game-changer for our design processes. The team is incredibly supportive and always willing to go the extra mile."</p>
+                        <!-- Green Shadow -->
+                        <div class="absolute top-[5px] left-[55px] w-full h-full bg-green-500 opacity-60 transform scale-105 z-0"
+                            style="clip-path: polygon(15% 5%, 85% 3%, 80% 88%, 10% 92%); border-radius: 20px;"></div>
+                        <!-- Card Content -->
+                        <div class="bg-black text-white p-16 rounded-xl shadow-lg w-full h-full transform scale-110 hover:scale-105 transition-transform duration-300 relative z-10"
+                            style="clip-path: polygon(15% 5%, 85% 3%, 80% 88%, 10% 92%); border-radius: 20px;">
+                            <!-- Avatar -->
+                            <div class="absolute mt-4 top-1 left-1/2 transform -translate-x-1/2">
+                                <img class="w-20 h-20 rounded-xl border-4 border-white object-cover"
+                                    src="../static/images/h2.jpeg" alt="Hannah Schmitt">
                             </div>
+                            <!-- Content -->
+                            <h3 class="mt-12 font-semibold text-lg text-center">Hannah Schmitt</h3>
+                            <p class="text-sm text-gray-400 text-center">Lead Designer</p>
+                            <p class="mt-4 text-gray-300 text-sm text-center">"A game-changer for our design processes.
+                                The team is incredibly supportive and always willing to go the extra mile."</p>
+                        </div>
                     </div>
-                              
+
                     <!-- Card 3 -->
                     <div class="relative w-[302px] h-[342px]">
-                            <!-- Green Shadow -->
-                            <div class="absolute top-[1px] left-[-4px] w-full h-full  bg-green-500 opacity-60 transform rotate-[-172.65deg]" 
-                                style="clip-path: polygon(10% 7%, 90% 2%, 87% 92%, 12% 94%); border-radius: 20px;"></div>
-                            <!-- Card Content -->
-                            <div class="bg-black text-white p-12 rounded-xl shadow-md w-full h-full transform -rotate-6 hover:rotate-3 transition-transform duration-300 relative" 
-                                style="clip-path: polygon(10% 7%, 90% 2%, 87% 92%, 12% 94%); border-radius: 20px;">
-                                <!-- Avatar -->
-                                <div class="absolute mt-4 top-1 left-1/2 transform -translate-x-1/2">
-                                    <img class="w-20 h-20 rounded-xl border-4 border-white" src="../static/images/h3.jpeg" alt="Michaella Jean">
-                                </div>
-                                <!-- Content -->
-                                <h3 class="mt-12 font-semibold text-lg">Michaella Jean</h3>
-                                <p class="text-sm text-gray-400">Product Manager</p>
-                                <p class="mt-4 text-gray-300 text-sm">"The solution was intuitive, efficient, and really improved our workflow. I’m beyond impressed with the results."</p>
+                        <!-- Green Shadow -->
+                        <div class="absolute top-[1px] left-[-4px] w-full h-full  bg-green-500 opacity-60 transform rotate-[-172.65deg]"
+                            style="clip-path: polygon(10% 7%, 90% 2%, 87% 92%, 12% 94%); border-radius: 20px;"></div>
+                        <!-- Card Content -->
+                        <div class="bg-black text-white p-12 rounded-xl shadow-md w-full h-full transform -rotate-6 hover:rotate-3 transition-transform duration-300 relative"
+                            style="clip-path: polygon(10% 7%, 90% 2%, 87% 92%, 12% 94%); border-radius: 20px;">
+                            <!-- Avatar -->
+                            <div class="absolute mt-4 top-1 left-1/2 transform -translate-x-1/2">
+                                <img class="w-20 h-20 rounded-xl border-4 border-white" src="../static/images/h3.jpeg"
+                                    alt="Michaella Jean">
                             </div>
+                            <!-- Content -->
+                            <h3 class="mt-12 font-semibold text-lg">Michaella Jean</h3>
+                            <p class="text-sm text-gray-400">Product Manager</p>
+                            <p class="mt-4 text-gray-300 text-sm">"The solution was intuitive, efficient, and really
+                                improved our workflow. I’m beyond impressed with the results."</p>
+                        </div>
                     </div>
-                </div>   
+                </div>
             </div>
         </div>
     </section>
-        
+
     <!-- FAQs Section -->
     <div class="faq-section flex flex-col lg:flex-row items-center justify-center  p-8 py-12 ">
-    <!-- Image -->
-    <div class="faq-image mb-8 lg:mb-0">
-        <img src="../static/images/FAqs.png" alt="Founder at work" class="w-full lg:w-96 rounded-xl shadow-xl">
-    </div>
-    
-    <!-- FAQ Content -->
-    <div class="faq-content w-full lg:w-1/2 lg:pl-8">
-        <h2 class="text-2xl font-bold text-purple-700 mb-6">Frequently Asked Questions</h2>
+        <!-- Image -->
+        <div class="faq-image mb-8 lg:mb-0">
+            <img src="../static/images/FAqs.png" alt="Founder at work" class="w-full lg:w-96 rounded-xl shadow-xl">
+        </div>
 
-        <!-- FAQ Items -->
-        <div x-data="{ openItem: null }" class="space-y-4">
-            <!-- FAQ Item 1 -->
-            <div @click="openItem === 1 ? openItem = null : openItem = 1" class="faq-item cursor-pointer flex justify-between items-center p-4 border-b border-gray-200">
-                <h3 class="text-lg font-medium text-gray-800">How ThinkGreen Afrika works?</h3>
-                <span class="arrow text-xl text-purple-700 transition-transform duration-200" :class="{'rotate-180': openItem === 1}">˅</span>
-            </div>
-            <div x-show="openItem === 1" class="faq-answer p-4 text-gray-600 bg-gray-50 rounded-xl transition-all duration-200">
-                ThinkGreen brings talents into one space, nurturing them by embarking on real workspace projects, enabling unique skills for 2 or 3 months before connecting them to employer partners.
-            </div>
+        <!-- FAQ Content -->
+        <div class="faq-content w-full lg:w-1/2 lg:pl-8">
+            <h2 class="text-2xl font-bold text-purple-700 mb-6">Frequently Asked Questions</h2>
 
-            <!-- FAQ Item 2 -->
-            <div @click="openItem === 2 ? openItem = null : openItem = 2" class="faq-item cursor-pointer flex justify-between items-center p-4 border-b border-gray-200">
-                <h3 class="text-lg font-medium text-gray-800">Who can join Our Network?</h3>
-                <span class="arrow text-xl text-purple-700 transition-transform duration-200" :class="{'rotate-180': openItem === 2}">˅</span>
-            </div>
-            <div x-show="openItem === 2" class="faq-answer p-4 text-gray-600 bg-gray-50 rounded-xl transition-all duration-200">
-                A passionate individual that is willing to solve critical problems within their domain or community.
-            </div>
+            <!-- FAQ Items -->
+            <div x-data="{ openItem: null }" class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <div @click="openItem === 1 ? openItem = null : openItem = 1"
+                    class="faq-item cursor-pointer flex justify-between items-center p-4 border-b border-gray-200">
+                    <h3 class="text-lg font-medium text-gray-800">How ThinkGreen Afrika works?</h3>
+                    <span class="arrow text-xl text-purple-700 transition-transform duration-200"
+                        :class="{'rotate-180': openItem === 1}">˅</span>
+                </div>
+                <div x-show="openItem === 1"
+                    class="faq-answer p-4 text-gray-600 bg-gray-50 rounded-xl transition-all duration-200">
+                    ThinkGreen brings talents into one space, nurturing them by embarking on real workspace projects,
+                    enabling unique skills for 2 or 3 months before connecting them to employer partners.
+                </div>
 
-            <!-- FAQ Item 3 -->
-            <div @click="openItem === 3 ? openItem = null : openItem = 3" class="faq-item cursor-pointer flex justify-between items-center p-4 border-b border-gray-200">
-                <h3 class="text-lg font-medium text-gray-800">How can I become a Talent?</h3>
-                <span class="arrow text-xl text-purple-700 transition-transform duration-200" :class="{'rotate-180': openItem === 3}">˅</span>
-            </div>
-            <div x-show="openItem === 3" class="faq-answer p-4 text-gray-600 bg-gray-50 rounded-xl transition-all duration-200">
-                Ensure you are a problem solver and someone who's willing to deliver. <a href="https://forms.gle/RsjDFgR2wE63uviv9" class="text-green-600 hover:underline">You can also apply using this link</a>
+                <!-- FAQ Item 2 -->
+                <div @click="openItem === 2 ? openItem = null : openItem = 2"
+                    class="faq-item cursor-pointer flex justify-between items-center p-4 border-b border-gray-200">
+                    <h3 class="text-lg font-medium text-gray-800">Who can join Our Network?</h3>
+                    <span class="arrow text-xl text-purple-700 transition-transform duration-200"
+                        :class="{'rotate-180': openItem === 2}">˅</span>
+                </div>
+                <div x-show="openItem === 2"
+                    class="faq-answer p-4 text-gray-600 bg-gray-50 rounded-xl transition-all duration-200">
+                    A passionate individual that is willing to solve critical problems within their domain or community.
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div @click="openItem === 3 ? openItem = null : openItem = 3"
+                    class="faq-item cursor-pointer flex justify-between items-center p-4 border-b border-gray-200">
+                    <h3 class="text-lg font-medium text-gray-800">How can I become a Talent?</h3>
+                    <span class="arrow text-xl text-purple-700 transition-transform duration-200"
+                        :class="{'rotate-180': openItem === 3}">˅</span>
+                </div>
+                <div x-show="openItem === 3"
+                    class="faq-answer p-4 text-gray-600 bg-gray-50 rounded-xl transition-all duration-200">
+                    Ensure you are a problem solver and someone who's willing to deliver. <a
+                        href="https://forms.gle/RsjDFgR2wE63uviv9" class="text-green-600 hover:underline">You can also
+                        apply using this link</a>
+                </div>
             </div>
         </div>
     </div>
-    </div>
     <!-- Newsletter Section -->
-    <section >
+    <section>
         <div class="flex flex-col items-center py-12">
             <h1 class="text-3xl font-lg text-center text-black">
                 Subscribe to our newsletter<br> for the latest insights<br> and opportunities
             </h1>
             <a href="{% url 'subscribe' %}">
-                <button class="mt-10 button-color text-white font-semibold py-3 px-8 rounded-xl border-2 border-transparent hover:bg-white hover:text-green-900 hover:border-color transition duration-300 text-lg">
-                  Subscribe
+                <button
+                    class="mt-10 button-color text-white font-semibold py-3 px-8 rounded-xl border-2 border-transparent hover:bg-white hover:text-green-900 hover:border-color transition duration-300 text-lg">
+                    Subscribe
                 </button>
             </a>
         </div>
     </section>
-       
-<footer class="flex flex-col items-center justify-center">
-    <div class="relative bg-footer pt-6 px-8 mb-3 rounded-xl mx-3 w-4/5 text-white">
-        <!-- Container -->
-        <div class=" mx-auto pb-9 relative z-10">
-            <!-- Adjusted Grid -->
+
+    <footer class="flex flex-col items-center justify-center">
+        <div class="relative bg-footer pt-6 px-8 mb-3 rounded-xl mx-3 w-4/5 text-white">
+            <!-- Container -->
+            <div class=" mx-auto pb-9 relative z-10">
+                <!-- Adjusted Grid -->
                 <div class="flex flex-col">
-                <!-- Logo Section -->
-                 <div class="flex flex-row justify-between items-center border-b-2 py-10 mx-10">
-                    <img src="../static/images/thinkgreen-logo-white.png" alt="ThinkGreen Afrika white" class="w-40 h-auto mb-4">
-                    <p class="text-sm text-gray-300">
-                        Talent Development and Job Placement
-                    </p>
-                    <a href="" class="btn btn-talent hover:button-color hover:border-white">
-                        Join Our Initiative
-                    </a>
+                    <!-- Logo Section -->
+                    <div class="flex flex-row justify-between items-center border-b-2 py-10 mx-10">
+                        <img src="../static/images/thinkgreen-logo-white.png" alt="ThinkGreen Afrika white"
+                            class="w-40 h-auto mb-4">
+                        <p class="text-sm text-gray-300">
+                            Talent Development and Job Placement
+                        </p>
+                        <a href="" class="btn btn-talent hover:button-color hover:border-white">
+                            Join Our Initiative
+                        </a>
 
-                 </div>
-                <!-- Contact Section -->
-                <div class="flex flex-row gap-8 lg:col-span-1 md:ml-8">
-                    <div class="flex flex-col">
-                        <h3 class="text-lg font-semibold mb-3 mt-4">| Follow Us</h3>
-                        <div class="flex space-x-3">
-                            <a href="https://whatsapp.com/channel/0029VadbYG790x2rzJt1k718" target="_blank" class="w-8 h-8 rounded-xl bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-green-500">
-                                <img src="../static/images/whatsapp.png" alt="WhatsApp" class="w-4 h-4">
-                            </a>
-                            <a href="https://www.facebook.com/profile.php?id=61568738616754&mibextid=LQQJ4d" target="_blank" class="w-8 h-8 rounded-xl bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-blue-600">
-                                <img src="../static/images/facebook.png" alt="Facebook" class="w-4 h-4">
-                            </a>
-                            <a href="https://www.instagram.com/thinkgreen_afrika/profilecard/?igsh=MWRxZjBvb3Y1a3Mxcw==" target="_blank" class="w-8 h-8 rounded-xl bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-pink-500">
-                                <img src="../static/images/instagram.png" alt="Instagram" class="w-4 h-4">
-                            </a>
-                            <a href="https://www.linkedin.com/company/thinkgreen-afrika/" target="_blank" class="w-8 h-8 rounded-xl bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-blue-700">
-                                <img src="../static/images/linkedin.png" alt="LinkedIn" class="w-4 h-4">
-                            </a>
-                        </div>
                     </div>
-
-                    <div class="flex flex-col">
-                        <h3 class="text-lg font-semibold mb-3 mt-4">| Contact Us</h3>
-                        <div class="flex gap-2 items-start">
-                            <img src="../static/images/Vector.png" alt="Email" class="w-6 h-4 mt-1">
-                            <div class="flex flex-col">
-                                <a href="mailto:careers@thinkgreenafrika.org" class="text-sm hover:underline">careers@thinkgreenafrika.org</a>
-                                <a href="mailto:thinkgreenafrika.org@gmail.com" class="text-sm hover:underline">thinkgreenafrika.org@gmail.com</a>
+                    <!-- Contact Section -->
+                    <div class="flex flex-row gap-8 lg:col-span-1 md:ml-8">
+                        <div class="flex flex-col">
+                            <h3 class="text-lg font-semibold mb-3 mt-4">| Follow Us</h3>
+                            <div class="flex space-x-3">
+                                <a href="https://whatsapp.com/channel/0029VadbYG790x2rzJt1k718" target="_blank"
+                                    class="w-8 h-8 rounded-xl bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-green-500">
+                                    <img src="../static/images/whatsapp.png" alt="WhatsApp" class="w-4 h-4">
+                                </a>
+                                <a href="https://www.facebook.com/profile.php?id=61568738616754&mibextid=LQQJ4d"
+                                    target="_blank"
+                                    class="w-8 h-8 rounded-xl bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-blue-600">
+                                    <img src="../static/images/facebook.png" alt="Facebook" class="w-4 h-4">
+                                </a>
+                                <a href="https://www.instagram.com/thinkgreen_afrika/profilecard/?igsh=MWRxZjBvb3Y1a3Mxcw=="
+                                    target="_blank"
+                                    class="w-8 h-8 rounded-xl bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-pink-500">
+                                    <img src="../static/images/instagram.png" alt="Instagram" class="w-4 h-4">
+                                </a>
+                                <a href="https://www.linkedin.com/company/thinkgreen-afrika/" target="_blank"
+                                    class="w-8 h-8 rounded-xl bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-blue-700">
+                                    <img src="../static/images/linkedin.png" alt="LinkedIn" class="w-4 h-4">
+                                </a>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="flex flex-col">
-                        <h3 class="text-lg font-semibold mb-3 mt-4">| Find Us</h3>
-                        <div class="flex gap-2 items-start">
-                            <img src="../static/images/duo-icons_location.png" alt="Map" class="w-6 h-6 mt-1">
-                            <p class="text-sm">
-                                Kimironko, KG42 Ave<br>
-                                Kigali, Rwanda
-                            </p>
+
+                        <div class="flex flex-col">
+                            <h3 class="text-lg font-semibold mb-3 mt-4">| Contact Us</h3>
+                            <div class="flex gap-2 items-start">
+                                <img src="../static/images/Vector.png" alt="Email" class="w-6 h-4 mt-1">
+                                <div class="flex flex-col">
+                                    <a href="mailto:careers@thinkgreenafrika.org"
+                                        class="text-sm hover:underline">careers@thinkgreenafrika.org</a>
+                                    <a href="mailto:thinkgreenafrika.org@gmail.com"
+                                        class="text-sm hover:underline">thinkgreenafrika.org@gmail.com</a>
+                                </div>
+                            </div>
                         </div>
+
+                        <div class="flex flex-col">
+                            <h3 class="text-lg font-semibold mb-3 mt-4">| Find Us</h3>
+                            <div class="flex gap-2 items-start">
+                                <img src="../static/images/duo-icons_location.png" alt="Map" class="w-6 h-6 mt-1">
+                                <p class="text-sm">
+                                    Kimironko, KG42 Ave<br>
+                                    Kigali, Rwanda
+                                </p>
+                            </div>
+                        </div>
+
                     </div>
-                
-                </div>
-    
-                <div class="flex flex-col items-center mt-8">
-                    <p class="text-gray-300">
-                        @ 2025 - Copyright
-                    </p>
+
+                    <div class="flex flex-col items-center mt-8">
+                        <p class="text-gray-300">
+                            @ 2025 - Copyright
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    
-</footer>
+
+    </footer>
 
     <!-- Showing Modal Container -->
     <script>
@@ -699,113 +798,91 @@
             if (e.target === modal) modal.classList.add("hidden");
         });
     </script>
-    
-    <!-- Infinite Scroll for trusted sponsors -->
-    <style>
-    #group {
-        will-change: transform;
-        animation: scrolling 20s linear infinite;
-    }
-
-    #group-2 {
-        will-change: transform;
-        animation: scrolling 20s linear infinite;
-    }
-
-    @keyframes scrolling {
-        0% {
-          transform: translateX(-100%);
-        }
-        100% {
-          transform: translateX(-200%);
-        }
-    }
-    </style>
-
-        <!-- Animationg elements -->
+    <!-- Animationg elements -->
     <script>
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              const el = entry.target;
-              el.classList.remove(
-                "opacity-0",
-                "-translate-x-10",
-                "translate-x-10"
-              );
-              el.classList.add("opacity-100", "translate-x-0");
-              observer.unobserve(el); // Stop observing once animated
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        const el = entry.target;
+                        el.classList.remove(
+                            "opacity-0",
+                            "-translate-x-10",
+                            "translate-x-10"
+                        );
+                        el.classList.add("opacity-100", "translate-x-0");
+                        observer.unobserve(el); // Stop observing once animated
+                    }
+                });
+            },
+            {
+                threshold: 0.1, // Trigger when 10% of the element is visible
             }
-          });
-        },
-        {
-          threshold: 0.1, // Trigger when 10% of the element is visible
-        }
-      );
+        );
 
-      document
-        .querySelectorAll(".animate-left, .animate-right")
-        .forEach((el) => {
-          observer.observe(el);
-        });
+        document
+            .querySelectorAll(".animate-left, .animate-right")
+            .forEach((el) => {
+                observer.observe(el);
+            });
     </script>
 
     <!-- JavaScript for Mobile Menu -->
     <script>
-      document.addEventListener("scroll", function () {
-        const section = document.getElementById("animated-section");
-        const sectionTop = section.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
+        document.addEventListener("scroll", function () {
+            const section = document.getElementById("animated-section");
+            const sectionTop = section.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
 
-        if (sectionTop < windowHeight) {
-          section.classList.add("opacity-100", "animate-slideOut");
-        }
-      });
-
-      document
-        .getElementById("menu-toggle")
-        .addEventListener("click", function () {
-          document.getElementById("mobile-menu").classList.remove("hidden");
+            if (sectionTop < windowHeight) {
+                section.classList.add("opacity-100", "animate-slideOut");
+            }
         });
 
-      document
-        .getElementById("close-menu")
-        .addEventListener("click", function () {
-          document.getElementById("mobile-menu").classList.add("hidden");
-        });
+        document
+            .getElementById("menu-toggle")
+            .addEventListener("click", function () {
+                document.getElementById("mobile-menu").classList.remove("hidden");
+            });
 
-      // Function to toggle the email modal
-      function toggleModal() {
-        const modal = document.getElementById("emailModal");
-        modal.classList.toggle("hidden");
-      }
-      //for testimonials
-      let currentSlide = 0;
-      const totalSlides = 2; // Since we display 3 out of 6 cards, we have 2 "slides"
+        document
+            .getElementById("close-menu")
+            .addEventListener("click", function () {
+                document.getElementById("mobile-menu").classList.add("hidden");
+            });
 
-      function updateCarousel() {
-        const carousel = document.getElementById("carousel");
-        const offset = -currentSlide * 100; // Adjust for each slide width
-        carousel.style.transform = `translateX(${offset}%)`;
-      }
-
-      function nextSlide() {
-        if (currentSlide < totalSlides - 1) {
-          currentSlide++;
-          updateCarousel();
+        // Function to toggle the email modal
+        function toggleModal() {
+            const modal = document.getElementById("emailModal");
+            modal.classList.toggle("hidden");
         }
-      }
+        //for testimonials
+        let currentSlide = 0;
+        const totalSlides = 2; // Since we display 3 out of 6 cards, we have 2 "slides"
 
-      function previousSlide() {
-        if (currentSlide > 0) {
-          currentSlide--;
-          updateCarousel();
+        function updateCarousel() {
+            const carousel = document.getElementById("carousel");
+            const offset = -currentSlide * 100; // Adjust for each slide width
+            carousel.style.transform = `translateX(${offset}%)`;
         }
-      }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+                updateCarousel();
+            }
+        }
+
+        function previousSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateCarousel();
+            }
+        }
     </script>
 
     <!-- AlpineJS for toggle functionality -->
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 </body>
+
 </html>
