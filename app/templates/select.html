@@ -32,7 +32,53 @@
 
     </style>
 </head>
-<body>
+<body class="bg-gradient-to-b from-white via-white to-green-300 ">
+    <!-- Hero Section -->
+    <header class=" bg-cover bg-center px-0  py-10">
+        <!-- Navbar -->
+        <nav class="bg-white shadow-md fixed top-4 left-4 right-4 rounded-full z-50">
+            <div class="relative w-4/5 mx-auto px-6 py-6 flex justify-between items-center">
+                <a href="{% url 'home' %}"><img src="/static/images/thinkgreen-logo-green.png" alt="logo"
+                        class="max-w-20 h-50"> </a>
+                        
+                <ul class="hidden md:flex space-x-10">
+                    <li>
+                        <a href="index.html"
+                            class=" text-color text-lg font-bold hover:text-primary text-3xl border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="about_us.html"
+                            class="text-black text-lg font-medium hover:text-primary text-3xl border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
+                            About Us
+                        </a>
+                    </li>
+                    <li>
+                        <a href="solutions.html"
+                            class=" text-black text-lg font-medium hover:text-primary text-3xl border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
+                            Our Solutions
+                        </a>
+                    </li>
+                    <li>
+                        <a href="program.html"
+                            class=" text-black text-lg font-medium hover:text-primary text-3xl border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
+                            Our Programs
+                        </a>
+                    </li>
+                    <li>
+                        <a href="onekidatatime.html"
+                            class="text-black text-lg font-medium hover:text-primary text-3xl border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
+                            Support Our Initiatives
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="hidden text-3xl md:flex flex-row items-end space-x-4">
+                    <!-- <a href="{% url 'book' %}" class="btn-talent nav-book">Book 1:1</a> -->
+                    <a href="select.html" class="btn-partner nav-pod button-color btn">
+                        Join our Network
+                    </a>
 
     <main class="h-screen bg-gradient-to-b from-green-500 to-white">
         <div class="container mx-auto p-4 md:p-12 pt-24">
