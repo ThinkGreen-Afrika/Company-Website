@@ -157,8 +157,7 @@
           <a href="{% url 'home' %}"
             ><img
               src="../static/images/thinkgreen-logo-green.png"
-              alt="logo"
-              class="max-w-64 h-10"
+          
             />
           </a>
           <ul class="hidden md:flex space-x-6">
@@ -408,13 +407,16 @@
             </div>
 
             <!-- Mission Image -->
-            <img src="../static/images/about-vision.png"
+            <img src="{% static 'images/about-vision.png' %}" 
+ 
+/>"
               alt="Team Photo"
               class="animate-top transform opacity-0 translate-y-10 transition-all duration-1000 ease-out 
               w-full h-auto rounded-xl shadow-md" />
 
             <!-- Approach Image -->
-            <img src="../static/images/about-approach.jpg"
+            <img src="{% static 'images/about-approach.jpg' %}" 
+            />
               alt="Approach Photo"
               class="animate-top transform opacity-0 translate-y-10 transition-all duration-1000 ease-out 
               w-full h-auto rounded-xl shadow-md"/>
