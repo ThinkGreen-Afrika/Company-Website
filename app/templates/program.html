@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +11,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
     rel="stylesheet" />
-  <link rel="icon" type="image/x-icon" href="/static/images/favicon.ico" />
+  <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}" />
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
   <style>
     body {
@@ -303,7 +304,7 @@
 
       <div
         class="animate-right transform opacity-0 translate-x-10 transition-all duration-1000 ease-out ml-auto flex flex-row bg-white p-8 rounded-lg shadow-md w-3/5 items-center justify-center border-color border border-color my-6">
-        <img src="../static/images/program2.jpg" alt="Why Us 1" class="w-52 h-64 object-cover mx-auto rounded-lg" />
+        <img src="{% static 'images/program2.jpg' %}" alt="Why Us 1" class="w-52 h-64 object-cover mx-auto rounded-lg" />
         <div class="flex flex-col w-full">
           <h3
             class="flex items-center text-xl font-bold text-left text-color pl-4 ml-4 mb-4 h-16 max-w-96 border-l-2 border-color">
@@ -321,7 +322,7 @@
 
       <div
         class="animate-left transform opacity-0 -translate-x-10 transition-all duration-1000 ease-out mr-auto flex flex-row bg-white p-8 rounded-lg shadow-md w-3/5 items-center justify-center border border-color my-6">
-        <img src="../static/images/program3.jpeg" alt="Why Us 1" class="w-52 h-64 object-cover mx-auto rounded-lg" />
+        <img src="{% static 'images/program3.jpeg' %}" alt="Why Us 1" class="w-52 h-64 object-cover mx-auto rounded-lg" />
         <div class="flex flex-col w-full">
           <h3
             class="flex items-center text-xl font-bold text-left text-color pl-4 ml-4 mb-4 h-16 object-center max-w-96 border-l-2 border-color">
@@ -339,7 +340,7 @@
 
       <div
         class="animate-right transform opacity-0 translate-x-10 transition-all duration-1000 ease-out ml-auto flex flex-row bg-white p-8 rounded-lg shadow-md w-3/5 items-center justify-center border-color border border-color my-6">
-        <img src="../static/images/program4.jpg" alt="Why Us 1" class="w-52 h-64 object-cover mx-auto rounded-lg" />
+        <img src="{% static 'images/program4.jpg' %}" alt="Why Us 1" class="w-52 h-64 object-cover mx-auto rounded-lg" />
         <div class="flex flex-col w-full">
           <h3
             class="flex items-center text-xl font-bold text-left text-color pl-4 ml-4 mb-4 h-16 object-center max-w-96 border-l-2 border-color">
@@ -384,7 +385,7 @@
         <div class="flex flex-col">
           <!-- Logo Section -->
           <div class="flex flex-row justify-between items-center border-b-2 py-10 mx-10">
-            <img src="../static/images/thinkgreen-logo-white.png" alt="ThinkGreen Afrika white"
+            <img src="{% static 'images/thinkgreen-logo-white.png' %}" alt="ThinkGreen Afrika white">
               class="w-40 h-auto mb-4" />
             <p class="text-sm text-gray-300">
               Talent Development and Job Placement
@@ -400,20 +401,20 @@
               <div class="flex space-x-3">
                 <a href="https://whatsapp.com/channel/0029VadbYG790x2rzJt1k718" target="_blank"
                   class="w-8 h-8 rounded-xl bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-green-500">
-                  <img src="../static/images/whatsapp.png" alt="WhatsApp" class="w-4 h-4" />
+                  <img src="{% static 'images/whatsapp.png' %}" alt="WhatsApp" class="w-4 h-4" />
                 </a>
                 <a href="https://www.facebook.com/profile.php?id=61568738616754&mibextid=LQQJ4d" target="_blank"
                   class="w-8 h-8 rounded-xl bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-blue-600">
-                  <img src="../static/images/facebook.png" alt="Facebook" class="w-4 h-4" />
+                  <img src="{% static 'images/facebook.png' %}" alt="Facebook" class="w-4 h-4" />
                 </a>
                 <a href="https://www.instagram.com/thinkgreen_afrika/profilecard/?igsh=MWRxZjBvb3Y1a3Mxcw=="
                   target="_blank"
                   class="w-8 h-8 rounded-xl bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-pink-500">
-                  <img src="../static/images/instagram.png" alt="Instagram" class="w-4 h-4" />
+                  <img src="{% static 'images/instagram.png' %}" alt="Instagram" class="w-4 h-4" />
                 </a>
                 <a href="https://www.linkedin.com/company/thinkgreen-afrika/" target="_blank"
                   class="w-8 h-8 rounded-xl bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-blue-700">
-                  <img src="../static/images/linkedin.png" alt="LinkedIn" class="w-4 h-4" />
+                  <img src="{% static 'images/linkedin.png' %}" alt="LinkedIn" class="w-4 h-4" />
                 </a>
               </div>
             </div>
@@ -434,7 +435,7 @@
             <div class="flex flex-col">
               <h3 class="text-lg font-semibold mb-3 mt-4">| Find Us</h3>
               <div class="flex gap-2 items-start">
-                <img src="../static/images/duo-icons_location.png" alt="Map" class="w-6 h-6 mt-1" />
+                <img src="{% static 'images/duo-icons_location.png' %}" alt="Map" class="w-6 h-6 mt-1" />
                 <p class="text-sm">
                   Kimironko, KG42 Ave<br />
                   Kigali, Rwanda
