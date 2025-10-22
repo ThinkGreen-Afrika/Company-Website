@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -115,7 +116,7 @@
                 <div class="max-w-5xl mx-auto grid gap-8 md:grid-rows-2">
                     <!-- Card 1 -->
                     <div class="p-6 flex flex-col md:flex-row items-center md:space-x-16 space-y-6 md:space-y-0">
-                        <img src="/static/images/Employer pic 1.png" alt="Talent working together" class="w-full md:w-1/2 h-auto object-cover rounded-lg">
+                        <img src="{% static 'images/Employer pic 1.png' %}" alt="Talent working together" class="w-full md:w-1/2 h-auto object-cover rounded-lg" />
                         <p class="text-xl sm:text-2xl font-bold text-gray-900 text-center md:text-left">
                             We select tested and <br>valuable Companies<br> and organizations for<br> you!
                         </p>
@@ -126,7 +127,10 @@
                         <p class="text-xl sm:text-2xl font-bold text-gray-900 text-center md:text-left">
                             Join us now and gain<br> invaluable experience<br> from our list of<br> Organizations
                         </p>
-                        <img src="/static/images/Employer pic 2.png" alt="Professional working" class="w-full md:w-1/2 h-auto object-cover rounded-lg">
+                        <img src=src="{% static 'images/Employer pic 2.png' %}" 
+  alt="Professional working" 
+  class="w-full md:w-1/2 h-auto object-cover rounded-lg"
+
                     </div>
                 </div>
             
@@ -154,7 +158,9 @@
     <div class="faq-section flex flex-col lg:flex-row items-center justify-center mt-12 p-8 mb-12 bg-transparent">
         <!-- Image -->
         <div class="faq-image mb-8 lg:mb-0">
-            <img src="/static/images/FAqs.png" alt="Founder at work" class="w-full lg:w-96 rounded-lg shadow-xl">
+            <img src=src="{% static 'images/FAqs.png' %}" 
+  alt="Founder at work" 
+  class="w-full lg:w-96 rounded-lg shadow-xl"
         </div>
         
         <!-- FAQ Content -->
