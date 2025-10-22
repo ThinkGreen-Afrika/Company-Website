@@ -156,65 +156,62 @@
   </style>
 </head>
 
-<<body class="bg-gradient-to-b from-white via-white to-green-300 ">
-    <!-- Hero Section -->
-    <header class=" bg-cover bg-center px-0  py-10">
-        <!-- Navbar -->
-        <nav class="bg-white shadow-md fixed top-4 left-4 right-4 rounded-full z-50">
-            <div class="relative w-4/5 mx-auto px-6 py-6 flex justify-between items-center">
-                <a href="{% url 'home' %}"><img src="/static/images/thinkgreen-logo-green.png" alt="logo"
-                        class="max-w-20 h-50"> </a>
-                        
-                <ul class="hidden md:flex space-x-10">
-                    <li>
-                        <a href="index.html"
-                            class=" text-color text-lg font-bold hover:text-primary text-3xl border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
-                            Home
-                        </a>
-                    </li>
-                    <li>
-                        <a href="about_us.html"
-                            class="text-black text-lg font-medium hover:text-primary text-3xl border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
-                            About Us
-                        </a>
-                    </li>
-                    <li>
-                        <a href="solutions.html"
-                            class=" text-black text-lg font-medium hover:text-primary text-3xl border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
-                            Our Solutions
-                        </a>
-                    </li>
-                    <li>
-                        <a href="program.html"
-                            class=" text-black text-lg font-medium hover:text-primary text-3xl border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
-                            Our Programs
-                        </a>
-                    </li>
-                    <li>
-                        <a href="onekidatatime.html"
-                            class="text-black text-lg font-medium hover:text-primary text-3xl border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
-                            Support Our Initiatives
-                        </a>
-                    </li>
-                </ul>
+<body class="bg-gradient-to-b from-white via-white to-green-300">
+  <!-- Hero Section -->
+  <header class="bg-cover bg-center px-4">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md fixed top-4 left-4 right-4 rounded-full z-50">
+      <div class="container mx-auto px-6 py-6 flex justify-between items-center">
+        <a href="{% url 'home' %}"><img src="../static/images/thinkgreen-logo-green.png" alt="logo"
+            class="max-w-64 h-10" />
+        </a>
+        <ul class="hidden md:flex space-x-6">
+          <li>
+            <a href="{% url 'home' %}"
+              class="text-black font-medium hover:text-primary border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'about_us' %}"
+              class="text-black font-medium hover:text-primary border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
+              About Us
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'solutions' %}"
+              class="text-black font-medium hover:text-primary border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
+              Our Solutions
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'program' %}"
+              class="text-color font-bold hover:text-primary border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
+              Our Programs
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'podcast' %}"
+              class="text-black font-medium hover:text-primary border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
+              Support Our Initiatives
+            </a>
+          </li>
+        </ul>
 
-                <div class="hidden text-3xl md:flex flex-row items-end space-x-4">
-                    <!-- <a href="{% url 'book' %}" class="btn-talent nav-book">Book 1:1</a> -->
-                    <a href="select.html" class="btn-partner nav-pod button-color btn">
-                        Join our Network
-                    </a>
-
-                </div>
-                <!-- Mobile Menu Toggle -->
-                <button class="md:hidden text-gray-600 focus:outline-none" id="menu-toggle">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16m-7 6h7" />
-                    </svg>
-                </button>
-            </div>
-        </nav>
+        <div class="hidden md:flex flex-row items-end space-x-4">
+          <!-- <a href="{% url 'book' %}" class="btn-talent nav-book">Book 1:1</a> -->
+          <a href="{% url 'select' %}" class="btn-partner nav-pod button-color btn">
+            Join our Network
+          </a>
+        </div>
+        <!-- Mobile Menu Toggle -->
+        <button class="md:hidden text-gray-600 focus:outline-none" id="menu-toggle">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+          </svg>
+        </button>
+      </div>
+    </nav>
     <!-- Background Elements -->
     <div class="absolute top-24 right-12 w-16 h-16 rounded-xl z-0" style="
           background: linear-gradient(
@@ -281,21 +278,21 @@
 
   <!-- WHy Us Section -->
   <!-- About Us Section -->
-   <section id="about-us" class="flex flex-col justify-center items-center mx-auto mt-20 mb-12 w-4/5">
-    <h1 class="font-bold text-color md:text-4xl lg:text-5xl text-9 text-center w-full">
+  <section id="about-us" class="flex flex-col justify-center items-center mx-auto mt-20 mb-12 w-4/5">
+    <h1 class="font-bold text-color md:text-3xl text-9 text-center w-full">
       Our Programs
     </h1>
 
-    <div class="gap-8 mx-auto max-w-30xl pt-4">
+    <div class="gap-8 mx-auto max-w-6xl pt-4">
       <div
-        class="animate-left transform opacity-0 -translate-x-10 transition-all duration-1000 ease-out mr-auto flex flex-row bg-white p-8 rounded-lg shadow-md w-4/6 items-center justify-center border border-color my-6">
-        <img src="/static/images/program1.jpg" alt="Why Us 1" class="w-54 h-64 object-cover mx-auto rounded-lg" />
+        class="animate-left transform opacity-0 -translate-x-10 transition-all duration-1000 ease-out mr-auto flex flex-row bg-white p-8 rounded-lg shadow-md w-3/5 items-center justify-center border border-color my-6">
+        <img src="../static/images/program1.jpg" alt="Why Us 1" class="w-52 h-64 object-cover mx-auto rounded-lg" />
         <div class="flex flex-col w-full">
           <h3
-            class="flex items-center lg:text-3xl font-semibold text-left text-color pl-4 ml-4 mb-4 h-16 object-center max-w-150 border-l-2 border-color">
+            class="flex items-center text-xl font-bold text-left text-color pl-4 ml-4 mb-4 h-16 object-center max-w-96 border-l-2 border-color">
             The Talent Development Program (TDP)
           </h3>
-          <p class="text-gray-600 text-left ml-4 text-3xl ">
+          <p class="text-gray-600 text-left ml-4 text-sm font-semibold">
             Our comprehensive development program ensures talents are job or
             entrepreneurial-ready, with a focus on technology transformation,
             social, environmental, economic and cultural diversification and
@@ -306,13 +303,13 @@
 
       <div
         class="animate-right transform opacity-0 translate-x-10 transition-all duration-1000 ease-out ml-auto flex flex-row bg-white p-8 rounded-lg shadow-md w-3/5 items-center justify-center border-color border border-color my-6">
-        <img src="/static/images/program2.jpg" alt="Why Us 1" class="w-54 h-64 object-cover mx-auto rounded-lg" />
+        <img src="../static/images/program2.jpg" alt="Why Us 1" class="w-52 h-64 object-cover mx-auto rounded-lg" />
         <div class="flex flex-col w-full">
           <h3
-            class="flex items-center text-3xl font-semibold text-left text-color pl-4 ml-4 mb-4 h-16 max-w-96 border-l-2 border-color">
+            class="flex items-center text-xl font-bold text-left text-color pl-4 ml-4 mb-4 h-16 max-w-96 border-l-2 border-color">
             Leading Experience Accelerator  (LEA-Program)
           </h3>
-          <p class="text-gray-600 text-left ml-4 text-3xl ">
+          <p class="text-gray-600 text-left ml-4 text-sm font-semibold">
             At the core of the LEA-program, we’re champions of igniting
             adaptability in the workplace. We use a bottom-to-top learning
             approach to problem-solving and skills acquisition. 
@@ -324,13 +321,13 @@
 
       <div
         class="animate-left transform opacity-0 -translate-x-10 transition-all duration-1000 ease-out mr-auto flex flex-row bg-white p-8 rounded-lg shadow-md w-3/5 items-center justify-center border border-color my-6">
-        <img src="/static/images/program3.jpeg" alt="Why Us 1" class="w-54 h-64 object-cover mx-auto rounded-lg" />
+        <img src="../static/images/program3.jpeg" alt="Why Us 1" class="w-52 h-64 object-cover mx-auto rounded-lg" />
         <div class="flex flex-col w-full">
           <h3
-            class="flex items-center text-3xl font-semibold text-left text-color pl-4 ml-4 mb-4 h-16 object-center max-w-96 border-l-2 border-color">
+            class="flex items-center text-xl font-bold text-left text-color pl-4 ml-4 mb-4 h-16 object-center max-w-96 border-l-2 border-color">
             Reverse Mentoring & Skill Swaps (Re-MSS)
           </h3>
-          <p class="text-gray-600 text-left ml-4 text-3xl ">
+          <p class="text-gray-600 text-left ml-4 text-sm font-semibold">
             At our core, learning frameworks is a lucrative opportunity we
             established across employees, creating space where talent with
             digital and tech skills can mentor co-workers and senior staff.
@@ -342,13 +339,13 @@
 
       <div
         class="animate-right transform opacity-0 translate-x-10 transition-all duration-1000 ease-out ml-auto flex flex-row bg-white p-8 rounded-lg shadow-md w-3/5 items-center justify-center border-color border border-color my-6">
-        <img src="/static/images/program4.jpg" alt="Why Us 1" class="w-54 h-64 object-cover mx-auto rounded-lg" />
+        <img src="../static/images/program4.jpg" alt="Why Us 1" class="w-52 h-64 object-cover mx-auto rounded-lg" />
         <div class="flex flex-col w-full">
           <h3
-            class="flex items-center text-3xl font-semibold text-left text-color pl-4 ml-4 mb-4 h-16 object-center max-w-96 border-l-2 border-color">
+            class="flex items-center text-xl font-bold text-left text-color pl-4 ml-4 mb-4 h-16 object-center max-w-96 border-l-2 border-color">
             Project-Based Apprenticeships & Exchange Program
           </h3>
-          <p class="text-gray-600 text-left ml-4 text-3xl ">
+          <p class="text-gray-600 text-left ml-4 text-sm font-semibold">
             With the value of our systemic approach, we create a dynamic loop
             for companies, corporations and organisations to fulfill their
             needs and consumption, where apprentices will be assigned to
@@ -358,9 +355,12 @@
           </p>
         </div>
       </div>
-      <div class="animate-left transform opacity-0 -translate-x-10 transition-all duration-1000 ease-out mr-auto flex flex-row bg-white p-8 rounded-lg shadow-md w-3/5 items-center justify-center border border-color my-6">
-      <div class=" items-center mx-auto ">
-        <h3 class="text-color text-left font-semibold text-4xl w-72 mr-10">
+
+    </div>
+
+    <div class="flex flex-row gap-3 justify-center items-center bg-white border border-color p-6 rounded-3xl">
+      <div class="flex items-center mx-auto ">
+        <h3 class="text-color text-left font-semibold text-3xl w-72 mr-10">
           Learn more about our Programs here:
         </h3>
       </div>
@@ -373,87 +373,75 @@
       referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
       class=" rounded-xl"></iframe>
     </div>
-
-    </div>      
-    </div>
-  </section>
-
-
-    
   </section>
   
 
-  
-    <footer class="flex flex-col items-center justify-center">
-        <div class="relative bg-footer pt-6 px-8 mb-3 rounded-xl mx-3 w-4/5 text-white">
-            <!-- Container -->
-            <div class="mx-auto pb-9 relative z-10">
-                <!-- Adjusted Grid -->
-                <div class="flex flex-col">
-                    <!-- Logo Section -->
-                    <div class="flex flex-row justify-between items-center border-b-2 py-8 mx-10">
-                        <img src="/static/images/thinkgreen-logo-white.png" alt="ThinkGreen Afrika white"
-                            class="w-50 h-auto mb-4" />
-                        <p class="text-3xl text-gray-300">
-                            Talent Development and Job Placement
-                        </p>
-                        <a href="" class="btn btn-talent text-3xl hover:button-color hover:border-white">
-                            Join Our Initiative
-                        </a>
-                    </div>
-            <div class="flex flex-col md:flex-row justify-between gap-8 lg:col-span-2 md:ml-8">
-        <!-- Follow Us (Left) -->
-                          <div class="flex flex-col">
-                           <h3 class="text-3xl font-semibold mb-3 mt-4">| Follow Us</h3>
-                              <div class="flex space-x-3">
-                                 <a href="https://whatsapp.com/channel/0029VadbYG790x2rzJt1k718" target="_blank"
-                                 class="w-8 h-8 rounded-xl bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-green-500">
-                                   <img src="/static/images/whatsapp.png" alt="WhatsApp" class="w-4 h-4" />
-                                 </a>
-                                <a href="https://www.facebook.com/profile.php?id=61568738616754&mibextid=LQQJ4d"
-                                     target="_blank"
-                                  class="w-8 h-8 rounded-xl bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-blue-600">
-                                     <img src="/static/images/facebook.png" alt="Facebook" class="w-4 h-4" />
-                                </a>
-                                <a href="https://www.instagram.com/thinkgreen_afrika/profilecard/?igsh=MWRxZjBvb3Y1a3Mxcw=="
-                                   target="_blank"
-                                class="w-8 h-8 rounded-xl bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-pink-500">
-                                     <img src="/static/images/instagram.png" alt="Instagram" class="w-4 h-4" />
-                                </a>
-                                 <a href="https://www.linkedin.com/company/thinkgreen-afrika/" target="_blank"
-                                     class="w-8 h-8 rounded-xl bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-blue-700">
-                                         <img src="/static/images/linkedin.png" alt="LinkedIn" class="w-4 h-4" />
-                                  </a>
-                           </div>
-                      </div>
+  <footer class="flex flex-col items-center justify-center">
+    <div class="relative bg-footer pt-6 px-8 mb-3 rounded-xl mx-3 w-4/5 text-white">
+      <!-- Container -->
+      <div class="mx-auto pb-9 relative z-10">
+        <!-- Adjusted Grid -->
+        <div class="flex flex-col">
+          <!-- Logo Section -->
+          <div class="flex flex-row justify-between items-center border-b-2 py-10 mx-10">
+            <img src="../static/images/thinkgreen-logo-white.png" alt="ThinkGreen Afrika white"
+              class="w-40 h-auto mb-4" />
+            <p class="text-sm text-gray-300">
+              Talent Development and Job Placement
+            </p>
+            <a href="" class="btn btn-talent hover:button-color hover:border-white">
+              Join Our Initiative
+            </a>
+          </div>
+          <!-- Contact Section -->
+          <div class="flex flex-row gap-8 lg:col-span-1 md:ml-8">
+            <div class="flex flex-col">
+              <h3 class="text-lg font-semibold mb-3 mt-4">| Follow Us</h3>
+              <div class="flex space-x-3">
+                <a href="https://whatsapp.com/channel/0029VadbYG790x2rzJt1k718" target="_blank"
+                  class="w-8 h-8 rounded-xl bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-green-500">
+                  <img src="../static/images/whatsapp.png" alt="WhatsApp" class="w-4 h-4" />
+                </a>
+                <a href="https://www.facebook.com/profile.php?id=61568738616754&mibextid=LQQJ4d" target="_blank"
+                  class="w-8 h-8 rounded-xl bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-blue-600">
+                  <img src="../static/images/facebook.png" alt="Facebook" class="w-4 h-4" />
+                </a>
+                <a href="https://www.instagram.com/thinkgreen_afrika/profilecard/?igsh=MWRxZjBvb3Y1a3Mxcw=="
+                  target="_blank"
+                  class="w-8 h-8 rounded-xl bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-pink-500">
+                  <img src="../static/images/instagram.png" alt="Instagram" class="w-4 h-4" />
+                </a>
+                <a href="https://www.linkedin.com/company/thinkgreen-afrika/" target="_blank"
+                  class="w-8 h-8 rounded-xl bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-blue-700">
+                  <img src="../static/images/linkedin.png" alt="LinkedIn" class="w-4 h-4" />
+                </a>
+              </div>
+            </div>
 
-        <!-- Contact Us (Center) -->
-        <div class="flex flex-col md:mx-auto">
-            <h3 class="text-3xl font-semibold mb-6 mt-5">| Contact Us</h3>
-            <div class="flex gap-2 items-start">
-                <img src="/static/images/Vector.png" alt="Email" class="w-6 h-4 mt-1" />
+            <div class="flex flex-col">
+              <h3 class="text-lg font-semibold mb-3 mt-4">| Contact Us</h3>
+              <div class="flex gap-2 items-start">
+                <img src="../static/images/Vector.png" alt="Email" class="w-6 h-4 mt-1" />
                 <div class="flex flex-col">
-                    <a href="mailto:careers@thinkgreenafrika.org"
-                        class="text-3xl hover:underline">careers@thinkgreenafrika.org</a>
-                    <a href="mailto:thinkgreenafrika.org@gmail.com"
-                        class="text-3xl hover:underline">thinkgreenafrika.org@gmail.com</a>
+                  <a href="mailto:careers@thinkgreenafrika.org"
+                    class="text-sm hover:underline">careers@thinkgreenafrika.org</a>
+                  <a href="mailto:thinkgreenafrika.org@gmail.com"
+                    class="text-sm hover:underline">thinkgreenafrika.org@gmail.com</a>
                 </div>
+              </div>
             </div>
-        </div>
 
-        <!-- Find Us (Right) -->
-        <div class="flex flex-col md:ml-auto">
-            <h3 class="text-3xl font-semibold mb-3 mt-4">| Find Us</h3>
-            <div class="flex gap-2 items-start">
-                <img src="/static/images/duo-icons_location.png" alt="Map" class="w-6 h-6 mt-1" />
-                <p class="text-3xl">
-                    Kimironko, KG42 Ave<br />
-                    Kigali, Rwanda
+            <div class="flex flex-col">
+              <h3 class="text-lg font-semibold mb-3 mt-4">| Find Us</h3>
+              <div class="flex gap-2 items-start">
+                <img src="../static/images/duo-icons_location.png" alt="Map" class="w-6 h-6 mt-1" />
+                <p class="text-sm">
+                  Kimironko, KG42 Ave<br />
+                  Kigali, Rwanda
                 </p>
+              </div>
             </div>
-        </div>
-    </div>
-
+          </div>
 
           <div class="flex flex-col items-center mt-8">
             <p class="text-gray-300">@ 2025 - Copyright</p>

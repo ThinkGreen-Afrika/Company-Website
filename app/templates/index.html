@@ -14,20 +14,9 @@
     <link rel="icon" type="image/x-icon" href="/static/images/favicon.ico">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
-       body {
-    font-family: 'Poppins', sans-serif;
-    font-size: 18px; /* Good readable font size */
-    line-height: 1.7; /* Improves readability */
-             }
-        header{
-            padding-bottom:7rem;
+        body {
+            font-family: 'Poppins', sans-serif;
         }
-        
-        /* type scale to match hero */
-        .text-9{ font-size: clamp(70px, 7.2vw, 40px);
-         line-height:1.15; }
-        .text-6{ font-size: clamp(16px, 1.6vw, 30px); }
-        .text-4{ font-size: clamp(14px, 1.2w, 24px);}
 
         /* Custom Tailwind adjustments */
         .bg-primary {
@@ -168,105 +157,53 @@
             position: relative;
             z-index: 1;
         }
-          /* ===== about us ===== */
-   
-
-         /* Entrance anims (reuse) */
-         @keyframes fadeInLeft { from{opacity:0; transform:translateX(-22px)} to{opacity:1; transform:translateX(0)} }
-         @keyframes fadeInRight{ from{opacity:0; transform:translateX( 22px)} to{opacity:1; transform:translateX(0)} }
-         .animate-left{ animation: fadeInLeft 0.9s ease-out .05s forwards; opacity:0; }
-         .animate-right{ animation: fadeInRight 0.9s ease-out .05s forwards; opacity:0; }
-
-          /* Image presentation (soft ring/shadow like hero) */
-          .ringed{
-          border-radius: 1.25rem;
-          box-shadow: 0 18px 45px rgba(0,0,0,.16);
-         overflow: hidden;
-          position: relative;
-         background: #fff;
-          }
-    .ringed::after{
-      content:"";
-      position:absolute; inset:-10px;
-      border-radius: 1.75rem;
-      outline: 8px solid #CDE8D5;      /* soft greenish ring */
-      pointer-events:none;
-    }
-
-    /* Section spacing & layout helpers */
-    .zigzag{ max-width: 2000px; margin: 0 auto; padding-top: 20rem; padding-bottom: 0; }
-    .zigzag .row{ display:grid; grid-template-columns: 1fr; gap:2rem; align-items:center; margin-bottom: 4rem; }
-    .zigzag .headline{ font-weight:700; letter-spacing:-.2px; }
-    .zigzag p{ color:#1F2937; }
-
-    /* Desktop: two columns */
-    @media (min-width: 1024px){
-      .zigzag .row{ grid-template-columns: 5fr 7fr; gap:9.5rem; }
-      /* alternate by index — even rows reverse automatically */
-      .zigzag .row:nth-child(even) .textcol{ order: 2; }  /* image on right */
-      .zigzag .row:nth-child(even) .imgcol{ order: 1; } /* text on left  */
-      .zigzag .row:nth-child(odd)  .textcol{ order: 1; }  /* image on left  */
-      .zigzag .row:nth-child(odd)  .imgcol{ order: 2; } /* text on right */
-    }
-
-    /* Small decorative green badge (optional) */
-    .mini-badge{
-      display:inline-flex; align-items:center; gap:.4rem;
-      background:#1E6C34; color:#fff; border-radius:9999px;
-      padding:.25rem .6rem; font-size:.8rem; font-weight:600;
-      box-shadow:0 10px 18px rgba(30,108,52,.2);
-    }
-    .mini-badge i{
-      display:inline-block; width:16px; height:16px; background:#fff; border-radius:9999px;
-    }
     </style>
 </head>
 
-<<body class="bg-gradient-to-b from-white via-white to-green-300 ">
+<body class="bg-gradient-to-b from-white via-white to-green-300 ">
     <!-- Hero Section -->
-    <header class=" bg-cover bg-center px-0  py-10">
+    <header class=" bg-cover bg-center px-4">
         <!-- Navbar -->
         <nav class="bg-white shadow-md fixed top-4 left-4 right-4 rounded-full z-50">
-            <div class="relative w-4/5 mx-auto px-6 py-6 flex justify-between items-center">
-                <a href="{% url 'home' %}"><img src="/static/images/thinkgreen-logo-green.png" alt="logo"
-                        class="max-w-20 h-50"> </a>
-                        
-                <ul class="hidden md:flex space-x-10">
+            <div class="container mx-auto px-6 py-6 flex justify-between items-center">
+                <a href="{% url 'home' %}"><img src="../static/images/thinkgreen-logo-green.png" alt="logo"
+                        class="max-w-64 h-10"> </a>
+                <ul class="hidden md:flex space-x-6">
                     <li>
-                        <a href="index.html"
-                            class=" text-color text-lg font-bold hover:text-primary text-3xl border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
+                        <a href="{% url 'home' %}"
+                            class=" text-color font-bold hover:text-primary border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
                             Home
                         </a>
                     </li>
                     <li>
-                        <a href="about_us.html"
-                            class="text-black text-lg font-medium hover:text-primary text-3xl border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
+                        <a href="{% url 'about_us' %}"
+                            class="text-black font-medium hover:text-primary border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
                             About Us
                         </a>
                     </li>
                     <li>
-                        <a href="solutions.html"
-                            class=" text-black text-lg font-medium hover:text-primary text-3xl border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
+                        <a href="{% url 'solutions' %}"
+                            class=" text-black font-medium hover:text-primary border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
                             Our Solutions
                         </a>
                     </li>
                     <li>
-                        <a href="program.html"
-                            class=" text-black text-lg font-medium hover:text-primary text-3xl border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
+                        <a href="{% url 'program' %}"
+                            class=" text-black font-medium hover:text-primary border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
                             Our Programs
                         </a>
                     </li>
                     <li>
-                        <a href="onekidatatime.html"
-                            class="text-black text-lg font-medium hover:text-primary text-3xl border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
+                        <a href="{% url 'podcast' %}"
+                            class="text-black font-medium hover:text-primary border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
                             Support Our Initiatives
                         </a>
                     </li>
                 </ul>
 
-                <div class="hidden text-3xl md:flex flex-row items-end space-x-4">
+                <div class="hidden md:flex flex-row items-end space-x-4">
                     <!-- <a href="{% url 'book' %}" class="btn-talent nav-book">Book 1:1</a> -->
-                    <a href="select.html" class="btn-partner nav-pod button-color btn">
+                    <a href="{% url 'select' %}" class="btn-partner nav-pod button-color btn">
                         Join our Network
                     </a>
 
@@ -335,10 +272,10 @@
         <!-- <div class="absolute inset-0 bg-black bg-opacity-30"></div> -->
 
         <!-- Content -->
-        <div class=" flex flex-col mx-20 z-10 p-4 relative">
+        <div class=" flex flex-col mx-20 z-10">
             <div class="mt-36">
                 <h1 class=" animate-left transform opacity-0 -translate-x-10 transition-all duration-1000 ease-out 
-                font-bold text-color md:text-3xl text-9 text-left w-1/2 relative">
+                font-bold text-color md:text-3xl text-9 text-left w-1/2">
                     Bridging top talents and entrepreneurs with a support system to fit in the labour market across the
                     African landscape
                 </h1>
@@ -349,56 +286,55 @@
                 </p>
             </div>
             <div>
-                <img src="/static/images/hero-image-1.jpg" class=" animate-right transform opacity-0 translate-x-10 transition-all duration-1000 ease-out 
-                absolute object-cover  top-40 right-20 w-40 h-40  rounded-full" alt="hero-img">
+                <img src="../static/images/hero-image-1.jpg" class=" animate-right transform opacity-0 translate-x-10 transition-all duration-1000 ease-out 
+                absolute object-cover top-40 right-10 w-40 h-40  rounded-full" alt="hero-img">
                 <div class=" animate-right transform opacity-0 translate-x-10 transition-all duration-1000 ease-out 
                 frame absolute top-56 right-40 w-225 h-14 flex flex-row rounded-xl items-center justify-center">
-                    <img class="pl-2.5 max-w-6 max-h-6 pr-1" src="/static/images/check-logo.png" alt="tick">
-                    <p class=" p-2.5 pl-0 text-2xl text-white text-center">
+                    <img class="pl-2.5 max-w-6 max-h-6 pr-1" src="../static/images/check-logo.png" alt="tick">
+                    <p class=" p-2.5 pl-0 text-sm text-white text-center">
                         Global Networking
                     </p>
                 </div>
 
             </div>
             <div>
-                <img src="/static/images/hero-image-2.jpg" class=" animate-right transform opacity-0 translate-x-10 transition-all duration-1000 ease-out 
-                absolute  object-cover top-80    right-36 w-150 h-150 rounded-full" alt="hero-img">
+                <img src="../static/images/hero-image-2.jpg" class=" animate-right transform opacity-0 translate-x-10 transition-all duration-1000 ease-out 
+                absolute object-cover top-80 right-36 w-96 h-96 rounded-full" alt="hero-img">
 
-                <div class=" animate-right transform opacity-0 translate-x-10 transition-all duration-1000 ease-out 
-                frame absolute bottom-10 right-1/4 -translate-y-1/3 w-225 h-14 flex flex-row rounded-xl items-center justify-center">
-                    <img class="pl-2.5 max-w-6 max-h-6 pr-1" src="/static/images/check-logo.png" alt="tick">
-                    <p class=" p-2.5 pl-0 text-2xl text-white text-center">
+                <div class=" animate-right transform opacity-0 translate-x-10 transition-all duration-1000 ease-out
+                frame absolute bottom-96 right-96 w-225 h-14 flex flex-row rounded-xl items-center justify-center">
+                    <img class="pl-2.5 max-w-6 max-h-6 pr-1" src="../static/images/check-logo.png" alt="tick">
+                    <p class=" p-2.5 pl-0 text-sm text-white text-center">
                         Career Counselling
                     </p>
                 </div>
                 <div class=" animate-right transform opacity-0 translate-x-10 transition-all duration-1000 ease-out
-                frame absolute top-96 right-20 w-225 h-14 flex flex-row rounded-xl items-center justify-center">
-                    <img class="pl-2.5 max-w-6 max-h-6 pr-1" src="/static/images/check-logo.png" alt="tick">
-                    <p class=" p-2.5 pl-0 text-2xl text-white text-center">
+                frame absolute top-96 right-10 w-225 h-14 flex flex-row rounded-xl items-center justify-center">
+                    <img class="pl-2.5 max-w-6 max-h-6 pr-1" src="../static/images/check-logo.png" alt="tick">
+                    <p class=" p-2.5 pl-0 text-sm text-white text-center">
                         Top Vetted Talents
                     </p>
                 </div>
                 <div class=" animate-right transform opacity-0 translate-x-10 transition-all duration-1000 ease-out 
-                frame absolute bottom-0 top-200 right-10 w-225 h-14 flex flex-row rounded-xl items-center justify-center">
-                    <img class="pl-2.5 max-w-6 max-h-6 pr-1" src="/static/images/check-logo.png" alt="tick">
-                    <p class=" p-2.5 pl-0 text-2xl text-white text-center">
+                frame absolute bottom-52 right-10 w-225 h-14 flex flex-row rounded-xl items-center justify-center">
+                    <img class="pl-2.5 max-w-6 max-h-6 pr-1" src="../static/images/check-logo.png" alt="tick">
+                    <p class=" p-2.5 pl-0 text-sm text-white text-center">
                         Mentorship and Guidance
                     </p>
                 </div>
-            </div> 
-            
+            </div>
             <div class=" mt-8">
 
 
                 <div class=" animate-left transform opacity-0 -translate-x-10 transition-all duration-1000 ease-out 
                 mt-8 flex flex-wrap space-y-4 lg:space-y-0 lg:space-x-4">
                     <!-- Become an Employer Partner Button -->
-                    <a href="https://forms.gle/gpc97F8miwEkeLc7A" class="btn button-color btn-partner text-2xl">
+                    <a href="https://forms.gle/gpc97F8miwEkeLc7A" class="btn button-color btn-partner">
                         Become an Employer
                     </a>
 
                     <!-- Become a Talent Button -->
-                    <a href="https://forms.gle/RsjDFgR2wE63uviv9" class="btn btn-talent hover:button-color text-2xl">
+                    <a href="https://forms.gle/RsjDFgR2wE63uviv9" class="btn btn-talent hover:button-color">
                         Become a Talent
                     </a>
 
@@ -406,474 +342,186 @@
             </div>
         </div>
     </header>
-    <br>
-      
-  <section class="zigzag">
-   <h2 class="headline text-color text-9 lg:text-3xl mt-3 py-4 text-center">about us</h2>
-     <p class="text-6 mt-4">
-         ThinkGreen Afrika is cultivating a new generation of catalysed talents and youths through a
-          human-centred design model of problem-solving. Its goal is to bridge the gap between unskilled 
-          and skilled talents and reskill within the workforce to support the African labour market in the next century.
-
-         <br>
-        </p>
-    <!-- Row 1: Image LEFT, Text RIGHT -->
-    <div class="row">
-      <div class="imgcol animate-left">
-        <div class="ringed">
-          <img src="/static/images/abt.png" alt="Team Photo" class="w-full h-72 lg:h-96 object-cover"/>
-        </div>
-      </div>
-      <div class="textcol animate-right">
-        <hr class="border-t-2 border-black mb-4 w-100" />
-        <h2 class="headline  text-2xl lg:text-4xl mt-3">our vision</h2>
-        <p class="text-6 mt-4">
-          To become the global hub for entrepreneurship Fostering a culture of collaboration,
-           mentorship, and lifelong learning.
-        </p>
-      </div>
-    </div>
-
-    <!-- Row 2: Text LEFT, Image RIGHT (auto-reversed by CSS) -->
-    <div class="row">
-      <div class="imgcol animate-right">
-        <div class="ringed">
-          <img src="/static/images/vision.png" alt="Approach Photo" class="w-full h-72 lg:h-96 object-cover"/>
-        </div>
-      </div>
-      <div class="textcol animate-left">
-        <hr class="border-t-2 border-black mb-4 w-100" />
-        <h2 class="headline  text-2xl lg:text-4xl mt-3">Our Approach</h2>
-        <p class="text-6 mt-4">
-          We believe that sustainable development is both an ethical responsibility and a strategic imperative.
-          We apply human-centred design (HCD) and design thinking, transitioning from traditional learning to
-          a project-based model that meets industry and market needs.
-        </p>
-      </div>
-    </div>
-
-    <!-- Row 3: Image LEFT, Text RIGHT -->
-    <div class="row">
-      <div class="imgcol animate-left">
-        <div class="ringed">
-          <img src="/static/images/approach.png" alt="Mission Photo" class="w-full h-72 lg:h-96 object-cover"/>
-        </div>
-      </div>
-      <div class="textcol animate-right">
-        <hr class="border-t-2 border-black mb-4 w-100" />
-        <h2 class="headline  text-2xl lg:text-4xl mt-3"> Our Mission</h2>
-        <p class="text-6 mt-4">
-          We are committed to strengthening the African labour workforce by nurturing job-ready,
-           future-proof talent.
-        </p>
-      </div>
-    </div>
-
-  </section>
-    
 
     <!-- Milestones -->
     <section id="our-milestones" class=" py-16 px-6 mt-28 text-center">
         <h2 class="text-4xl font-bold text-color mb-12">Our Milestones</h2>
-        <div class="flex flex-row justify-center items-center gap-8 mx-auto max-w-10xl flex-wrap">
-    <div class="p-8 w-96 max-h-36 rounded-2xl border-color border shadow-md flex flex-col items-center justify-center text-center">
-        <img class="w-16 h-12 mb-4" src="/static/images/Mentors icon.png" alt="icon">
-        <p class="text-color font-semibold text-2xl">
-            200+ Talents
-        </p>
-    </div>
+        <div class="flex flex-wrap justify-center object-center gap-8 mx-auto max-w-4xl">
+            <div
+                class=" p-8 w-96 max-h-36 rounded-2xl border-color border shadow-md flex flex-row items-center justify-between">
+                <p class="text-left text-black font-semibold text-2xl w-52">
+                    18 Nationalities Reached
+                </p>
+                <img class="w-16 h-12" src="../static/images/Mentors icon.png" alt="icon">
+            </div>
 
-    <div class="p-8 w-96 max-h-36 rounded-2xl border-color border shadow-md flex flex-col items-center justify-center text-center">
-        <img class="w-16 h-12 mb-4" src="/static/images/map.png" alt="icon">
-        <p class="text-color font-semibold text-2xl">
-            10+ countries
-        </p>
-    </div>
+            <div
+                class=" p-8 w-96 max-h-36 rounded-2xl border-color border shadow-md flex flex-row items-center justify-between">
+                <p class="text-left text-black font-semibold text-2xl w-52">
+                    100 Talents Trained
+                </p>
+                <img class="w-16 h-12" src="../static/images/Mentors icon.png" alt="icon">
+            </div>
 
-    <div class="p-8 w-96 max-h-36 rounded-2xl border-color border shadow-md flex flex-col items-center justify-center text-center">
-        <img class="w-16 h-12 mb-4" src="/static/images/location.png" alt="icon">
-        <p class="text-color font-semibold text-2xl">
-            15+ cities
-        </p>
-    </div>
-
-    <div class="p-8 w-96 max-h-36 rounded-2xl border-color border shadow-md flex flex-col items-center justify-center text-center">
-        <img class="w-16 h-12 mb-4" src="/static/images/Mentors icon.png" alt="icon">
-        <p class="text-color font-semibold text-2xl">
-            400+ members
-        </p>
-    </div>
-</div>
-
-          <section id="about-us" class="flex flex-col justify-center items-center mx-auto mt-20 mb-12 w-4/5">
-    <h1 class="font-bold text-color md:text-2xl text-9 text-center w-full">
-      why us ?
-    </h1>
-
-    <div class="gap-8 mx-auto max-w-30xl pt-4">
-      <div
-        class="animate-left transform opacity-0 -translate-x-10 transition-all duration-1000 ease-out mr-auto flex flex-row bg-white p-8 rounded-lg shadow-md w-3/5 items-center justify-center border border-color my-6">
-        <img src="/static/images/program1.jpg" alt="Why Us 1" class="w-52 h-64 object-cover mx-auto rounded-lg" />
-        <div class="flex flex-col w-full">
-          <h3
-            class="flex items-center text-xl font-bold text-left text-color pl-4 ml-4 mb-4 h-16 object-center max-w-96 border-l-2 border-color">
-            Sustainability and Workforce Development
-          </h3>
-          <p class="text-gray-600 text-left ml-4 text-2xl font-semibold">
-            Our cutting-edge research and skills development projects and internships focused on sustainable
-             design thinking. These projects and internships provide hands-on experience and practical knowledge, equipping our interns and talents with the skills to drive sustainable change.
-
-          </p>
+            <div
+                class=" p-8 w-96 max-h-36 rounded-2xl border-color border shadow-md flex flex-row items-center justify-between">
+                <p class="text-left text-black font-semibold text-2xl w-52">
+                    250 Placed Talents
+                </p>
+                <img class="w-16 h-12" src="../static/images/Mentors icon.png" alt="icon">
+            </div>
         </div>
-      </div>
-
-      <div
-        class="animate-right transform opacity-0 translate-x-10 transition-all duration-1000 ease-out ml-auto flex flex-row bg-white p-8 rounded-lg shadow-md w-3/5 items-center justify-center border-color border border-color my-6">
-        <img src="/static/images/program2.jpg" alt="Why Us 1" class="w-52 h-64 object-cover mx-auto rounded-lg" />
-        <div class="flex flex-col w-full">
-          <h3
-            class="flex items-center text-xl font-bold text-left text-color pl-4 ml-4 mb-4 h-16 max-w-96 border-l-2 border-color">
-        Real-World Insights from Top Experts </h3>
-          <p class="text-gray-600 text-left ml-4 text-2xl font-semibold">
-           Learn directly from experienced entrepreneurs and leaders who have built successful businesses. 
-
-          </p>
-        </div>
-      </div>
-
-      <div
-        class="animate-left transform opacity-0 -translate-x-10 transition-all duration-1000 ease-out mr-auto flex flex-row bg-white p-8 rounded-lg shadow-md w-3/5 items-center justify-center border border-color my-6">
-        <img src="/static/images/program3.jpeg" alt="Why Us 1" class="w-52 h-64 object-cover mx-auto rounded-lg" />
-        <div class="flex flex-col w-full">
-          <h3
-            class="flex items-center text-xl font-bold text-left text-color pl-4 ml-4 mb-4 h-16 object-center max-w-96 border-l-2 border-color">
-A Global Network of Innovators </h3>
-          <p class="text-gray-600 text-left ml-4 text-2xl font-semibold">
-       The lives of thousands of youthful talents worldwide have the potential to be transformed by our framework.
-        We empower them to become catalysts for change in their communities and beyond by providing them with the appropriate
-         tools and opportunities. 
- </p>
-        </div>
-      </div>
-
-      <div
-        class="animate-right transform opacity-0 translate-x-10 transition-all duration-1000 ease-out ml-auto flex flex-row bg-white p-8 rounded-lg shadow-md w-3/5 items-center justify-center border-color border border-color my-6">
-        <img src="/static/images/program4.jpg" alt="Why Us 1" class="w-52 h-64 object-cover mx-auto rounded-lg" />
-        <div class="flex flex-col w-full">
-          <h3
-            class="flex items-center text-xl font-bold text-left text-color pl-4 ml-4 mb-4 h-16 object-center max-w-96 border-l-2 border-color">
-            Project-Based Apprenticeships & Exchange Program
-          </h3>
-          <p class="text-gray-600 text-left ml-4 text-2xl font-semibold">
-            With the value of our systemic approach, we create a dynamic loop
-            for companies, corporations and organisations to fulfill their
-            needs and consumption, where apprentices will be assigned to
-            specific company projects with clear objectives and deliverables.
-            Talent will focus on hand-on learning experience and get work-done
-            for the apprentice.
-          </p>
-        </div>
-      </div>
-
-    </div>
-
-
-    
-  </section>
-
         <div>
-            <h2 class="text-6xl text-color font-bold  m-12">
-                we are strusted by
+            <h2 class="text-2xl font-bold text-black m-12">
+                Our Talent has worked in various companies such as:
             </h2>
             <div class="flex flex-wrap justify-center gap-8 mx-auto w-full ">
-                <img src="/static/images/alu.png" alt="Amalitech Logo"
-                    class="w-70 h-40 object-contain rounded-2xl border-color border shadow-md">
-                <img src="/static/images/Agrisense_2-removebg-preview.png" alt="Evolve Logo"
-                    class="w-70 h-40  object-contain rounded-2xl border-color border shadow-md">
-                <img src="/static/images/logo-guaride.png" alt="Guraride Logo"
-                    class="w-70 h-40  object-contain rounded-2xl border-color border shadow-md">
-                <img src="/static/images/Eco.png" alt="Library Aid Logo"
-                    class="w-70 h-40  object-contain rounded-2xl border-color border shadow-md">
-                    
-
+                <img src="../static/images/amalitech-logo.png" alt="Amalitech Logo"
+                    class="w-64 h-36 object-contain rounded-2xl border-color border shadow-md">
+                <img src="../static/images/evolve-logo.png" alt="Evolve Logo"
+                    class="w-64 h-36 p-8 object-contain rounded-2xl border-color border shadow-md">
+                <img src="../static/images/logo-guaride.png" alt="Guraride Logo"
+                    class="w-64 h-36 p-4 object-contain rounded-2xl border-color border shadow-md">
+                <img src="../static/images/logo-library-aid.png" alt="Library Aid Logo"
+                    class="w-64 h-36 p-4 object-contain rounded-2xl border-color border shadow-md">
+                <img src="../static/images/logo-The_Venture.png" alt="The Venture Logo"
+                    class="w-64 h-36 p-4 object-contain rounded-2xl border-color border shadow-md">
+                <img src="../static/images/logo-1kat.png" alt="1k@t Logo"
+                    class="w-64 h-36 p-4 object-contain rounded-2xl border-color border shadow-md">
             </div>
-             <div class=" font-bold text-black m-12">
-
-            <div class="flex flex-wrap justify-center gap-8 mx-auto w-full ">
-                <img src="/static/images/logo-kepler.png" alt="Amalitech Logo"
-                    class="w-70 h-40 object-contain rounded-2xl border-color border shadow-md">
-                <img src="/static/images/logo-The Campus.png" alt="Evolve Logo"
-                    class="w-70 h-40  object-contain rounded-2xl border-color border shadow-md">
-                <img src="/static/images/logo-Uni of Rwanda.png" alt="Guraride Logo"
-                    class="w-70 h-40  object-contain rounded-2xl border-color border shadow-md">
-                <img src="/static/images/logo-Uni-of-Kigali.png" alt="Library Aid Logo"
-                    class="w-70 h-40  object-contain rounded-2xl border-color border shadow-md">
-
-            </div>
-
-
         </div>
-        
+        <div>
+            <h2 class="text-2xl font-bold text-black m-12">
+                Operated in Rwanda, Sierra Leone and Liberia
+            </h2>
+            <div class="flex justify-center gap-8 mx-auto max-w-4xl">
+                <img src="../static/images/flag-rwanda.jpg" alt="Rwanda Flag"
+                    class="w-80 h-44 object-cover rounded-2xl border-color border shadow-md">
+                <img src="../static/images/flag-sierra-leone.jpg" alt="SierraLeone Flag"
+                    class="w-80 h-44 object-cover rounded-2xl border-color border shadow-md">
+                <img src="../static/images/flag-liberia.png" alt="Liberia Flag"
+                    class="w-80 h-44 object-cover rounded-2xl border-color border shadow-md">
+            </div>
+        </div>
     </section>
 
-    <section id="about-us" class="flex flex-col justify-center items-center mx-auto mt-20 mb-12 w-4/5">
-    <h1 class="font-bold text-color md:text-3xl lg:text-4xl text-9 text-center w-full">
-      Our Programs
-    </h1>
+    <!-- Why Us Section -->
+    <section id="why-us" class=" py-16 px-6 pt-0 text-center">
+        <h2 class="text-3xl font-bold text-color">
+            Why Us?
+        </h2>
 
-    <div class="gap-8 mx-auto max-w-30xl pt-4">
-      <div
-        class="animate-left transform opacity-0 -translate-x-10 transition-all duration-1000 ease-out mr-auto flex flex-row bg-white p-8 rounded-lg shadow-md w-3/5 items-center justify-center border border-color my-6">
-        <img src="/static/images/program1.jpg" alt="Why Us 1" class="w-52 h-64 object-cover mx-auto rounded-lg" />
-        <div class="flex flex-col w-full">
-          <h3
-            class="flex items-center lg:text-3xl font-bold text-left text-color pl-4 ml-4 mb-4 h-16 object-center max-w-150 border-l-2 border-color">
-            The Talent Development Program (TDP)
-          </h3>
-          <p class="text-gray-600 text-left ml-4 text-2xl font-semibold">
-            Our comprehensive development program ensures talents are job or
-            entrepreneurial-ready, with a focus on technology transformation,
-            social, environmental, economic and cultural diversification and
-            how to acquire them.
-          </p>
+        <div class=" gap-8 mx-auto max-w-6xl pt-4">
+            <div
+                class=" animate-left transform opacity-0 -translate-x-10 transition-all duration-1000 ease-out 
+            mr-auto flex flex-row bg-white p-8 rounded-lg shadow-md w-3/5 items-center justify-center border-color border border-color my-6">
+                <img src="../static/images/why-us-1.jpg" alt="Why Us 1"
+                    class="w-52 h-64 object-cover rounded-xl mx-auto ">
+                <div class="flex flex-col w-full">
+                    <h3
+                        class="flex items-center text-xl font-bold text-left text-color pl-4 ml-4 mb-4 h-16 object-center max-w-96 border-l-2 border-color">
+                        Sustainability and Workforce Development
+                    </h3>
+                    <p class="text-gray-600 text-left ml-4 text-sm font-semibold">
+                        Our cutting-edge research and skills development projects and internships focused on sustainable
+                        design thinking. These projects and internships provide hands-on experience and practical
+                        knowledge, equipping our interns and talents with the skills to drive sustainable change.
+                    </p>
+                </div>
+            </div>
+
+            <div
+                class=" animate-right transform opacity-0 translate-x-10 transition-all duration-1000 ease-out 
+            ml-auto flex flex-row bg-white p-8 rounded-lg shadow-md w-3/5 items-center justify-center border-color border border-color my-6">
+                <img src="../static/images/why-us-2.jpg" alt="Why Us 1"
+                    class="w-52 h-64 object-cover rounded-xl mx-auto ">
+                <div class="flex flex-col w-full">
+                    <h3
+                        class="flex items-center text-xl font-bold text-left text-color pl-4 ml-4 mb-4 h-16 max-w-96 border-l-2 border-color">
+                        Real-World Insights from Top Experts
+                    </h3>
+                    <p class="text-gray-600 text-left ml-4 text-sm font-semibold">
+                        Learn directly from experienced entrepreneurs and leaders who have built successful businesses. 
+                    </p>
+                </div>
+            </div>
+
+            <div
+                class=" animate-left transform opacity-0 -translate-x-10 transition-all duration-1000 ease-out 
+            mr-auto flex flex-row bg-white p-8 rounded-lg shadow-md w-3/5 items-center justify-center border-color border border-color my-6">
+                <img src="../static/images/why-us-3.jpg" alt="Why Us 1"
+                    class="w-52 h-64 object-cover rounded-xl mx-auto ">
+                <div class="flex flex-col w-full">
+                    <h3
+                        class="flex items-center text-xl font-bold text-left text-color pl-4 ml-4 mb-4 h-16 object-center max-w-96 border-l-2 border-color ">
+                        A Global Network of Innovators
+                    </h3>
+                    <p class="text-gray-600 text-left ml-4 text-sm font-semibold">
+                        The lives of thousands of youthful talents with 15 nationalities worldwide have the potential to
+                        be transformed by our framework. We empower them to become catalysts for change in their society
+                        and beyond by providing them with the appropriate tools and opportunities. 
+                    </p>
+                </div>
+            </div>
         </div>
-      </div>
-
-      <div
-        class="animate-right transform opacity-0 translate-x-10 transition-all duration-1000 ease-out ml-auto flex flex-row bg-white p-8 rounded-lg shadow-md w-3/5 items-center justify-center border-color border border-color my-6">
-        <img src="/static/images/program2.jpg" alt="Why Us 1" class="w-52 h-64 object-cover mx-auto rounded-lg" />
-        <div class="flex flex-col w-full">
-          <h3
-            class="flex items-center text-xl font-bold text-left text-color pl-4 ml-4 mb-4 h-16 max-w-96 border-l-2 border-color">
-            Leading Experience Accelerator  (LEA-Program)
-          </h3>
-          <p class="text-gray-600 text-left ml-4 text-2xl font-semibold">
-            At the core of the LEA-program, we’re champions of igniting
-            adaptability in the workplace. We use a bottom-to-top learning
-            approach to problem-solving and skills acquisition. 
-            <br />The LEA-program significantly focuses on both soft and hard
-            skills, transitioning digital literacy.
-          </p>
-        </div>
-      </div>
-
-      <div
-        class="animate-left transform opacity-0 -translate-x-10 transition-all duration-1000 ease-out mr-auto flex flex-row bg-white p-8 rounded-lg shadow-md w-3/5 items-center justify-center border border-color my-6">
-        <img src="/static/images/program3.jpeg" alt="Why Us 1" class="w-52 h-64 object-cover mx-auto rounded-lg" />
-        <div class="flex flex-col w-full">
-          <h3
-            class="flex items-center text-xl font-bold text-left text-color pl-4 ml-4 mb-4 h-16 object-center max-w-96 border-l-2 border-color">
-            Reverse Mentoring & Skill Swaps (Re-MSS)
-          </h3>
-          <p class="text-gray-600 text-left ml-4 text-2xl font-semibold">
-            At our core, learning frameworks is a lucrative opportunity we
-            established across employees, creating space where talent with
-            digital and tech skills can mentor co-workers and senior staff.
-            This fosters mutual benefit and fills immediate skills gaps within
-            our established company culture. 
-          </p>
-        </div>
-      </div>
-
-      <div
-        class="animate-right transform opacity-0 translate-x-10 transition-all duration-1000 ease-out ml-auto flex flex-row bg-white p-8 rounded-lg shadow-md w-3/5 items-center justify-center border-color border border-color my-6">
-        <img src="/static/images/program4.jpg" alt="Why Us 1" class="w-52 h-64 object-cover mx-auto rounded-lg" />
-        <div class="flex flex-col w-full">
-          <h3
-            class="flex items-center text-xl font-bold text-left text-color pl-4 ml-4 mb-4 h-16 object-center max-w-96 border-l-2 border-color">
-            Project-Based Apprenticeships & Exchange Program
-          </h3>
-          <p class="text-gray-600 text-left ml-4 text-2xl font-semibold">
-            With the value of our systemic approach, we create a dynamic loop
-            for companies, corporations and organisations to fulfill their
-            needs and consumption, where apprentices will be assigned to
-            specific company projects with clear objectives and deliverables.
-            Talent will focus on hand-on learning experience and get work-done
-            for the apprentice.
-          </p>
-        </div>
-      </div>
-
-    </div>      
-    </div>
-  </section>
-
-
-  <!--our solutions-->
-
-  <section id="about-us" class="w-11/12 md:w-4/5 mx-auto py-16 md:py-20  from-emerald-50/70 to-emerald-100/30 rounded-3xl">
-  <h1 class="text-center font-extrabold text-3xl md:text-4xl text-color tracking-tight">
-    Our Solutions
-  </h1>
-  <p class="mt-4 md:mt-5 text-center font-semibold text-gray-800 md:text-3xl max-w-10xl mx-auto">
-    We believe that the best way to grow as an entrepreneur is through shared experiences, authentic stories, and practical knowledge.
-  </p>
-
-  <!-- Cards -->
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-8 mt-10">
-    <!-- Card 1 -->
-    <div class="bg-white border border-gray-100 rounded-2xl p-6 md:p-8 shadow-[0_10px_30px_rgba(0,0,0,0.06)]">
-      <h3 class="text-xl md:text-2xl  font-extrabold text-gray-900">Unique Value</h3>
-      <p class="mt-3 text-gray-600 leading-relaxed text-2xl">
-        In a rapidly changing world, young creative minds often lack the tools to make impact. We emphasize skills development and sustainable frameworks to attract eco-conscious job seekers and employers.
-      </p>
-      <button class="mt-5 inline-flex items-center rounded-xl px-4 py-2 bg-gray-100 text-gray-800 font-medium shadow hover:shadow-lg transition">
-        Learn More
-      </button>
-    </div>
-
-    <!-- Card 2 -->
-    <div class="bg-white border border-gray-100 rounded-2xl p-6 md:p-8 shadow-[0_10px_30px_rgba(0,0,0,0.06)]">
-      <h3 class="text-xl md:text-2xl font-extrabold text-gray-900">Sustainability Integration</h3>
-      <p class="mt-3 text-gray-600 leading-relaxed text-2xl">
-        We integrate sustainable, design-thinking practices into programs—nurturing talent to contribute to economic democracy through innovative solutions.
-      </p>
-      <button class="mt-5 inline-flex items-center rounded-xl px-4 py-2 bg-gray-100 text-gray-800 font-medium shadow hover:shadow-lg transition">
-        Learn More
-      </button>
-    </div>
-
-    <!-- Card 3 -->
-    <div class="bg-white border border-gray-100 rounded-2xl p-6 md:p-8 shadow-[0_10px_30px_rgba(0,0,0,0.06)]">
-      <h3 class ="text-xl md:text-2xl font-extrabold text-gray-900">Mentorship and Guidance</h3>
-      <p class="mt-3 text-gray-600 leading-relaxed text-2xl">
-        We connect talents and entrepreneurs with experienced mentors who provide personalized guidance for building ideas and career pathways.
-      </p>
-      <button class="mt-5 inline-flex items-center rounded-xl px-4 py-2 bg-gray-100 text-gray-800 font-medium shadow hover:shadow-lg transition">
-        Learn More
-      </button>
-    </div>
-
-    <!-- Card 4 -->
-    <div class="bg-white border border-gray-100 rounded-2xl p-6 md:p-8 shadow-[0_10px_30px_rgba(0,0,0,0.06)]">
-      <h3 class="text-2xl md:text-2xl font-extrabold text-gray-900">Workforce Development Preparation</h3>
-      <p class="mt-3 text-2xl text-gray-600 leading-relaxed">
-        ThinkGreen Afrika equips talent with in-demand soft and hard skills matched to industry needs to prepare them for the workforce.
-      </p>
-      <button class="mt-5 inline-flex items-center rounded-xl px-4 py-2 bg-gray-100 text-gray-800 font-medium shadow hover:shadow-lg transition">
-        Learn More
-      </button>
-    </div>
-  </div>
-</section>
-
-  
-
-    
+    </section>
 
     <!-- We are trusted By Section -->
-
-    
-<!-- Testimonials Section -->
- <section class="min-h-screen bg-[#bfe8d9]">
-      <section class="relative mx-auto max-w-6xl px-6 py-14">
-    <!-- Header -->
-    <div class="flex items-center justify-between mb-6">
-      <!-- Left arrow -->
-      <button aria-label="Previous"
-        class="grid h-10 w-10 place-items-center rounded-full bg-white/60 hover:bg-white shadow transition">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
-        </svg>
-      </button>
-
-      <div class="text-center">
-        <h2 class="text-2xl md:text-3xl font-semibold text-gray-700">What Our Clients Say About Us</h2>
-        <div class="mt-3 flex items-center justify-center gap-2">
-          <span class="w-1.5 h-1.5 rounded-full bg-fuchsia-400"></span>
-          <span class="w-1.5 h-1.5 rounded-full bg-fuchsia-300"></span>
-          <span class="w-1.5 h-1.5 rounded-full bg-fuchsia-200"></span>
-          <span class="w-1.5 h-1.5 rounded-full bg-fuchsia-300"></span>
-          <span class="w-1.5 h-1.5 rounded-full bg-fuchsia-400"></span>
+    <section id="Trusted" class=" py-16 px-6 pt-0 text-center">
+        <h2 class="text-3xl font-bold text-center text-color mb-12">
+            We are trusted by
+        </h2>
+        <div class="overflow-hidden w-full">
+            <div class="flex gap-8 animate-scroll whitespace-nowrap">
+                <template id="logos">
+                    <img src="../static/images/alu-removebg-preview.png" alt="ALU Logo"
+                        class="w-64 h-32 p-4 bg-white object-contain rounded-2xl border shadow-md">
+                    <img src="../static/images/logo-agrisense.png" alt="Agrisense Logo"
+                        class="w-64 h-32 p-4 bg-white object-contain rounded-2xl border shadow-md">
+                    <img src="../static/images/amalitech-logo.jpg" alt="Amalitech Logo"
+                        class="w-64 h-32 p-4 bg-white object-contain rounded-2xl border shadow-md">
+                    <img src="../static/images/Eco.png" alt="Eco Logo"
+                        class="w-64 h-32 p-4 bg-white object-contain rounded-2xl border shadow-md">
+                    <img src="../static/images/logo-kepler.png" alt="K Logo"
+                        class="w-64 h-32 p-4 bg-white object-contain rounded-2xl border shadow-md">
+                    <img src="../static/images/logo-The Campus.png" alt="Campus Logo"
+                        class="w-64 h-32 p-4 bg-white object-contain rounded-2xl border shadow-md">
+                    <img src="../static/images/logo-The_Venture.png" alt="Venture Logo"
+                        class="w-64 h-32 p-4 bg-white object-contain rounded-2xl border shadow-md">
+                    <img src="../static/images/logo-Uni of Rwanda.png" alt="Rwanda Logo"
+                        class="w-64 h-32 p-4 bg-white object-contain rounded-2xl border shadow-md">
+                    <img src="../static/images/logo-Uni-of-Kigali.png" alt="Kigali Logo"
+                        class="w-64 h-32 p-4 bg-white object-contain rounded-2xl border shadow-md">
+                    <img src="../static/images/logo-ecas.png" alt="ECAS Logo"
+                        class="w-64 h-32 p-4 bg-white object-contain rounded-2xl border shadow-md">
+                    <img src="../static/images/logo-1kat.png" alt="1K@t Logo"
+                        class="w-64 h-32 p-4 bg-white object-contain rounded-2xl border shadow-md">
+                </template>
+                <div id="logo-strip" class="flex gap-8"></div>
+            </div>
         </div>
-      </div>
+        <style>
+            @keyframes scroll {
+                0% {
+                    transform: translateX(0%);
+                }
 
-      <!-- Right arrow -->
-      <button aria-label="Next"
-        class="grid h-10 w-10 place-items-center rounded-full bg-white/60 hover:bg-white shadow transition">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M8.59 16.59 10 18l6-6-6-6-1.41 1.41L13.17 12z"/>
-        </svg>
-      </button>
-    </div>
+                100% {
+                    transform: translateX(-158%);
+                }
+            }
 
-    <!-- Cards -->
-    <div class="grid gap-8 md:grid-cols-3 items-end">
-      <!-- Left small card -->
-      <div class="relative bg-[#c5efdf]/60 p-6 sm:p-8 rounded-[28%_36%_30%_38%_/_22%_34%_28%_40%] -rotate-6">
-        <!-- Shadow effect -->
-        <div class="absolute inset-4 -inset-x-3.5 -bottom-4 bg-black/12 blur-lg rounded-[28%_36%_30%_38%_/_22%_34%_28%_40%] rotate-4 -z-10"></div>
-        
-        <!-- Avatar -->
-        <div class="absolute left-1/2 -top-7 transform -translate-x-1/2 w-18 h-18 rounded-full grid place-items-center bg-gradient-to-br from-[#d8f3e9] to-[#9be1cf] shadow-lg">
-          <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&h=200&q=80" 
-               alt="Amanda Johnson" 
-               class="w-16 h-16 rounded-full object-cover">
-        </div>
-        
-        <!-- Card content -->
-        <div class="relative bg-white rounded-[28%_36%_30%_38%_/_22%_34%_28%_40%] shadow-lg p-6 pt-12 z-10">
-          <h3 class="text-sm font-semibold text-gray-800 text-center">Amanda Johnson</h3>
-          <p class="text-xs text-gray-500 text-center mt-0.5">Marketing Director</p>
-          <div class="mt-3 text-center text-fuchsia-500 text-xl">"</div>
-          <p class="mt-2 text-[13px] leading-5 text-gray-600 text-center">
-            Working with this team transformed our digital presence. Their innovative approach delivered results beyond our expectations.
-          </p>
-        </div>
-      </div>
-
-      <!-- Center big card -->
-      <div class="scale-105 md:scale-110 -mt-4">
-        <div class="relative bg-[#c5efdf]/60 p-7 sm:p-9 rounded-[28%_36%_30%_38%_/_22%_34%_28%_40%]">
-          <!-- Shadow effect -->
-          <div class="absolute inset-5 -inset-x-3.5 -bottom-4 bg-black/12 blur-lg rounded-[28%_36%_30%_38%_/_22%_34%_28%_40%] -rotate-4 -z-10"></div>
-          
-          <!-- Avatar -->
-          <div class="absolute left-1/2 -top-8 transform -translate-x-1/2 w-20 h-20 rounded-full grid place-items-center bg-gradient-to-br from-[#d8f3e9] to-[#9be1cf] shadow-lg">
-            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&h=200&q=80" 
-                 alt="Michael Chen" 
-                 class="w-18 h-18 rounded-full object-cover">
-          </div>
-          
-          <!-- Card content -->
-          <div class="relative bg-white rounded-[28%_36%_30%_38%_/_22%_34%_28%_40%] shadow-lg p-7 pt-16 z-10">
-            <h3 class="text-base font-semibold text-gray-800 text-center">Michael Chen</h3>
-            <p class="text-sm text-gray-500 text-center mt-0.5">Product Manager</p>
-            <div class="mt-4 text-center text-fuchsia-500 text-2xl">"</div>
-            <p class="mt-3 text-[15px] leading-6 text-gray-600 text-center">
-              The solution was intuitive, efficient, and really improved our workflow. I'm beyond impressed with the results and the team's dedication to excellence.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Right small card -->
-      <div class="relative bg-[#c5efdf]/60 p-6 sm:p-8 rounded-[28%_36%_30%_38%_/_22%_34%_28%_40%] rotate-6">
-        <!-- Shadow effect -->
-        <div class="absolute inset-4 -inset-x-3.5 -bottom-4 bg-black/12 blur-lg rounded-[28%_36%_30%_38%_/_22%_34%_28%_40%] -rotate-4 -z-10"></div>
-        
-        <!-- Avatar -->
-        <div class="absolute left-1/2 -top-7 transform -translate-x-1/2 w-18 h-18 rounded-full grid place-items-center bg-gradient-to-br from-[#d8f3e9] to-[#9be1cf] shadow-lg">
-          <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&h=200&q=80" 
-               alt="Sarah Williams" 
-               class="w-16 h-16 rounded-full object-cover">
-        </div>
-        
-        <!-- Card content -->
-        <div class="relative bg-white rounded-[28%_36%_30%_38%_/_22%_34%_28%_40%] shadow-lg p-6 pt-12 z-10">
-          <h3 class="text-sm font-semibold text-gray-800 text-center">Sarah Williams</h3>
-          <p class="text-xs text-gray-500 text-center mt-0.5">Creative Director</p>
-          <div class="mt-3 text-center text-fuchsia-500 text-xl">"</div>
-          <p class="mt-2 text-[13px] leading-5 text-gray-600 text-center">
-            Their creative approach and attention to detail elevated our brand to new heights. A truly exceptional partnership.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
- </section>
-
+            .animate-scroll {
+                animation: scroll 10s linear infinite;
+            }
+        </style>
+        <script>
+            const strip = document.getElementById('logo-strip');
+            const logos = document.getElementById('logos').content;
+            strip.appendChild(logos.cloneNode(true));
+            strip.appendChild(logos.cloneNode(true)); // duplicate for looping
+        </script>
+    </section>
 
     <!-- Testimonials Section -->
     <section class="py-16">
@@ -924,7 +572,7 @@ A Global Network of Innovators </h3>
                             <!-- Avatar -->
                             <div class="absolute mt-4 top-1 left-1/2 transform -translate-x-1/2">
                                 <img class="w-24 h-24 rounded-xl border-4 border-white object-cover"
-                                    src="/static/images/h1.jpeg" alt="Client Image">
+                                    src="../static/images/h1.jpeg" alt="Client Image">
                             </div>
                             <!-- Content -->
                             <h3 class="mt-16 font-semibold text-lg text-center">David Peterson</h3>
@@ -966,7 +614,7 @@ A Global Network of Innovators </h3>
                             style="clip-path: polygon(10% 7%, 90% 2%, 87% 92%, 12% 94%); border-radius: 20px;">
                             <!-- Avatar -->
                             <div class="absolute mt-4 top-1 left-1/2 transform -translate-x-1/2">
-                                <img class="w-20 h-20 rounded-xl border-4 border-white" src="/static/images/h3.jpeg"
+                                <img class="w-20 h-20 rounded-xl border-4 border-white" src="../static/images/h3.jpeg"
                                     alt="Michaella Jean">
                             </div>
                             <!-- Content -->
@@ -985,7 +633,7 @@ A Global Network of Innovators </h3>
     <div class="faq-section flex flex-col lg:flex-row items-center justify-center  p-8 py-12 ">
         <!-- Image -->
         <div class="faq-image mb-8 lg:mb-0">
-            <img src="/static/images/FAqs.png" alt="Founder at work" class="w-full lg:w-96 rounded-xl shadow-xl">
+            <img src="../static/images/FAqs.png" alt="Founder at work" class="w-full lg:w-96 rounded-xl shadow-xl">
         </div>
 
         <!-- FAQ Content -->
@@ -1058,7 +706,7 @@ A Global Network of Innovators </h3>
                 <div class="flex flex-col">
                     <!-- Logo Section -->
                     <div class="flex flex-row justify-between items-center border-b-2 py-10 mx-10">
-                        <img src="/static/images/thinkgreen-logo-white.png" alt="ThinkGreen Afrika white"
+                        <img src="../static/images/thinkgreen-logo-white.png" alt="ThinkGreen Afrika white"
                             class="w-40 h-auto mb-4">
                         <p class="text-sm text-gray-300">
                             Talent Development and Job Placement
@@ -1075,21 +723,21 @@ A Global Network of Innovators </h3>
                             <div class="flex space-x-3">
                                 <a href="https://whatsapp.com/channel/0029VadbYG790x2rzJt1k718" target="_blank"
                                     class="w-8 h-8 rounded-xl bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-green-500">
-                                    <img src="/static/images/whatsapp.png" alt="WhatsApp" class="w-4 h-4">
+                                    <img src="../static/images/whatsapp.png" alt="WhatsApp" class="w-4 h-4">
                                 </a>
                                 <a href="https://www.facebook.com/profile.php?id=61568738616754&mibextid=LQQJ4d"
                                     target="_blank"
                                     class="w-8 h-8 rounded-xl bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-blue-600">
-                                    <img src="/static/images/facebook.png" alt="Facebook" class="w-4 h-4">
+                                    <img src="../static/images/facebook.png" alt="Facebook" class="w-4 h-4">
                                 </a>
                                 <a href="https://www.instagram.com/thinkgreen_afrika/profilecard/?igsh=MWRxZjBvb3Y1a3Mxcw=="
                                     target="_blank"
                                     class="w-8 h-8 rounded-xl bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-pink-500">
-                                    <img src="/static/images/instagram.png" alt="Instagram" class="w-4 h-4">
+                                    <img src="../static/images/instagram.png" alt="Instagram" class="w-4 h-4">
                                 </a>
                                 <a href="https://www.linkedin.com/company/thinkgreen-afrika/" target="_blank"
                                     class="w-8 h-8 rounded-xl bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-blue-700">
-                                    <img src="/static/images/linkedin.png" alt="LinkedIn" class="w-4 h-4">
+                                    <img src="../static/images/linkedin.png" alt="LinkedIn" class="w-4 h-4">
                                 </a>
                             </div>
                         </div>
@@ -1097,7 +745,7 @@ A Global Network of Innovators </h3>
                         <div class="flex flex-col">
                             <h3 class="text-lg font-semibold mb-3 mt-4">| Contact Us</h3>
                             <div class="flex gap-2 items-start">
-                                <img src="/static/images/Vector.png" alt="Email" class="w-6 h-4 mt-1">
+                                <img src="../static/images/Vector.png" alt="Email" class="w-6 h-4 mt-1">
                                 <div class="flex flex-col">
                                     <a href="mailto:careers@thinkgreenafrika.org"
                                         class="text-sm hover:underline">careers@thinkgreenafrika.org</a>
@@ -1110,7 +758,7 @@ A Global Network of Innovators </h3>
                         <div class="flex flex-col">
                             <h3 class="text-lg font-semibold mb-3 mt-4">| Find Us</h3>
                             <div class="flex gap-2 items-start">
-                                <img src="/static/images/duo-icons_location.png" alt="Map" class="w-6 h-6 mt-1">
+                                <img src="../static/images/duo-icons_location.png" alt="Map" class="w-6 h-6 mt-1">
                                 <p class="text-sm">
                                     Kimironko, KG42 Ave<br>
                                     Kigali, Rwanda
