@@ -286,8 +286,8 @@
                 </p>
             </div>
             <div>
-                <img src="../static/images/hero-image-1.jpg" class=" animate-right transform opacity-0 translate-x-10 transition-all duration-1000 ease-out 
-                absolute object-cover top-40 right-10 w-40 h-40  rounded-full" alt="hero-img">
+                <img src="{% static 'images/hero-image-1.jpg' %}" class="animate-right transform opacity-0 translate-x-10 transition-all duration-1000 ease-out"
+                absolute object-cover top-40 right-10 w-40 h-40  rounded-full"
                 <div class=" animate-right transform opacity-0 translate-x-10 transition-all duration-1000 ease-out 
                 frame absolute top-56 right-40 w-225 h-14 flex flex-row rounded-xl items-center justify-center">
                     <img class="pl-2.5 max-w-6 max-h-6 pr-1" src="../static/images/check-logo.png" alt="tick">
@@ -298,8 +298,11 @@
 
             </div>
             <div>
-                <img src="../static/images/hero-image-2.jpg" class=" animate-right transform opacity-0 translate-x-10 transition-all duration-1000 ease-out 
-                absolute object-cover top-80 right-36 w-96 h-96 rounded-full" alt="hero-img">
+                <img src="{% static 'images/hero-image-2.jpg' %}" 
+     class="animate-right transform opacity-0 translate-x-10 transition-all duration-1000 ease-out 
+            absolute object-cover top-80 right-36 w-96 h-96 rounded-full" 
+ translate-x-10 transition-all duration-1000 ease-out 
+                absolute object-cover top-80 right-36 w-96 h-96 rounded-full"
 
                 <div class=" animate-right transform opacity-0 translate-x-10 transition-all duration-1000 ease-out
                 frame absolute bottom-96 right-96 w-225 h-14 flex flex-row rounded-xl items-center justify-center">
@@ -317,7 +320,7 @@
                 </div>
                 <div class=" animate-right transform opacity-0 translate-x-10 transition-all duration-1000 ease-out 
                 frame absolute bottom-52 right-10 w-225 h-14 flex flex-row rounded-xl items-center justify-center">
-                    <img class="pl-2.5 max-w-6 max-h-6 pr-1" src="../static/images/check-logo.png" alt="tick">
+                    <img class="pl-2.5 max-w-6 max-h-6 pr-1" src="{% static 'images/check-logo.png' %}"
                     <p class=" p-2.5 pl-0 text-sm text-white text-center">
                         Mentorship and Guidance
                     </p>
@@ -352,7 +355,7 @@
                 <p class="text-left text-black font-semibold text-2xl w-52">
                     18 Nationalities Reached
                 </p>
-                <img class="w-16 h-12" src="../static/images/Mentors icon.png" alt="icon">
+                <img class="w-16 h-12" src="{% static 'images/Mentors icon.png' %}" 
             </div>
 
             <div
@@ -360,7 +363,8 @@
                 <p class="text-left text-black font-semibold text-2xl w-52">
                     100 Talents Trained
                 </p>
-                <img class="w-16 h-12" src="../static/images/Mentors icon.png" alt="icon">
+                <img class="w-16 h-12" src="{% static 'images/Mentors icon.png' %}" alt="icon">
+
             </div>
 
             <div
@@ -368,7 +372,7 @@
                 <p class="text-left text-black font-semibold text-2xl w-52">
                     250 Placed Talents
                 </p>
-                <img class="w-16 h-12" src="../static/images/Mentors icon.png" alt="icon">
+                <img class="w-16 h-12" src="{% static 'images/Mentors icon.png' %}"
             </div>
         </div>
         <div>
@@ -376,17 +380,17 @@
                 Our Talent has worked in various companies such as:
             </h2>
             <div class="flex flex-wrap justify-center gap-8 mx-auto w-full ">
-                <img src="../static/images/amalitech-logo.png" alt="Amalitech Logo"
+                <img src="{% static 'images/amalitech-logo.png' %}" alt="Amalitech Logo">
                     class="w-64 h-36 object-contain rounded-2xl border-color border shadow-md">
-                <img src="../static/images/evolve-logo.png" alt="Evolve Logo"
+                <img src="{% static 'images/evolve-logo.png' %}" alt="Evolve Logo">
                     class="w-64 h-36 p-8 object-contain rounded-2xl border-color border shadow-md">
-                <img src="../static/images/logo-guaride.png" alt="Guraride Logo"
+                <img src="{% static 'images/logo-guaride.png' %}" alt="Guraride Logo">
                     class="w-64 h-36 p-4 object-contain rounded-2xl border-color border shadow-md">
-                <img src="../static/images/logo-library-aid.png" alt="Library Aid Logo"
+                <img src="{% static 'images/logo-library-aid.png' %}" alt="Library Aid Logo">
                     class="w-64 h-36 p-4 object-contain rounded-2xl border-color border shadow-md">
-                <img src="../static/images/logo-The_Venture.png" alt="The Venture Logo"
+                <img src="{% static 'images/logo-The_Venture.png' %}" alt="The Venture Logo">
                     class="w-64 h-36 p-4 object-contain rounded-2xl border-color border shadow-md">
-                <img src="../static/images/logo-1kat.png" alt="1k@t Logo"
+                <img src="{% static 'images/logo-1kat.png' %}" alt="1k@t Logo">
                     class="w-64 h-36 p-4 object-contain rounded-2xl border-color border shadow-md">
             </div>
         </div>
@@ -395,11 +399,12 @@
                 Operated in Rwanda, Sierra Leone and Liberia
             </h2>
             <div class="flex justify-center gap-8 mx-auto max-w-4xl">
-                <img src="../static/images/flag-rwanda.jpg" alt="Rwanda Flag"
+                <img src="{% static 'images/flag-rwanda.jpg' %}
+
                     class="w-80 h-44 object-cover rounded-2xl border-color border shadow-md">
-                <img src="../static/images/flag-sierra-leone.jpg" alt="SierraLeone Flag"
+                <img src="{% static 'images/flag-sierra-leone.jpg' %}" alt="SierraLeone Flag">
                     class="w-80 h-44 object-cover rounded-2xl border-color border shadow-md">
-                <img src="../static/images/flag-liberia.png" alt="Liberia Flag"
+                <img src="{% static 'images/flag-liberia.png' %}" alt="Liberia Flag">
                     class="w-80 h-44 object-cover rounded-2xl border-color border shadow-md">
             </div>
         </div>
@@ -415,7 +420,7 @@
             <div
                 class=" animate-left transform opacity-0 -translate-x-10 transition-all duration-1000 ease-out 
             mr-auto flex flex-row bg-white p-8 rounded-lg shadow-md w-3/5 items-center justify-center border-color border border-color my-6">
-                <img src="../static/images/why-us-1.jpg" alt="Why Us 1"
+              c
                     class="w-52 h-64 object-cover rounded-xl mx-auto ">
                 <div class="flex flex-col w-full">
                     <h3
@@ -474,27 +479,39 @@
         <div class="overflow-hidden w-full">
             <div class="flex gap-8 animate-scroll whitespace-nowrap">
                 <template id="logos">
-                    <img src="../static/images/alu-removebg-preview.png" alt="ALU Logo"
+                    <img src="{% static 'images/alu-removebg-preview.png' %}" alt="ALU Logo">
+
                         class="w-64 h-32 p-4 bg-white object-contain rounded-2xl border shadow-md">
-                    <img src="../static/images/logo-agrisense.png" alt="Agrisense Logo"
+                    <img src="{% static 'images/logo-agrisense.png' %}" alt="Agrisense Logo">
+
                         class="w-64 h-32 p-4 bg-white object-contain rounded-2xl border shadow-md">
-                    <img src="../static/images/amalitech-logo.jpg" alt="Amalitech Logo"
+                    <img src="{% static 'images/amalitech-logo.jpg' %}" alt="Amalitech Logo">
+
                         class="w-64 h-32 p-4 bg-white object-contain rounded-2xl border shadow-md">
-                    <img src="../static/images/Eco.png" alt="Eco Logo"
+                    <img src="{% static 'images/Eco.png' %}" alt="Eco Logo">
+
                         class="w-64 h-32 p-4 bg-white object-contain rounded-2xl border shadow-md">
-                    <img src="../static/images/logo-kepler.png" alt="K Logo"
+                    <img src="{% static 'images/logo-kepler.png' %}" alt="K Logo">
                         class="w-64 h-32 p-4 bg-white object-contain rounded-2xl border shadow-md">
-                    <img src="../static/images/logo-The Campus.png" alt="Campus Logo"
+                    <img src="{% static 'images/logo-The Campus.png' %}" alt="Campus Logo">
                         class="w-64 h-32 p-4 bg-white object-contain rounded-2xl border shadow-md">
-                    <img src="../static/images/logo-The_Venture.png" alt="Venture Logo"
+                    <img src="{% static 'images/logo-The_Venture.png' %}" alt="Venture Logo">
                         class="w-64 h-32 p-4 bg-white object-contain rounded-2xl border shadow-md">
-                    <img src="../static/images/logo-Uni of Rwanda.png" alt="Rwanda Logo"
+                    <img src="{% static 'images/logo-Uni of Rwanda.png' %}" alt="Rwanda Logo">
                         class="w-64 h-32 p-4 bg-white object-contain rounded-2xl border shadow-md">
-                    <img src="../static/images/logo-Uni-of-Kigali.png" alt="Kigali Logo"
+                    <img src="{% static 'images/logo-Uni-of-Kigali.png' %}" alt="Kigali Logo">
                         class="w-64 h-32 p-4 bg-white object-contain rounded-2xl border shadow-md">
-                    <img src="../static/images/logo-ecas.png" alt="ECAS Logo"
+                    <img src="{% static 'images/logo-ecas.png' %}" alt="ECAS Logo">
+
+
+
+
+
+
+
                         class="w-64 h-32 p-4 bg-white object-contain rounded-2xl border shadow-md">
-                    <img src="../static/images/logo-1kat.png" alt="1K@t Logo"
+                    <img src="{% static 'images/logo-1kat.png' %}" alt="1K@t Logo">
+
                         class="w-64 h-32 p-4 bg-white object-contain rounded-2xl border shadow-md">
                 </template>
                 <div id="logo-strip" class="flex gap-8"></div>
@@ -594,7 +611,7 @@
                             <!-- Avatar -->
                             <div class="absolute mt-4 top-1 left-1/2 transform -translate-x-1/2">
                                 <img class="w-20 h-20 rounded-xl border-4 border-white object-cover"
-                                    src="../static/images/h2.jpeg" alt="Hannah Schmitt">
+                                    src="{% static 'images/h2.jpeg' %}" alt="Hannah Schmitt">
                             </div>
                             <!-- Content -->
                             <h3 class="mt-12 font-semibold text-lg text-center">Hannah Schmitt</h3>
@@ -633,7 +650,7 @@
     <div class="faq-section flex flex-col lg:flex-row items-center justify-center  p-8 py-12 ">
         <!-- Image -->
         <div class="faq-image mb-8 lg:mb-0">
-            <img src="../static/images/FAqs.png" alt="Founder at work" class="w-full lg:w-96 rounded-xl shadow-xl">
+            <img src="{% static 'images/FAqs.png' %}" alt="Founder at work" class="w-full lg:w-96 rounded-xl shadow-xl">
         </div>
 
         <!-- FAQ Content -->
@@ -706,7 +723,7 @@
                 <div class="flex flex-col">
                     <!-- Logo Section -->
                     <div class="flex flex-row justify-between items-center border-b-2 py-10 mx-10">
-                        <img src="../static/images/thinkgreen-logo-white.png" alt="ThinkGreen Afrika white"
+                        <img src="{% static 'images/thinkgreen-logo-white.png' %}" alt="ThinkGreen Afrika white">
                             class="w-40 h-auto mb-4">
                         <p class="text-sm text-gray-300">
                             Talent Development and Job Placement
@@ -723,21 +740,22 @@
                             <div class="flex space-x-3">
                                 <a href="https://whatsapp.com/channel/0029VadbYG790x2rzJt1k718" target="_blank"
                                     class="w-8 h-8 rounded-xl bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-green-500">
-                                    <img src="../static/images/whatsapp.png" alt="WhatsApp" class="w-4 h-4">
+                                    <img src=="{% static 'images/whatsapp.png' %}" alt="WhatsApp" class="w-4 h-4">
                                 </a>
                                 <a href="https://www.facebook.com/profile.php?id=61568738616754&mibextid=LQQJ4d"
                                     target="_blank"
                                     class="w-8 h-8 rounded-xl bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-blue-600">
-                                    <img src="../static/images/facebook.png" alt="Facebook" class="w-4 h-4">
+                                    <img src="{% static 'images/whatsapp.png' %}" alt="WhatsApp" class="w-4 h-4">
                                 </a>
                                 <a href="https://www.instagram.com/thinkgreen_afrika/profilecard/?igsh=MWRxZjBvb3Y1a3Mxcw=="
                                     target="_blank"
                                     class="w-8 h-8 rounded-xl bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-pink-500">
-                                    <img src="../static/images/instagram.png" alt="Instagram" class="w-4 h-4">
+                                    <img src="{% static 'images/instagram.png' %}" alt="Instagram" class="w-4 h-4">
+
                                 </a>
                                 <a href="https://www.linkedin.com/company/thinkgreen-afrika/" target="_blank"
                                     class="w-8 h-8 rounded-xl bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-blue-700">
-                                    <img src="../static/images/linkedin.png" alt="LinkedIn" class="w-4 h-4">
+                                    <img src="{% static 'images/linkedin.png' %}" alt="LinkedIn" class="w-4 h-4">
                                 </a>
                             </div>
                         </div>
@@ -745,7 +763,7 @@
                         <div class="flex flex-col">
                             <h3 class="text-lg font-semibold mb-3 mt-4">| Contact Us</h3>
                             <div class="flex gap-2 items-start">
-                                <img src="../static/images/Vector.png" alt="Email" class="w-6 h-4 mt-1">
+                                <img src="{% static 'images/Vector.png' %}" alt="Email" class="w-6 h-4 mt-1">
                                 <div class="flex flex-col">
                                     <a href="mailto:careers@thinkgreenafrika.org"
                                         class="text-sm hover:underline">careers@thinkgreenafrika.org</a>
@@ -758,7 +776,7 @@
                         <div class="flex flex-col">
                             <h3 class="text-lg font-semibold mb-3 mt-4">| Find Us</h3>
                             <div class="flex gap-2 items-start">
-                                <img src="../static/images/duo-icons_location.png" alt="Map" class="w-6 h-6 mt-1">
+                                <img src="{% static 'images/duo-icons_location.png' %}" alt="Map" class="w-6 h-6 mt-1">
                                 <p class="text-sm">
                                     Kimironko, KG42 Ave<br>
                                     Kigali, Rwanda
