@@ -54,13 +54,11 @@
                     transparent 100%);
             position: fixed;
             top: 75%;
-            /* Adjusts vertical position towards the bottom */
             left: 0;
             right: 0;
             transform: translateY(-50%);
             width: 100%;
             height: 70%;
-            /* Reduces height to confine the gradient to the bottom center */
             z-index: -1;
         }
 
@@ -139,20 +137,95 @@
         /* Specific Styles for 'Become an Employer Partner' Button */
         .btn-partner {
             color: white;
-            /* box-shadow: 2px 6px 8px rgba(8, 8, 8, 0.3); */
         }
 
         .btn-partner:hover {
             background-color: white;
             color: black;
             border: 2px solid #1e6c34;
-            /* box-shadow: 4px 8px 12px rgba(8, 8, 8, 0.4); */
         }
 
         /* Ensure the container doesn't overlap or block the buttons */
         .mt-8 {
             position: relative;
             z-index: 1;
+        }
+        
+        /* Hover Reveal Styles */
+        .hover-reveal-container {
+            width: 100%;
+            height: 300px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            transition: all 0.5s ease;
+            cursor: pointer;
+            border-radius: 1.5rem;
+        }
+
+        .hover-content-wrapper {
+            max-height: 8rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            overflow: hidden;
+            transition: max-height 0.5s ease, padding 0.5s ease;
+            width: 100%;
+            padding: 1.5rem;
+        }
+
+        .hover-reveal-container.active .hover-content-wrapper {
+            max-height: 1000px;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .hover-reveal-title {
+            position: relative;
+            transition: all 0.5s ease;
+            text-align: center;
+        }
+
+        .hover-reveal-container.active .hover-reveal-title {
+            margin-bottom: 1rem;
+        }
+
+        .hover-reveal-text {
+            font-size: 0;
+            opacity: 0;
+            transition: all 0.5s ease;
+            width: 100%;
+            text-align: center;
+        }
+
+        .hover-reveal-container.active .hover-reveal-text {
+            font-size: 1rem;
+            opacity: 1;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hover-reveal-container {
+                height: 250px;
+            }
+            
+            .video-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .video-text {
+                margin-bottom: 1.5rem;
+            }
+            
+            iframe {
+                width: 100% !important;
+                height: 250px !important;
+            }
         }
     </style>
 </head>
@@ -163,8 +236,8 @@
         <!-- Navbar -->
         <nav class="bg-white shadow-md fixed top-4 left-4 right-4 rounded-full z-50">
             <div class="container mx-auto px-6 py-6 flex justify-between items-center">
-                <a href="{% url 'home' %}"><img src="{% static 'images/thinkgreen-logo-green.png' %}" alt="logo">
-                        class="max-w-64 h-10" />
+                <a href="{% url 'home' %}">
+                    <img src="{% static 'images/thinkgreen-logo-green.png' %}" alt="logo" class="max-w-64 h-10" />
                 </a>
                 <ul class="hidden md:flex space-x-6">
                     <li>
@@ -200,7 +273,6 @@
                 </ul>
 
                 <div class="hidden md:flex flex-row items-end space-x-4">
-                    <!-- <a href="{% url 'book' %}" class="btn-talent nav-book">Book 1:1</a> -->
                     <a href="{% url 'select' %}" class="btn-partner nav-pod button-color btn">
                         Join our Network
                     </a>
@@ -215,6 +287,7 @@
                 </button>
             </div>
         </nav>
+        
         <!-- Background Elements -->
         <div class="absolute top-24 right-12 w-16 h-16 rounded-xl z-0" style="
           background: linear-gradient(
@@ -234,6 +307,7 @@
           );
           filter: blur(30px);
         "></div>
+        
         <!-- Mobile Sidebar Menu -->
         <div id="mobile-menu" class="fixed inset-0 bg-gray-800 bg-opacity-75 hidden z-40">
             <div class="flex flex-col items-center mt-32 space-y-4">
@@ -244,18 +318,17 @@
                 <a href="{% url 'podcast' %}" class="text-white text-lg">Support Our Initiatives</a>
                 <a href="{% url 'select' %}"
                     class="button-color text-white py-2 px-4 rounded hover:bg-green-700 mt-4">Join our Network</a>
-                <!-- <a href="{% url 'book' %}" class="button-color text-white py-2 px-4 rounded hover:bg-green-700 mt-2">Book 1:1</a> -->
             </div>
-        </div>
-
-        <!-- Centered Cancel Button -->
-        <div class="flex justify-center items-center mt-8">
-            <button id="close-menu" class="text-white border border-white rounded-xl p-2">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </button>
+            
+            <!-- Centered Cancel Button -->
+            <div class="flex justify-center items-center mt-8">
+                <button id="close-menu" class="text-white border border-white rounded-xl p-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
         </div>
 
         <!-- Modal Backdrop and Wrapper -->
@@ -281,90 +354,28 @@
         </div>
     </header>
 
-    <!-- WHy Us Section -->
-    <!-- About Us Section -->
-    <section id="about-us" class="flex flex-col justify-center items-center mx-auto mt-20 mb-12 w-4/5">
-        <h1 class="font-bold text-color md:text-3xl text-9 text-center w-full">
+    <!-- TVET Project Section -->
+    <section id="tvet-project" class="flex flex-col justify-center items-center mx-auto mt-32 mb-12 w-full px-4 md:px-0 md:w-4/5">
+        <h1 class="font-bold text-color text-3xl md:text-4xl text-center mb-6">
             TVET Project
         </h1>
-        <p class="pt-6 font-semibold text-blackmd:text-xl text-9 text-center w-full">
+        <p class="font-semibold text-black text-lg md:text-xl text-center max-w-4xl mb-12">
             The TVET Project is redefining the vocational education framework,
             which aims to upgrade facilities and curricula of TVET curriculum and
             its institutions to align with industry standards and in-demand skills,
             knowledge and sustainability incorporation.
         </p>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-screen-xl mx-auto mt-6">
-
-            <style>
-                .hover-reveal-container {
-                    width: 100%;
-                    height: auto;
-                    position: relative;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    overflow: hidden;
-                    transition: all 0.5s ease;
-                    cursor: pointer;
-                }
-
-                .hover-content-wrapper {
-                    max-height: 8rem;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    flex-direction: column;
-                    overflow: hidden;
-                    transition: max-height 0.5s ease, padding-bottom 0.5s ease, justify-content 0.5s ease, align-items 0.5s ease;
-                    width: 70%;
-                    margin-top: 40px;
-                    margin-bottom: 40px;
-                }
-
-                .hover-reveal-container.active .hover-content-wrapper {
-                    max-height: 1000px;
-                    width: 100%;
-                    justify-content: center;
-                    align-items: center;
-                    transition: bottom 0.5s ease;
-                    margin: 0px;
-                }
-
-                .hover-reveal-title {
-                    position: relative;
-                    bottom: -20px;
-                    transition: bottom 0.5s ease;
-                }
-
-                .hover-reveal-container.active .hover-reveal-title {
-                    bottom: 0;
-                }
-
-                .hover-reveal-text {
-                    font-size: 0px;
-                    transition: font-size 0.5s ease;
-                    width: 100%;
-                }
-
-                .hover-reveal-container.active .hover-reveal-text {
-                    font-size: 1rem;
-                    transition: bottom 0.5s ease;
-                }
-            </style>
-
-            <div class="hover-reveal-container flex flex-row gap-8 border border-color max-w-screen z-10 rounded-3xl"
-                onclick="this.classList.toggle('active')"
-                style="background-image: url('../static/images/tvetproject1.jpg'); background-position: center; background-repeat: no-repeat; background-size: cover;">
-
-                <div class="bg-black bg-opacity-50 rounded-3xl shadow-md w-full p-6 hover-content-wrapper"
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-6xl mx-auto">
+            <!-- Background Card -->
+            <div class="hover-reveal-container border border-color rounded-3xl"
+                style="background-image: url('{% static 'images/tvetproject1.jpg' %}'); background-position: center; background-repeat: no-repeat; background-size: cover;">
+                <div class="bg-black bg-opacity-50 rounded-3xl w-full h-full hover-content-wrapper"
                     style="backdrop-filter: blur(10px);">
-                    <h3
-                        class="hover-reveal-title text-3xl text-center font-semibold text-white transition-all duration-500 w-full">
+                    <h3 class="hover-reveal-title text-2xl md:text-3xl font-semibold text-white w-full">
                         Background
                     </h3>
-
-                    <p class="hover-reveal-text text-white text-center text-base transition-opacity mt-2 duration-500">
+                    <p class="hover-reveal-text text-white text-base">
                         Indigenous knowledge systems have long been integral to managing natural resources and promoting
                         environmental sustainability. Across Africa, diverse communities have developed sophisticated
                         practices that reflect a deep understanding of their local ecosystems. However, these
@@ -375,18 +386,15 @@
                 </div>
             </div>
 
-            <div class="hover-reveal-container flex flex-row gap-8 border border-color max-w-screen z-10 rounded-3xl"
-                onclick="this.classList.toggle('active')"
-                style="background-image: url('../static/images/tvetproject2.jpg'); background-position: center; background-repeat: no-repeat; background-size: cover;">
-
-                <div class="bg-black bg-opacity-50 rounded-3xl shadow-md w-full p-6 hover-content-wrapper"
+            <!-- Focus Point Card -->
+            <div class="hover-reveal-container border border-color rounded-3xl"
+                style="background-image: url('{% static 'images/tvetproject2.jpg' %}'); background-position: center; background-repeat: no-repeat; background-size: cover;">
+                <div class="bg-black bg-opacity-50 rounded-3xl w-full h-full hover-content-wrapper"
                     style="backdrop-filter: blur(10px);">
-                    <h3
-                        class="hover-reveal-title text-3xl text-center font-semibold text-white transition-all duration-500 w-full">
+                    <h3 class="hover-reveal-title text-2xl md:text-3xl font-semibold text-white w-full">
                         Focus Point
                     </h3>
-
-                    <p class="hover-reveal-text text-white text-center text-base transition-opacity duration-500">
+                    <p class="hover-reveal-text text-white text-base">
                         The integration of indigenous knowledge into environmental education remains limited, despite
                         its potential to enhance sustainability education and cultural relevance. In many educational
                         systems, environmental topics are treated as supplementary rather than core components, which
@@ -395,23 +403,19 @@
                         crucial role in sustainable resource management and biodiversity conservation. For example, the
                         Maasai and Mijikenda communities employ practices like rotational grazing and sacred forest
                         conservation, which contribute to ecosystem management.
-
                     </p>
                 </div>
             </div>
 
-            <div class="hover-reveal-container flex flex-row gap-8 border border-color max-w-screen z-10 rounded-3xl"
-                onclick="this.classList.toggle('active')"
-                style="background-image: url('../static/images/tvetproject3.jpg'); background-position: center; background-repeat: no-repeat; background-size: cover;">
-
-                <div class="bg-black bg-opacity-50 rounded-3xl shadow-md w-full p-6 hover-content-wrapper"
+            <!-- Challenges Card -->
+            <div class="hover-reveal-container border border-color rounded-3xl"
+                style="background-image: url('{% static 'images/tvetproject3.jpg' %}'); background-position: center; background-repeat: no-repeat; background-size: cover;">
+                <div class="bg-black bg-opacity-50 rounded-3xl w-full h-full hover-content-wrapper"
                     style="backdrop-filter: blur(10px);">
-                    <h3
-                        class="hover-reveal-title text-3xl text-center font-semibold text-white transition-all duration-500 w-full">
-                        Challenges in Integration Into Formal Education
+                    <h3 class="hover-reveal-title text-2xl md:text-3xl font-semibold text-white w-full">
+                        Challenges in Integration Into Formal Education
                     </h3>
-
-                    <p class="hover-reveal-text text-white text-center text-base transition-opacity mt-2 duration-500">
+                    <p class="hover-reveal-text text-white text-base">
                         Despite the benefits of indigenous knowledge, its integration into formal education systems is
                         fraught with challenges. In many cases, national curricula and teaching methods do not
                         adequately incorporate or recognise indigenous histories, cultures, and knowledge. Educators
@@ -425,18 +429,15 @@
                 </div>
             </div>
 
-            <div class="hover-reveal-container flex flex-row gap-8 border border-color max-w-screen z-10 rounded-3xl"
-                onclick="this.classList.toggle('active')"
-                style="background-image: url('../static/images/tvetproject4.jpg'); background-position: center; background-repeat: no-repeat; background-size: cover;">
-
-                <div class="bg-black bg-opacity-50 rounded-3xl shadow-md w-full p-6 hover-content-wrapper"
+            <!-- Rationale Card -->
+            <div class="hover-reveal-container border border-color rounded-3xl"
+                style="background-image: url('{% static 'images/tvetproject4.jpg' %}'); background-position: center; background-repeat: no-repeat; background-size: cover;">
+                <div class="bg-black bg-opacity-50 rounded-3xl w-full h-full hover-content-wrapper"
                     style="backdrop-filter: blur(10px);">
-                    <h3 id="rationale"
-                        class="hover-reveal-title text-3xl text-center font-semibold text-white transition-all duration-500 w-full">
+                    <h3 class="hover-reveal-title text-2xl md:text-3xl font-semibold text-white w-full">
                         Rationale
                     </h3>
-
-                    <p class="hover-reveal-text text-white text-center text-base mt-2 transition-opacity duration-500">
+                    <p class="hover-reveal-text text-white text-base">
                         Integrating indigenous knowledge into environmental education can offer holistic and culturally
                         relevant solutions to sustainability challenges. By bridging traditional knowledge with formal
                         curricula, educational systems can promote a more comprehensive understanding of environmental
@@ -445,85 +446,88 @@
                     </p>
                 </div>
             </div>
-
         </div>
 
-
-
-
-        <div class="flex mt-5 max-w-screen z-10 rounded-3xl">
-            <div class="w-4/5 items-center justify-center mx-auto pt-6">
-                <h3 id="rationale" class="text-3xl text-left font-semibold text-black w-full">
+        <!-- Gaps and Frameworks Section -->
+        <div class="w-full max-w-6xl mx-auto mt-12">
+            <div class="bg-white p-6 md:p-8 rounded-3xl border border-color">
+                <h3 class="text-2xl md:text-3xl font-semibold text-black mb-6">
                     Gaps and Frameworks
                 </h3>
-                <div class="">
-                    <p class="text-black text-left text-base pt-4 ">
+                <div class="text-black text-base md:text-lg leading-relaxed">
+                    <p class="mb-4">
                         Current educational systems often overlook the value of indigenous knowledge in favour of
                         Western-centric perspectives. There is a pressing need to develop curricula that reflect the
                         cultural and ecological knowledge of Indigenous communities, integrate it into formal education,
-                        and
-                        address the challenges of teacher training, resource allocation, and curriculum development. In
-                        the
-                        current TVET Forestry course, indigenous species like Prunus africana are studied primarily for
+                        and address the challenges of teacher training, resource allocation, and curriculum development.
+                    </p>
+                    <p class="mb-4">
+                        In the current TVET Forestry course, indigenous species like Prunus africana are studied primarily for
                         their biological aspects, neglecting their ecological, cultural, and practical significance.
-                        Prunus
-                        africana, found in Rwanda’s Nyungwe and Gishwati national parks, plays a crucial role in local
+                        Prunus africana, found in Rwanda's Nyungwe and Gishwati national parks, plays a crucial role in local
                         ecosystems and communities. Its ecological importance, practical uses, and conservation
                         challenges should be integrated into the curriculum to provide a holistic understanding
                         of the species.
+                    </p>
+                    <p class="mb-4">
                         Pollarding is briefly mentioned in the TVET Forestry module but lacks an in-depth
                         exploration of its environmental and cultural significance. Pollarding, a traditional
                         practice involving the pruning of trees to encourage new growth, plays a vital role in
                         agroforestry and sustainable land management. Including a comprehensive discussion of
-                        pollarding’s multifaceted benefits and its application in rural Rwanda would enhance
+                        pollarding's multifaceted benefits and its application in rural Rwanda would enhance
                         students' understanding of indigenous practices.
+                    </p>
+                    <p>
                         The curriculum acknowledges traditional erosion control techniques such as stone bunds
-                        but focuses primarily on their technical aspects.
-                        Exploring the cultural and historical contexts of these techniques, including the
-                        communal efforts involved in maintaining stone bunds, would enrich students' appreciation
-                        of sustainable land management practices. Umuganda, a community service practice in
-                        Rwanda, involves collective environmental efforts such as reforestation and erosion
-                        control. Integrating Umuganda into the Forestry module would help students connect
+                        but focuses primarily on their technical aspects. Exploring the cultural and historical
+                        contexts of these techniques, including the communal efforts involved in maintaining stone bunds,
+                        would enrich students' appreciation of sustainable land management practices. Umuganda, a community
+                        service practice in Rwanda, involves collective environmental efforts such as reforestation and
+                        erosion control. Integrating Umuganda into the Forestry module would help students connect
                         environmental practices with cultural heritage and community responsibility.
-
                     </p>
                 </div>
             </div>
         </div>
-
-
     </section>
 
-    <section
-        class="flex flex-row border border-black rounded-xl items-center justify-between mx-auto mt-12 mb-12 w-4/5 bg-white">
-        <div>
-            <h3 class="text-3xl text-left font-semibold text-color w-3/5 pl-7 my-8">
+    <!-- Video and Download Section -->
+    <section class="flex flex-col md:flex-row border border-color rounded-xl items-center justify-between mx-auto mt-12 mb-12 w-full px-4 md:px-0 md:w-4/5 bg-white p-6 video-section">
+        <div class="video-text mb-6 md:mb-0 md:pr-8">
+            <h3 class="text-2xl md:text-3xl font-semibold text-color mb-6 max-w-md">
                 Access Our TVET Curriculum Framework & Approach Here
             </h3>
             <a href="https://docs.google.com/document/d/1b2f3g4h5i6j7k8l9m0n1o2p3q4r5s6t7u8v9w0x1y2z3a4b5c6d7e8f9g/edit?usp=sharing"
-                class="btn btn-talent hover:button-color hover:border-white ml-7 mx-4 mb-8">
+                class="btn btn-talent hover:button-color hover:border-white">
                 Download Framework 
             </a>
         </div>
 
-        <iframe width="620" height="315" src="https://www.youtube.com/embed/VyGUMPGYQ6o?si=raFAbzXeHJ5nKwz4"
-            title="YouTube video player" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen class="rounded-xl m-5"></iframe>
+        <div class="video-container w-full max-w-2xl">
+            <iframe 
+                width="100%" 
+                height="315" 
+                src="https://www.youtube.com/embed/VyGUMPGYQ6o?si=raFAbzXeHJ5nKwz4"
+                title="YouTube video player" 
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" 
+                allowfullscreen 
+                class="rounded-xl">
+            </iframe>
+        </div>
     </section>
 
-    <footer class="flex flex-col items-center justify-center">
-        <div class="relative bg-footer pt-6 px-8 mb-3 rounded-xl mx-3 w-4/5 text-white">
+    <footer class="flex flex-col items-center justify-center mt-16">
+        <div class="relative bg-footer pt-6 px-8 mb-3 rounded-xl mx-3 w-full md:w-4/5 text-white">
             <!-- Container -->
             <div class="mx-auto pb-9 relative z-10">
                 <!-- Adjusted Grid -->
                 <div class="flex flex-col">
                     <!-- Logo Section -->
-                    <div class="flex flex-row justify-between items-center border-b-2 py-10 mx-10">
-                        <img src="{% static 'images/thinkgreen-logo-white.png' %}" alt="ThinkGreen Afrika white">
-
-                            class="w-40 h-auto mb-4" />
-                        <p class="text-sm text-gray-300">
+                    <div class="flex flex-col md:flex-row justify-between items-center border-b-2 py-10 mx-2 md:mx-10">
+                        <img src="{% static 'images/thinkgreen-logo-white.png' %}" alt="ThinkGreen Afrika white" class="w-40 h-auto mb-4">
+                        <p class="text-sm text-gray-300 text-center md:text-left mb-4 md:mb-0">
                             Talent Development and Job Placement
                         </p>
                         <a href="" class="btn btn-talent hover:button-color hover:border-white">
@@ -531,14 +535,13 @@
                         </a>
                     </div>
                     <!-- Contact Section -->
-                    <div class="flex flex-row gap-8 lg:col-span-1 md:ml-8">
+                    <div class="flex flex-col md:flex-row gap-8 lg:col-span-1 md:ml-8 mt-4">
                         <div class="flex flex-col">
                             <h3 class="text-lg font-semibold mb-3 mt-4">| Follow Us</h3>
                             <div class="flex space-x-3">
                                 <a href="https://whatsapp.com/channel/0029VadbYG790x2rzJt1k718" target="_blank"
                                     class="w-8 h-8 rounded-xl bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-green-500">
                                     <img src="{% static 'images/whatsapp.png' %}" alt="WhatsApp" class="w-4 h-4" />
-
                                 </a>
                                 <a href="https://www.facebook.com/profile.php?id=61568738616754&mibextid=LQQJ4d"
                                     target="_blank"
@@ -574,7 +577,6 @@
                             <h3 class="text-lg font-semibold mb-3 mt-4">| Find Us</h3>
                             <div class="flex gap-2 items-start">
                                 <img src="{% static 'images/duo-icons_location.png' %}" alt="Map" class="w-6 h-6 mt-1" />
-
                                 <p class="text-sm">
                                     Kimironko, KG42 Ave<br />
                                     Kigali, Rwanda
@@ -591,8 +593,9 @@
         </div>
     </footer>
 
-    <!-- Showing Modal Container -->
+    <!-- JavaScript -->
     <script>
+        // Modal functionality
         const modal = document.getElementById("initiativesModal");
         const closeBtn = document.getElementById("closeModal");
 
@@ -611,37 +614,8 @@
         modal.addEventListener("click", (e) => {
             if (e.target === modal) modal.classList.add("hidden");
         });
-    </script>
 
-    <!-- Infinite Scroll for trusted sponsors -->
-    <style>
-        #group {
-            will-change: transform;
-            animation: scrolling 20s linear infinite;
-        }
-
-        @keyframes scrolling {
-            0% {
-                transform: translateX(0);
-            }
-
-            100% {
-                transform: translateX(-100%);
-            }
-        }
-    </style>
-    <!-- JavaScript for Mobile Menu -->
-    <script>
-        document.addEventListener("scroll", function () {
-            const section = document.getElementById("animated-section");
-            const sectionTop = section.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
-
-            if (sectionTop < windowHeight) {
-                section.classList.add("opacity-100", "animate-slideOut");
-            }
-        });
-
+        // Mobile Menu functionality
         document
             .getElementById("menu-toggle")
             .addEventListener("click", function () {
@@ -654,111 +628,21 @@
                 document.getElementById("mobile-menu").classList.add("hidden");
             });
 
-        // Set the date we're counting down to
-        const eventDate = new Date("November 10, 2024 00:00:00").getTime();
-
-        // Update the countdown every second
-        const countdownFunction = setInterval(() => {
-            // Get today's date and time
-            const now = new Date().getTime();
-
-            // Find the distance between now and the event date
-            const distance = eventDate - now;
-
-            // Calculate days, hours, minutes, and seconds
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor(
-                (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-            );
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            // Display the result
-            document.getElementById("days").innerText = days;
-            document.getElementById("hours").innerText = hours;
-            document.getElementById("minutes").innerText = minutes;
-            document.getElementById("seconds").innerText = seconds;
-
-            // If the countdown is finished, stop the countdown
-            if (distance < 0) {
-                clearInterval(countdownFunction);
-                document.getElementById("countdown").innerHTML =
-                    "The event has started!";
-            }
-        }, 1000);
-        // Function to toggle the email modal
-        function toggleModal() {
-            const modal = document.getElementById("emailModal");
-            modal.classList.toggle("hidden");
-        }
-        //for testimonials
-        let currentSlide = 0;
-        const totalSlides = 2; // Since we display 3 out of 6 cards, we have 2 "slides"
-
-        function updateCarousel() {
-            const carousel = document.getElementById("carousel");
-            const offset = -currentSlide * 100; // Adjust for each slide width
-            carousel.style.transform = `translateX(${offset}%)`;
-        }
-
-        function nextSlide() {
-            if (currentSlide < totalSlides - 1) {
-                currentSlide++;
-                updateCarousel();
-            }
-        }
-
-        function previousSlide() {
-            if (currentSlide > 0) {
-                currentSlide--;
-                updateCarousel();
-            }
-        }
-
-        // Function to animate counters
-        function animateCounter(id, target) {
-            const element = document.getElementById(id);
-            let count = 0;
-            const increment = target / 100;
-
-            const updateCounter = () => {
-                count += increment;
-                if (count >= target) {
-                    element.textContent = target + "+";
-                } else {
-                    element.textContent = Math.floor(count);
-                    requestAnimationFrame(updateCounter);
-                }
-            };
-
-            updateCounter();
-        }
-
-        // Intersection Observer to trigger the animation when in view
-        const counters = [
-            { id: "talents-counter", target: 100 },
-            { id: "countries-counter", target: 5 },
-            { id: "cities-counter", target: 5 },
-            { id: "mentors-counter", target: 15 },
-        ];
-
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        counters.forEach((counter) =>
-                            animateCounter(counter.id, counter.target)
-                        );
-                        observer.disconnect(); // Stop observing after first animation
+        // Hover reveal functionality - close other cards when one is opened
+        document.querySelectorAll('.hover-reveal-container').forEach(container => {
+            container.addEventListener('click', function() {
+                // Close all other containers
+                document.querySelectorAll('.hover-reveal-container').forEach(otherContainer => {
+                    if (otherContainer !== this) {
+                        otherContainer.classList.remove('active');
                     }
                 });
-            },
-            { threshold: 0.5 }
-        );
-
-        // Observe the impact numbers section
-        observer.observe(document.querySelector("#impact-numbers"));
+                // Toggle current container
+                this.classList.toggle('active');
+            });
+        });
     </script>
+
     <!-- AlpineJS for toggle functionality -->
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 </body>
