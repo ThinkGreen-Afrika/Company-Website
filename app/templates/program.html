@@ -18,7 +18,7 @@
       font-family: "Poppins", sans-serif;
     }
 
-    /* Custom Tailwind adjustments */
+    /* Custom Colors */
     .bg-primary {
       background-color: #4caf50;
     }
@@ -94,7 +94,7 @@
       animation: slideOut 1s ease-out forwards;
     }
 
-    /* General Button Styles */
+    /* Button Styles */
     .btn {
       display: inline-block;
       padding: 10px 20px;
@@ -122,7 +122,7 @@
       box-shadow: 2px 6px 8px rgba(8, 8, 8, 0.3);
     }
 
-    /* Specific Styles for 'Become a Talent' Button */
+    /* Specific Button Styles */
     .btn-talent {
       background-color: white;
       border: 2px solid #1e6c34;
@@ -134,7 +134,6 @@
       color: white;
     }
 
-    /* Specific Styles for 'Become an Employer Partner' Button */
     .btn-partner {
       color: white;
     }
@@ -145,32 +144,40 @@
       border: 2px solid #1e6c34;
     }
 
-    /* Ensure the container doesn't overlap or block the buttons */
-    .mt-8 {
-      position: relative;
-      z-index: 1;
-    }
-    
     /* Program Section Styles */
     .program-card {
       display: flex;
       align-items: center;
       margin: 2rem 0;
+      gap: 2rem;
+    }
+
+    .program-image {
+      flex-shrink: 0;
+    }
+
+    .program-text {
+      flex: 1;
     }
 
     @media (max-width: 768px) {
       .program-card {
         flex-direction: column;
         text-align: center;
+        gap: 1.5rem;
       }
       
       .program-image {
-        margin-bottom: 1.5rem;
+        margin-bottom: 0;
       }
       
       .program-text {
         margin: 0 !important;
         padding: 1rem !important;
+      }
+      
+      .program-card.flex-row-reverse {
+        flex-direction: column;
       }
       
       .video-container {
@@ -180,135 +187,152 @@
       
       .video-text {
         margin-bottom: 1.5rem;
+        text-align: center !important;
       }
+      
+      .video-text h3 {
+        margin-right: 0 !important;
+      }
+    }
+
+    /* Animation improvements */
+    .animate-left, .animate-right {
+      transition: all 1s ease-out;
+    }
+
+    /* Ensure proper z-index for fixed nav */
+    .fixed-nav {
+      z-index: 50;
     }
   </style>
 </head>
 
-
 <body class="bg-gradient-to-b from-white via-white to-green-300">
-    <!-- Hero Section -->
-    <header class="bg-cover bg-center px-4">
-        <!-- Navbar -->
-        <nav class="bg-white shadow-md fixed top-4 left-4 right-4 rounded-full z-50">
-            <div class="container mx-auto px-6 py-6 flex justify-between items-center">
-                <a href="{% url 'home' %}">
-                    <img src="{% static 'images/thinkgreen-logo-green.png' %}" alt="logo" class="max-w-64 h-10" />
-                </a>
-                <ul class="hidden md:flex space-x-6">
-                    <li>
-                        <a href="{% url 'home' %}"
-                            class="text-black font-medium hover:text-primary border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
-                            Home
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{% url 'about_us' %}"
-                            class="text-black font-medium hover:text-primary border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
-                            About Us
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{% url 'solutions' %}"
-                            class="text-black font-medium hover:text-primary border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
-                            Our Solutions
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{% url 'program' %}"
-                            class="text-color font-bold hover:text-primary border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
-                            Our Programs
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{% url 'podcast' %}"
-                            class="text-black font-medium hover:text-primary border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
-                            Support Our Initiatives
-                        </a>
-                    </li>
-                </ul>
+  <!-- Hero Section -->
+  <header class="bg-cover bg-center px-4">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md fixed top-4 left-4 right-4 rounded-full z-50 fixed-nav">
+      <div class="container mx-auto px-6 py-6 flex justify-between items-center">
+        <a href="{% url 'home' %}">
+          <img src="{% static 'images/thinkgreen-logo-green.png' %}" alt="logo" class="max-w-64 h-10" />
+        </a>
+        <ul class="hidden md:flex space-x-6">
+          <li>
+            <a href="{% url 'home' %}"
+              class="text-black font-medium hover:text-primary border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'about_us' %}"
+              class="text-black font-medium hover:text-primary border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
+              About Us
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'solutions' %}"
+              class="text-black font-medium hover:text-primary border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
+              Our Solutions
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'program' %}"
+              class="text-color font-bold hover:text-primary border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
+              Our Programs
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'podcast' %}"
+              class="text-black font-medium hover:text-primary border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
+              Support Our Initiatives
+            </a>
+          </li>
+        </ul>
 
-                <div class="hidden md:flex flex-row items-end space-x-4">
-                    <a href="{% url 'select' %}" class="btn-partner nav-pod button-color btn">
-                        Join our Network
-                    </a>
-                </div>
-                <!-- Mobile Menu Toggle -->
-                <button class="md:hidden text-gray-600 focus:outline-none" id="menu-toggle">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16m-7 6h7" />
-                    </svg>
-                </button>
-            </div>
-        </nav>
-        
-        <!-- Background Elements -->
-        <div class="absolute top-24 right-12 w-16 h-16 rounded-xl z-0" style="
-          background: linear-gradient(
-            147.56deg,
-            rgb(255, 255, 255) 30%,
-            rgb(255, 255, 255) 30%,
-            rgb(54, 206, 133) 30%
-          );
-          filter: blur(30px);
-        "></div>
-        <div class="absolute bottom-24 left-12 w-36 h-36 rounded-full z-0" style="
-          background: linear-gradient(
-            147.56deg,
-            rgb(255, 255, 255) 30%,
-            rgb(255, 255, 255) 30%,
-            rgb(54, 206, 133) 30%
-          );
-          filter: blur(30px);
-        "></div>
-        
-        <!-- Mobile Sidebar Menu -->
-        <div id="mobile-menu" class="fixed inset-0 bg-gray-800 bg-opacity-75 hidden z-40">
-            <div class="flex flex-col items-center mt-32 space-y-4">
-                <a href="{% url 'home' %}" class="text-white text-lg">Home</a>
-                <a href="{% url 'about_us' %}" class="text-white text-lg">About Us</a>
-                <a href="{% url 'solutions' %}" class="text-white text-lg">Our Solutions</a>
-                <a href="{% url 'program' %}" class="text-white text-lg">Our Programs</a>
-                <a href="{% url 'podcast' %}" class="text-white text-lg">Support Our Initiatives</a>
-                <a href="{% url 'select' %}"
-                    class="button-color text-white py-2 px-4 rounded hover:bg-green-700 mt-4">Join our Network</a>
-            </div>
-            
-            <!-- Centered Cancel Button -->
-            <div class="flex justify-center items-center mt-8">
-                <button id="close-menu" class="text-white border border-white rounded-xl p-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
-            </div>
+        <div class="hidden md:flex flex-row items-end space-x-4">
+          <a href="{% url 'select' %}" class="btn-partner nav-pod button-color btn">
+            Join our Network
+          </a>
         </div>
+        
+        <!-- Mobile Menu Toggle -->
+        <button class="md:hidden text-gray-600 focus:outline-none" id="menu-toggle">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 6h16M4 12h16m-7 6h7" />
+          </svg>
+        </button>
+      </div>
+    </nav>
+    
+    <!-- Background Elements -->
+    <div class="absolute top-24 right-12 w-16 h-16 rounded-xl z-0" style="
+      background: linear-gradient(
+        147.56deg,
+        rgb(255, 255, 255) 30%,
+        rgb(255, 255, 255) 30%,
+        rgb(54, 206, 133) 30%
+      );
+      filter: blur(30px);
+    "></div>
+    <div class="absolute bottom-24 left-12 w-36 h-36 rounded-full z-0" style="
+      background: linear-gradient(
+        147.56deg,
+        rgb(255, 255, 255) 30%,
+        rgb(255, 255, 255) 30%,
+        rgb(54, 206, 133) 30%
+      );
+      filter: blur(30px);
+    "></div>
+    
+    <!-- Mobile Sidebar Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-gray-800 bg-opacity-75 hidden z-40">
+      <div class="flex flex-col items-center mt-32 space-y-4">
+        <a href="{% url 'home' %}" class="text-white text-lg">Home</a>
+        <a href="{% url 'about_us' %}" class="text-white text-lg">About Us</a>
+        <a href="{% url 'solutions' %}" class="text-white text-lg">Our Solutions</a>
+        <a href="{% url 'program' %}" class="text-white text-lg">Our Programs</a>
+        <a href="{% url 'podcast' %}" class="text-white text-lg">Support Our Initiatives</a>
+        <a href="{% url 'select' %}"
+          class="button-color text-white py-2 px-4 rounded hover:bg-green-700 mt-4">Join our Network</a>
+      </div>
+      
+      <!-- Centered Cancel Button -->
+      <div class="flex justify-center items-center mt-8">
+        <button id="close-menu" class="text-white border border-white rounded-xl p-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
 
-        <!-- Modal Backdrop and Wrapper -->
-        <div id="initiativesModal" class="fixed inset-0 items-center justify-center z-50 hidden">
-            <section
-                class="bg-white flex flex-col items-center rounded-2xl w-min p-4 text-center shadow-lg mx-auto mt-32">
-                <button id="closeModal" class="ml-auto text-red-500 text-xl font-bold">
-                    x
-                </button>
-                <ul>
-                    <li class="h-10 w-60 p-2 rounded-xl mb-2.5 text-black text-lg">
-                        <a href="{% url 'tvetproject' %}">TVET Project</a>
-                    </li>
-                    <li class="h-10 w-60 p-2 rounded-xl mb-2.5 text-black text-lg">
-                        <a href="{% url 'onekidatatime' %}">1K@t</a>
-                    </li>
-                    <li class="h-10 w-60 p-2 rounded-xl mb-2.5 text-black text-lg">
-                        eEP
-                    </li>
-                    <li class="h-10 w-60 p-2 rounded-xl text-black text-lg">Refugee</li>
-                </ul>
-            </section>
-        </div>
-    </header>
+    <!-- Modal Backdrop and Wrapper -->
+    <div id="initiativesModal" class="fixed inset-0 items-center justify-center z-50 hidden">
+      <section
+        class="bg-white flex flex-col items-center rounded-2xl w-min p-4 text-center shadow-lg mx-auto mt-32">
+        <button id="closeModal" class="ml-auto text-red-500 text-xl font-bold">
+          ×
+        </button>
+        <ul>
+          <li class="h-10 w-60 p-2 rounded-xl mb-2.5 text-black text-lg hover:bg-gray-100 transition-colors">
+            <a href="{% url 'tvetproject' %}" class="block w-full h-full">TVET Project</a>
+          </li>
+          <li class="h-10 w-60 p-2 rounded-xl mb-2.5 text-black text-lg hover:bg-gray-100 transition-colors">
+            <a href="{% url 'onekidatatime' %}" class="block w-full h-full">1K@t</a>
+          </li>
+          <li class="h-10 w-60 p-2 rounded-xl mb-2.5 text-black text-lg hover:bg-gray-100 transition-colors">
+            <a href="#" class="block w-full h-full">eEP</a>
+          </li>
+          <li class="h-10 w-60 p-2 rounded-xl text-black text-lg hover:bg-gray-100 transition-colors">
+            <a href="#" class="block w-full h-full">Refugee</a>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </header>
 
   <!-- Our Programs Section -->
   <section id="programs" class="flex flex-col justify-center items-center mx-auto mt-32 mb-12 w-full px-4 md:px-0 md:w-4/5">
@@ -319,10 +343,10 @@
     <div class="w-full space-y-12 md:space-y-16 max-w-6xl">
       <!-- Program 1 -->
       <div class="program-card animate-left transform opacity-0 -translate-x-10 transition-all duration-1000 ease-out">
-        <div class="program-image flex-shrink-0">
+        <div class="program-image">
           <img src="{% static 'images/program1.jpg' %}" alt="The Talent Development Program (TDP)" class="w-64 h-64 md:w-80 md:h-80 object-cover rounded-lg shadow-md" />
         </div>
-        <div class="program-text bg-white p-6 rounded-lg shadow-md border border-color md:ml-8 w-full">
+        <div class="program-text bg-white p-6 rounded-lg shadow-md border border-color">
           <h3 class="flex items-center text-xl font-bold text-left text-color pl-4 ml-4 mb-4 h-16 max-w-96 border-l-2 border-color">
             The Talent Development Program (TDP)
           </h3>
@@ -337,7 +361,7 @@
 
       <!-- Program 2 -->
       <div class="program-card flex-row-reverse animate-right transform opacity-0 translate-x-10 transition-all duration-1000 ease-out">
-        <div class="program-text bg-white p-6 rounded-lg shadow-md border border-color md:mr-8 w-full">
+        <div class="program-text bg-white p-6 rounded-lg shadow-md border border-color">
           <h3 class="flex items-center text-xl font-bold text-left text-color pl-4 ml-4 mb-4 h-16 max-w-96 border-l-2 border-color">
             Leading Experience Accelerator (LEA-Program)
           </h3>
@@ -349,17 +373,17 @@
             skills, transitioning digital literacy.
           </p>
         </div>
-        <div class="program-image flex-shrink-0">
+        <div class="program-image">
           <img src="{% static 'images/program2.jpg' %}" alt="Leading Experience Accelerator (LEA-Program)" class="w-64 h-64 md:w-80 md:h-80 object-cover rounded-lg shadow-md" />
         </div>
       </div>
 
       <!-- Program 3 -->
       <div class="program-card animate-left transform opacity-0 -translate-x-10 transition-all duration-1000 ease-out">
-        <div class="program-image flex-shrink-0">
+        <div class="program-image">
           <img src="{% static 'images/program3.jpeg' %}" alt="Reverse Mentoring & Skill Swaps (Re-MSS)" class="w-64 h-64 md:w-80 md:h-80 object-cover rounded-lg shadow-md" />
         </div>
-        <div class="program-text bg-white p-6 rounded-lg shadow-md border border-color md:ml-8 w-full">
+        <div class="program-text bg-white p-6 rounded-lg shadow-md border border-color">
           <h3 class="flex items-center text-xl font-bold text-left text-color pl-4 ml-4 mb-4 h-16 max-w-96 border-l-2 border-color">
             Reverse Mentoring & Skill Swaps (Re-MSS)
           </h3>
@@ -375,7 +399,7 @@
 
       <!-- Program 4 -->
       <div class="program-card flex-row-reverse animate-right transform opacity-0 translate-x-10 transition-all duration-1000 ease-out">
-        <div class="program-text bg-white p-6 rounded-lg shadow-md border border-color md:mr-8 w-full">
+        <div class="program-text bg-white p-6 rounded-lg shadow-md border border-color">
           <h3 class="flex items-center text-xl font-bold text-left text-color pl-4 ml-4 mb-4 h-16 max-w-96 border-l-2 border-color">
             Project-Based Apprenticeships & Exchange Program
           </h3>
@@ -388,7 +412,7 @@
             for the apprentice.
           </p>
         </div>
-        <div class="program-image flex-shrink-0">
+        <div class="program-image">
           <img src="{% static 'images/program4.jpg' %}" alt="Project-Based Apprenticeships & Exchange Program" class="w-64 h-64 md:w-80 md:h-80 object-cover rounded-lg shadow-md" />
         </div>
       </div>
@@ -396,33 +420,31 @@
 
     <!-- Video Section -->
     <div class="flex flex-col md:flex-row gap-6 justify-center items-center bg-white border border-color p-6 rounded-3xl mt-16 w-full max-w-6xl">
-      <div class="video-text flex items-center mx-auto">
+      <div class="video-text flex items-center">
         <h3 class="text-color text-left font-semibold text-2xl md:text-3xl max-w-md mr-0 md:mr-10">
           Learn more about our Programs here:
         </h3>
       </div>
       
-      <div class="video-container">
-        <iframe 
-          width="100%" 
-          height="315" 
-          src="https://www.youtube.com/embed/FgxoYyTWGCU?si=4v0LuT8eX3UZT6gM" 
-          title="YouTube video player" 
-          frameborder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-          referrerpolicy="strict-origin-when-cross-origin" 
-          allowfullscreen
-          class="rounded-xl w-full max-w-2xl">
-        </iframe>
+      <div class="video-container flex-1">
+        <div class="relative" style="padding-bottom: 56.25%; height: 0; overflow: hidden;">
+          <iframe 
+            class="absolute top-0 left-0 w-full h-full rounded-xl"
+            src="https://www.youtube.com/embed/FgxoYyTWGCU?si=4v0LuT8eX3UZT6gM" 
+            title="YouTube video player" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" 
+            allowfullscreen>
+          </iframe>
+        </div>
       </div>
     </div>
   </section>
 
   <footer class="flex flex-col items-center justify-center mt-16">
     <div class="relative bg-footer pt-6 px-8 mb-3 rounded-xl mx-3 w-full md:w-4/5 text-white">
-      <!-- Container -->
       <div class="mx-auto pb-9 relative z-10">
-        <!-- Adjusted Grid -->
         <div class="flex flex-col">
           <!-- Logo Section -->
           <div class="flex flex-col md:flex-row justify-between items-center border-b-2 py-10 mx-2 md:mx-10">
@@ -430,7 +452,7 @@
             <p class="text-sm text-gray-300 text-center md:text-left mb-4 md:mb-0">
               Talent Development and Job Placement
             </p>
-            <a href="" class="btn btn-talent hover:button-color hover:border-white">
+            <a href="{% url 'select' %}" class="btn btn-talent hover:button-color hover:border-white">
               Join Our Initiative
             </a>
           </div>
@@ -492,74 +514,65 @@
     </div>
   </footer>
 
-  <!-- Showing Modal Container -->
+  <!-- JavaScript -->
   <script>
+    // Mobile Menu Toggle
+    document.getElementById("menu-toggle").addEventListener("click", function () {
+      document.getElementById("mobile-menu").classList.remove("hidden");
+    });
+
+    document.getElementById("close-menu").addEventListener("click", function () {
+      document.getElementById("mobile-menu").classList.add("hidden");
+    });
+
+    // Initiatives Modal
     const modal = document.getElementById("initiativesModal");
     const closeBtn = document.getElementById("closeModal");
 
-    document
-      .querySelector('a[href="{% url "podcast" %}"]')
-      .addEventListener("click", function (e) {
-        e.preventDefault(); // prevent actual navigation
-        modal.classList.remove("hidden");
-      });
+    document.querySelector('a[href="{% url "podcast" %}"]').addEventListener("click", function (e) {
+      e.preventDefault();
+      modal.classList.remove("hidden");
+    });
 
     closeBtn.addEventListener("click", () => {
       modal.classList.add("hidden");
     });
 
-    // Optional: close modal when clicking outside
     modal.addEventListener("click", (e) => {
       if (e.target === modal) modal.classList.add("hidden");
     });
-  </script>
 
-  <!-- Animating elements -->
-  <script>
+    // Scroll Animations
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const el = entry.target;
-            el.classList.remove(
-              "opacity-0",
-              "-translate-x-10",
-              "translate-x-10"
-            );
+            el.classList.remove("opacity-0", "-translate-x-10", "translate-x-10");
             el.classList.add("opacity-100", "translate-x-0");
-            observer.unobserve(el); // Stop observing once animated
+            observer.unobserve(el);
           }
         });
       },
-      {
-        threshold: 0.1, // Trigger when 10% of the element is visible
-      }
+      { threshold: 0.1 }
     );
 
-    document
-      .querySelectorAll(".animate-left, .animate-right")
-      .forEach((el) => {
-        observer.observe(el);
-      });
-  </script>
-  
-  <!-- JavaScript for Mobile Menu -->
-  <script>
-    document
-      .getElementById("menu-toggle")
-      .addEventListener("click", function () {
-        document.getElementById("mobile-menu").classList.remove("hidden");
-      });
+    document.querySelectorAll(".animate-left, .animate-right").forEach((el) => {
+      observer.observe(el);
+    });
 
-    document
-      .getElementById("close-menu")
-      .addEventListener("click", function () {
-        document.getElementById("mobile-menu").classList.add("hidden");
+    // Add loading state for images
+    document.addEventListener('DOMContentLoaded', function() {
+      const images = document.querySelectorAll('img');
+      images.forEach(img => {
+        img.addEventListener('load', function() {
+          this.classList.add('loaded');
+        });
       });
+    });
   </script>
 
   <!-- AlpineJS for toggle functionality -->
   <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 </body>
-
 </html>
