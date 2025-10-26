@@ -164,15 +164,25 @@
             transition: opacity 0.3s ease;
         }
 
-        /* Fix for overlapping elements on mobile */
-        .mission-vision-container {
-            flex-direction: column;
+        /* Mission/Vision Section Styles */
+        .mission-vision-item {
+            display: flex;
             align-items: center;
+            margin: 2rem 0;
         }
 
-        @media (min-width: 768px) {
-            .mission-vision-container {
-                flex-direction: row;
+        @media (max-width: 768px) {
+            .mission-vision-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .mission-vision-image {
+                margin-bottom: 1.5rem;
+            }
+            
+            .mission-vision-text {
+                margin: 0 !important;
             }
         }
 
@@ -205,6 +215,38 @@
         /* Background image slider */
         .slider-transition {
             transition: opacity 0.5s ease-in-out;
+        }
+        
+        /* Hero Section Styles */
+        .hero-section {
+            position: relative;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: opacity 0.5s ease-in-out;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            margin: 2rem;
         }
     </style>
 </head>
@@ -333,73 +375,64 @@
         </div>
     </header>
 
-    <!-- About Us Section -->
-      <section
-        id="about-us"
-        class="relative flex top-0 justify-center items-center bg-white w-screen -mt-20 mb-12 overflow-hidden"
-      >
-        <!-- Background Image Wrapper -->
-        <div
-          id="slider-image"
-          class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out"
-          style="background-image: url({% static 'images/onekidpic-1.jpg' %}); filter: blur(5px);"></div>
+    <!-- Hero Section with Background Slider -->
+    <section class="hero-section mt-20 mb-12">
+        <!-- Background Images -->
+        <div class="hero-background" id="slider-image-1" style="background-image: url('{% static 'images/onekidpic-1.jpg' %}'); opacity: 1;"></div>
+        <div class="hero-background" id="slider-image-2" style="background-image: url('{% static 'images/onekidpic-2.jpg' %}'); opacity: 0;"></div>
+        <div class="hero-background" id="slider-image-3" style="background-image: url('{% static 'images/onekidpic-3.jpg' %}'); opacity: 0;"></div>
 
         <!-- Overlay and Content -->
-        <div class="relative z-10 flex flex-col justify-center items-center h-full bg-white/10 mt-40 mb-20 w-full">
-          <h1 class="font-bold text-yellow-300 md:text-5xl pb-4 text-xl text-center w-full">
-            1k<span class="text-blue-600">@T</span>
-          </h1>
-            <h1 class="font-bold text-color md:text-3xl text-xl text-center w-full">
-            One Kid @ A Time Project
-          </h1>
-          
-          <p class="mt-6 text-black font-medium text-base text-center w-3/5">
-            The One Kid At a Time's noble ambitions to become a digital literacy Hub 
-            of the East African region will become a reality, transforming itself 
-            from a cognitive and technical skills at a basic level to digital proficiency 
-            manpower with a call for producing excess capacity of digital literacy among 
-            youth 4-12th grade with market-oriented, and indemand skills.  
-          </p>
+        <div class="hero-content">
+            <h1 class="font-bold text-yellow-300 text-3xl md:text-5xl pb-4 text-center">
+                1k<span class="text-blue-600">@T</span>
+            </h1>
+            <h1 class="font-bold text-color text-xl md:text-3xl text-center mb-6">
+                One Kid @ A Time Project
+            </h1>
+            <p class="text-black font-medium text-base md:text-lg text-center max-w-4xl">
+                The One Kid At a Time's noble ambitions to become a digital literacy Hub 
+                of the East African region will become a reality, transforming itself 
+                from a cognitive and technical skills at a basic level to digital proficiency 
+                manpower with a call for producing excess capacity of digital literacy among 
+                youth 4-12th grade with market-oriented, and indemand skills.  
+            </p>
         </div>
-      </section>
+    </section>
 
-  
-        <section class="flex flex-col items-center justify-between mx-auto mt-12 mb-12 w-4/5"> 
-                <div class=" animate-left transform opacity-0 -translate-x-10 transition-all duration-1000 ease-out 
-                flex items-center justify-start relative px-4 md:px-0">
-                    <!-- Circle Image -->
-                    <div class="z-0">
-                        <img src="{% static 'images/1k@t-image2.jpg' %}" alt="Mission Icon"  class="h-80 rounded-full object-cover shadow-lg w-96" />
-                    </div>
-                    <!-- Text Box Overlapping -->
-                    <div class="bg-white p-6 rounded-lg shadow-md border border-color -ml-12 md:-ml-12 w-full z-10">
-                        <h3 class="text-2xl font-bold text-color mb-2">
-                            Our Mission
-                        </h3>
-                        <p class="text-gray-600 text-base font-medium">
-                            To set a grassroots infrastructure for digital literacy from pre-school to high school.
-                        </p>
-                    </div>
-                </div>
+    <!-- Mission and Vision Section -->
+    <section class="flex flex-col items-center justify-center mx-auto mt-12 mb-12 w-full px-4 md:px-0 md:w-4/5">
+        <!-- Mission -->
+        <div class="mission-vision-item animate-left w-full max-w-6xl">
+            <div class="mission-vision-image flex-shrink-0">
+                <img src="{% static 'images/1k@t-image2.jpg' %}" alt="Mission Icon" class="w-64 h-64 md:w-80 md:h-80 rounded-full object-cover shadow-lg" />
+            </div>
+            <div class="mission-vision-text bg-white p-6 rounded-lg shadow-md border border-color md:ml-8 w-full">
+                <h3 class="text-2xl font-bold text-color mb-4">
+                    Our Mission
+                </h3>
+                <p class="text-gray-600 text-base font-medium">
+                    To set a grassroots infrastructure for digital literacy from pre-school to high school.
+                </p>
+            </div>
+        </div>
 
-                <div class=" animate-right transform opacity-0 translate-x-10 transition-all duration-1000 ease-out 
-                flex items-center justify-start relative  px-4 md:px-0">
-                    <!-- Text Box Overlapping -->
-                    <div class="bg-white p-6 rounded-lg shadow-md border border-color -mr-12 w-full z-10">
-                        <h3 class="text-2xl font-bold text-color mb-2">
-                            Our Vision
-                        </h3>
-                        <p class="text-gray-600 text-base font-medium">
-                            Embraced digital literacy as a transformative, cutting-edge tool to support African education.
-                        </p>
-                    </div>
-                    <!-- Circle Image -->
-                    <div class="z-0">
-                        <img src="{% static 'images/1k@t-vision.jpg' %}" alt="Why Us 1" class=" w-96 h-80 rounded-full object-fill shadow-lg" />
-                    </div>
-                </div>
+        <!-- Vision -->
+        <div class="mission-vision-item flex-row-reverse animate-right w-full max-w-6xl">
+            <div class="mission-vision-text bg-white p-6 rounded-lg shadow-md border border-color md:mr-8 w-full">
+                <h3 class="text-2xl font-bold text-color mb-4">
+                    Our Vision
+                </h3>
+                <p class="text-gray-600 text-base font-medium">
+                    Embraced digital literacy as a transformative, cutting-edge tool to support African education.
+                </p>
+            </div>
+            <div class="mission-vision-image flex-shrink-0">
+                <img src="{% static 'images/1k@t-vision.jpg' %}" alt="Vision Icon" class="w-64 h-64 md:w-80 md:h-80 rounded-full object-cover shadow-lg" />
+            </div>
+        </div>
+    </section>
 
-            </section>
     <!-- What Are We Solving Section -->
     <div class="flex flex-col items-center justify-between mx-auto mt-12 mb-12 w-full md:w-4/5 content-section">
         <div class="flex flex-col lg:flex-row max-w-screen mx-auto rounded-3xl bg-white shadow-xl overflow-hidden">
@@ -468,10 +501,11 @@
             </div>
 
             <!-- Image Section -->
-            <div class="w-full lg:w-1/2 p-6 md:p-8">
+            <div class="w-full lg:w-1/3 p-6 md:p-8">
                 <div class="relative h-full min-h-64 md:min-h-96 lg:min-h-[500px] rounded-2xl overflow-hidden shadow-lg">
                     <img 
-                        src="{% static 'images/onekidpic-3.jpg' %}"  alt="1k@T Vision - Digital Education in Rwanda" 
+                        src="{% static 'images/onekidpic-3.jpg' %}"  
+                        alt="1k@T Vision - Digital Education in Rwanda" 
                         class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                     >
                     <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-60"></div>
@@ -484,103 +518,112 @@
     </div>
 
     <!-- Footer -->
-   <footer class="flex flex-col items-center justify-center mt-16">
-    <div class="relative bg-footer pt-6 px-8 mb-3 rounded-xl mx-3 w-full md:w-4/5 text-white">
-      <!-- Container -->
-      <div class="mx-auto pb-9 relative z-10">
-        <!-- Adjusted Grid -->
-        <div class="flex flex-col">
-          <!-- Logo Section -->
-          <div class="flex flex-col md:flex-row justify-between items-center border-b-2 py-10 mx-2 md:mx-10">
-            <img src="{% static 'images/thinkgreen-logo-white.png' %}" alt="ThinkGreen Afrika white" class="w-40 h-auto mb-4">
-            <p class="text-sm text-gray-300 text-center md:text-left mb-4 md:mb-0">
-              Talent Development and Job Placement
-            </p>
-            <a href="{% url 'select' %}" class="btn btn-talent hover:button-color hover:border-white">
-              Join Our Initiative
-            </a>
-          </div>
-          <!-- Contact Section -->
-          <div class="flex flex-col md:flex-row gap-8 lg:col-span-1 md:ml-8 mt-4">
-            <div class="flex flex-col">
-              <h3 class="text-lg font-semibold mb-3 mt-4">| Follow Us</h3>
-              <div class="flex space-x-3">
-                <a href="https://whatsapp.com/channel/0029VadbYG790x2rzJt1k718" target="_blank"
-                  class="w-8 h-8 rounded-xl bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-green-500">
-                  <img src="{% static 'images/whatsapp.png' %}" alt="WhatsApp" class="w-4 h-4" />
-                </a>
-                <a href="https://www.facebook.com/profile.php?id=61568738616754&mibextid=LQQJ4d" target="_blank"
-                  class="w-8 h-8 rounded-xl bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-blue-600">
-                  <img src="{% static 'images/facebook.png' %}" alt="Facebook" class="w-4 h-4" />
-                </a>
-                <a href="https://www.instagram.com/thinkgreen_afrika/profilecard/?igsh=MWRxZjBvb3Y1a3Mxcw=="
-                  target="_blank"
-                  class="w-8 h-8 rounded-xl bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-pink-500">
-                  <img src="{% static 'images/instagram.png' %}" alt="Instagram" class="w-4 h-4" />
-                </a>
-                <a href="https://www.linkedin.com/company/thinkgreen-afrika/" target="_blank"
-                  class="w-8 h-8 rounded-xl bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-blue-700">
-                  <img src="{% static 'images/linkedin.png' %}" alt="LinkedIn" class="w-4 h-4" />
-                </a>
-              </div>
-            </div>
-
-            <div class="flex flex-col">
-              <h3 class="text-lg font-semibold mb-3 mt-4">| Contact Us</h3>
-              <div class="flex gap-2 items-start">
-                <img src="{% static 'images/Vector.png' %}" alt="Email" class="w-6 h-4 mt-1" />
+    <footer class="flex flex-col items-center justify-center mt-16">
+        <div class="relative bg-footer pt-6 px-8 mb-3 rounded-xl mx-3 w-full md:w-4/5 text-white">
+            <!-- Container -->
+            <div class="mx-auto pb-9 relative z-10">
+                <!-- Adjusted Grid -->
                 <div class="flex flex-col">
-                  <a href="mailto:careers@thinkgreenafrika.org"
-                    class="text-sm hover:underline">careers@thinkgreenafrika.org</a>
-                  <a href="mailto:thinkgreenafrika.org@gmail.com"
-                    class="text-sm hover:underline">thinkgreenafrika.org@gmail.com</a>
+                    <!-- Logo Section -->
+                    <div class="flex flex-col md:flex-row justify-between items-center border-b-2 py-10 mx-2 md:mx-10">
+                        <img src="{% static 'images/thinkgreen-logo-white.png' %}" alt="ThinkGreen Afrika white" class="w-40 h-auto mb-4">
+                        <p class="text-sm text-gray-300 text-center md:text-left mb-4 md:mb-0">
+                            Talent Development and Job Placement
+                        </p>
+                        <a href="{% url 'select' %}" class="btn btn-talent hover:button-color hover:border-white">
+                            Join Our Initiative
+                        </a>
+                    </div>
+                    <!-- Contact Section -->
+                    <div class="flex flex-col md:flex-row gap-8 lg:col-span-1 md:ml-8 mt-4">
+                        <div class="flex flex-col">
+                            <h3 class="text-lg font-semibold mb-3 mt-4">| Follow Us</h3>
+                            <div class="flex space-x-3">
+                                <a href="https://whatsapp.com/channel/0029VadbYG790x2rzJt1k718" target="_blank"
+                                    class="w-8 h-8 rounded-xl bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-green-500">
+                                    <img src="{% static 'images/whatsapp.png' %}" alt="WhatsApp" class="w-4 h-4" />
+                                </a>
+                                <a href="https://www.facebook.com/profile.php?id=61568738616754&mibextid=LQQJ4d" target="_blank"
+                                    class="w-8 h-8 rounded-xl bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-blue-600">
+                                    <img src="{% static 'images/facebook.png' %}" alt="Facebook" class="w-4 h-4" />
+                                </a>
+                                <a href="https://www.instagram.com/thinkgreen_afrika/profilecard/?igsh=MWRxZjBvb3Y1a3Mxcw=="
+                                    target="_blank"
+                                    class="w-8 h-8 rounded-xl bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-pink-500">
+                                    <img src="{% static 'images/instagram.png' %}" alt="Instagram" class="w-4 h-4" />
+                                </a>
+                                <a href="https://www.linkedin.com/company/thinkgreen-afrika/" target="_blank"
+                                    class="w-8 h-8 rounded-xl bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-blue-700">
+                                    <img src="{% static 'images/linkedin.png' %}" alt="LinkedIn" class="w-4 h-4" />
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col">
+                            <h3 class="text-lg font-semibold mb-3 mt-4">| Contact Us</h3>
+                            <div class="flex gap-2 items-start">
+                                <img src="{% static 'images/Vector.png' %}" alt="Email" class="w-6 h-4 mt-1" />
+                                <div class="flex flex-col">
+                                    <a href="mailto:careers@thinkgreenafrika.org"
+                                        class="text-sm hover:underline">careers@thinkgreenafrika.org</a>
+                                    <a href="mailto:thinkgreenafrika.org@gmail.com"
+                                        class="text-sm hover:underline">thinkgreenafrika.org@gmail.com</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col">
+                            <h3 class="text-lg font-semibold mb-3 mt-4">| Find Us</h3>
+                            <div class="flex gap-2 items-start">
+                                <img src="{% static 'images/duo-icons_location.png' %}" alt="Map" class="w-6 h-6 mt-1" />
+                                <p class="text-sm">
+                                    Kimironko, KG42 Ave<br />
+                                    Kigali, Rwanda
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col items-center mt-8">
+                        <p class="text-gray-300">@ 2025 - Copyright</p>
+                    </div>
                 </div>
-              </div>
             </div>
-
-            <div class="flex flex-col">
-              <h3 class="text-lg font-semibold mb-3 mt-4">| Find Us</h3>
-              <div class="flex gap-2 items-start">
-                <img src="{% static 'images/duo-icons_location.png' %}" alt="Map" class="w-6 h-6 mt-1" />
-                <p class="text-sm">
-                  Kimironko, KG42 Ave<br />
-                  Kigali, Rwanda
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="flex flex-col items-center mt-8">
-            <p class="text-gray-300">@ 2025 - Copyright</p>
-          </div>
         </div>
-      </div>
-    </div>
-  </footer>
+    </footer>
 
     <!-- Background Image Slider -->
     <script>
-        const images = [
-            "{% static 'images/onekidpic-1.jpg' %}",
-            "{% static 'images/onekidpic-2.jpg' %}",
-            "{% static 'images/onekidpic-3.jpg' %}",
-        ];
+        let currentSlide = 0;
+        const totalSlides = 3;
+        const slideInterval = 5000; // 5 seconds
 
-        let current = 0;
-        const imageDiv = document.getElementById("slider-image");
-
-        function changeBackgroundImage() {
-            imageDiv.style.opacity = "0";
+        function showSlide(index) {
+            // Hide all slides
+            for (let i = 0; i < totalSlides; i++) {
+                const slide = document.getElementById(`slider-image-${i + 1}`);
+                if (slide) {
+                    slide.style.opacity = '0';
+                }
+            }
             
-            setTimeout(() => {
-                current = (current + 1) % images.length;
-                imageDiv.style.backgroundImage = `url('${images[current]}')`;
-                imageDiv.style.opacity = "1";
-            }, 500);
+            // Show current slide
+            const currentSlideElement = document.getElementById(`slider-image-${index + 1}`);
+            if (currentSlideElement) {
+                currentSlideElement.style.opacity = '1';
+            }
         }
 
-        // Start the slider
-        setInterval(changeBackgroundImage, 5000);
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+        }
+
+        // Initialize the slider
+        document.addEventListener('DOMContentLoaded', function() {
+            showSlide(0); // Show first slide
+            setInterval(nextSlide, slideInterval); // Start automatic sliding
+        });
     </script>
 
     <!-- Scroll Animation -->
