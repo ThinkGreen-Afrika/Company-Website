@@ -98,12 +98,12 @@
                 transform: translateX(0%);
             }
             100% {
-                transform: translateX(-50%);
+                transform: translateX(-158%);
             }
         }
 
         .animate-scroll {
-            animation: scroll 20s linear infinite;
+            animation: scroll 10s linear infinite;
         }
 
         /* Button Styles */
@@ -194,7 +194,7 @@
             position: absolute;
             object-fit: cover;
             top: 160px;
-            right: 40px;
+            right: 40px; /* Moved left by 40px */
             width: 280px;
             height: 280px;
             border-radius: 50%;
@@ -235,18 +235,6 @@
             left: 40px;
         }
 
-        /* Testimonial Carousel */
-        .carousel-container {
-            overflow: hidden;
-            width: 100%;
-        }
-
-        .carousel-track {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-            gap: 4rem;
-        }
-
         /* Responsive Adjustments */
         @media (max-width: 1024px) {
             .hero-container {
@@ -273,7 +261,7 @@
             }
             
             .hero-image-2 {
-                right: 20px;
+                right: 20px; /* Adjusted for mobile */
                 width: 220px;
                 height: 220px;
             }
@@ -281,10 +269,6 @@
             .feature-frame {
                 width: 200px;
                 height: 50px;
-            }
-
-            .carousel-track {
-                gap: 2rem;
             }
         }
 
@@ -300,7 +284,7 @@
             }
             
             .hero-image-2 {
-                right: 10px;
+                right: 10px; /* Adjusted for mobile */
                 width: 180px;
                 height: 180px;
             }
@@ -327,10 +311,6 @@
             .feature-frame-4 {
                 bottom: 40px;
                 left: 20px;
-            }
-
-            .carousel-track {
-                gap: 1rem;
             }
         }
     </style>
@@ -427,7 +407,7 @@
                     <li class="h-10 w-60 p-2 rounded-xl mb-2.5 text-black text-lg">eEP</li>
                     <li class="h-10 w-60 p-2 rounded-xl text-black text-lg">Refugee</li>
                 </ul>
-            </section>
+            </section>.\venv\Scripts\activate
         </div>
 
         <!-- Hero Content -->
@@ -578,22 +558,22 @@
                 <span class="h-2 w-2 rounded-xl bg-gray-400"></span>
             </div>
 
-            <div class="relative carousel-container">
-                <button onclick="previousSlide()" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black text-white p-2 rounded-xl hover:bg-gray-700 z-10">
+            <div class="relative">
+                <button onclick="previousSlide()" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black text-white p-2 rounded-xl hover:bg-gray-700">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
                     </svg>
                 </button>
 
-                <button onclick="nextSlide()" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black text-white p-2 rounded-xl hover:bg-gray-700 z-10">
+                <button onclick="nextSlide()" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black text-white p-2 rounded-xl hover:bg-gray-700">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                     </svg>
                 </button>
 
-                <div id="carousel" class="carousel-track">
+                <div id="carousel" class="flex md:flex-row flex-col items-center transition-transform space-x-0 md:space-x-16 space-y-12 md:space-y-0 duration-500">
                     <!-- Card 1 -->
-                    <div class="relative w-[302px] h-[342px] flex-shrink-0">
+                    <div class="relative w-[302px] h-[342px]">
                         <div class="absolute top-[-2px] left-[4px] w-full h-full bg-green-500 opacity-60 transform rotate-[-7.35deg]" style="clip-path: polygon(12% 5%, 88% 3%, 85% 93%, 15% 95%); border-radius: 20px;"></div>
                         <div class="bg-black text-white p-14 rounded-xl shadow-md w-full h-full transform rotate-6 hover:rotate-3 transition-transform duration-300 relative" style="clip-path: polygon(12% 5%, 88% 3%, 85% 93%, 15% 95%); border-radius: 20px;">
                             <div class="absolute mt-4 top-1 left-1/2 transform -translate-x-1/2">
@@ -606,7 +586,7 @@
                     </div>
 
                     <!-- Card 2 (Center Card) -->
-                    <div class="relative w-[415px] h-[433px] flex-shrink-0">
+                    <div class="relative w-[415px] h-[433px]">
                         <div class="absolute top-[5px] left-[55px] w-full h-full bg-green-500 opacity-60 transform scale-105 z-0" style="clip-path: polygon(15% 5%, 85% 3%, 80% 88%, 10% 92%); border-radius: 20px;"></div>
                         <div class="bg-black text-white p-16 rounded-xl shadow-lg w-full h-full transform scale-110 hover:scale-105 transition-transform duration-300 relative z-10" style="clip-path: polygon(15% 5%, 85% 3%, 80% 88%, 10% 92%); border-radius: 20px;">
                             <div class="absolute mt-4 top-1 left-1/2 transform -translate-x-1/2">
@@ -619,7 +599,7 @@
                     </div>
 
                     <!-- Card 3 -->
-                    <div class="relative w-[302px] h-[342px] flex-shrink-0">
+                    <div class="relative w-[302px] h-[342px]">
                         <div class="absolute top-[1px] left-[-4px] w-full h-full bg-green-500 opacity-60 transform rotate-[-172.65deg]" style="clip-path: polygon(10% 7%, 90% 2%, 87% 92%, 12% 94%); border-radius: 20px;"></div>
                         <div class="bg-black text-white p-12 rounded-xl shadow-md w-full h-full transform -rotate-6 hover:rotate-3 transition-transform duration-300 relative" style="clip-path: polygon(10% 7%, 90% 2%, 87% 92%, 12% 94%); border-radius: 20px;">
                             <div class="absolute mt-4 top-1 left-1/2 transform -translate-x-1/2">
@@ -800,19 +780,18 @@
             observer.observe(el);
         });
 
-        // Testimonial Carousel - Fixed Version
+        // Testimonial Carousel
         let currentSlide = 0;
-        const carousel = document.getElementById("carousel");
-        const cards = document.querySelectorAll('.carousel-track > div');
-        const cardWidth = cards[0].offsetWidth + 64; // card width + gap
+        const totalSlides = 2;
 
         function updateCarousel() {
-            const offset = -currentSlide * cardWidth;
-            carousel.style.transform = `translateX(${offset}px)`;
+            const carousel = document.getElementById("carousel");
+            const offset = -currentSlide * 100;
+            carousel.style.transform = `translateX(${offset}%)`;
         }
 
         function nextSlide() {
-            if (currentSlide < cards.length - 1) {
+            if (currentSlide < totalSlides - 1) {
                 currentSlide++;
                 updateCarousel();
             }
@@ -824,9 +803,6 @@
                 updateCarousel();
             }
         }
-
-        // Initialize carousel
-        updateCarousel();
 
         // Trusted By Logos
         const logos = [
@@ -850,7 +826,7 @@
             const img = document.createElement("img");
             img.src = logo;
             img.alt = "Partner Logo";
-            img.className = "w-64 h-32 p-4 bg-white object-contain rounded-2xl border shadow-md flex-shrink-0";
+            img.className = "w-64 h-32 p-4 bg-white object-contain rounded-2xl border shadow-md";
             logoStrip.appendChild(img);
         });
         
@@ -858,39 +834,8 @@
             const img = document.createElement("img");
             img.src = logo;
             img.alt = "Partner Logo";
-            img.className = "w-64 h-32 p-4 bg-white object-contain rounded-2xl border shadow-md flex-shrink-0";
+            img.className = "w-64 h-32 p-4 bg-white object-contain rounded-2xl border shadow-md";
             logoStrip.appendChild(img);
-        });
-
-        // Add touch support for carousel on mobile
-        let startX = 0;
-        let currentX = 0;
-        let isDragging = false;
-
-        carousel.addEventListener('touchstart', (e) => {
-            startX = e.touches[0].clientX;
-            isDragging = true;
-        });
-
-        carousel.addEventListener('touchmove', (e) => {
-            if (!isDragging) return;
-            currentX = e.touches[0].clientX;
-        });
-
-        carousel.addEventListener('touchend', () => {
-            if (!isDragging) return;
-            isDragging = false;
-            
-            const diff = startX - currentX;
-            const threshold = 50;
-            
-            if (Math.abs(diff) > threshold) {
-                if (diff > 0) {
-                    nextSlide();
-                } else {
-                    previousSlide();
-                }
-            }
         });
     </script>
 
