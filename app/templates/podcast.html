@@ -89,18 +89,14 @@
             box-shadow: 4px 8px 12px rgba(8, 8, 8, 0.4);
         }
 
-        /* Ensure the container doesn't overlap or block the buttons */
-        .mt-8 {
-            position: relative;
-            z-index: 1;
-        }
-
         /* Video responsive container */
         .video-container {
             position: relative;
             padding-bottom: 56.25%; /* 16:9 aspect ratio */
             height: 0;
             overflow: hidden;
+            border-radius: 0.5rem;
+            background: #000;
         }
 
         .video-container iframe {
@@ -109,7 +105,33 @@
             left: 0;
             width: 100%;
             height: 100%;
-            border-radius: 0.5rem;
+            border: none;
+        }
+
+        /* Video overlay for mute/unmute control */
+        .video-overlay {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 10;
+        }
+
+        .mute-btn {
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .mute-btn:hover {
+            background: rgba(0, 0, 0, 0.9);
         }
 
         /* Animation classes */
@@ -124,19 +146,24 @@
             transform: translateY(0);
         }
 
-        /* Mobile menu improvements */
+        /* Loading state */
+        .video-loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 1.2rem;
+        }
+
         @media (max-width: 768px) {
             .mobile-menu-content {
                 padding-top: 4rem;
             }
             
-            .program-card {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .story-section {
-                padding: 1rem;
+            .mute-btn {
+                width: 35px;
+                height: 35px;
             }
         }
     </style>
@@ -230,15 +257,19 @@
                     Learn more about our journey, the initiatives we're supporting, and how you can make a difference by joining our community.
                 </p>
                 <div class="flex justify-center mb-8 animate-fade-in">
-                    <div class="w-full max-w-2xl">
-                        <div class="video-container">
-                            <iframe 
-                                src="https://www.youtube.com/embed/lWvZYlTsROw" 
-                                title="Founders Roundtable Video" 
-                                frameborder="0" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                allowfullscreen>
-                            </iframe>
+                    <div class="w-full max-w-2xl relative">
+                        <div class="video-container" id="video-wrapper">
+                            <div id="player"></div>
+                            <div class="video-overlay">
+                                <button id="mute-btn" class="mute-btn" title="Unmute video">
+                                    <svg id="mute-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M3.63 3.63a.996.996 0 0 0 0 1.41L7.29 9H6c-1.1 0-2 .9-2 2v2c0 1.1.9 2 2 2h3.29l2.71 2.71c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L5.05 4.05a.996.996 0 0 0-1.41 0l-.01-.01zm16.15 3.72c-.39-.39-1.02-.39-1.41 0L15 10.59V7c0-1.1-.9-2-2-2h-1.59l4.88-4.88c.39-.39.39-1.02 0-1.41a.996.996 0 0 0-1.41 0L9.7 5.29 3.63-.78a.996.996 0 1 0-1.41 1.41l4.08 4.08L3.63 9.7a.996.996 0 0 0 0 1.41c.39.39 1.02.39 1.41 0l4.08-4.08 4.08 4.08c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41l-4.08-4.08 4.08-4.08c.39-.39.39-1.02 0-1.41z"/>
+                                    </svg>
+                                    <svg id="unmute-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+                                        <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+                                    </svg>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -252,6 +283,7 @@
             </div>
         </section>
 
+        <!-- Rest of your content remains the same -->
         <!-- Our Story Section -->
         <section class="py-16 bg-gradient-to-t from-green-50 to-white">
             <div class="container mx-auto px-4">
@@ -366,7 +398,7 @@
         </section>
     </main>
 
-    <!-- Footer -->
+    <!-- Footer (same as before) -->
     <footer class="bg-white pt-8">
         <div class="relative bg-footer pt-8 px-6 mb-4 rounded-xl mx-4 text-white">
             <div class="max-w-7xl mx-auto pb-8 relative z-10">
@@ -439,7 +471,64 @@
         </div>
     </footer>
 
+    <!-- YouTube IFrame API -->
     <script>
+        // YouTube API
+        let player;
+        
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+                height: '100%',
+                width: '100%',
+                videoId: 'lWvZYlTsROw',
+                playerVars: {
+                    'autoplay': 1,
+                    'mute': 1,
+                    'controls': 1,
+                    'modestbranding': 1,
+                    'rel': 0,
+                    'showinfo': 0,
+                    'iv_load_policy': 3
+                },
+                events: {
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+        }
+
+        function onPlayerReady(event) {
+            // Video is ready and playing muted
+            console.log('YouTube player ready');
+        }
+
+        function onPlayerStateChange(event) {
+            // Handle player state changes if needed
+        }
+
+        // Mute/Unmute functionality
+        document.getElementById('mute-btn').addEventListener('click', function() {
+            if (player) {
+                if (player.isMuted()) {
+                    player.unMute();
+                    document.getElementById('mute-icon').style.display = 'none';
+                    document.getElementById('unmute-icon').style.display = 'block';
+                    this.setAttribute('title', 'Mute video');
+                } else {
+                    player.mute();
+                    document.getElementById('mute-icon').style.display = 'block';
+                    document.getElementById('unmute-icon').style.display = 'none';
+                    this.setAttribute('title', 'Unmute video');
+                }
+            }
+        });
+
+        // Load YouTube API
+        const tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        const firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
         // Mobile menu functionality
         document.getElementById("menu-toggle").addEventListener("click", function() {
             document.getElementById("mobile-menu").classList.remove("hidden");
@@ -464,7 +553,6 @@
                 });
             }, observerOptions);
 
-            // Observe all elements with animate-fade-in class
             document.querySelectorAll('.animate-fade-in').forEach(function(element) {
                 observer.observe(element);
             });
