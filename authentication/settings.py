@@ -15,6 +15,9 @@ import environ
 import os
 import dj_database_url
 from datetime import timedelta
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -29,6 +32,13 @@ DATABASES = {
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Cloudinary configuration
+cloudinary.config(
+    cloud_name=env("CLOUDINARY_CLOUD_NAME", default=""),
+    api_key=env("CLOUDINARY_API_KEY", default=""),
+    api_secret=env("CLOUDINARY_API_SECRET", default=""),
+)
 
 
 # Quick-start development settings - unsuitable for production
@@ -52,6 +62,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cloudinary_storage',
+    'cloudinary',
     'app',
     'rest_framework',
     'corsheaders',
@@ -135,10 +147,18 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-# Whitenoise configuration to serve static files in production
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# For development, keep local static files
+if DEBUG:
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+else:
+    # For production, use Cloudinary for static files
+    STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+# Media files configuration for Cloudinary
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

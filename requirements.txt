@@ -12,3 +12,5 @@ gunicorn
 whitenoise
 dj-database-url
 Pillow
+cloudinary
+django-cloudinary-storage
