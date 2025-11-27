@@ -2,8 +2,10 @@ services:
   - type: web
     name: company-website
     env: python
-    buildCommand: "pip install -r requirements.txt"
-    startCommand: "gunicorn authentication.wsgi:application"
+    buildCommand: |
+      pip install -r requirements.txt
+      python manage.py collectstatic --noinput
+    startCommand: gunicorn authentication.wsgi:application
     envVars:
       - key: DJANGO_SETTINGS_MODULE
         value: authentication.settings
@@ -15,4 +17,9 @@ services:
         sync: false
       - key: CLOUDINARY_API_SECRET
         sync: false
+      - key: SECRET_KEY
+        sync: false
+      - key: DEBUG
+        value: False
+    staticPublishPath: staticfiles
     autoDeploy: true

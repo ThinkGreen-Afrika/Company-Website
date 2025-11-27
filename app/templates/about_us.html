@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,7 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
-    <link rel="icon" type="image/x-icon" href="/static/images/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}" />
     <link
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
       rel="stylesheet"
@@ -141,6 +142,22 @@
         position: relative;
         z-index: 1;
       }
+      
+      /* Animation for scroll-triggered elements */
+      @keyframes fadeInUp {
+        0% {
+          transform: translateY(20px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+      
+      .animate-fadeInUp {
+        animation: fadeInUp 1s ease-out forwards;
+      }
     </style>
   </head>
   <body class="bg-gradient-to-b from-white via-white to-green-300">
@@ -155,8 +172,8 @@
         >
           <a href="{% url 'home' %}"
             ><img
-              src="../static/images/thinkgreen-logo-green.png"
-              alt="logo"
+              src="{% static 'images/thinkgreen-logo-green.png' %}"
+              alt="ThinkGreen Afrika Logo"
               class="max-w-64 h-10"
             />
           </a>
@@ -204,7 +221,6 @@
           </ul>
 
           <div class="hidden md:flex flex-row items-end space-x-4">
-            <!-- <a href="{% url 'book' %}" class="btn-talent nav-book">Book 1:1</a> -->
             <a
               href="{% url 'select' %}"
               class="btn-partner nav-pod button-color btn"
@@ -283,31 +299,30 @@
             class="button-color text-white py-2 px-4 rounded hover:bg-green-700 mt-4"
             >Join our Network</a
           >
-          <!-- <a href="{% url 'book' %}" class="button-color text-white py-2 px-4 rounded hover:bg-green-700 mt-2">Book 1:1</a> -->
         </div>
-      </div>
-
-      <!-- Centered Cancel Button -->
-      <div class="flex justify-center items-center mt-8">
-        <button
-          id="close-menu"
-          class="text-white border border-white rounded-xl p-2"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
+        
+        <!-- Centered Cancel Button -->
+        <div class="flex justify-center items-center mt-8">
+          <button
+            id="close-menu"
+            class="text-white border border-white rounded-xl p-2"
           >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
-        </button>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
       </div>
 
       <!-- Modal Backdrop and Wrapper -->
@@ -342,20 +357,22 @@
       <!-- About Us Section -->
       <section
         id="about-us"
-        class="relative flex top-0 justify-center items-center bg-black w-screen -mt-20 mb-12 overflow-hidden"
+        class="relative flex justify-center items-center bg-black w-full mt-20 mb-12 overflow-hidden"
+        style="height: 500px;"
       >
         <!-- Background Image Wrapper -->
         <div
           id="slider-image"
           class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out"
-          style="background-image: url('../static/images/about-hero.jpeg'); filter: blur(5px);"></div>
+          style="background-image: url('{% static 'images/about-hero.jpeg' %}'); filter: blur(5px);"
+        ></div>
 
         <!-- Overlay and Content -->
-        <div class="relative z-10 flex flex-col justify-center items-center h-full bg-white/10 mt-40 mb-20 w-full">
-          <h1 class="font-bold text-color md:text-3xl text-2xl text-center w-full">
+        <div class="relative z-10 flex flex-col justify-center items-center h-full bg-black/40 w-full px-4">
+          <h1 class="font-bold text-white md:text-4xl text-2xl text-center mb-6">
             About Us
           </h1>
-          <p class="mt-6 text-white font-medium text-base text-center w-3/5">
+          <p class="text-white font-medium text-lg text-center max-w-4xl">
             ThinkGreen Afrika is more than an outsourcing company; we are a
             tech-driven talent development and job placement company, fostering
             the growth of youth who are willing to change their jobs and develop
@@ -369,10 +386,10 @@
 
       <!-- Vision Section -->
       <div
-        class="container flex flex-col justify-center items-center mx-auto w-screen"
+        class="container flex flex-col justify-center items-center mx-auto w-full"
       >
         <div
-          class="container flex flex-col justify-center items-center p-6 w-4/5"
+          class="container flex flex-col justify-center items-center p-6 w-full max-w-6xl"
         >
           <!-- Gradient Circle Bubble -->
           <div
@@ -390,12 +407,9 @@
           ></div>
 
           <!-- Content -->
-          <div class="grid grid-cols-2 gap-16 mx-auto max-w-6xl justify-center items-center"
-          >
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-16 mx-auto max-w-6xl justify-center items-center">
             <!-- Vision Text -->
-            
-            <div class=" animate-top transform opacity-0 translate-y-10 transition-all duration-1000 ease-out 
-            flex flex-col items-center mx-auto">
+            <div class="animate-fadeInUp transform opacity-0 transition-all duration-1000 ease-out flex flex-col items-center mx-auto">
               <hr class="border-t-2 border-black mb-4 w-60" />
               <h3 class="text-primary font-bold text-xl text-center w-72">
                 Our Vision
@@ -407,20 +421,21 @@
             </div>
 
             <!-- Mission Image -->
-            <img src="../static/images/about-vision.png"
-              alt="Team Photo"
-              class="animate-top transform opacity-0 translate-y-10 transition-all duration-1000 ease-out 
-              w-full h-auto rounded-xl shadow-md" />
+            <img 
+              src="{% static 'images/about-vision.png' %}" 
+              alt="Our Vision"
+              class="animate-fadeInUp transform opacity-0 transition-all duration-1000 ease-out w-full h-auto rounded-xl shadow-md" 
+            />
 
             <!-- Approach Image -->
-            <img src="../static/images/about-approach.jpg"
-              alt="Approach Photo"
-              class="animate-top transform opacity-0 translate-y-10 transition-all duration-1000 ease-out 
-              w-full h-auto rounded-xl shadow-md"/>
+            <img 
+              src="{% static 'images/about-approach.jpg' %}" 
+              alt="Our Approach"
+              class="animate-fadeInUp transform opacity-0 transition-all duration-1000 ease-out w-full h-auto rounded-xl shadow-md"
+            />
 
             <!-- Approach Text -->
-            <div class=" animate-top transform opacity-0 translate-y-10 transition-all duration-1000 ease-out 
-            flex flex-col items-center mx-auto">
+            <div class="animate-fadeInUp transform opacity-0 transition-all duration-1000 ease-out flex flex-col items-center mx-auto">
               <hr class="border-t-2 border-black mb-4 w-60" />
               <h3 class="text-primary font-bold text-xl text-center">
                 Our Approach
@@ -436,8 +451,7 @@
             </div>
 
             <!-- Mission Text -->
-            <div class="animate-top transform opacity-0 translate-y-10 transition-all duration-1000 ease-out 
-            flex flex-col items-center mx-auto">
+            <div class="animate-fadeInUp transform opacity-0 transition-all duration-1000 ease-out flex flex-col items-center mx-auto">
               <hr class="border-t-2 border-black mb-4 w-60" />
               <h3 class="text-primary font-bold text-xl text-center w-72">
                 Our Mission
@@ -449,13 +463,12 @@
             </div>
 
             <!-- Mission Image -->
-            <img src="../static/images/about-mission.jpg"
-              alt="Mission Photo"
-              class="animate-top transform opacity-0 translate-y-10 transition-all duration-1000 ease-out 
-              w-full h-auto rounded-xl shadow-md"
+            <img 
+              src="{% static 'images/about-mission.jpg' %}" 
+              alt="Our Mission"
+              class="animate-fadeInUp transform opacity-0 transition-all duration-1000 ease-out w-full h-auto rounded-xl shadow-md"
             />
           </div>
- 
         </div>
       </div>
     </header>
@@ -463,16 +476,16 @@
     <!-- Impact Themes -->
     <section id="our-milestones" class="py-16 px-6 text-center">
       <h2 class="text-4xl font-bold text-color mb-12">Our Impact Themes</h2>
-      <div class="grid grid-cols-2 gap-8 mx-auto max-w-6xl">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mx-auto max-w-6xl">
         <div
-          class="bg-white p-8 w-full rounded-2xl border-color border shadow-md flex flex-row items-center justify-between"
+          class="bg-white p-8 w-full rounded-2xl border-color border shadow-md flex flex-col md:flex-row items-center justify-between"
         >
           <img
-            class="w-40 h-40"
-            src="../static/images/partnership.png"
+            class="w-40 h-40 mb-4 md:mb-0"
+            src="{% static 'images/partnership.png' %}"
             alt="Climate Action"
           />
-          <div class="flex flex-col ml-4">
+          <div class="flex flex-col md:ml-4">
             <h2 class="text-left text-color font-semibold text-xl">
               Climate Action
             </h2>
@@ -486,14 +499,14 @@
         </div>
 
         <div
-          class="bg-white p-8 w-full rounded-2xl border-color border shadow-md flex flex-row items-center justify-between"
+          class="bg-white p-8 w-full rounded-2xl border-color border shadow-md flex flex-col md:flex-row items-center justify-between"
         >
           <img
-            class="w-40 h-40"
-            src="../static/images/R.png"
+            class="w-40 h-40 mb-4 md:mb-0"
+            src="{% static 'images/R.png' %}"
             alt="Work and Economic Growth"
           />
-          <div class="flex flex-col ml-4">
+          <div class="flex flex-col md:ml-4">
             <h2 class="text-left text-color font-semibold text-xl">
               Decent Work and Economic Growth
             </h2>
@@ -506,14 +519,14 @@
         </div>
 
         <div
-          class="bg-white p-8 w-full rounded-2xl border-color border shadow-md flex flex-row items-center justify-between"
+          class="bg-white p-8 w-full rounded-2xl border-color border shadow-md flex flex-col md:flex-row items-center justify-between"
         >
           <img
-            class="w-40 h-40"
-            src="../static/images/partnership.png"
-            alt="Climate Action"
+            class="w-40 h-40 mb-4 md:mb-0"
+            src="{% static 'images/partnership.png' %}"
+            alt="Partnerships for the Goals"
           />
-          <div class="flex flex-col ml-4">
+          <div class="flex flex-col md:ml-4">
             <h2 class="text-left text-color font-semibold text-xl">
               Partnerships for the Goals
             </h2>
@@ -528,14 +541,14 @@
         </div>
 
         <div
-          class="bg-white p-8 w-full rounded-2xl border-color border shadow-md flex flex-row items-center justify-between"
+          class="bg-white p-8 w-full rounded-2xl border-color border shadow-md flex flex-col md:flex-row items-center justify-between"
         >
           <img
-            class="w-40 h-40"
-            src="../static/images/OIP.jpg"
+            class="w-40 h-40 mb-4 md:mb-0"
+            src="{% static 'images/OIP.jpg' %}"
             alt="Gender Equality"
           />
-          <div class="flex flex-col ml-4">
+          <div class="flex flex-col md:ml-4">
             <h2 class="text-left text-color font-semibold text-xl">
               Gender Equality
             </h2>
@@ -549,14 +562,14 @@
         </div>
 
         <div
-          class="bg-white p-8 w-full rounded-2xl border-color border shadow-md flex flex-row items-center justify-between"
+          class="bg-white p-8 w-full rounded-2xl border-color border shadow-md flex flex-col md:flex-row items-center justify-between"
         >
           <img
-            class="w-40 h-40"
-            src="../static/images/education.png"
-            alt="Education"
+            class="w-40 h-40 mb-4 md:mb-0"
+            src="{% static 'images/education.png' %}"
+            alt="Quality Education"
           />
-          <div class="flex flex-col ml-4">
+          <div class="flex flex-col md:ml-4">
             <h2 class="text-left text-color font-semibold text-xl">
               Quality Education
             </h2>
@@ -580,9 +593,9 @@
           class="bg-white w-80 min-h-96 rounded-2xl border border-color shadow-md"
         >
           <img
-            src="../static/images/team-1.jpg"
-            alt="team-name"
-            class="rounded-t-2xl w-80 h-80"
+            src="{% static 'images/team-1.jpg' %}"
+            alt="Alimany Bangura"
+            class="rounded-t-2xl w-80 h-80 object-cover"
           />
           <div class="p-4">
             <h3 class="text-2xl font-semibold text-black">Alimany Bangura</h3>
@@ -594,9 +607,9 @@
           class="bg-white w-80 min-h-96 rounded-2xl border border-color shadow-md"
         >
           <img
-            src="../static/images/team-2.jpg"
-            alt="team-name"
-            class="rounded-t-2xl w-80 h-80"
+            src="{% static 'images/team-2.jpg' %}"
+            alt="Pascal Onuoha"
+            class="rounded-t-2xl w-80 h-80 object-cover"
           />
           <div class="p-4">
             <h3 class="text-2xl font-semibold text-black">Pascal Onuoha</h3>
@@ -610,9 +623,9 @@
           class="bg-white w-80 min-h-96 rounded-2xl border border-color shadow-md"
         >
           <img
-            src="../static/images/team-4.jpg"
-            alt="team-name"
-            class="rounded-t-2xl w-80 h-80"
+            src="{% static 'images/team-4.jpg' %}"
+            alt="David Onderi"
+            class="rounded-t-2xl w-80 h-80 object-cover"
           />
           <div class="p-4">
             <h3 class="text-2xl font-semibold text-black">David Onderi</h3>
@@ -624,9 +637,9 @@
           class="bg-white w-80 min-h-96 rounded-2xl border border-color shadow-md"
         >
           <img
-            src="../static/images/team-3.jpg"
-            alt="team-name"
-            class="rounded-t-2xl w-80 h-80"
+            src="{% static 'images/team-3.jpg' %}"
+            alt="Dorcas Niwuneshereza"
+            class="rounded-t-2xl w-80 h-80 object-cover"
           />
           <div class="p-4">
             <h3 class="text-2xl font-semibold text-black">
@@ -642,7 +655,7 @@
 
     <footer class="flex flex-col items-center justify-center">
       <div
-        class="relative bg-footer pt-6 px-8 mb-3 rounded-xl mx-3 w-4/5 text-white"
+        class="relative bg-footer pt-6 px-8 mb-3 rounded-xl mx-3 w-full md:w-4/5 text-white"
       >
         <!-- Container -->
         <div class="mx-auto pb-9 relative z-10">
@@ -650,14 +663,14 @@
           <div class="flex flex-col">
             <!-- Logo Section -->
             <div
-              class="flex flex-row justify-between items-center border-b-2 py-10 mx-10"
+              class="flex flex-col md:flex-row justify-between items-center border-b-2 py-10 mx-2 md:mx-10"
             >
               <img
-                src="../static/images/thinkgreen-logo-white.png"
+                src="{% static 'images/thinkgreen-logo-white.png' %}"
                 alt="ThinkGreen Afrika white"
                 class="w-40 h-auto mb-4"
               />
-              <p class="text-sm text-gray-300">
+              <p class="text-sm text-gray-300 text-center md:text-left mb-4 md:mb-0">
                 Talent Development and Job Placement
               </p>
               <a
@@ -668,7 +681,7 @@
               </a>
             </div>
             <!-- Contact Section -->
-            <div class="flex flex-row gap-8 lg:col-span-1 md:ml-8">
+            <div class="flex flex-col md:flex-row gap-8 lg:col-span-1 md:ml-8 mt-4">
               <div class="flex flex-col">
                 <h3 class="text-lg font-semibold mb-3 mt-4">| Follow Us</h3>
                 <div class="flex space-x-3">
@@ -678,7 +691,7 @@
                     class="w-8 h-8 rounded-xl bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-green-500"
                   >
                     <img
-                      src="../static/images/whatsapp.png"
+                      src="{% static 'images/whatsapp.png' %}"
                       alt="WhatsApp"
                       class="w-4 h-4"
                     />
@@ -689,7 +702,7 @@
                     class="w-8 h-8 rounded-xl bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-blue-600"
                   >
                     <img
-                      src="../static/images/facebook.png"
+                      src="{% static 'images/facebook.png' %}"
                       alt="Facebook"
                       class="w-4 h-4"
                     />
@@ -700,7 +713,7 @@
                     class="w-8 h-8 rounded-xl bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-pink-500"
                   >
                     <img
-                      src="../static/images/instagram.png"
+                      src="{% static 'images/instagram.png' %}"
                       alt="Instagram"
                       class="w-4 h-4"
                     />
@@ -711,7 +724,7 @@
                     class="w-8 h-8 rounded-xl bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-blue-700"
                   >
                     <img
-                      src="../static/images/linkedin.png"
+                      src="{% static 'images/linkedin.png' %}"
                       alt="LinkedIn"
                       class="w-4 h-4"
                     />
@@ -723,7 +736,7 @@
                 <h3 class="text-lg font-semibold mb-3 mt-4">| Contact Us</h3>
                 <div class="flex gap-2 items-start">
                   <img
-                    src="../static/images/Vector.png"
+                    src="{% static 'images/Vector.png' %}"
                     alt="Email"
                     class="w-6 h-4 mt-1"
                   />
@@ -746,7 +759,7 @@
                 <h3 class="text-lg font-semibold mb-3 mt-4">| Find Us</h3>
                 <div class="flex gap-2 items-start">
                   <img
-                    src="../static/images/duo-icons_location.png"
+                    src="{% static 'images/duo-icons_location.png' %}"
                     alt="Map"
                     class="w-6 h-6 mt-1"
                   />
@@ -766,8 +779,7 @@
       </div>
     </footer>
 
-
-    <!-- Animationg elements -->
+    <!-- Animating elements -->
     <script>
       const observer = new IntersectionObserver(
         (entries) => {
@@ -776,7 +788,6 @@
               const el = entry.target;
               el.classList.remove(
                 "opacity-0",
-                "-translate-y-10",
                 "translate-y-10"
               );
               el.classList.add("opacity-100", "translate-y-0");
@@ -790,7 +801,7 @@
       );
 
       document
-        .querySelectorAll(".animate-top")
+        .querySelectorAll(".animate-fadeInUp")
         .forEach((el) => {
           observer.observe(el);
         });
@@ -799,9 +810,9 @@
     <!-- About Us Picture slider -->
     <script>
       const images = [
-        "../static/images/about-us1.jpeg",
-        "../static/images/about-us2.jpg",
-        "../static/images/about-us3.jpg",
+        "{% static 'images/about-us1.jpeg' %}",
+        "{% static 'images/about-us2.jpg' %}",
+        "{% static 'images/about-us3.jpg' %}"
       ];
 
       let current = 0;
@@ -812,10 +823,8 @@
         imageDiv.classList.add("opacity-0");
 
         setTimeout(() => {
-
           current = (current + 1) % images.length;
           imageDiv.style.backgroundImage = `url('${images[current]}')`;
-
 
           imageDiv.classList.remove("opacity-0");
         }, 500);
@@ -844,36 +853,8 @@
       });
     </script>
 
-    <!-- Infinite Scroll for trusted sponsors -->
-    <style>
-      #group {
-        will-change: transform;
-        animation: scrolling 20s linear infinite;
-      }
-
-      @keyframes scrolling {
-        0% {
-          transform: translateX(0);
-        }
-        100% {
-          transform: translateX(-100%);
-        }
-      }
-    </style>
-    
-    
     <!-- JavaScript for Mobile Menu -->
     <script>
-      document.addEventListener("scroll", function () {
-        const section = document.getElementById("animated-section");
-        const sectionTop = section.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
-
-        if (sectionTop < windowHeight) {
-          section.classList.add("opacity-100", "animate-slideOut");
-        }
-      });
-
       document
         .getElementById("menu-toggle")
         .addEventListener("click", function () {
@@ -890,29 +871,6 @@
       function toggleModal() {
         const modal = document.getElementById("emailModal");
         modal.classList.toggle("hidden");
-      }
-      //for testimonials
-      let currentSlide = 0;
-      const totalSlides = 2; // Since we display 3 out of 6 cards, we have 2 "slides"
-
-      function updateCarousel() {
-        const carousel = document.getElementById("carousel");
-        const offset = -currentSlide * 100; // Adjust for each slide width
-        carousel.style.transform = `translateX(${offset}%)`;
-      }
-
-      function nextSlide() {
-        if (currentSlide < totalSlides - 1) {
-          currentSlide++;
-          updateCarousel();
-        }
-      }
-
-      function previousSlide() {
-        if (currentSlide > 0) {
-          currentSlide--;
-          updateCarousel();
-        }
       }
     </script>
 

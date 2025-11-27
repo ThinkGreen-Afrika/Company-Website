@@ -1,58 +1,530 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ThinkGreen - Join Our Network</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Join Our Network - ThinkGreen Afrika</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
+  <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}" />
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+    }
+
+    /* Custom Colors */
+    .bg-primary {
+      background-color: #4caf50;
+    }
     
-/* Custom Tailwind adjustments */
-.bg-primary {
-            background-color: #4CAF50;
-        }
-        .text-color{
-            color: #4CAF50;
-        }
-        .border-light-gray {
-            border-color: #e0e0e0;
-        }
-        .main-bg {
-            background: linear-gradient(to bottom, transparent 0%, #71c97d 50%, transparent 100%);
-            position: fixed;
-            top: 75%; /* Adjusts vertical position towards the bottom */
-            left: 0;
-            right: 0;
-            transform: translateY(-50%);
-            width: 100%;
-            height: 70%; /* Reduces height to confine the gradient to the bottom center */
-            z-index: -1;
-        }
+    .bg-primary-light {
+      background-color: #e8f5e9;
+    }
 
+    .bg-footer {
+      background-color: #1e6c34;
+    }
 
-    </style>
+    .button-color {
+      background-color: #1e6c34;
+    }
+
+    .text-color {
+      color: #1e6c34;
+    }
+
+    .border-color {
+      border-color: #1e6c34;
+    }
+
+    /* Button Styles */
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      text-decoration: none;
+      font-weight: 600;
+      text-align: center;
+      border-radius: 15px;
+      border: 2px solid #1e6c34;
+      transition: all 0.3s ease;
+    }
+
+    .nav-book {
+      display: inline-block;
+      padding: 6px 10px;
+      text-decoration: none;
+      font-weight: 600;
+      text-align: center;
+      border-radius: 9999px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-pod {
+      border: 2px solid #4caf50;
+      color: #1f2937;
+      box-shadow: 2px 6px 8px rgba(8, 8, 8, 0.3);
+    }
+
+    .btn-talent {
+      background-color: white;
+      border: 2px solid #1e6c34;
+      color: #1f2937;
+    }
+
+    .btn-talent:hover {
+      background-color: #1e6c34;
+      color: white;
+    }
+
+    .btn-partner {
+      color: white;
+    }
+
+    .btn-partner:hover {
+      background-color: white;
+      color: black;
+      border: 2px solid #1e6c34;
+    }
+
+    /* Main Button Styles */
+    .btn-primary {
+      background-color: #4caf50;
+      color: white;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background-color: #1e6c34;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    /* Card Hover Effects */
+    .card-hover {
+      transition: all 0.3s ease;
+    }
+
+    .card-hover:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .mobile-heading {
+        font-size: 1.75rem !important;
+      }
+      
+      .mobile-subheading {
+        font-size: 1.5rem !important;
+      }
+      
+      .mobile-body {
+        font-size: 1rem !important;
+      }
+
+      .mobile-btn {
+        padding: 12px 24px !important;
+        font-size: 1rem !important;
+      }
+
+      .mobile-card {
+        padding: 1.5rem !important;
+      }
+
+      .mobile-list {
+        font-size: 0.95rem !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .mobile-heading {
+        font-size: 1.5rem !important;
+      }
+      
+      .mobile-subheading {
+        font-size: 1.25rem !important;
+      }
+      
+      .mobile-body {
+        font-size: 0.9rem !important;
+      }
+
+      .mobile-btn {
+        padding: 10px 20px !important;
+        font-size: 0.9rem !important;
+      }
+
+      .mobile-card {
+        padding: 1rem !important;
+      }
+
+      .mobile-list {
+        font-size: 0.9rem !important;
+      }
+    }
+
+    /* Animation classes */
+    .animate-left {
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: all 0.8s ease-out;
+    }
+
+    .animate-right {
+      opacity: 0;
+      transform: translateX(50px);
+      transition: all 0.8s ease-out;
+    }
+
+    .animate-visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  </style>
 </head>
-<body>
 
-    <main class="h-screen bg-gradient-to-b from-green-500 to-white">
-        <div class="container mx-auto p-4 md:p-12 pt-24">
-          <h2 class="text-3xl font-bold text-black text-center mb-16 md:mb-24">Join Us In Creating Green Jobs</h2>
-          <div class="flex flex-col lg:flex-row justify-center items-center space-y-6 space-x-4 md:space-x-12 lg:space-y-0 lg:space-x-12">
-            <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 bg-white flex border-2 border-green-500 border-dashed flex-col rounded-lg p-4 md:p-6 items-center h-96 md:h-120 lg:h-144">
-              <h1 class="text-2xl font-bold text-center my-6">Employer Partner</h1>
-              <img src="/static/images/ent.png" class="w-48 md:w-60 lg:w-72 rounded-lg h-36 md:h-48 lg:h-60">
-              <a href="https://forms.gle/gpc97F8miwEkeLc7A" class="mt-10 mb-10 bg-green-500 text-center text-white w-full md:w-60 lg:w-64 font-semibold py-3 px-6 rounded-full hover:bg-green-600 transition text-lg">Get started</a>
+
+<body class="bg-gradient-to-b from-white via-white to-green-300">
+    <!-- Hero Section -->
+    <header class="bg-cover bg-center px-4">
+        <!-- Navbar -->
+        <nav class="bg-white shadow-md fixed top-4 left-4 right-4 rounded-full z-50">
+            <div class="container mx-auto px-6 py-6 flex justify-between items-center">
+                <a href="{% url 'home' %}">
+                    <img src="{% static 'images/thinkgreen-logo-green.png' %}" alt="logo" class="max-w-64 h-10" />
+                </a>
+                <ul class="hidden md:flex space-x-6">
+                    <li>
+                        <a href="{% url 'home' %}"
+                            class="text-black font-medium hover:text-primary border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'about_us' %}"
+                            class="text-black font-medium hover:text-primary border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
+                            About Us
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'solutions' %}"
+                            class="text-black font-medium hover:text-primary border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
+                            Our Solutions
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'program' %}"
+                            class="text-black font-medium hover:text-primary border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
+                            Our Programs
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'podcast' %}"
+                            class="text-black font-medium hover:text-primary border-b-2 border-transparent hover:border-color transition duration-300 ease-in-out">
+                            Support Our Initiatives
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="hidden md:flex flex-row items-end space-x-4">
+                    <a href="{% url 'select' %}" class="btn-partner nav-pod button-color btn">
+                        Join our Network
+                    </a>
+                </div>
+                <!-- Mobile Menu Toggle -->
+                <button class="md:hidden text-gray-600 focus:outline-none" id="menu-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                </button>
             </div>
-            <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 bg-white flex border-2 border-green-500 border-dashed flex-col rounded-lg p-4 md:p-6 items-center h-96 md:h-120 lg:h-144">
-              <h1 class="text-2xl font-bold text-center my-6">Talent</h1>
-              <img src="/static/images/tal.png" class="w-48 md:w-60 lg:w-72 rounded-lg h-36 md:h-48 lg:h-60">
-              <a href="https://forms.gle/RsjDFgR2wE63uviv9" class="mt-10 mb-10 bg-green-500 text-center text-white w-full md:w-60 lg:w-64 font-semibold py-3 px-6 rounded-full hover:bg-green-600 transition text-lg">Get started</a>
-              
+        </nav>
+        
+        <!-- Background Elements -->
+        <div class="absolute top-24 right-12 w-16 h-16 rounded-xl z-0" style="
+          background: linear-gradient(
+            147.56deg,
+            rgb(255, 255, 255) 30%,
+            rgb(255, 255, 255) 30%,
+            rgb(54, 206, 133) 30%
+          );
+          filter: blur(30px);
+        "></div>
+        <div class="absolute bottom-24 left-12 w-36 h-36 rounded-full z-0" style="
+          background: linear-gradient(
+            147.56deg,
+            rgb(255, 255, 255) 30%,
+            rgb(255, 255, 255) 30%,
+            rgb(54, 206, 133) 30%
+          );
+          filter: blur(30px);
+        "></div>
+        
+        <!-- Mobile Sidebar Menu -->
+        <div id="mobile-menu" class="fixed inset-0 bg-gray-800 bg-opacity-75 hidden z-40">
+            <div class="flex flex-col items-center mt-32 space-y-4">
+                <a href="{% url 'home' %}" class="text-white text-lg">Home</a>
+                <a href="{% url 'about_us' %}" class="text-white text-lg">About Us</a>
+                <a href="{% url 'solutions' %}" class="text-white text-lg">Our Solutions</a>
+                <a href="{% url 'program' %}" class="text-white text-lg">Our Programs</a>
+                <a href="{% url 'podcast' %}" class="text-white text-lg">Support Our Initiatives</a>
+                <a href="{% url 'select' %}"
+                    class="button-color text-white py-2 px-4 rounded hover:bg-green-700 mt-4">Join our Network</a>
             </div>
+            
+            <!-- Centered Cancel Button -->
+            <div class="flex justify-center items-center mt-8">
+                <button id="close-menu" class="text-white border border-white rounded-xl p-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Modal Backdrop and Wrapper -->
+        <div id="initiativesModal" class="fixed inset-0 items-center justify-center z-50 hidden">
+            <section
+                class="bg-white flex flex-col items-center rounded-2xl w-min p-4 text-center shadow-lg mx-auto mt-32">
+                <button id="closeModal" class="ml-auto text-red-500 text-xl font-bold">
+                    x
+                </button>
+                <ul>
+                    <li class="h-10 w-60 p-2 rounded-xl mb-2.5 text-black text-lg">
+                        <a href="{% url 'tvetproject' %}">TVET Project</a>
+                    </li>
+                    <li class="h-10 w-60 p-2 rounded-xl mb-2.5 text-black text-lg">
+                        <a href="{% url 'onekidatatime' %}">1K@t</a>
+                    </li>
+                    <li class="h-10 w-60 p-2 rounded-xl mb-2.5 text-black text-lg">
+                        eEP
+                    </li>
+                    <li class="h-10 w-60 p-2 rounded-xl text-black text-lg">Refugee</li>
+                </ul>
+            </section>
+        </div>
+    </header>
+
+  <!-- Hero Section -->
+  <section class="py-16 md:py-24 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 mobile-heading">
+          Join Us In Creating
+          <span class="text-green-600">Green Jobs</span>
+        </h1>
+        <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed mobile-body">
+          Partner with ThinkGreen to build a sustainable future and create meaningful employment opportunities in the green economy.
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6">
+          <a href="#join-section" class="btn-primary text-white font-bold py-3 px-6 rounded-full shadow-md text-base md:text-lg mobile-btn">
+            Get Started
+          </a>
+          <a href="{% url 'about_us' %}" class="bg-white text-green-600 border-2 border-green-600 font-bold py-3 px-6 rounded-full shadow-sm text-base md:text-lg hover:bg-green-50 transition mobile-btn">
+            Learn More
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Join Section -->
+  <section id="join-section" class="py-10 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 md:mb-16">
+        <h2 class="text-2xl md:text-4xl font-bold text-gray-900 mobile-heading">How You Can Join Our Mission</h2>
+        <p class="text-lg md:text-xl text-gray-600 mt-4 md:mt-6 max-w-3xl mx-auto leading-relaxed mobile-body">
+          Choose your path to contribute to the green revolution. Whether you're an employer or talent, we have a place for you.
+        </p>
+      </div>
+      
+      <div class="flex flex-col lg:flex-row justify-center items-stretch gap-8 md:gap-12">
+        <!-- Employer Partner Card -->
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden card-hover flex flex-col border-t-4 border-green-500">
+          <div class="p-6 md:p-8 flex-grow mobile-card">
+            <div class="flex items-center mb-6">
+              <div class="bg-green-100 p-3 rounded-full mr-4">
+                <i class="fas fa-building text-green-600 text-xl md:text-2xl"></i>
+              </div>
+              <h3 class="text-xl md:text-2xl font-bold text-gray-900 mobile-subheading">Employer Partner</h3>
+            </div>
+            <p class="text-base md:text-lg text-gray-600 mb-6 leading-relaxed mobile-body">
+              Join as an employer to access our pool of talented green professionals, contribute to sustainable development, and shape the future of the green economy.
+            </p>
+            <ul class="space-y-3 mb-6 mobile-list">
+              <li class="flex items-start">
+                <i class="fas fa-check text-green-600 mt-1 mr-3 text-base"></i>
+                <span class="text-base mobile-body">Access to vetted green talent</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-green-600 mt-1 mr-3 text-base"></i>
+                <span class="text-base mobile-body">Enhance your sustainability credentials</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-green-600 mt-1 mr-3 text-base"></i>
+                <span class="text-base mobile-body">Collaborate on green initiatives</span>
+              </li>
+            </ul>
+          </div>
+          <div class="px-6 md:px-8 pb-6 md:pb-8 mt-auto">
+            <img src="{% static 'images/ent.png' %}" alt="Employer Partnership" class="w-full h-48 object-cover rounded-xl mb-6" loading="lazy">
+            <a href="https://forms.gle/gpc97F8miwEkeLc7A" target="_blank" class="bg-green-600 hover:bg-green-700 block text-center text-white font-bold py-3 px-4 rounded-xl w-full text-base mobile-btn transition duration-300">
+              Get Started as Employer
+            </a>
           </div>
         </div>
-      </main>
-    
-    
+        
+        <!-- Talent Card -->
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden card-hover flex flex-col border-t-4 border-green-500 mt-8 lg:mt-0">
+          <div class="p-6 md:p-8 flex-grow mobile-card">
+            <div class="flex items-center mb-6">
+              <div class="bg-green-100 p-3 rounded-full mr-4">
+                <i class="fas fa-user-graduate text-green-600 text-xl md:text-2xl"></i>
+              </div>
+              <h3 class="text-xl md:text-2xl font-bold text-gray-900 mobile-subheading">Talent</h3>
+            </div>
+            <p class="text-base md:text-lg text-gray-600 mb-6 leading-relaxed mobile-body">
+              Join as talent to access green job opportunities, develop your skills in sustainability, and build a career that makes a positive environmental impact.
+            </p>
+            <ul class="space-y-3 mb-6 mobile-list">
+              <li class="flex items-start">
+                <i class="fas fa-check text-green-600 mt-1 mr-3 text-base"></i>
+                <span class="text-base mobile-body">Access to green job opportunities</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-green-600 mt-1 mr-3 text-base"></i>
+                <span class="text-base mobile-body">Skill development programs</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-green-600 mt-1 mr-3 text-base"></i>
+                <span class="text-base mobile-body">Networking with green employers</span>
+              </li>
+            </ul>
+          </div>
+          <div class="px-6 md:px-8 pb-6 md:pb-8 mt-auto">
+            <img src="{% static 'images/tal.png' %}" alt="Talent Opportunities" class="w-full h-48 object-cover rounded-xl mb-6" loading="lazy">
+            <a href="https://forms.gle/RsjDFgR2wE63uviv9" target="_blank" class="bg-green-600 hover:bg-green-700 block text-center text-white font-bold py-3 px-4 rounded-xl w-full text-base mobile-btn transition duration-300">
+              Get Started as Talent
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="flex flex-col items-center justify-center mt-16">
+    <div class="relative bg-footer pt-6 px-4 md:px-8 mb-3 rounded-xl mx-3 w-full md:w-4/5 text-white">
+      <div class="mx-auto pb-9 relative z-10">
+        <div class="flex flex-col">
+          <!-- Logo Section -->
+          <div class="flex flex-col md:flex-row justify-between items-center border-b-2 py-8 md:py-10 mx-2 md:mx-10">
+            <img src="{% static 'images/thinkgreen-logo-white.png' %}" alt="ThinkGreen Afrika white" class="w-32 md:w-40 h-auto mb-4 md:mb-0">
+            <p class="text-sm text-gray-300 text-center md:text-left mb-4 md:mb-0">
+              Talent Development and Job Placement
+            </p>
+            <a href="{% url 'select' %}" class="btn btn-talent hover:button-color hover:border-white">
+              Join Our Initiative
+            </a>
+          </div>
+          <!-- Contact Section -->
+          <div class="flex flex-col md:flex-row gap-6 md:gap-8 lg:col-span-1 md:ml-8 mt-4">
+            <div class="flex flex-col">
+              <h3 class="text-lg font-semibold mb-3 mt-4">| Follow Us</h3>
+              <div class="flex space-x-3">
+                <a href="https://whatsapp.com/channel/0029VadbYG790x2rzJt1k718" target="_blank"
+                  class="w-8 h-8 rounded-xl bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-green-500">
+                  <img src="{% static 'images/whatsapp.png' %}" alt="WhatsApp" class="w-4 h-4" />
+                </a>
+                <a href="https://www.facebook.com/profile.php?id=61568738616754&mibextid=LQQJ4d" target="_blank"
+                  class="w-8 h-8 rounded-xl bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-blue-600">
+                  <img src="{% static 'images/facebook.png' %}" alt="Facebook" class="w-4 h-4" />
+                </a>
+                <a href="https://www.instagram.com/thinkgreen_afrika/profilecard/?igsh=MWRxZjBvb3Y1a3Mxcw=="
+                  target="_blank"
+                  class="w-8 h-8 rounded-xl bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-pink-500">
+                  <img src="{% static 'images/instagram.png' %}" alt="Instagram" class="w-4 h-4" />
+                </a>
+                <a href="https://www.linkedin.com/company/thinkgreen-afrika/" target="_blank"
+                  class="w-8 h-8 rounded-xl bg-white flex items-center justify-center transition-transform transform hover:scale-110 hover:bg-blue-700">
+                  <img src="{% static 'images/linkedin.png' %}" alt="LinkedIn" class="w-4 h-4" />
+                </a>
+              </div>
+            </div>
+
+            <div class="flex flex-col">
+              <h3 class="text-lg font-semibold mb-3 mt-4">| Contact Us</h3>
+              <div class="flex gap-2 items-start">
+                <img src="{% static 'images/Vector.png' %}" alt="Email" class="w-6 h-4 mt-1" />
+                <div class="flex flex-col">
+                  <a href="mailto:careers@thinkgreenafrika.org"
+                    class="text-sm hover:underline">careers@thinkgreenafrika.org</a>
+                  <a href="mailto:thinkgreenafrika.org@gmail.com"
+                    class="text-sm hover:underline">thinkgreenafrika.org@gmail.com</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex flex-col">
+              <h3 class="text-lg font-semibold mb-3 mt-4">| Find Us</h3>
+              <div class="flex gap-2 items-start">
+                <img src="{% static 'images/duo-icons_location.png' %}" alt="Map" class="w-6 h-6 mt-1" />
+                <p class="text-sm">
+                  Kimironko, KG42 Ave<br />
+                  Kigali, Rwanda
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-col items-center mt-8">
+            <p class="text-gray-300">@ 2025 - Copyright</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript for Mobile Menu -->
+  <script>
+    document.getElementById("menu-toggle").addEventListener("click", function () {
+      document.getElementById("mobile-menu").classList.remove("hidden");
+    });
+
+    document.getElementById("close-menu").addEventListener("click", function () {
+      document.getElementById("mobile-menu").classList.add("hidden");
+    });
+
+    // Close mobile menu when clicking on links
+    document.querySelectorAll("#mobile-menu a").forEach(link => {
+      link.addEventListener("click", function() {
+        document.getElementById("mobile-menu").classList.add("hidden");
+      });
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
