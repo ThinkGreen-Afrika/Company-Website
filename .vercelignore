@@ -1,0 +1,24 @@
+# Exclude media files (uploaded to Cloudinary)
+media/
+
+# Exclude static files (served by whitenoise or Cloudinary)
+static/
+
+# Exclude virtual environment
+thinkgreen/
+
+# Exclude Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Exclude OS files
+.DS_Store
+Thumbs.db
+
+# Exclude logs
+*.log
+
+# Exclude environment files
+.env
+.env.local
